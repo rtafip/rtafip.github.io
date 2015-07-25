@@ -1,239 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
   
-  <title>chatwork插件 | 拖鞋党的拖鞋铺</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="chatwork简介Chatwork是一个结合了聊天室与任务分配的一个在线系统。
-编写插件的原因因为Chatwork新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。
-技术思路插件的功能是有新消息到来时，提醒用户。
-提醒方式还没有确定。
-新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。
-所以可以通过检测页">
-<meta property="og:type" content="article">
-<meta property="og:title" content="chatwork插件">
-<meta property="og:url" content="http://yoursite.com/2015/07/19/chatwork插件/index.html">
-<meta property="og:site_name" content="拖鞋党的拖鞋铺">
-<meta property="og:description" content="chatwork简介Chatwork是一个结合了聊天室与任务分配的一个在线系统。
-编写插件的原因因为Chatwork新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。
-技术思路插件的功能是有新消息到来时，提醒用户。
-提醒方式还没有确定。
-新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。
-所以可以通过检测页">
-<meta property="og:updated_time" content="2015-07-25T09:10:09.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="chatwork插件">
-<meta name="twitter:description" content="chatwork简介Chatwork是一个结合了聊天室与任务分配的一个在线系统。
-编写插件的原因因为Chatwork新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。
-技术思路插件的功能是有新消息到来时，提醒用户。
-提醒方式还没有确定。
-新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。
-所以可以通过检测页">
+  <title><![CDATA[拖鞋党的拖鞋铺]]></title>
   
-    <link rel="alternative" href="/atom.xml" title="拖鞋党的拖鞋铺" type="application/atom+xml">
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com//"/>
+  <updated>2015-07-25T13:24:10.000Z</updated>
+  <id>http://yoursite.com//</id>
   
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-</head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/me.jpg" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">拖鞋党</a></h1>
-		</hgroup>
-
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="http://github.com/rtafip" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/chatwork-jquery/" style="font-size: 10px;">chatwork,jquery</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://Snatic.net">Snatic的博客</a>
-			        
-			        </div>
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">用一年的时间去证明自己。</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">拖鞋党</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img lazy-src="/me.jpg" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author">拖鞋党</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="http://github.com/rtafip" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-      <div class="body-wrap"><article id="post-chatwork插件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/19/chatwork插件/" class="article-date">
-  	<time datetime="2015-07-19T05:16:36.000Z" itemprop="datePublished">2015-07-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+  <author>
+    <name><![CDATA[拖鞋党]]></name>
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+  </author>
   
-    <h1 class="article-title" itemprop="name">
-      chatwork插件
-    </h1>
+  <generator uri="http://hexo.io/">Hexo</generator>
   
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chatwork-jquery/">chatwork,jquery</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
+  <entry>
+    <title><![CDATA[hexo多平台部署遇到的一个坑]]></title>
+    <link href="http://yoursite.com/2015/07/25/hexo%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/"/>
+    <id>http://yoursite.com/2015/07/25/hexo多平台部署遇到的一个坑/</id>
+    <published>2015-07-25T12:56:06.000Z</published>
+    <updated>2015-07-25T13:24:10.000Z</updated>
+    <content type="html"><![CDATA[<p>在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;           ^</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>尝试了各种解决方案</p>
+<ol>
+<li>方案一<br>在repo:冒号后面加一个空格变成<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: #&#60;-&#65283;&#21069;&#38754;&#26377;&#19968;&#20010;&#31354;&#26684; &#10;   github: git@github.com:rtafip/rtafip.github.io.git&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>还是报相同的错误</p>
+<ol>
+<li>方案二<br>将repo:git@github.com:rtafip/rtafip.github.io.git使用双引号包住<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: &#10;   github: &#34;git@github.com:rtafip/rtafip.github.io.git&#34;&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>还是提示相同的问题</p>
+<p>……<br>……<br>……</p>
+<p>最后要都要抓狂了才找到解决方案<br>原来的代码是这样的<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;   repo:  &#10;    github: git@github.com:rtafip/rtafip.github.io.git&#10;    gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure></p>
+<p>最后的代码是这样的<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;  repo:  &#10;    github: git@github.com:rtafip/rtafip.github.io.git&#10;    gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure></p>
+<p>看出区别了吗？</p>
+<p>原来只是repo前面多了一个空格！！！</p>
+<p>YAML真是一种脆弱的格式！而且我也不知道怎么把这个空格引进来的。最重要是提示的位置不对啊。提示的是冒号后面啊。应该这么提示才对</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;      ^</span><br></pre></td></tr></table></figure>
+<p>替我问候写这个分析工具的人母亲。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;           ^</span><br></pre></td></tr></table></figure>]]>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[hexo3.0转移]]></title>
+    <link href="http://yoursite.com/2015/07/25/hexo3-0%E8%BD%AC%E7%A7%BB/"/>
+    <id>http://yoursite.com/2015/07/25/hexo3-0转移/</id>
+    <published>2015-07-25T12:55:45.000Z</published>
+    <updated>2015-07-25T12:55:45.000Z</updated>
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<a id="more"></a>]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[chatwork插件]]></title>
+    <link href="http://yoursite.com/2015/07/19/chatwork%E6%8F%92%E4%BB%B6/"/>
+    <id>http://yoursite.com/2015/07/19/chatwork插件/</id>
+    <published>2015-07-19T05:16:36.000Z</published>
+    <updated>2015-07-25T09:10:09.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>
 <h2 id="编写插件的原因">编写插件的原因</h2><p>因为<a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。</p>
 <h2 id="技术思路">技术思路</h2><p>插件的功能是有新消息到来时，提醒用户。</p>
 <p>提醒方式还没有确定。</p>
@@ -313,135 +151,65 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">window</span>.Notification.requestPermission()</span><br><span class="line">	last = []</span><br><span class="line">	last[<span class="string">"message"</span>] = <span class="string">"tuoxiedafahao"</span></span><br><span class="line">	last[<span class="string">"speakTime"</span>] = <span class="string">"15:21"</span></span><br><span class="line">	last[<span class="string">"chatName"</span>] = <span class="string">"tuoxiedang"</span></span><br><span class="line">	</span><br><span class="line">	show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> chatNameArray = $(<span class="string">".chatName"</span>);</span><br><span class="line">		<span class="keyword">var</span> i = chatNameArray.length;</span><br><span class="line">		<span class="keyword">while</span>(i--)&#123;</span><br><span class="line">			<span class="keyword">if</span>(chatNameArray.eq(i).text() !== <span class="string">""</span>) <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).eq(i).find(<span class="string">"span"</span>).text();</span><br><span class="line">		<span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br><span class="line">		<span class="keyword">var</span> avatarSpeaker = $(<span class="string">".avatarSpeaker"</span>).last().find(<span class="string">"img"</span>).attr(<span class="string">"src"</span>);</span><br><span class="line">		<span class="keyword">var</span> speakTime = $(<span class="string">".timeStamp"</span>).last().text();</span><br><span class="line">		<span class="keyword">var</span> myName = $(<span class="string">".myStatusName"</span>).text();</span><br><span class="line">		<span class="keyword">if</span>(message === last[<span class="string">"message"</span>] &amp;&amp;  speakTime === last[<span class="string">"speakTime"</span>] &amp;&amp; chatName === last[<span class="string">"chatName"</span>])&#123;</span><br><span class="line"></span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (myName === chatName)&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"you say it"</span>)</span><br><span class="line">		&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;icon:avatarSpeaker,body:message&#125;)</span><br><span class="line">			setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n.close();&#125;,<span class="number">3000</span>)</span><br><span class="line">			last[<span class="string">"message"</span>] = message</span><br><span class="line">			last[<span class="string">"speakTime"</span>] = speakTime</span><br><span class="line">			last[<span class="string">"chatName"</span>] = chatName</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	observer = <span class="keyword">new</span> (<span class="built_in">window</span>.MutationObserver||<span class="built_in">window</span>.WebKitMutationObserver)(show)</span><br><span class="line"></span><br><span class="line">	target = $(<span class="string">".chatTimeLine"</span>)[<span class="number">0</span>]</span><br><span class="line">	config = &#123;childList:<span class="literal">true</span>&#125;</span><br><span class="line">	observer.observe(target,config);</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
 <h3 id="测试-3">测试</h3><p>效果跟一开始想法差不多。</p>
 <h2 id="后记">后记</h2><p>这篇文章在我插件完成两个星期后才写完。其中还有一些功能没有介绍就突然在最终代码里面出现了。改天有空再来填坑吧。(改天根本就不会想起来好吧！摔！)</p>
-
-      
-    </div>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>
+<h2 id="编写插件的原因">编写插件的原因</h2><p>因为<a href="http://chatwork.com">Chatwork</a>新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。</p>
+<h2 id="技术思路">技术思路</h2><p>插件的功能是有新消息到来时，提醒用户。</p>
+<p>提醒方式还没有确定。</p>
+<p>新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。</p>
+<p>所以可以通过检测页面结构<a href="http://www.w3.org/DOM/">(DOM)</a>是否改变。如果改变则执行提醒函数即可。</p>]]>
     
-  </div>
-  
+    </summary>
     
-<nav id="article-nav">
-  
-    <a href="/2015/07/25/hexo3-0转移/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          hexo3.0转移
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/11/14/标题都改了/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">改过之后的标题</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="chatwork插件" data-title="chatwork插件" data-url="http://yoursite.com/2015/07/19/chatwork插件/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"rtafip"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
-
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2015 拖鞋党
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-</footer>
-    </div>
+      <category term="chatwork,jquery" scheme="http://yoursite.com/tags/chatwork-jquery/"/>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
-
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  </div>
-</body>
-</html>
+  </entry>
+  
+  <entry>
+    <title><![CDATA[改过之后的标题]]></title>
+    <link href="http://yoursite.com/2014/11/14/%E6%A0%87%E9%A2%98%E9%83%BD%E6%94%B9%E4%BA%86/"/>
+    <id>http://yoursite.com/2014/11/14/标题都改了/</id>
+    <published>2014-11-14T14:23:28.000Z</published>
+    <updated>2014-11-14T14:41:41.000Z</updated>
+    <content type="html"><![CDATA[<p>再加一个文件看一下两个分支同步是否如所设想的那样。</p>
+<p>这一行是新加的。测试一下怎么修改文章</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>再加一个文件看一下两个分支同步是否如所设想的那样。</p>
+<p>这一行是新加的。测试一下怎么修改文章</p>
+]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[test2]]></title>
+    <link href="http://yoursite.com/2014/11/14/test2/"/>
+    <id>http://yoursite.com/2014/11/14/test2/</id>
+    <published>2014-11-14T05:13:29.000Z</published>
+    <updated>2014-11-14T06:34:05.000Z</updated>
+    <content type="html"><![CDATA[<p>那我再来试一试好了。写一个C语言的Hello World好了<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"hello world!"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>那我再来试一试好了。写一个C语言的Hello World好了<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span cla]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[test]]></title>
+    <link href="http://yoursite.com/2014/11/13/test/"/>
+    <id>http://yoursite.com/2014/11/13/test/</id>
+    <published>2014-11-13T12:23:46.000Z</published>
+    <updated>2014-11-13T12:25:28.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="这是一个标题">这是一个标题</h3><p>随便写点东西好了。但是不知道该写什么。先试一下粗体好了。请看<strong>粗体</strong>。就先这样吧</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="这是一个标题">这是一个标题</h3><p>随便写点东西好了。但是不知道该写什么。先试一下粗体好了。请看<strong>粗体</strong>。就先这样吧</p>
+]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
