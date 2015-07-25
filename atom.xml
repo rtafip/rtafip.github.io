@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   
   <title><![CDATA[拖鞋党的拖鞋铺]]></title>
-  
+  <subtitle><![CDATA[听说拖鞋才是本体]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com//"/>
   <updated>2015-07-25T13:24:10.000Z</updated>
