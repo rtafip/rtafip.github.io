@@ -5,7 +5,7 @@
   <subtitle><![CDATA[听说拖鞋才是本体]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://ors-sro.com//"/>
-  <updated>2015-07-27T12:32:57.000Z</updated>
+  <updated>2015-07-27T12:53:52.000Z</updated>
   <id>http://ors-sro.com//</id>
   
   <author>
@@ -16,11 +16,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[MDL+AngularJS制作TodoList]]></title>
+    <link href="http://ors-sro.com/2015/07/27/MDL-AngularJS%E5%88%B6%E4%BD%9CTodoList/"/>
+    <id>http://ors-sro.com/2015/07/27/MDL-AngularJS制作TodoList/</id>
+    <published>2015-07-27T12:44:29.000Z</published>
+    <updated>2015-07-27T12:53:52.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>]]>
+    
+    </summary>
+    
+      <category term="AngularJS" scheme="http://ors-sro.com/tags/AngularJS/"/>
+    
+      <category term="Material Design Lite" scheme="http://ors-sro.com/tags/Material-Design-Lite/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[hexo多平台部署遇到的一个坑]]></title>
     <link href="http://ors-sro.com/2015/07/25/hexo%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/"/>
     <id>http://ors-sro.com/2015/07/25/hexo多平台部署遇到的一个坑/</id>
     <published>2015-07-25T12:56:06.000Z</published>
-    <updated>2015-07-27T12:32:57.000Z</updated>
+    <updated>2015-07-27T12:39:26.000Z</updated>
     <content type="html"><![CDATA[<p>在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;           ^</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -53,6 +72,8 @@
       <category term="Hexo" scheme="http://ors-sro.com/tags/Hexo/"/>
     
       <category term="YAML" scheme="http://ors-sro.com/tags/YAML/"/>
+    
+      <category term="多平台部署" scheme="http://ors-sro.com/tags/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2/"/>
     
   </entry>
   
