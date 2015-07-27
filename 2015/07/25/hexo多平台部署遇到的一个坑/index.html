@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="拖鞋党的拖鞋铺">
 <meta property="og:description" content="在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。
 1FATAL Something&amp;#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&amp;#10;cs/troubleshooting.html&amp;#10;JS-YAML: bad indentation of a mapping entry at">
-<meta property="og:updated_time" content="2015-07-25T15:18:12.000Z">
+<meta property="og:updated_time" content="2015-07-27T12:32:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo多平台部署遇到的一个坑">
 <meta name="twitter:description" content="在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。
@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Chatwork/" style="font-size: 10px;">Chatwork</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/test/" style="font-size: 20px;">test</a>
+						<a href="/tags/Chatwork/" style="font-size: 10px;">Chatwork</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/test/" style="font-size: 20px;">test</a>
 					</div>
 				</section>
 				
@@ -228,21 +228,21 @@
 <a id="more"></a>
 <p>尝试了各种解决方案</p>
 <ol>
-<li>方案一<br>在repo:冒号后面加一个空格变成<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: #&#60;-&#65283;&#21069;&#38754;&#26377;&#19968;&#20010;&#31354;&#26684; &#10;   github: git@github.com:rtafip/rtafip.github.io.git&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
+<li><p>方案一<br> 在repo:冒号后面加一个空格变成</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: #&#60;-&#65283;&#21069;&#38754;&#26377;&#19968;&#20010;&#31354;&#26684; &#10;   github: git@github.com:rtafip/rtafip.github.io.git&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
+<p> 还是报相同的错误</p>
+</li>
+<li><p>方案二<br> 将repo:git@github.com:rtafip/rtafip.github.io.git使用双引号包住</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: &#10;   github: &#34;git@github.com:rtafip/rtafip.github.io.git&#34;&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
+<p> 还是提示相同的问题</p>
 </li>
 </ol>
-<p>还是报相同的错误</p>
-<ol>
-<li>方案二<br>将repo:git@github.com:rtafip/rtafip.github.io.git使用双引号包住<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: &#10;   github: &#34;git@github.com:rtafip/rtafip.github.io.git&#34;&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>还是提示相同的问题</p>
 <p>……<br>……<br>……</p>
 <p>最后要都要抓狂了才找到解决方案<br>原来的代码是这样的<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;   repo:  &#10;    github: git@github.com:rtafip/rtafip.github.io.git&#10;    gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure></p>
 <p>最后的代码是这样的<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;  repo:  &#10;    github: git@github.com:rtafip/rtafip.github.io.git&#10;    gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure></p>
 <p>看出区别了吗？</p>
 <p>原来只是repo前面多了一个空格！！！</p>
-<p>YAML真是一种脆弱的格式！而且我也不知道怎么把这个空格引进来的。最重要是提示的位置不对啊。提示的是冒号后面啊。应该这么提示才对</p>
+<p>YAML真是一种脆弱的格式！多一个空格不行，少一个空格不行，空格位置不对不行。而且我也不知道怎么把这个空格引进来的。最重要是提示的位置不对啊。提示的是冒号后面啊。应该这么提示才对</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;      ^</span><br></pre></td></tr></table></figure>
 <p>替我问候写这个分析工具的人母亲。</p>
 
