@@ -213,7 +213,7 @@
     <link href="http://en.ors-sro.com/2015/07/19/chatwork%E6%8F%92%E4%BB%B6/"/>
     <id>http://en.ors-sro.com/2015/07/19/chatwork插件/</id>
     <published>2015-07-19T05:16:36.000Z</published>
-    <updated>2015-07-27T12:36:43.000Z</updated>
+    <updated>2015-07-28T14:53:49.000Z</updated>
     <content type="html"><![CDATA[<h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>
 <h2 id="编写插件的原因">编写插件的原因</h2><p>因为<a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。</p>
 <h2 id="技术思路">技术思路</h2><p>插件的功能是有新消息到来时，提醒用户。</p>
@@ -224,6 +224,7 @@
 <h3 id="第一版">第一版</h3><p>先给页面挂事件。通过google查找到页面改变对应的事件名是<code>DOMSubtreeModified</code>，在控制带中输入<code>$</code>发现<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>有使用<code>jQuery</code>。那么事情就简单了。直接使用<code>jQuery</code>添加事件即可。代码如下。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".chatTimeLine"</span>).bind(<span class="string">"DOMSubtreeModified"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"tree changed"</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h4 id="测试">测试</h4><p>经过测试新消息到来时能够弹出提示框</p>
+<p><img src="/img/chatwork/第一版测试.png" alt="第一次测试结果"></p>
 <h4 id="缺点">缺点</h4><p>因为监听的是事件改动，所以对于新消息来的这个需求吻合得不够。目前有一下缺点。</p>
 <ol>
 <li>页面其他变动也会有提示</li>
@@ -237,18 +238,19 @@
 <p>使用<code>MutationObserver</code>有几个步骤</p>
 <ol>
 <li><p>编写回调函数<br> 在发生相应的事件时就会调用回调函数，代码如下</p>
-<pre><code><span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">observer = <span class="keyword">new</span> (</span><br><span class="line"><span class="built_in">window</span>.MutationObserver ||<span class="built_in">window</span>.WebKitMutationObserver)(<span class="function"><span class="keyword">function</span>(<span class="params">mutationRecord,observer</span>)</span>&#123;</span><br><span class="line">     mutationRecord.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(mutation)</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure></span>
-</code></pre><p> 其中<code>mutationRecord</code>和<code>observer</code>是调用回调函数时浏览器传入的参数。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">observer = <span class="keyword">new</span> (</span><br><span class="line"><span class="built_in">window</span>.MutationObserver ||<span class="built_in">window</span>.WebKitMutationObserver)(<span class="function"><span class="keyword">function</span>(<span class="params">mutationRecord,observer</span>)</span>&#123;</span><br><span class="line">     mutationRecord.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(mutation)</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+<p> 其中<code>mutationRecord</code>和<code>observer</code>是调用回调函数时浏览器传入的参数。</p>
 </li>
 <li><p>注册事件监听<br> 向浏览器注册要监听的事件。</p>
 <blockquote>
 <p>注:  childList, attributes, 或者characterData三个属性中必须至少有一个为true.否则,会抛出异常”An invalid or illegal string was specified”.<br> 这里选择<code>childList</code>作为监听事件。因为来新消息的时候，DOM必定会增加子节点，所以<code>childList</code>必定会改变。相应的代码如下所示</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target = $(<span class="string">".chatTimeLine"</span>)[<span class="number">0</span>]</span><br><span class="line">config = &#123;childList:<span class="literal">true</span>&#125;</span><br><span class="line">observer.observe(target,config);</span><br></pre></td></tr></table></figure>
 </blockquote>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target = $(<span class="string">".chatTimeLine"</span>)[<span class="number">0</span>]</span><br><span class="line">config = &#123;childList:<span class="literal">true</span>&#125;</span><br><span class="line">observer.observe(target,config);</span><br></pre></td></tr></table></figure>
 <p> 其中<code>target</code>必须是DOM对象。所以使用取数组元素的方式将<code>jQuery</code>对象转换为<code>DOMObject</code>。</p>
 </li>
 </ol>
 <h4 id="测试-1">测试</h4><p>从控制台中看到返回两个<code>Mutation</code>，其中包含了每个改变的节点。</p>
+<p><img src="/img/chatwork/返回两个mutation.png" alt="Mutation"></p>
 <h4 id="缺点-1">缺点</h4><p>换用了<code>MutationObserver</code>后，缩小了监控范围。使得事件更贴切需求。</p>
 <ol>
 <li><del>页面其他变动也会有提示</del></li>
@@ -257,6 +259,7 @@
 </ol>
 <h3 id="第三版">第三版</h3><p>事件部分已经基本解决。接下来要解决提示部分。弹框实在是太不友好了。这里想到了HTML5的新特性之一桌面通知</p>
 <p>桌面通知的效果是这样的。</p>
+<p><img src="/img/chatwork/消息样例.png" alt="消息样例"></p>
 <p>先找到桌面通知的相关文档来学习使用桌面通知</p>
 <blockquote>
 <p>Notification 对象使用来为用户设置和显示桌面通知。——<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification" target="_blank" rel="external">Mozilla Develop</a></p>
@@ -271,6 +274,7 @@
 <p>与上面提示的代码结合，稍微修改后如下</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).last().find(<span class="string">"span"</span>).text();</span><br><span class="line">	<span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br><span class="line">	<span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;body:message&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observer = <span class="keyword">new</span> (<span class="built_in">window</span>.MutationObserver||<span class="built_in">window</span>.WebKitMutationObserver)(show)</span><br></pre></td></tr></table></figure>
 <h4 id="测试-2">测试</h4><p>这次弹出两次提示。原因是<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>网站消息机制。至此基本功能已经开发完毕。但还有一些问题待解决</p>
+<p><img src="/img/chatwork/第二版测试.png" alt="第二版测试"></p>
 <ol>
 <li><del>页面其他变动也会有提示</del></li>
 <li>一个新消息<strong>两</strong>次弹窗</li>
@@ -278,7 +282,7 @@
 <li>提示不会自动关闭</li>
 <li>提示信息不够完善</li>
 </ol>
-<h3 id="第三版-1">第三版</h3><p>接下来解决一些主要问题。</p>
+<h3 id="第四版">第四版</h3><p>接下来解决一些主要问题。</p>
 <ol>
 <li><p>一个新消息<strong>两次</strong>弹窗<br> 一开始尝试了将提醒函数设定为只运行一次。之后发现只有第一次来消息时提示。后面就没有提示了。因为提醒函数运行一次就不会运行第二次了。思考良久，没有找到比较好的解决方案。在<strong>Snatic</strong>的提醒下，恍然开悟。只需要判断这两次的内容是否相同即可。代码如下</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> avatarSpeaker = $(<span class="string">".avatarSpeaker"</span>).last().find(<span class="string">"img"</span>).attr(<span class="string">"src"</span>);<span class="comment">//说话者</span></span><br><span class="line"><span class="keyword">var</span> speakTime = $(<span class="string">".timeStamp"</span>).last().text();<span class="comment">//讲话时间</span></span><br><span class="line"><span class="keyword">if</span>(message === last[<span class="string">"message"</span>] &amp;&amp;  speakTime === last[<span class="string">"speakTime"</span>] &amp;&amp; chatName === last[<span class="string">"chatName"</span>])&#123;</span><br><span class="line">	<span class="comment">//什么事都不做</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	last[<span class="string">"message"</span>] = message</span><br><span class="line">	last[<span class="string">"speakTime"</span>] = speakTime</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -293,6 +297,7 @@
 </li>
 </ol>
 <h3 id="测试-3">测试</h3><p>效果跟一开始想法差不多。</p>
+<p><img src="/img/chatwork/最终测试.png" alt="最终测试"></p>
 <h2 id="后记">后记</h2><p>这篇文章在我插件完成两个星期后才写完。其中还有一些功能没有介绍就突然在最终代码里面出现了。改天有空再来填坑吧。(改天根本就不会想起来好吧！摔！)</p>
 ]]></content>
     <summary type="html">
