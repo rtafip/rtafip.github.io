@@ -9,7 +9,7 @@
   <id>http://en.ors-sro.com//</id>
   
   <author>
-    <name><![CDATA[拖鞋党]]></name>
+    <name><![CDATA[rtafip]]></name>
     
   </author>
   
@@ -213,7 +213,7 @@
     <link href="http://en.ors-sro.com/2015/07/19/chatwork%E6%8F%92%E4%BB%B6/"/>
     <id>http://en.ors-sro.com/2015/07/19/chatwork插件/</id>
     <published>2015-07-19T05:16:36.000Z</published>
-    <updated>2015-07-28T14:53:49.000Z</updated>
+    <updated>2015-07-29T12:12:21.000Z</updated>
     <content type="html"><![CDATA[<h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>
 <h2 id="编写插件的原因">编写插件的原因</h2><p>因为<a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。</p>
 <h2 id="技术思路">技术思路</h2><p>插件的功能是有新消息到来时，提醒用户。</p>
