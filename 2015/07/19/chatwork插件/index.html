@@ -27,12 +27,7 @@
 提醒方式还没有确定。
 新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。
 所以可以通过检测页">
-<meta property="og:image" content="http://en.ors-sro.com/img/chatwork/第一版测试.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/chatwork/返回两个mutation.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/chatwork/消息样例.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/chatwork/第二版测试.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/chatwork/最终测试.png">
-<meta property="og:updated_time" content="2015-07-29T12:12:21.000Z">
+<meta property="og:updated_time" content="2015-07-28T15:00:56.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="chatwork插件">
 <meta name="twitter:description" content="chatwork简介Chatwork是一个结合了聊天室与任务分配的一个在线系统。
@@ -130,7 +125,6 @@
 <h3 id="第一版">第一版</h3><p>先给页面挂事件。通过google查找到页面改变对应的事件名是<code>DOMSubtreeModified</code>，在控制带中输入<code>$</code>发现<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>有使用<code>jQuery</code>。那么事情就简单了。直接使用<code>jQuery</code>添加事件即可。代码如下。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".chatTimeLine"</span>).bind(<span class="string">"DOMSubtreeModified"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"tree changed"</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h4 id="测试">测试</h4><p>经过测试新消息到来时能够弹出提示框</p>
-<p><img src="/img/chatwork/第一版测试.png" alt="第一次测试结果"></p>
 <h4 id="缺点">缺点</h4><p>因为监听的是事件改动，所以对于新消息来的这个需求吻合得不够。目前有一下缺点。</p>
 <ol>
 <li>页面其他变动也会有提示</li>
@@ -156,7 +150,6 @@
 </li>
 </ol>
 <h4 id="测试-1">测试</h4><p>从控制台中看到返回两个<code>Mutation</code>，其中包含了每个改变的节点。</p>
-<p><img src="/img/chatwork/返回两个mutation.png" alt="Mutation"></p>
 <h4 id="缺点-1">缺点</h4><p>换用了<code>MutationObserver</code>后，缩小了监控范围。使得事件更贴切需求。</p>
 <ol>
 <li><del>页面其他变动也会有提示</del></li>
@@ -165,7 +158,6 @@
 </ol>
 <h3 id="第三版">第三版</h3><p>事件部分已经基本解决。接下来要解决提示部分。弹框实在是太不友好了。这里想到了HTML5的新特性之一桌面通知</p>
 <p>桌面通知的效果是这样的。</p>
-<p><img src="/img/chatwork/消息样例.png" alt="消息样例"></p>
 <p>先找到桌面通知的相关文档来学习使用桌面通知</p>
 <blockquote>
 <p>Notification 对象使用来为用户设置和显示桌面通知。——<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification" target="_blank" rel="external">Mozilla Develop</a></p>
@@ -180,7 +172,6 @@
 <p>与上面提示的代码结合，稍微修改后如下</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).last().find(<span class="string">"span"</span>).text();</span><br><span class="line">	<span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br><span class="line">	<span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;body:message&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observer = <span class="keyword">new</span> (<span class="built_in">window</span>.MutationObserver||<span class="built_in">window</span>.WebKitMutationObserver)(show)</span><br></pre></td></tr></table></figure>
 <h4 id="测试-2">测试</h4><p>这次弹出两次提示。原因是<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>网站消息机制。至此基本功能已经开发完毕。但还有一些问题待解决</p>
-<p><img src="/img/chatwork/第二版测试.png" alt="第二版测试"></p>
 <ol>
 <li><del>页面其他变动也会有提示</del></li>
 <li>一个新消息<strong>两</strong>次弹窗</li>
@@ -203,7 +194,6 @@
 </li>
 </ol>
 <h3 id="测试-3">测试</h3><p>效果跟一开始想法差不多。</p>
-<p><img src="/img/chatwork/最终测试.png" alt="最终测试"></p>
 <h2 id="后记">后记</h2><p>这篇文章在我插件完成两个星期后才写完。其中还有一些功能没有介绍就突然在最终代码里面出现了。改天有空再来填坑吧。(改天根本就不会想起来好吧！摔！)</p>
   
 	</div>
@@ -308,7 +298,7 @@
 			
 		
 			
-				<li><a href="/tags/Chatwork/" title="Chatwork">Chatwork<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -321,6 +311,14 @@
 		
 			
 				<li><a href="/tags/AngularJS/" title="AngularJS">AngularJS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/部署失败/" title="部署失败">部署失败<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chatwork/" title="Chatwork">Chatwork<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -385,7 +383,7 @@
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="rtafip">rtafip</a>
 		

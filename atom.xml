@@ -5,7 +5,7 @@
   <subtitle><![CDATA[听说拖鞋才是本体]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2015-07-27T13:36:55.000Z</updated>
+  <updated>2016-01-01T14:55:47.631Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -16,11 +16,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[hexo部署失败]]></title>
+    <link href="http://en.ors-sro.com/2016/01/01/hexo%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/"/>
+    <id>http://en.ors-sro.com/2016/01/01/hexo部署失败/</id>
+    <published>2016-01-01T14:22:33.000Z</published>
+    <updated>2016-01-01T14:55:47.631Z</updated>
+    <content type="html"><![CDATA[<h2 id="症状">症状</h2><p>hexo 部署博客失败，提示如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">events.js:<span class="number">85</span></span><br><span class="line">      throw er; // Unhandled <span class="string">'error'</span> event</span><br><span class="line">            ^</span><br><span class="line">Error: spawn git ENOENT</span><br><span class="line">    at exports._errnoException (util.js:<span class="number">746</span>:<span class="number">11</span>)</span><br><span class="line">    at Process.ChildProcess._handle.onexit (child_process.js:<span class="number">1053</span>:<span class="number">32</span>)</span><br><span class="line">    at child_process.js:<span class="number">1144</span>:<span class="number">20</span></span><br><span class="line">    at process._tickCallback (node.js:<span class="number">355</span>:<span class="number">11</span>)</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="症状">症状</h2><p>hexo 部署博客失败，提示如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">events.js:<span class="number">85</span></span><br><span class="line">      throw er; // Unhandled <span class="string">'error'</span> event</span><br><span class="line">            ^</span><br><span class="line">Error: spawn git ENOENT</span><br><span class="line">    at exports._errnoException (util.js:<span class="number">746</span>:<span class="number">11</span>)</span><br><span class="line">    at Process.ChildProcess._handle.onexit (child_process.js:<span class="number">1053</span>:<span class="number">32</span>)</span><br><span class="line">    at child_process.js:<span class="number">1144</span>:<span class="number">20</span></span><br><span class="line">    at process._tickCallback (node.js:<span class="number">355</span>:<span class="number">11</span>)</span><br></pre></td></tr></table></figure></p>]]>
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://en.ors-sro.com/tags/hexo/"/>
+    
+      <category term="部署失败" scheme="http://en.ors-sro.com/tags/%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[压缩博客图片]]></title>
+    <link href="http://en.ors-sro.com/2015/08/04/%E5%8E%8B%E7%BC%A9%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/"/>
+    <id>http://en.ors-sro.com/2015/08/04/压缩博客图片/</id>
+    <published>2015-08-04T13:56:42.000Z</published>
+    <updated>2015-08-04T14:44:51.671Z</updated>
+    <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>使用静态博客，空间的容量都是有一定的上限。通常情况下图片占据了空间的大部分。虽然说不要过早的优化。我也不知道能不能写到1G大小左右的博客（神奇的衡量方式- -）但当我发现<strong>PNG</strong>图片一般还有50%左右的空间可以压缩后就把持不住了。</p>
+<a id="more"></a>
+<h2 id="压缩工具">压缩工具</h2><p>目前两个比较好的<strong>PNG</strong>压缩工具有</p>
+<ol>
+<li><a href="https://tinypng.com/" target="_blank" rel="external">Tiny PNG</a></li>
+<li>PhotoShop</li>
+</ol>
+<p>我尝试使用了<strong>Tiny Png</strong>和<strong>PhotoShop</strong>压缩同一张图片。结果是<strong>PhotoShop</strong>费心费力压缩后还比不上<strong>Tiny PNG</strong>的简单粗暴的压缩。</p>
+<h2 id="压缩原理">压缩原理</h2><h2 id="后续">后续</h2><p>想为<strong>Hexo</strong>编写一个<strong>Tiny PNG</strong>的插件。但是最近实在是太忙了= =</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="起因">起因</h2><p>使用静态博客，空间的容量都是有一定的上限。通常情况下图片占据了空间的大部分。虽然说不要过早的优化。我也不知道能不能写到1G大小左右的博客（神奇的衡量方式- -）但当我发现<strong>PNG</strong>图片一般还有50%左右的空间可以压缩后就把持不住了。</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[yilia主题使用体验]]></title>
     <link href="http://en.ors-sro.com/2015/07/27/yilia%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/"/>
     <id>http://en.ors-sro.com/2015/07/27/yilia主题使用体验/</id>
     <published>2015-07-27T12:58:39.000Z</published>
-    <updated>2015-07-27T13:36:55.000Z</updated>
+    <updated>2015-07-27T13:36:55.496Z</updated>
     <content type="html"><![CDATA[<p><strong>yilia</strong>主题结合了<strong>pacman</strong>和常见的平板式主题。界面清爽简洁。在使用过程中，我发现了一些作者没有公布的接口因此针对自身的情况对主题进行了修改。</p>
 <a id="more"></a>
 <h2 id="yilia主题现存问题">yilia主题现存问题</h2><p>虽然作者说<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">不会支持低版本的IE</a>，但在我电脑上<strong>IE11</strong>打开时整个排版全都乱了。调出控制台查看发现是渲染引擎的问题。默认的渲染引擎被降到了<strong>IE7</strong>,经过测试<strong>yilia</strong>主题至少需要<strong>IE9</strong>排版才不会乱。问题的关键是这个现象只在我的电脑上出现。朋友的电脑的<strong>IE11</strong>访问排版并不会乱。我查看了一下默认的渲染引擎是<strong>Edge</strong>。我也不清楚是怎么回事，所以只好自己修改主题，加上强制使用<strong>IE9</strong>渲染引擎的代码。添加到了<code>\yilia\layout\_partial\head.ejs</code>文件下。</p>
@@ -64,7 +106,7 @@
     <link href="http://en.ors-sro.com/2015/07/27/MDL-AngularJS%E5%88%B6%E4%BD%9CTodoList/"/>
     <id>http://en.ors-sro.com/2015/07/27/MDL-AngularJS制作TodoList/</id>
     <published>2015-07-27T12:44:29.000Z</published>
-    <updated>2015-07-28T13:14:04.000Z</updated>
+    <updated>2015-08-22T13:36:44.271Z</updated>
     <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>
 <a id="more"></a>
 <h2 id="框架简介">框架简介</h2><h3 id="Material_Design_Lite(MDL)">Material Design Lite(MDL)</h3><p><a href="http://www.getmdl.io/" target="_blank" rel="external"><strong>Material Design Lite</strong></a>是<strong>Google</strong>推出的一个<strong>CSS</strong>框架，作用类似于<strong>Bootstrap</strong>，用于快速开发出符合<strong>Material Design</strong>风格的网页。</p>
@@ -77,7 +119,54 @@
 <li>拥有良好的交互界面</li>
 </ol>
 <h2 id="实现">实现</h2><h3 id="实现思路">实现思路</h3><p>其实完全可以用纯<strong>HTML</strong>和<strong>jQuery</strong>来制作。甚至不需要<strong>jQuery</strong>只需要原生<strong>JS</strong>。整个页面只需要有一个输入框，一个确定按钮，一个列表(无序列表<code>&lt;ul&gt;</code>或有序列表<code>&lt;ol&gt;</code>均可)。使用<strong>jQuery</strong>来做就是一个操纵<strong>DOM</strong>的过程。而使用<strong>AngularJS</strong>框架的<strong>双向数据绑定</strong>功能就不需要操纵<strong>DOM</strong>，只需要关注逻辑，修改数据存储的变量即可。</p>
-<h3 id="第一版">第一版</h3>]]></content>
+<h3 id="获取Material_Design_Lite">获取Material Design Lite</h3><p>打开<a href="http://www.getmdl.io/started/index.html" target="_blank" rel="external">Material Design Lite的起步页面</a>，选择获取方式。因为国内连接比较慢，所以我选择了下载的方式。</p>
+<h3 id="获取AngularJS">获取AngularJS</h3><p>打开<a href="https://angularjs.org/" target="_blank" rel="external">AngularJS</a>的主页，点击<strong>Download</strong>，因为要开发所以选择<strong>Uncompressed</strong>不压缩版。</p>
+<h3 id="第一版">第一版</h3><p>工程的目录结构如下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">F:\</span><br><span class="line">├─MDL</span><br><span class="line">│  └─material.css</span><br><span class="line">├─AngularJS</span><br><span class="line">│  └─angular.js</span><br><span class="line">└─TodoList</span><br><span class="line">   └─TodoList.html</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>引入<strong>MDL</strong>和<strong>AngularJS</strong><br> 通过<code>&lt;script&gt;</code>标签和<code>&lt;link&gt;</code>标签在<code>&lt;head&gt;</code>引入即可</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"../MDL/material.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../MDL/material.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../AngularJS/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搭建<strong>AngularJS</strong>的Hello World<br> 因为会写一些<strong>AngularJS</strong>代码。所以我们在TodoList文件夹下新建一个<strong>Javascript</strong>文件，名称是<strong>todolist.js</strong>。输入以下代码</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> todoList = angular.module(<span class="string">'todo-list'</span>,[]);</span><br></pre></td></tr></table></figure>
+<p> 在TodoList.html中的<code>&lt;html&gt;</code>标签加入属性<code>ng-app</code>，在<code>&lt;body&gt;</code>中添加以下代码。</p>
+ <figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ng-model</span>=<span class="value">"helloworld"</span>&gt;</span><span class="tag">&lt;<span class="title">button</span>&gt;</span>DO IT<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Hello,</span><span class="expression">&#123;&#123;<span class="variable">helloworld</span>&#125;&#125;</span><span class="xml"> !<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="第一版测试">第一版测试</h3><p>运行发现输入什么就会显示什么。没有使用任何<strong>Javascript</strong>代码就实现了输入的数据同步到<strong>helloworld</strong>这个变量（暂且这么认为），<strong>helloworld</strong>变量的改变有同步到了引用它的地方这一个双向的过程。</p>
+<p>目前的问题有</p>
+<ol>
+<li>没有实现记事功能</li>
+<li>太丑</li>
+</ol>
+<h3 id="第二版">第二版</h3><p><strong>Hello World</strong>搭建完毕后，接下来就是引入<strong>Material Design Lite</strong>的样式。首先我们需要一个<strong>输入框</strong>和<strong>按钮</strong>的样式，还有一个<strong>列表</strong>的样式。<strong>按钮</strong>的样式可以在<a href="http://www.getmdl.io/components/index.html#buttons-section" target="_blank" rel="external">Material Design Lite的按钮组件</a>页面获取。这里选择了带<strong>ripple</strong>的按钮，样式如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"</span>&gt;</span></span><br><span class="line">  Button</span><br><span class="line"><span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>输入框</strong>的样式可以在<a href="http://www.getmdl.io/components/index.html#textfields-section" target="_blank" rel="external">Material Design Lite的输入框组件</a>页面获取。这里选择了简单的输入框。样式如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Simple Textfield --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield mdl-js-textfield textfield-demo"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__input"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"sample1"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">label</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__label"</span> <span class="attribute">for</span>=<span class="value">"sample1"</span>&gt;</span>Text...<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>列表</strong>的样式可以在<a href="http://www.getmdl.io/components/index.html#tables-section" target="_blank" rel="external">Material Design Lite的表格组件</a>页面获取。这里是因为看起来差不多才选择了表格组件。样式如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">th</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Material<span class="tag">&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">th</span>&gt;</span>Quantity<span class="tag">&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">th</span>&gt;</span>Unit price<span class="tag">&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">thead</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Acrylic (Transparent)<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>25<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>$2.90<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Plywood (Birch)<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>50<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>$1.25<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Laminate (Gold on Blue)<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>10<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>$2.35<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将代码整合一下。完整的代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>待办事项<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"../MDL/material.min.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../MDL/material.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../AngularJS/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>待办事项<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">form</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield mdl-js-textfield textfield-demo"</span>&gt;</span></span><br><span class="line">  	  <span class="tag">&lt;<span class="title">input</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__input"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"sample1"</span> <span class="attribute">ng-model</span>=<span class="value">"helloworld"</span> /&gt;</span></span><br><span class="line">  	  <span class="tag">&lt;<span class="title">label</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__label"</span> <span class="attribute">for</span>=<span class="value">"sample1"</span>&gt;</span>想做啥？<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"</span>&gt;</span>DO IT<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tbody</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">td</span>&gt;</span>Hello, &#123;&#123; helloworld &#125;&#125;!<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tbody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="第二版测试">第二版测试</h3><p>虽然还是很丑，但是基本的外观还是有的。现在的主要问题有</p>
+<ol>
+<li>没有实现记事功能</li>
+<li><del>太丑</del></li>
+<li>丑</li>
+</ol>
+<h3 id="第三版">第三版</h3><p>这一版要加入实际的逻辑了。也就是点击<strong>确定</strong>按钮后，能够把输入框的内容加到<strong>待办列表</strong>中。使用<strong>jQuery</strong>的做法是用一个变量存储待办事项，然后操作<strong>DOM</strong>来同步到界面上。而使用<strong>AngularJS</strong>只需要维护一个变量，<strong>AngularJS</strong>的<strong>双向数据</strong>绑定的特性自动同步到界面上。</p>
+<p>首先根据<strong>AngularJS</strong>的官方文档，我们先初始化在<code>&lt;html&gt;</code>标签中加入<code>ng-app=&quot;todo-list&quot;</code>，同时加入<strong>控制器</strong>来管理<strong>M</strong>（模型）和<strong>V</strong>（界面），因为功能比较简单所以用一个<strong>控制器</strong>就行了。简单粗暴的把<strong>控制器</strong>加到<code>&lt;html&gt;</code>标签里。即<code>np-controller=&quot;todo-list-controller&quot;</code>。接下来使用代码初始化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> todolist = angular.module(<span class="string">"todo-list"</span>,[]);</span><br><span class="line">todolist.controller(<span class="string">'todo-list-controller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>先给按钮添加事件。通过谷歌查找到使用<strong>AngularJS</strong>的关键字<code>ng-click</code>可以添加点击事件。在<code>&lt;button&gt;</code>标签中添加<code>ng-click</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"</span> <span class="attribute">ng-click</span>=<span class="value">"newTodo()"</span>&gt;</span>DO IT<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>编写相应的逻辑代码，即在<code>todolist.controller</code>中加入函数定义。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">todolist.controller(<span class="string">'todo-list-controller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> todos = [];<span class="comment">//用于保存待办事项</span></span><br><span class="line">    $scope.newTodo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      todos.push()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>写到发现没有能<code>push</code>的东西，因为还没获取输入框的内容。要想获取输入框的内容只需要在<code>input</code>标签中声明一个<strong>AngularJS</strong>的model就可以利用双向数据绑定的特性，把他当一个变量使用了。代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__input"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"sample1"</span> <span class="attribute">ng-model</span>=<span class="value">"inputText"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>现在可以愉快的<code>push</code>了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">todolist.controller(<span class="string">'todo-list-controller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> todos = [];<span class="comment">//用于保存待办事项</span></span><br><span class="line">    $scope.newTodo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      todos.push($scope.inputText)<span class="comment">//加入model后就可以当作变量使用了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>现在修改了<code>todos</code>这个变量，但是还没有同步到界面上。需要在<strong>DOM</strong>中标记一下<strong>AngularJS</strong>才知道把变量中的数据同步到哪里。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
     <summary type="html">
     <![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>]]>
     
@@ -94,7 +183,7 @@
     <link href="http://en.ors-sro.com/2015/07/25/hexo%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/"/>
     <id>http://en.ors-sro.com/2015/07/25/hexo多平台部署遇到的一个坑/</id>
     <published>2015-07-25T12:56:06.000Z</published>
-    <updated>2015-07-27T12:39:40.000Z</updated>
+    <updated>2015-07-27T12:39:40.815Z</updated>
     <content type="html"><![CDATA[<p>在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;           ^</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -137,7 +226,7 @@
     <link href="http://en.ors-sro.com/2015/07/25/hexo3-0%E8%BF%81%E7%A7%BB/"/>
     <id>http://en.ors-sro.com/2015/07/25/hexo3-0迁移/</id>
     <published>2015-07-25T12:55:45.000Z</published>
-    <updated>2015-07-26T15:44:23.000Z</updated>
+    <updated>2015-07-26T15:44:23.299Z</updated>
     <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>因为折腾多平台部署，以为是<code>hexo</code>版本过低，所以升级了<code>hexo</code>到了3.0版本。结果却发现<code>hexo d</code>和<code>hexo g</code>等命令都失效了。运行会有类似提示</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Commands:&#10;  help     Get help on Hexo.&#10;  init     Create a new Hexo folder.&#10;  version  Display version information.&#10;&#10;Global Options:&#10;  --config  Specify config file instead of using _config.yml&#10;  --cwd     Specify the CWD&#10;  --debug   Display all verbose messages in the terminal&#10;  --safe    Disable all plugins and scripts&#10;  --silent  Hide output on console&#10;&#10;For more help, you can use &#39;hexo help [command]&#39; for the detailed information&#10;or you can check the docs: http://hexo.io/docs/</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -213,7 +302,7 @@
     <link href="http://en.ors-sro.com/2015/07/19/chatwork%E6%8F%92%E4%BB%B6/"/>
     <id>http://en.ors-sro.com/2015/07/19/chatwork插件/</id>
     <published>2015-07-19T05:16:36.000Z</published>
-    <updated>2015-07-29T12:12:21.000Z</updated>
+    <updated>2015-07-28T15:00:56.522Z</updated>
     <content type="html"><![CDATA[<h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>
 <h2 id="编写插件的原因">编写插件的原因</h2><p>因为<a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。</p>
 <h2 id="技术思路">技术思路</h2><p>插件的功能是有新消息到来时，提醒用户。</p>
@@ -224,7 +313,6 @@
 <h3 id="第一版">第一版</h3><p>先给页面挂事件。通过google查找到页面改变对应的事件名是<code>DOMSubtreeModified</code>，在控制带中输入<code>$</code>发现<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>有使用<code>jQuery</code>。那么事情就简单了。直接使用<code>jQuery</code>添加事件即可。代码如下。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".chatTimeLine"</span>).bind(<span class="string">"DOMSubtreeModified"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"tree changed"</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h4 id="测试">测试</h4><p>经过测试新消息到来时能够弹出提示框</p>
-<p><img src="/img/chatwork/第一版测试.png" alt="第一次测试结果"></p>
 <h4 id="缺点">缺点</h4><p>因为监听的是事件改动，所以对于新消息来的这个需求吻合得不够。目前有一下缺点。</p>
 <ol>
 <li>页面其他变动也会有提示</li>
@@ -250,7 +338,6 @@
 </li>
 </ol>
 <h4 id="测试-1">测试</h4><p>从控制台中看到返回两个<code>Mutation</code>，其中包含了每个改变的节点。</p>
-<p><img src="/img/chatwork/返回两个mutation.png" alt="Mutation"></p>
 <h4 id="缺点-1">缺点</h4><p>换用了<code>MutationObserver</code>后，缩小了监控范围。使得事件更贴切需求。</p>
 <ol>
 <li><del>页面其他变动也会有提示</del></li>
@@ -259,7 +346,6 @@
 </ol>
 <h3 id="第三版">第三版</h3><p>事件部分已经基本解决。接下来要解决提示部分。弹框实在是太不友好了。这里想到了HTML5的新特性之一桌面通知</p>
 <p>桌面通知的效果是这样的。</p>
-<p><img src="/img/chatwork/消息样例.png" alt="消息样例"></p>
 <p>先找到桌面通知的相关文档来学习使用桌面通知</p>
 <blockquote>
 <p>Notification 对象使用来为用户设置和显示桌面通知。——<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification" target="_blank" rel="external">Mozilla Develop</a></p>
@@ -274,7 +360,6 @@
 <p>与上面提示的代码结合，稍微修改后如下</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).last().find(<span class="string">"span"</span>).text();</span><br><span class="line">	<span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br><span class="line">	<span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;body:message&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observer = <span class="keyword">new</span> (<span class="built_in">window</span>.MutationObserver||<span class="built_in">window</span>.WebKitMutationObserver)(show)</span><br></pre></td></tr></table></figure>
 <h4 id="测试-2">测试</h4><p>这次弹出两次提示。原因是<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>网站消息机制。至此基本功能已经开发完毕。但还有一些问题待解决</p>
-<p><img src="/img/chatwork/第二版测试.png" alt="第二版测试"></p>
 <ol>
 <li><del>页面其他变动也会有提示</del></li>
 <li>一个新消息<strong>两</strong>次弹窗</li>
@@ -297,7 +382,6 @@
 </li>
 </ol>
 <h3 id="测试-3">测试</h3><p>效果跟一开始想法差不多。</p>
-<p><img src="/img/chatwork/最终测试.png" alt="最终测试"></p>
 <h2 id="后记">后记</h2><p>这篇文章在我插件完成两个星期后才写完。其中还有一些功能没有介绍就突然在最终代码里面出现了。改天有空再来填坑吧。(改天根本就不会想起来好吧！摔！)</p>
 ]]></content>
     <summary type="html">
@@ -321,7 +405,7 @@
     <link href="http://en.ors-sro.com/2014/11/14/%E6%A0%87%E9%A2%98%E9%83%BD%E6%94%B9%E4%BA%86/"/>
     <id>http://en.ors-sro.com/2014/11/14/标题都改了/</id>
     <published>2014-11-14T14:23:28.000Z</published>
-    <updated>2015-07-25T15:18:51.000Z</updated>
+    <updated>2015-07-25T15:18:51.771Z</updated>
     <content type="html"><![CDATA[<p>再加一个文件看一下两个分支同步是否如所设想的那样。</p>
 <p>这一行是新加的。测试一下怎么修改文章</p>
 ]]></content>
@@ -340,7 +424,7 @@
     <link href="http://en.ors-sro.com/2014/11/14/test2/"/>
     <id>http://en.ors-sro.com/2014/11/14/test2/</id>
     <published>2014-11-14T05:13:29.000Z</published>
-    <updated>2015-07-25T15:18:47.000Z</updated>
+    <updated>2015-07-25T15:18:47.234Z</updated>
     <content type="html"><![CDATA[<p>那我再来试一试好了。写一个C语言的Hello World好了<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"hello world!"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
     <summary type="html">
@@ -356,7 +440,7 @@
     <link href="http://en.ors-sro.com/2014/11/13/test/"/>
     <id>http://en.ors-sro.com/2014/11/13/test/</id>
     <published>2014-11-13T12:23:46.000Z</published>
-    <updated>2015-07-25T15:18:56.000Z</updated>
+    <updated>2015-07-25T15:18:56.257Z</updated>
     <content type="html"><![CDATA[<h3 id="这是一个标题">这是一个标题</h3><p>随便写点东西好了。但是不知道该写什么。先试一下粗体好了。请看<strong>粗体</strong>。就先这样吧</p>
 ]]></content>
     <summary type="html">
