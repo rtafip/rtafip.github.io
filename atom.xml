@@ -5,7 +5,7 @@
   <subtitle><![CDATA[听说拖鞋才是本体]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-01-01T14:55:47.631Z</updated>
+  <updated>2015-08-04T14:44:51.671Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,25 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[hexo部署失败]]></title>
-    <link href="http://en.ors-sro.com/2016/01/01/hexo%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/"/>
-    <id>http://en.ors-sro.com/2016/01/01/hexo部署失败/</id>
-    <published>2016-01-01T14:22:33.000Z</published>
-    <updated>2016-01-01T14:55:47.631Z</updated>
-    <content type="html"><![CDATA[<h2 id="症状">症状</h2><p>hexo 部署博客失败，提示如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">events.js:<span class="number">85</span></span><br><span class="line">      throw er; // Unhandled <span class="string">'error'</span> event</span><br><span class="line">            ^</span><br><span class="line">Error: spawn git ENOENT</span><br><span class="line">    at exports._errnoException (util.js:<span class="number">746</span>:<span class="number">11</span>)</span><br><span class="line">    at Process.ChildProcess._handle.onexit (child_process.js:<span class="number">1053</span>:<span class="number">32</span>)</span><br><span class="line">    at child_process.js:<span class="number">1144</span>:<span class="number">20</span></span><br><span class="line">    at process._tickCallback (node.js:<span class="number">355</span>:<span class="number">11</span>)</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="症状">症状</h2><p>hexo 部署博客失败，提示如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">events.js:<span class="number">85</span></span><br><span class="line">      throw er; // Unhandled <span class="string">'error'</span> event</span><br><span class="line">            ^</span><br><span class="line">Error: spawn git ENOENT</span><br><span class="line">    at exports._errnoException (util.js:<span class="number">746</span>:<span class="number">11</span>)</span><br><span class="line">    at Process.ChildProcess._handle.onexit (child_process.js:<span class="number">1053</span>:<span class="number">32</span>)</span><br><span class="line">    at child_process.js:<span class="number">1144</span>:<span class="number">20</span></span><br><span class="line">    at process._tickCallback (node.js:<span class="number">355</span>:<span class="number">11</span>)</span><br></pre></td></tr></table></figure></p>]]>
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://en.ors-sro.com/tags/hexo/"/>
-    
-      <category term="部署失败" scheme="http://en.ors-sro.com/tags/%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/"/>
-    
-  </entry>
   
   <entry>
     <title><![CDATA[压缩博客图片]]></title>
@@ -106,7 +87,7 @@
     <link href="http://en.ors-sro.com/2015/07/27/MDL-AngularJS%E5%88%B6%E4%BD%9CTodoList/"/>
     <id>http://en.ors-sro.com/2015/07/27/MDL-AngularJS制作TodoList/</id>
     <published>2015-07-27T12:44:29.000Z</published>
-    <updated>2015-08-22T13:36:44.271Z</updated>
+    <updated>2016-04-03T06:58:18.687Z</updated>
     <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>
 <a id="more"></a>
 <h2 id="框架简介">框架简介</h2><h3 id="Material_Design_Lite(MDL)">Material Design Lite(MDL)</h3><p><a href="http://www.getmdl.io/" target="_blank" rel="external"><strong>Material Design Lite</strong></a>是<strong>Google</strong>推出的一个<strong>CSS</strong>框架，作用类似于<strong>Bootstrap</strong>，用于快速开发出符合<strong>Material Design</strong>风格的网页。</p>
@@ -153,19 +134,6 @@
 <li><del>太丑</del></li>
 <li>丑</li>
 </ol>
-<h3 id="第三版">第三版</h3><p>这一版要加入实际的逻辑了。也就是点击<strong>确定</strong>按钮后，能够把输入框的内容加到<strong>待办列表</strong>中。使用<strong>jQuery</strong>的做法是用一个变量存储待办事项，然后操作<strong>DOM</strong>来同步到界面上。而使用<strong>AngularJS</strong>只需要维护一个变量，<strong>AngularJS</strong>的<strong>双向数据</strong>绑定的特性自动同步到界面上。</p>
-<p>首先根据<strong>AngularJS</strong>的官方文档，我们先初始化在<code>&lt;html&gt;</code>标签中加入<code>ng-app=&quot;todo-list&quot;</code>，同时加入<strong>控制器</strong>来管理<strong>M</strong>（模型）和<strong>V</strong>（界面），因为功能比较简单所以用一个<strong>控制器</strong>就行了。简单粗暴的把<strong>控制器</strong>加到<code>&lt;html&gt;</code>标签里。即<code>np-controller=&quot;todo-list-controller&quot;</code>。接下来使用代码初始化。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> todolist = angular.module(<span class="string">"todo-list"</span>,[]);</span><br><span class="line">todolist.controller(<span class="string">'todo-list-controller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>先给按钮添加事件。通过谷歌查找到使用<strong>AngularJS</strong>的关键字<code>ng-click</code>可以添加点击事件。在<code>&lt;button&gt;</code>标签中添加<code>ng-click</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"</span> <span class="attribute">ng-click</span>=<span class="value">"newTodo()"</span>&gt;</span>DO IT<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>编写相应的逻辑代码，即在<code>todolist.controller</code>中加入函数定义。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">todolist.controller(<span class="string">'todo-list-controller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> todos = [];<span class="comment">//用于保存待办事项</span></span><br><span class="line">    $scope.newTodo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      todos.push()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>写到发现没有能<code>push</code>的东西，因为还没获取输入框的内容。要想获取输入框的内容只需要在<code>input</code>标签中声明一个<strong>AngularJS</strong>的model就可以利用双向数据绑定的特性，把他当一个变量使用了。代码如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__input"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"sample1"</span> <span class="attribute">ng-model</span>=<span class="value">"inputText"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p>现在可以愉快的<code>push</code>了</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">todolist.controller(<span class="string">'todo-list-controller'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> todos = [];<span class="comment">//用于保存待办事项</span></span><br><span class="line">    $scope.newTodo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      todos.push($scope.inputText)<span class="comment">//加入model后就可以当作变量使用了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>现在修改了<code>todos</code>这个变量，但是还没有同步到界面上。需要在<strong>DOM</strong>中标记一下<strong>AngularJS</strong>才知道把变量中的数据同步到哪里。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>]]>
