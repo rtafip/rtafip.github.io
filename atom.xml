@@ -5,7 +5,7 @@
   <subtitle><![CDATA[听说拖鞋才是本体]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2015-08-04T14:44:51.671Z</updated>
+  <updated>2016-04-03T07:36:37.050Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,126 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Promise异步编程学习笔记]]></title>
+    <link href="http://en.ors-sro.com/2016/04/03/Promise%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://en.ors-sro.com/2016/04/03/Promise异步编程学习笔记/</id>
+    <published>2016-04-03T07:35:56.000Z</published>
+    <updated>2016-04-03T07:36:37.050Z</updated>
+    <content type="html"><![CDATA[<p>Promise.Reject(‘鸽了’)</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<p>Promise.Reject(‘鸽了’)</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Lambda表达式学习笔记]]></title>
+    <link href="http://en.ors-sro.com/2016/04/03/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://en.ors-sro.com/2016/04/03/Lambda表达式学习笔记/</id>
+    <published>2016-04-03T07:34:15.000Z</published>
+    <updated>2016-04-03T07:34:50.737Z</updated>
+    <content type="html"><![CDATA[<p>由于没有去过希腊，所以看不懂希腊字母，学习失败！</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<p>由于没有去过希腊，所以看不懂希腊字母，学习失败！</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[C#学习笔记之命名规范]]></title>
+    <link href="http://en.ors-sro.com/2016/04/03/C#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
+    <id>http://en.ors-sro.com/2016/04/03/C#学习笔记之命名规范/</id>
+    <published>2016-04-03T07:30:52.000Z</published>
+    <updated>2016-04-03T07:31:48.284Z</updated>
+    <content type="html"><![CDATA[<p>现在改用c++做底层了，不用C#了</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<p>现在改用c++做底层了，不用C#了</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[旧版NGUI层级研究]]></title>
+    <link href="http://en.ors-sro.com/2016/04/03/%E6%97%A7%E7%89%88NGUI%E5%B1%82%E7%BA%A7%E7%A0%94%E7%A9%B6/"/>
+    <id>http://en.ors-sro.com/2016/04/03/旧版NGUI层级研究/</id>
+    <published>2016-04-03T07:29:51.000Z</published>
+    <updated>2016-04-03T07:30:19.305Z</updated>
+    <content type="html"><![CDATA[<p>换新版NGUI了。所以就不研究了呃呃呃</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<p>换新版NGUI了。所以就不研究了呃呃呃</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Optional学习笔记]]></title>
+    <link href="http://en.ors-sro.com/2016/04/03/Optional%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://en.ors-sro.com/2016/04/03/Optional学习笔记/</id>
+    <published>2016-04-03T07:27:04.000Z</published>
+    <updated>2016-04-03T07:27:34.496Z</updated>
+    <content type="html"><![CDATA[<p>学习到一半就玩游戏去了，然后就没然后了</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<p>学习到一半就玩游戏去了，然后就没然后了</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Monad学习笔记]]></title>
+    <link href="http://en.ors-sro.com/2016/04/03/Monad%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://en.ors-sro.com/2016/04/03/Monad学习笔记/</id>
+    <published>2016-04-03T07:25:56.000Z</published>
+    <updated>2016-04-03T07:26:28.736Z</updated>
+    <content type="html"><![CDATA[<p>都说不要写Monad教程了。所以下面就没有了= =</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<p>都说不要写Monad教程了。所以下面就没有了= =</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Chrome插件编写]]></title>
+    <link href="http://en.ors-sro.com/2016/04/03/Chrome%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99/"/>
+    <id>http://en.ors-sro.com/2016/04/03/Chrome插件编写/</id>
+    <published>2016-04-03T07:25:00.000Z</published>
+    <updated>2016-04-03T07:25:19.611Z</updated>
+    <content type="html"><![CDATA[<p>这个坑就更大了哈哈哈</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<p>这个坑就更大了哈哈哈</p>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Unity图片压缩格式]]></title>
+    <link href="http://en.ors-sro.com/2016/04/03/Unity%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F/"/>
+    <id>http://en.ors-sro.com/2016/04/03/Unity图片压缩格式/</id>
+    <published>2016-04-03T07:23:35.000Z</published>
+    <updated>2016-04-03T07:24:21.476Z</updated>
+    <content type="html"><![CDATA[<p>先挖坑，之后再填</p>
+<a id="more"></a>]]></content>
+    <summary type="html">
+    <![CDATA[<p>先挖坑，之后再填</p>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[压缩博客图片]]></title>
