@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://en.ors-sro.com/2016/04/03/Monad学习笔记/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋铺">
 <meta property="og:description" content="都说不要写Monad教程了。所以下面就没有了= =">
-<meta property="og:updated_time" content="2016-04-03T07:26:28.736Z">
+<meta property="og:updated_time" content="2016-04-04T08:55:39.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Monad学习笔记">
 <meta name="twitter:description" content="都说不要写Monad教程了。所以下面就没有了= =">
@@ -96,12 +96,27 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Monad是什么"><span class="toc-number">1.</span> <span class="toc-text">Monad是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#大写的数字"><span class="toc-number">1.1.</span> <span class="toc-text">大写的数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需求分析"><span class="toc-number">1.2.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#码代码"><span class="toc-number">1.3.</span> <span class="toc-text">码代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要用Monad"><span class="toc-number">2.</span> <span class="toc-text">为什么要用Monad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么用Monad"><span class="toc-number">3.</span> <span class="toc-text">怎么用Monad</span></a></li></ol>
 		
 		</div>
 		
 		<p>都说不要写Monad教程了。所以下面就没有了= =</p>
-<a id="more"></a>  
+<a id="more"></a>
+<h2 id="Monad是什么">Monad是什么</h2><blockquote>
+<p>Monad不就是幺半群上的自函子么？    —— wadler</p>
+</blockquote>
+<p>这是将Monad引入Haskell的人对Monad的解释。没有范畴论基础的人估计听了也是一知半解。其实Monad是一种特殊的函数，并没有看上去那么复杂。有栗子为证。</p>
+<h3 id="大写的数字">大写的数字</h3><p>在金融业中填写金额时通常会用到大写的数字，如<code>壹</code>、<code>贰</code>、<code>叁</code>、<code>肆</code>、<code>伍</code>、<code>陆</code>、<code>柒</code>、<code>捌</code>、<code>玖</code>等。分别对应阿拉伯数字中的1到9。现在需求是编写程序实现大写数字的相加。例如<code>壹 + 壹 = 贰</code>。这个需求不难，只需要转化成数字运算把结果转化成大写数字即可。但在这个简单的例子中就有Monad的存在。</p>
+<h3 id="需求分析">需求分析</h3><p>目前有两个集合，一个<strong>整数</strong>集合，一个<strong>大写整数</strong>集合。所以需要一个函数把<strong>整数</strong>转化成<strong>大写整数</strong>，其实就是数学上的映射，<strong>整数</strong> -&gt; <strong>大写整数</strong>。把<strong>整数</strong>集合按照一定的规则映射到<strong>大写整数</strong>集合。<br>同时还需要一个函数把<strong>大写整数</strong>集合映射到<strong>整数</strong>集合。映射的规则是很明显的</p>
+<blockquote>
+<p>1 ⇔ 壹<br>2 ⇔ 贰<br>3 ⇔ 叁<br>…<br>9 ⇔ 玖</p>
+</blockquote>
+<h3 id="码代码">码代码</h3><p>映射关系很自然就联想到使用<code>Map</code>这种数据结构。以<code>C#</code>为例，<code>Map</code>在<code>C#</code>中的实现是<code>Dictionary</code>。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Public Const Dictionary&lt;<span class="keyword">int</span>,<span class="keyword">string</span>&gt; digit2CapDigit = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">int</span>,<span class="keyword">string</span>&gt;()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="number">1</span>,壹</span><br><span class="line">	<span class="number">2</span>,贰</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编写<strong>整数</strong>集合映射为<strong>大写整数</strong>集合的函数<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Public <span class="keyword">string</span> <span class="title">ToCap</span>(<span class="params"><span class="keyword">int</span> digit</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="comment">//if digit between 0~9</span></span><br><span class="line">	<span class="keyword">return</span> digit2CapDigit[digit];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编写这样一个神奇的函数，他有两个参数。第一个参数是<strong>大写整数</strong>，第二个参数是一个接收<strong>整数</strong>返回<strong>大写整数</strong>的函数。最后这个神奇的函数返回<strong>大写整数</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Public <span class="keyword">string</span> <span class="title">MagicFunc</span>(<span class="params"><span class="keyword">string</span> caps,Func&lt;<span class="keyword">int</span>,<span class="keyword">string</span>&gt; func</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> func(ToInt(Caps));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为了应用这个神奇的函数，需要传递一个函数作为第二个参数。现在编写一个函数，能够将输入的<strong>整数</strong>加一并返回对应的<strong>大写整数</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Public <span class="keyword">string</span> <span class="title">Plus</span>(<span class="params"><span class="keyword">int</span> digit,<span class="keyword">string</span> caps</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> ToCap(digit + ToInt(Caps));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>现在计算<code>壹 + 壹</code>可以这么来<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MagicFun(<span class="string">"壹"</span>,Plus(ToInt(<span class="string">"壹"</span>)));</span><br></pre></td></tr></table></figure></p>
+<h2 id="为什么要用Monad">为什么要用Monad</h2><h2 id="怎么用Monad">怎么用Monad</h2>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -159,7 +174,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Monad是什么"><span class="toc-number">1.</span> <span class="toc-text">Monad是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#大写的数字"><span class="toc-number">1.1.</span> <span class="toc-text">大写的数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需求分析"><span class="toc-number">1.2.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#码代码"><span class="toc-number">1.3.</span> <span class="toc-text">码代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要用Monad"><span class="toc-number">2.</span> <span class="toc-text">为什么要用Monad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么用Monad"><span class="toc-number">3.</span> <span class="toc-text">怎么用Monad</span></a></li></ol>
  
   </div>
 
