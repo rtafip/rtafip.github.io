@@ -1,27 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
   
-  <title><![CDATA[拖鞋党的拖鞋铺]]></title>
-  <subtitle><![CDATA[听说拖鞋才是本体]]></subtitle>
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://en.ors-sro.com//"/>
-  <updated>2016-06-26T09:06:29.744Z</updated>
-  <id>http://en.ors-sro.com//</id>
-  
-  <author>
-    <name><![CDATA[rtafip]]></name>
+    <title>Airbnb es6 编码风格翻译 | 拖鞋党的拖鞋铺</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-  </author>
+    <meta name="author" content="rtafip">
+    
+
+    
+    <meta name="description" content="Airbnb JavaScript 的编码风格 原文地址: Airbnb/JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Airbnb es6 编码风格翻译">
+<meta property="og:url" content="http://en.ors-sro.com/2016/06/13/Airbnb-es6-编码规范/index.html">
+<meta property="og:site_name" content="拖鞋党的拖鞋铺">
+<meta property="og:description" content="Airbnb JavaScript 的编码风格 原文地址: Airbnb/JavaScript">
+<meta property="og:updated_time" content="2016-06-26T09:06:29.744Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Airbnb es6 编码风格翻译">
+<meta name="twitter:description" content="Airbnb JavaScript 的编码风格 原文地址: Airbnb/JavaScript">
+
+    
+    <link rel="alternative" href="/atom.xml" title="拖鞋党的拖鞋铺" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/logo.png" alt="拖鞋党的拖鞋铺" title="拖鞋党的拖鞋铺"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="拖鞋党的拖鞋铺">拖鞋党的拖鞋铺</a></h1>
+				<h2 class="blog-motto">听说拖鞋才是本体</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:en.ors-sro.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[Airbnb es6 编码风格翻译]]></title>
-    <link href="http://en.ors-sro.com/2016/06/13/Airbnb-es6-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
-    <id>http://en.ors-sro.com/2016/06/13/Airbnb-es6-编码规范/</id>
-    <published>2016-06-13T13:13:54.000Z</published>
-    <updated>2016-06-26T09:06:29.744Z</updated>
-    <content type="html"><![CDATA[<p>Airbnb JavaScript 的编码风格 原文地址: <a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb/JavaScript</a></p>
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/06/13/Airbnb-es6-编码规范/" title="Airbnb es6 编码风格翻译" itemprop="url">Airbnb es6 编码风格翻译</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="rtafip" target="_blank" itemprop="author">rtafip</a>
+		
+  <p class="article-time">
+    <time datetime="2016-06-13T13:13:54.000Z" itemprop="datePublished"> Published 2016-06-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Airbnb_JavaScript_Style_Guide"><span class="toc-number">1.</span> <span class="toc-text">Airbnb JavaScript Style Guide</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类型"><span class="toc-number">1.1.</span> <span class="toc-text">类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.2.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-number">1.3.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">1.4.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解构"><span class="toc-number">1.5.</span> <span class="toc-text">解构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-number">1.6.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">1.7.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数"><span class="toc-number">1.8.</span> <span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类_与_构造器"><span class="toc-number">1.9.</span> <span class="toc-text">类 与 构造器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-number">1.10.</span> <span class="toc-text">模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代器与生成器"><span class="toc-number">1.11.</span> <span class="toc-text">迭代器与生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性"><span class="toc-number">1.12.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.13.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提升"><span class="toc-number">1.14.</span> <span class="toc-text">提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#比较符_与_相等性"><span class="toc-number">1.15.</span> <span class="toc-text">比较符 与 相等性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#块"><span class="toc-number">1.16.</span> <span class="toc-text">块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-number">1.17.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空白符"><span class="toc-number">1.18.</span> <span class="toc-text">空白符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逗号"><span class="toc-number">1.19.</span> <span class="toc-text">逗号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分号"><span class="toc-number">1.20.</span> <span class="toc-text">分号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型转换_与_强制转换"><span class="toc-number">1.21.</span> <span class="toc-text">类型转换 与 强制转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命名约定"><span class="toc-number">1.22.</span> <span class="toc-text">命名约定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问器"><span class="toc-number">1.23.</span> <span class="toc-text">访问器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件"><span class="toc-number">1.24.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery"><span class="toc-number">1.25.</span> <span class="toc-text">jQuery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMAScript_5_兼容性"><span class="toc-number">1.26.</span> <span class="toc-text">ECMAScript 5 兼容性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMAScript_6_风格"><span class="toc-number">1.27.</span> <span class="toc-text">ECMAScript 6 风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">1.28.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能"><span class="toc-number">1.29.</span> <span class="toc-text">性能</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>Airbnb JavaScript 的编码风格 原文地址: <a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb/JavaScript</a></p>
 <a id="more"></a>
 <p><strong>前言</strong></p>
 <p>翻译 <em> Airbnb JavaScript Style Guide </em> 主要是为了学习 <code>JavaScript</code> 编码风格。因为不是专业的译者，翻译不足之处请指出。</p>
@@ -805,628 +884,416 @@
 <li>更多…</li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Airbnb JavaScript 的编码风格 原文地址: <a href="https://github.com/airbnb/javascript">Airbnb/JavaScript</a></p>]]>
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://en.ors-sro.com/tags/JavaScript/"/>
-    
-      <category term="翻译" scheme="http://en.ors-sro.com/categories/%E7%BF%BB%E8%AF%91/"/>
-    
-  </entry>
   
-  <entry>
-    <title><![CDATA[烦人的Null]]></title>
-    <link href="http://en.ors-sro.com/2016/06/10/%E7%83%A6%E4%BA%BA%E7%9A%84Null/"/>
-    <id>http://en.ors-sro.com/2016/06/10/烦人的Null/</id>
-    <published>2016-06-10T06:31:38.000Z</published>
-    <updated>2016-06-10T09:40:19.645Z</updated>
-    <content type="html"><![CDATA[<p>经常写程序的童鞋一定会遇到 <code>Null Exception</code> ，但是大部分情况下出现 <code>Null Exception</code> 就意味着错误地使用了 <code>Null</code></p>
-<a id="more"></a>
-<h2 id="Null_是什么">Null 是什么</h2><p><code>Null</code> 被设计为用于表达应用类型的缺失。可是不得不说这个设计是失败的。因为 <code>Null</code> 用起来方便了所以很多地方都用 <code>Null</code> 而不是<strong>异常 (Exception) </strong>。</p>
-<p>通常程序出错都是与 <code>Null</code> 相关的 <code>Null Exception</code> 。这是自然的，如果数据正常，也就是输入是正确的，自然就不会有问题。总不可能要求数据时时刻刻都是正确的吧？</p>
-<p>再谈到这个问题时，先看一下另一种类型—— <strong>值类型</strong> 是怎么解决这个问题的。</p>
-<p>值类型从来都不会出错。因为，很简单，值类型没有 <code>Null</code> 的情况。 值类型拥有默认值。比如 <code>int</code> 的默认值是 0 ，所以程序上只会出逻辑问题，而不是运行时错误(异常)。值类型出错最常见的场景是，这个值怎么会是0啊？哦，原来是这个 <code>int</code> 类型没有初始化。值类型没有 <code>Null</code> 所以不会去做空检查(Null Check)。比如值类型 <code>bool</code> 只有 <code>true</code> 和 <code>false</code>，所以使用 <code>bool</code> 类型的时候通常是这样的。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> isFinish = IsDownloadFinish();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(isFinish)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Ding. X-art Download Finish</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Nope. Plz Go to bed.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>而不是</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> isFinish = IsDownloadFinish();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(isFinish != <span class="keyword">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(isFinish)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//Ding. X-art Download Finish</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//Nope. Plz Go to bed.</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Output X is null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种画蛇添足的做法。反之如果<strong>引用类型</strong>不做空检查就直接使用值，出问题程序很可能直接崩溃。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">int</span>&gt; studentNos = GetStudentNos();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="keyword">var</span> nos <span class="keyword">in</span> studentNos) <span class="comment">//No null check and Crash when null.</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Output Nos..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Null_is_nothing_but_everything">Null is nothing but everything</h2><p><code>Null</code> 就像是病毒，能够躲过类型检查。一旦某个地方使用了 <code>Null</code> 它就像病毒一样扩散开来。最后整个程序不得不充满空检查。</p>
-<p><code>Null</code> 是二义的。它即可表示变量没有初始化，也可以表示值不存在。</p>
-<p><code>Null</code> 什么都不是，它既不是 <code>List&lt;T&gt;</code> 类型，也不是 <code>String</code> 类型。甚至没有一个类型是 <code>Null</code>。</p>
-<p><code>Null</code> 又什么都是，它可以充当 <code>List&lt;T&gt;</code> ，也可以充当 <code>String</code> 类型。比如从字符串数组中查找以特定的字符串结尾时。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">FindStudent</span>(<span class="params">String[] Students,<span class="keyword">char</span> c</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">foreach</span>(<span class="keyword">var</span> student <span class="keyword">in</span> Students)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(student.EndWith(c))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> student;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个函数定义的最后返回的 <code>Null</code> 是最常见的一种误用 <code>Null</code> 的情况。而这个函数可以编译通过，代表着编译器认可 <code>Null</code> 是 <code>String</code> 类型。</p>
-<p>事实上并不是只有 <code>String</code> 类型会是这样，几乎所有的引用类型编译器都允许返回 <code>null</code>。 所以在使用数据的时候必须做空检查，因为不知道这个数据是否为空。这看起来是很正常的事情，毕竟输入有时候就是错的。但是问题的关键不在于不允许错误的输入，而在于使用了错误的方式来表达数据的异常。</p>
-<h2 id="没有_Null_的日子">没有 Null 的日子</h2><p><code>Null</code> 看起来是现代编程语言的标配。其实不然，有不少语言是没有 <code>Null</code> 的。比如以纯函数式编程而著称 <code>Haskell</code> 是没有 <code>Null</code> 的。那么 <code>Haskell</code> 是怎么应对数据异常，或者说怎么表达数据不存在这种情况的呢？</p>
-<p><strong>联合类型</strong> (Union Type)</p>
-<p>这个联合类型指的不是C语言里面的Union类型。而是由多种类型组成的类型。在传统的编程语言类型是互斥的。例如一个变量要么是 <code>String</code> 类型要么是 <code>int</code> 类型。绝对不会出现即使 <code>String</code> 类型又是 <code>int</code> 类型的情况。</p>
-<p>在 <code>Haskell</code> 中引入一种联合类型 <code>Maybe</code> 用于表达变量可能有值，也可能没有值。</p>
-<p>因为缺少对值缺失的表达方式，在使用 <code>int</code> 类型的时候通常使用 -1 来表示数据异常也就是值缺失的情况。在值不会取到 -1 情况下这是没问题的。万一值可以取到 -1 呢？无计可施。</p>
-<p>在 <code>Haskell</code> 中 <code>Maybe</code> 的 <code>Just</code> 类型用于表示有某种值类型， <code>None</code> 用于表示没有值类型。</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Maybe</span> a = get a</span><br><span class="line"><span class="title">case</span> a <span class="keyword">of</span></span><br><span class="line">  <span class="type">Just</span> value -&gt; dosomething a</span><br><span class="line">  <span class="type">Nothing</span>    -&gt; show error</span><br></pre></td></tr></table></figure>
-<p>看起来和使用 <code>Null</code> 表示值缺失的情况并没有什么区别。实际上天差地别。 <code>Maybe</code> 中的 <code>None</code> 是有类型的，类型就是 <code>None</code>。而 <code>Null</code> 却不是。<code>Null</code> 是无类型的，它的类型不是 <code>Null</code>。最重要的是，使用 <code>Maybe</code> 类型编译器会强制你去检查两种类型，迫使你去应对各种情况。换言之，使用 <code>Maybe</code> 检查和取值是原子操作，不可能取值而不检查。而 <code>Null</code> 不是。编译器允许返回 <code>Null</code> ，而且允许在使用的时候不检查即可取值。没错说了这么多，这就是 <code>Null</code> 的万恶之源。理论上只要每次使用引用类型时做空检查就不会出现程序崩溃的问题。但是懒惰是人的天性，明明可以直接使用为什么还要做复杂的空检查。比如</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Class Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">string</span> Name,</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> No,</span><br><span class="line">	pubilc <span class="keyword">string</span>[] Lessons, 	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student s</span><br><span class="line"></span><br><span class="line"><span class="comment">//...Init...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(s != <span class="keyword">null</span> &amp;&amp; s.Lessons != <span class="keyword">null</span> &amp;&amp; s.Lessons[<span class="number">0</span>] != <span class="keyword">null</span>) <span class="comment">//WTF??</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Output First Lesson is s.Lessons[0]	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>那么直接使用值不做空检查。等到有问题直接报异常就可以了。为什么不这么做呢。首先可能有 <code>null</code> 出现的地方直接使用，出现异常，而忽略是一种很被动的编程方式。相当于知道了问题的存在但是我不管，问题就是这样，爱咋咋地。其次在移动平台上异常如果没有被捕获(Catch)，整个应用很可能就直接崩溃了。就会上演经典的找Bug场景：找了半天的Bug，原来是这个地方为 <code>null</code>。如果一开始检查 <code>null</code> 然后做出应对，比如强制退出，或者界面提示错误码，又或者继续运行。都不会增加无意义的调试时间，用户的体验也更好。</p>
-<h2 id="解决方案">解决方案</h2><p>解决方案很简单：避免 <code>Null</code> 或 合理地使用 <code>Null</code></p>
-<h3 id="避免_Null">避免 Null</h3><p>无论是 <code>Haskell</code> 的 <code>Maybe</code> 还是 <code>Java8</code> 的 <code>Optional</code> 在其他语言都有相应的实现。选择喜欢的即可。但是请一定要检查和取值一起操作</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Good</span></span><br><span class="line">Optional&lt;String&gt; upperName = name.map((value) -&gt; value.toUpperCase());</span><br><span class="line">System.out.println(upperName.orElse(<span class="string">"No value found"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Bad</span></span><br><span class="line">Optional&lt;String&gt; upperName = name.map((value) -&gt; value.toUpperCase());</span><br><span class="line"><span class="keyword">if</span>((name.isPresent())&#123;</span><br><span class="line">	System.out.println(upperName);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"No value found"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Code from http://www.importnew.com/6675.html</span></span><br></pre></td></tr></table></figure>
-<p>后者的做法跟直接空检查后再使用没有什么区别。</p>
-<h3 id="合理地使用_Null">合理地使用 Null</h3><p>合理地使用 <code>Null</code> 从合理地返回 <code>null</code> 开始</p>
-<p><code>Null</code> 表达的是一种值缺失的情况而且值缺失是很正常的情况。 比如从列表中查找某些元素，找不到是很正常的情况，所以这可以返回 <code>null</code>。又比如获得人物的性别，如果文件读写出错了，应该抛出异常，而不是返回 <code>null</code>。因为出错了就不是一种正常的情况。 <code>null</code> 只应该承担正常的值缺失的情况，出错了就应该用异常去承担。</p>
-<p>合理地使用 <code>Null</code> 还需合理地初始化引用类型。</p>
-<p>有些编程语言中引用类型的默认值是 <code>null</code> ，其实在业务逻辑中可以做的更好。比如 <code>String</code> 类型可以初始化为空字符串 <code>&quot;&quot;</code> ，<code>List&lt;T&gt;</code>类型可以初始化为空列表 <code>new List&lt;T&gt;()</code> 。在业务逻辑允许的情况下，函数出错时可以返回空字符串或者空列表。这样就不必做空检查了。搭配 <code>Foreach</code> 使用,如果是空列表，<code>foreach</code> 里面的逻辑不会运行，也就不会出错。初始化时没有引入 <code>null</code> ，调用函数时也没有引入 <code>null</code> ,自然就不会出现 <code>null</code> 的情况。</p>
-<p>尽可能消除 <code>null</code> 避免 <code>null</code> 的传播。</p>
-<p>比如查找一个人的地址，认为找不到是可接受的，就返回一个空字符串，如果认为找不到是不可接受的，请直接抛出异常。这个时候也不会返回 <code>null</code>。 自然不会产生 <code>null</code> 也不用做 <code>Null Check</code> （但是要捕捉异常） 。</p>
-<p>除此之外还有些小技巧可以用上。</p>
-<p>如果你使用面向对象编程，可以引用某种类型相应的 <code>null</code> 类型。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Class Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> String Name,</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> No,</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Say</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		Console.WriteLine(<span class="string">"My name is "</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Class NullStudent : Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Say</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		Console.WriteLine(<span class="string">""</span>);</span><br><span class="line">		<span class="comment">// or</span></span><br><span class="line">		<span class="comment">// Console.WriteLine("I don't have name");</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">List&lt;Student&gt; students = GetAllStudents();</span><br><span class="line"></span><br><span class="line"><span class="function">Student <span class="title">FindStudent</span>(<span class="params"><span class="keyword">string</span> name</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">foreach</span>(student <span class="keyword">in</span> students)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(student.name == name)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> student;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> NullStudent();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student s = <span class="keyword">new</span> NullStudent();</span><br><span class="line"></span><br><span class="line">s = FindStudent(<span class="string">"LeiFeng"</span>);</span><br><span class="line"></span><br><span class="line">s.Say(); <span class="comment">//No null check.</span></span><br></pre></td></tr></table></figure>
-<p>如果你有福能使用<code>C# 6.0</code>，你可以使用新的操作符 <code>?.</code> 。这个操作符只会在不是 <code>null</code> 的情况下执行。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Before C# 6.0</span></span><br><span class="line"><span class="keyword">if</span>(s != <span class="keyword">null</span> &amp;&amp; s.name != <span class="keyword">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">	Console.WriteLine(s.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//C# 6.0</span></span><br><span class="line">Console.WriteLine(s?.name);</span><br></pre></td></tr></table></figure>
-<p>但是请注意，在第一次使用某个值得时候最后手动做空检查，如果为 <code>null</code> 就报错(出现这种情况其实应该使用异常)。这样方便调试。之后第二次使用某个值时就直接使用 <code>?.</code>吧。</p>
-<h2 id="最后吐槽">最后吐槽</h2><p>null真是一个烦人的小妖精。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>经常写程序的童鞋一定会遇到 <code>Null Exception</code> ，但是大部分情况下出现 <code>Null Exception</code> 就意味着错误地使用了 <code>Null</code></p>]]>
-    
-    </summary>
-    
-  </entry>
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/翻译/">翻译</a>
+</div>
+
+
+  <div class="article-tags">
   
-  <entry>
-    <title><![CDATA[NGUI学习笔记之搭建可拖动面板]]></title>
-    <link href="http://en.ors-sro.com/2016/04/04/NGUI%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E6%90%AD%E5%BB%BA%E5%8F%AF%E6%8B%96%E5%8A%A8%E9%9D%A2%E6%9D%BF/"/>
-    <id>http://en.ors-sro.com/2016/04/04/NGUI学习笔记之搭建可拖动面板/</id>
-    <published>2016-04-04T05:39:00.000Z</published>
-    <updated>2016-04-04T05:39:58.831Z</updated>
-    <content type="html"><![CDATA[<p>往下拖可以看到内容噢~</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>往下拖可以看到内容噢~</p>]]>
-    
-    </summary>
-    
-  </entry>
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://en.ors-sro.com/2016/06/13/Airbnb-es6-编码规范/" data-title="Airbnb es6 编码风格翻译 | 拖鞋党的拖鞋铺" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/06/10/烦人的Null/"  title="烦人的Null">
+ <strong>下一篇：</strong><br/> 
+ <span>烦人的Null
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Airbnb_JavaScript_Style_Guide"><span class="toc-number">1.</span> <span class="toc-text">Airbnb JavaScript Style Guide</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类型"><span class="toc-number">1.1.</span> <span class="toc-text">类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.2.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象"><span class="toc-number">1.3.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">1.4.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解构"><span class="toc-number">1.5.</span> <span class="toc-text">解构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-number">1.6.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">1.7.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数"><span class="toc-number">1.8.</span> <span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类_与_构造器"><span class="toc-number">1.9.</span> <span class="toc-text">类 与 构造器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-number">1.10.</span> <span class="toc-text">模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代器与生成器"><span class="toc-number">1.11.</span> <span class="toc-text">迭代器与生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性"><span class="toc-number">1.12.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.13.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提升"><span class="toc-number">1.14.</span> <span class="toc-text">提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#比较符_与_相等性"><span class="toc-number">1.15.</span> <span class="toc-text">比较符 与 相等性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#块"><span class="toc-number">1.16.</span> <span class="toc-text">块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-number">1.17.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空白符"><span class="toc-number">1.18.</span> <span class="toc-text">空白符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逗号"><span class="toc-number">1.19.</span> <span class="toc-text">逗号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分号"><span class="toc-number">1.20.</span> <span class="toc-text">分号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型转换_与_强制转换"><span class="toc-number">1.21.</span> <span class="toc-text">类型转换 与 强制转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命名约定"><span class="toc-number">1.22.</span> <span class="toc-text">命名约定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问器"><span class="toc-number">1.23.</span> <span class="toc-text">访问器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件"><span class="toc-number">1.24.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery"><span class="toc-number">1.25.</span> <span class="toc-text">jQuery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMAScript_5_兼容性"><span class="toc-number">1.26.</span> <span class="toc-text">ECMAScript 5 兼容性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMAScript_6_风格"><span class="toc-number">1.27.</span> <span class="toc-text">ECMAScript 6 风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">1.28.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能"><span class="toc-number">1.29.</span> <span class="toc-text">性能</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
   
-  <entry>
-    <title><![CDATA[NGUI学习笔记之Atlas和UITexture的取舍]]></title>
-    <link href="http://en.ors-sro.com/2016/04/04/NGUI%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BAtlas%E5%92%8CUITexture%E7%9A%84%E5%8F%96%E8%88%8D/"/>
-    <id>http://en.ors-sro.com/2016/04/04/NGUI学习笔记之Atlas和UITexture的取舍/</id>
-    <published>2016-04-04T05:37:29.000Z</published>
-    <updated>2016-04-04T05:39:41.732Z</updated>
-    <content type="html"><![CDATA[<p>任性随便选</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>任性随便选</p>]]>
-    
-    </summary>
-    
-  </entry>
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
   
-  <entry>
-    <title><![CDATA[Promise异步编程学习笔记]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Promise%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Promise异步编程学习笔记/</id>
-    <published>2016-04-03T07:35:56.000Z</published>
-    <updated>2016-04-03T07:36:37.050Z</updated>
-    <content type="html"><![CDATA[<p>Promise.Reject(‘鸽了’)</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>Promise.Reject(‘鸽了’)</p>]]>
-    
-    </summary>
-    
-  </entry>
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/test/" title="test">test<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yilia/" title="yilia">yilia<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/YAML/" title="YAML">YAML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chatwork/" title="Chatwork">Chatwork<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Material-Design-Lite/" title="Material Design Lite">Material Design Lite<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AngularJS/" title="AngularJS">AngularJS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多平台部署/" title="多平台部署">多平台部署<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://Snatic" target="_blank" title="一个文艺青年的独白">Snatic&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
   
-  <entry>
-    <title><![CDATA[Lambda表达式学习笔记]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Lambda表达式学习笔记/</id>
-    <published>2016-04-03T07:34:15.000Z</published>
-    <updated>2016-04-03T07:34:50.737Z</updated>
-    <content type="html"><![CDATA[<p>由于没有去过希腊，所以看不懂希腊字母，学习失败！</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>由于没有去过希腊，所以看不懂希腊字母，学习失败！</p>]]>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m crazy for web design <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
     
-    </summary>
-    
-  </entry>
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="rtafip">rtafip</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
   
-  <entry>
-    <title><![CDATA[C#学习笔记之命名规范]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/C#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
-    <id>http://en.ors-sro.com/2016/04/03/C#学习笔记之命名规范/</id>
-    <published>2016-04-03T07:30:52.000Z</published>
-    <updated>2016-04-03T07:31:48.284Z</updated>
-    <content type="html"><![CDATA[<p>现在改用c++做底层了，不用C#了</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>现在改用c++做底层了，不用C#了</p>]]>
-    
-    </summary>
-    
-  </entry>
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
   
-  <entry>
-    <title><![CDATA[旧版NGUI层级研究]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/%E6%97%A7%E7%89%88NGUI%E5%B1%82%E7%BA%A7%E7%A0%94%E7%A9%B6/"/>
-    <id>http://en.ors-sro.com/2016/04/03/旧版NGUI层级研究/</id>
-    <published>2016-04-03T07:29:51.000Z</published>
-    <updated>2016-04-03T07:30:19.305Z</updated>
-    <content type="html"><![CDATA[<p>换新版NGUI了。所以就不研究了呃呃呃</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>换新版NGUI了。所以就不研究了呃呃呃</p>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Optional学习笔记]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Optional%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Optional学习笔记/</id>
-    <published>2016-04-03T07:27:04.000Z</published>
-    <updated>2016-04-03T07:27:34.496Z</updated>
-    <content type="html"><![CDATA[<p>学习到一半就玩游戏去了，然后就没然后了</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>学习到一半就玩游戏去了，然后就没然后了</p>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Monad学习笔记]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Monad%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Monad学习笔记/</id>
-    <published>2016-04-03T07:25:56.000Z</published>
-    <updated>2016-04-04T08:55:39.994Z</updated>
-    <content type="html"><![CDATA[<p>都说不要写Monad教程了。所以下面就没有了= =</p>
-<a id="more"></a>
-<h2 id="Monad是什么">Monad是什么</h2><blockquote>
-<p>Monad不就是幺半群上的自函子么？    —— wadler</p>
-</blockquote>
-<p>这是将Monad引入Haskell的人对Monad的解释。没有范畴论基础的人估计听了也是一知半解。其实Monad是一种特殊的函数，并没有看上去那么复杂。有栗子为证。</p>
-<h3 id="大写的数字">大写的数字</h3><p>在金融业中填写金额时通常会用到大写的数字，如<code>壹</code>、<code>贰</code>、<code>叁</code>、<code>肆</code>、<code>伍</code>、<code>陆</code>、<code>柒</code>、<code>捌</code>、<code>玖</code>等。分别对应阿拉伯数字中的1到9。现在需求是编写程序实现大写数字的相加。例如<code>壹 + 壹 = 贰</code>。这个需求不难，只需要转化成数字运算把结果转化成大写数字即可。但在这个简单的例子中就有Monad的存在。</p>
-<h3 id="需求分析">需求分析</h3><p>目前有两个集合，一个<strong>整数</strong>集合，一个<strong>大写整数</strong>集合。所以需要一个函数把<strong>整数</strong>转化成<strong>大写整数</strong>，其实就是数学上的映射，<strong>整数</strong> -&gt; <strong>大写整数</strong>。把<strong>整数</strong>集合按照一定的规则映射到<strong>大写整数</strong>集合。<br>同时还需要一个函数把<strong>大写整数</strong>集合映射到<strong>整数</strong>集合。映射的规则是很明显的</p>
-<blockquote>
-<p>1 ⇔ 壹<br>2 ⇔ 贰<br>3 ⇔ 叁<br>…<br>9 ⇔ 玖</p>
-</blockquote>
-<h3 id="码代码">码代码</h3><p>映射关系很自然就联想到使用<code>Map</code>这种数据结构。以<code>C#</code>为例，<code>Map</code>在<code>C#</code>中的实现是<code>Dictionary</code>。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Public Const Dictionary&lt;<span class="keyword">int</span>,<span class="keyword">string</span>&gt; digit2CapDigit = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">int</span>,<span class="keyword">string</span>&gt;()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="number">1</span>,壹</span><br><span class="line">	<span class="number">2</span>,贰</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>编写<strong>整数</strong>集合映射为<strong>大写整数</strong>集合的函数<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Public <span class="keyword">string</span> <span class="title">ToCap</span>(<span class="params"><span class="keyword">int</span> digit</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="comment">//if digit between 0~9</span></span><br><span class="line">	<span class="keyword">return</span> digit2CapDigit[digit];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>编写这样一个神奇的函数，他有两个参数。第一个参数是<strong>大写整数</strong>，第二个参数是一个接收<strong>整数</strong>返回<strong>大写整数</strong>的函数。最后这个神奇的函数返回<strong>大写整数</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Public <span class="keyword">string</span> <span class="title">MagicFunc</span>(<span class="params"><span class="keyword">string</span> caps,Func&lt;<span class="keyword">int</span>,<span class="keyword">string</span>&gt; func</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> func(ToInt(Caps));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>为了应用这个神奇的函数，需要传递一个函数作为第二个参数。现在编写一个函数，能够将输入的<strong>整数</strong>加一并返回对应的<strong>大写整数</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Public <span class="keyword">string</span> <span class="title">Plus</span>(<span class="params"><span class="keyword">int</span> digit,<span class="keyword">string</span> caps</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> ToCap(digit + ToInt(Caps));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>现在计算<code>壹 + 壹</code>可以这么来<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MagicFun(<span class="string">"壹"</span>,Plus(ToInt(<span class="string">"壹"</span>)));</span><br></pre></td></tr></table></figure></p>
-<h2 id="为什么要用Monad">为什么要用Monad</h2><h2 id="怎么用Monad">怎么用Monad</h2>]]></content>
-    <summary type="html">
-    <![CDATA[<p>都说不要写Monad教程了。所以下面就没有了= =</p>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Chrome插件编写]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Chrome%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Chrome插件编写/</id>
-    <published>2016-04-03T07:25:00.000Z</published>
-    <updated>2016-04-03T07:25:19.611Z</updated>
-    <content type="html"><![CDATA[<p>这个坑就更大了哈哈哈</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>这个坑就更大了哈哈哈</p>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Unity图片压缩格式]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Unity%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Unity图片压缩格式/</id>
-    <published>2016-04-03T07:23:35.000Z</published>
-    <updated>2016-04-03T07:24:21.476Z</updated>
-    <content type="html"><![CDATA[<p>先挖坑，之后再填</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>先挖坑，之后再填</p>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[压缩博客图片]]></title>
-    <link href="http://en.ors-sro.com/2015/08/04/%E5%8E%8B%E7%BC%A9%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/"/>
-    <id>http://en.ors-sro.com/2015/08/04/压缩博客图片/</id>
-    <published>2015-08-04T13:56:42.000Z</published>
-    <updated>2015-08-04T14:44:51.671Z</updated>
-    <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>使用静态博客，空间的容量都是有一定的上限。通常情况下图片占据了空间的大部分。虽然说不要过早的优化。我也不知道能不能写到1G大小左右的博客（神奇的衡量方式- -）但当我发现<strong>PNG</strong>图片一般还有50%左右的空间可以压缩后就把持不住了。</p>
-<a id="more"></a>
-<h2 id="压缩工具">压缩工具</h2><p>目前两个比较好的<strong>PNG</strong>压缩工具有</p>
-<ol>
-<li><a href="https://tinypng.com/" target="_blank" rel="external">Tiny PNG</a></li>
-<li>PhotoShop</li>
-</ol>
-<p>我尝试使用了<strong>Tiny Png</strong>和<strong>PhotoShop</strong>压缩同一张图片。结果是<strong>PhotoShop</strong>费心费力压缩后还比不上<strong>Tiny PNG</strong>的简单粗暴的压缩。</p>
-<h2 id="压缩原理">压缩原理</h2><h2 id="后续">后续</h2><p>想为<strong>Hexo</strong>编写一个<strong>Tiny PNG</strong>的插件。但是最近实在是太忙了= =</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="起因">起因</h2><p>使用静态博客，空间的容量都是有一定的上限。通常情况下图片占据了空间的大部分。虽然说不要过早的优化。我也不知道能不能写到1G大小左右的博客（神奇的衡量方式- -）但当我发现<strong>PNG</strong>图片一般还有50%左右的空间可以压缩后就把持不住了。</p>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[yilia主题使用体验]]></title>
-    <link href="http://en.ors-sro.com/2015/07/27/yilia%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/"/>
-    <id>http://en.ors-sro.com/2015/07/27/yilia主题使用体验/</id>
-    <published>2015-07-27T12:58:39.000Z</published>
-    <updated>2015-07-27T13:36:55.496Z</updated>
-    <content type="html"><![CDATA[<p><strong>yilia</strong>主题结合了<strong>pacman</strong>和常见的平板式主题。界面清爽简洁。在使用过程中，我发现了一些作者没有公布的接口因此针对自身的情况对主题进行了修改。</p>
-<a id="more"></a>
-<h2 id="yilia主题现存问题">yilia主题现存问题</h2><p>虽然作者说<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">不会支持低版本的IE</a>，但在我电脑上<strong>IE11</strong>打开时整个排版全都乱了。调出控制台查看发现是渲染引擎的问题。默认的渲染引擎被降到了<strong>IE7</strong>,经过测试<strong>yilia</strong>主题至少需要<strong>IE9</strong>排版才不会乱。问题的关键是这个现象只在我的电脑上出现。朋友的电脑的<strong>IE11</strong>访问排版并不会乱。我查看了一下默认的渲染引擎是<strong>Edge</strong>。我也不清楚是怎么回事，所以只好自己修改主题，加上强制使用<strong>IE9</strong>渲染引擎的代码。添加到了<code>\yilia\layout\_partial\head.ejs</code>文件下。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"x-ua-compatible"</span> <span class="attribute">content</span>=<span class="value">"IE=9"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>重启电脑后一切都好了。</p>
-<h2 id="小坑">小坑</h2><ol>
-<li><p>多说ID<br> 我原以为<strong>多说ID</strong>应在是写在整个网站的配置文件<strong>_config.yaml</strong>中，但我仔细查看了yilia主题的配置发现<code>duoshuo: true</code>应该是没问题的。但是却出现了别人的评论。我去了主题作者的博客发现也有人遇到这个问题。后来我查看了多说的<strong>JS</strong>代码才发现。原来多说的ID被设置成了<strong>true</strong>。虽然作者有在主题文件中提示改为<strong>duoshuo key</strong>但是下面的值是<strong>true</strong>太容易误导了。作者应该这么改比较好。</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&#26159;&#21542;&#24320;&#21551;&#22810;&#35828;&#35780;&#35770;&#65292;&#22635;&#20889;&#20320;&#22312;&#22810;&#35828;&#30003;&#35831;&#30340;&#39033;&#30446;&#21517;&#31216; duoshuo: duoshuo-key&#10;#&#33509;&#20351;&#29992;disqus&#65292;&#35831;&#22312;&#21338;&#23458;config&#25991;&#20214;&#20013;&#22635;&#20889;disqus_shortname&#65292;&#24182;&#20851;&#38381;&#22810;&#35828;&#35780;&#35770;&#10;duoshuo: your-duoshuo-key #&#60;-&#36825;&#37324;&#36755;&#20837;&#20320;&#30340;&#22810;&#35828;ID</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>站长昵称没有中文字体<br> 网站头像下面就是站长昵称。主题作者的昵称是英文的所以看不出来问题。但我的是中文的，很容易看出来因为没有指定中文字体，而被默认设为了宋体。非常难看。这里我本来想修改他的类加上<code>font-family:&#39;MicroSoft YaHei&#39;</code>但尝试了几种方案都没有奏效。只好直接加行内样式了。解决方案如下。打开<code>themes\yilia\layout\_partial\left-col.ejs</code>找到<code>&lt;hgroup&gt;</code>标签。改为以下代码。</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">hgroup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"header-author"</span> <span class="attribute">style</span>=<span class="value">"font-family: 'MicroSoft YaHei'"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"/"</span>&gt;</span><span class="tag">&lt;<span class="title">%=theme.author%</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">hgroup</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>头像的圆形遮罩<br> 我把头像换了之后发现两边居然还有蓝色的背景。最后决定将头像的背景颜色改为我头像自带的背景颜色。</p>
-</li>
-</ol>
-<h2 id="隐藏参数">隐藏参数</h2><p>有些参数作者并没有在<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">主题介绍页</a>中说明，但我观察作者的博客发现了这些特性的存在。</p>
-<ol>
-<li><p>博客介绍<br> 头像下面还可以有一行文字用于介绍博客。对应的参数是</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#subtitle&#10;subtitle: &#21548;&#35828;&#25302;&#38795;&#25165;&#26159;&#26412;&#20307;</span><br></pre></td></tr></table></figure>
-<p> 只需要将这个参数添加到主题的<strong>_config.yaml</strong>中即可。</p>
-</li>
-<li><p>其他<br> 其他小的想不起来了。改天再来填坑吧。（根本不可能好吗，之前的坑还没填呢！再摔！）</p>
-</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><strong>yilia</strong>主题结合了<strong>pacman</strong>和常见的平板式主题。界面清爽简洁。在使用过程中，我发现了一些作者没有公布的接口因此针对自身的情况对主题进行了修改。</p>]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://en.ors-sro.com/tags/Hexo/"/>
-    
-      <category term="yilia" scheme="http://en.ors-sro.com/tags/yilia/"/>
-    
-      <category term="主题" scheme="http://en.ors-sro.com/tags/%E4%B8%BB%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[MDL+AngularJS制作TodoList]]></title>
-    <link href="http://en.ors-sro.com/2015/07/27/MDL-AngularJS%E5%88%B6%E4%BD%9CTodoList/"/>
-    <id>http://en.ors-sro.com/2015/07/27/MDL-AngularJS制作TodoList/</id>
-    <published>2015-07-27T12:44:29.000Z</published>
-    <updated>2016-04-03T06:58:18.687Z</updated>
-    <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>
-<a id="more"></a>
-<h2 id="框架简介">框架简介</h2><h3 id="Material_Design_Lite(MDL)">Material Design Lite(MDL)</h3><p><a href="http://www.getmdl.io/" target="_blank" rel="external"><strong>Material Design Lite</strong></a>是<strong>Google</strong>推出的一个<strong>CSS</strong>框架，作用类似于<strong>Bootstrap</strong>，用于快速开发出符合<strong>Material Design</strong>风格的网页。</p>
-<h3 id="AngularJS">AngularJS</h3><p><a href="https://angularjs.org/" target="_blank" rel="external"><strong>AngularJS</strong></a>是<strong>Google</strong>推出的一个<strong>JS</strong>框架，用于制作网页应用。其特点是<strong>双向数据绑定</strong>，<strong>MVC</strong>等。</p>
-<h2 id="需求定义">需求定义</h2><p>这个<strong>清单</strong>（TodoList）需求很简单。只需要能够记录待办事项即可。稍微详细的需求如下</p>
-<ol>
-<li>支持输入待办事项</li>
-<li>支持标记待办事项为完成</li>
-<li>支持储存。关闭网页后再打开待办事项还在</li>
-<li>拥有良好的交互界面</li>
-</ol>
-<h2 id="实现">实现</h2><h3 id="实现思路">实现思路</h3><p>其实完全可以用纯<strong>HTML</strong>和<strong>jQuery</strong>来制作。甚至不需要<strong>jQuery</strong>只需要原生<strong>JS</strong>。整个页面只需要有一个输入框，一个确定按钮，一个列表(无序列表<code>&lt;ul&gt;</code>或有序列表<code>&lt;ol&gt;</code>均可)。使用<strong>jQuery</strong>来做就是一个操纵<strong>DOM</strong>的过程。而使用<strong>AngularJS</strong>框架的<strong>双向数据绑定</strong>功能就不需要操纵<strong>DOM</strong>，只需要关注逻辑，修改数据存储的变量即可。</p>
-<h3 id="获取Material_Design_Lite">获取Material Design Lite</h3><p>打开<a href="http://www.getmdl.io/started/index.html" target="_blank" rel="external">Material Design Lite的起步页面</a>，选择获取方式。因为国内连接比较慢，所以我选择了下载的方式。</p>
-<h3 id="获取AngularJS">获取AngularJS</h3><p>打开<a href="https://angularjs.org/" target="_blank" rel="external">AngularJS</a>的主页，点击<strong>Download</strong>，因为要开发所以选择<strong>Uncompressed</strong>不压缩版。</p>
-<h3 id="第一版">第一版</h3><p>工程的目录结构如下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">F:\</span><br><span class="line">├─MDL</span><br><span class="line">│  └─material.css</span><br><span class="line">├─AngularJS</span><br><span class="line">│  └─angular.js</span><br><span class="line">└─TodoList</span><br><span class="line">   └─TodoList.html</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>引入<strong>MDL</strong>和<strong>AngularJS</strong><br> 通过<code>&lt;script&gt;</code>标签和<code>&lt;link&gt;</code>标签在<code>&lt;head&gt;</code>引入即可</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"../MDL/material.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../MDL/material.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../AngularJS/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>搭建<strong>AngularJS</strong>的Hello World<br> 因为会写一些<strong>AngularJS</strong>代码。所以我们在TodoList文件夹下新建一个<strong>Javascript</strong>文件，名称是<strong>todolist.js</strong>。输入以下代码</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> todoList = angular.module(<span class="string">'todo-list'</span>,[]);</span><br></pre></td></tr></table></figure>
-<p> 在TodoList.html中的<code>&lt;html&gt;</code>标签加入属性<code>ng-app</code>，在<code>&lt;body&gt;</code>中添加以下代码。</p>
- <figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ng-model</span>=<span class="value">"helloworld"</span>&gt;</span><span class="tag">&lt;<span class="title">button</span>&gt;</span>DO IT<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Hello,</span><span class="expression">&#123;&#123;<span class="variable">helloworld</span>&#125;&#125;</span><span class="xml"> !<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="第一版测试">第一版测试</h3><p>运行发现输入什么就会显示什么。没有使用任何<strong>Javascript</strong>代码就实现了输入的数据同步到<strong>helloworld</strong>这个变量（暂且这么认为），<strong>helloworld</strong>变量的改变有同步到了引用它的地方这一个双向的过程。</p>
-<p>目前的问题有</p>
-<ol>
-<li>没有实现记事功能</li>
-<li>太丑</li>
-</ol>
-<h3 id="第二版">第二版</h3><p><strong>Hello World</strong>搭建完毕后，接下来就是引入<strong>Material Design Lite</strong>的样式。首先我们需要一个<strong>输入框</strong>和<strong>按钮</strong>的样式，还有一个<strong>列表</strong>的样式。<strong>按钮</strong>的样式可以在<a href="http://www.getmdl.io/components/index.html#buttons-section" target="_blank" rel="external">Material Design Lite的按钮组件</a>页面获取。这里选择了带<strong>ripple</strong>的按钮，样式如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"</span>&gt;</span></span><br><span class="line">  Button</span><br><span class="line"><span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>输入框</strong>的样式可以在<a href="http://www.getmdl.io/components/index.html#textfields-section" target="_blank" rel="external">Material Design Lite的输入框组件</a>页面获取。这里选择了简单的输入框。样式如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Simple Textfield --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield mdl-js-textfield textfield-demo"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__input"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"sample1"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">label</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__label"</span> <span class="attribute">for</span>=<span class="value">"sample1"</span>&gt;</span>Text...<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>列表</strong>的样式可以在<a href="http://www.getmdl.io/components/index.html#tables-section" target="_blank" rel="external">Material Design Lite的表格组件</a>页面获取。这里是因为看起来差不多才选择了表格组件。样式如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">th</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Material<span class="tag">&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">th</span>&gt;</span>Quantity<span class="tag">&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">th</span>&gt;</span>Unit price<span class="tag">&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">thead</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Acrylic (Transparent)<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>25<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>$2.90<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Plywood (Birch)<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>50<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>$1.25<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Laminate (Gold on Blue)<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>10<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>$2.35<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>将代码整合一下。完整的代码如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>待办事项<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"../MDL/material.min.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../MDL/material.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../AngularJS/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>待办事项<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">form</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield mdl-js-textfield textfield-demo"</span>&gt;</span></span><br><span class="line">  	  <span class="tag">&lt;<span class="title">input</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__input"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"sample1"</span> <span class="attribute">ng-model</span>=<span class="value">"helloworld"</span> /&gt;</span></span><br><span class="line">  	  <span class="tag">&lt;<span class="title">label</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__label"</span> <span class="attribute">for</span>=<span class="value">"sample1"</span>&gt;</span>想做啥？<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"</span>&gt;</span>DO IT<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tbody</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">td</span>&gt;</span>Hello, &#123;&#123; helloworld &#125;&#125;!<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tbody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="第二版测试">第二版测试</h3><p>虽然还是很丑，但是基本的外观还是有的。现在的主要问题有</p>
-<ol>
-<li>没有实现记事功能</li>
-<li><del>太丑</del></li>
-<li>丑</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>]]>
-    
-    </summary>
-    
-      <category term="AngularJS" scheme="http://en.ors-sro.com/tags/AngularJS/"/>
-    
-      <category term="Material Design Lite" scheme="http://en.ors-sro.com/tags/Material-Design-Lite/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[hexo多平台部署遇到的一个坑]]></title>
-    <link href="http://en.ors-sro.com/2015/07/25/hexo%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/"/>
-    <id>http://en.ors-sro.com/2015/07/25/hexo多平台部署遇到的一个坑/</id>
-    <published>2015-07-25T12:56:06.000Z</published>
-    <updated>2015-07-27T12:39:40.815Z</updated>
-    <content type="html"><![CDATA[<p>在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;           ^</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>尝试了各种解决方案</p>
-<ol>
-<li><p>方案一<br> 在repo:冒号后面加一个空格变成</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: #&#60;-&#65283;&#21069;&#38754;&#26377;&#19968;&#20010;&#31354;&#26684; &#10;   github: git@github.com:rtafip/rtafip.github.io.git&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
-<p> 还是报相同的错误</p>
-</li>
-<li><p>方案二<br> 将repo:git@github.com:rtafip/rtafip.github.io.git使用双引号包住</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: &#10;   github: &#34;git@github.com:rtafip/rtafip.github.io.git&#34;&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
-<p> 还是提示相同的问题</p>
-</li>
-</ol>
-<p>……<br>……<br>……</p>
-<p>最后要都要抓狂了才找到解决方案<br>原来的代码是这样的<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;   repo:  &#10;    github: git@github.com:rtafip/rtafip.github.io.git&#10;    gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure></p>
-<p>最后的代码是这样的<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;  repo:  &#10;    github: git@github.com:rtafip/rtafip.github.io.git&#10;    gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure></p>
-<p>看出区别了吗？</p>
-<p>原来只是repo前面多了一个空格！！！</p>
-<p>YAML真是一种脆弱的格式！多一个空格不行，少一个空格不行，空格位置不对不行。而且我也不知道怎么把这个空格引进来的。最重要是提示的位置不对啊。提示的是冒号后面啊。应该这么提示才对</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;      ^</span><br></pre></td></tr></table></figure>
-<p>替我问候写这个分析工具的人母亲。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;           ^</span><br></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://en.ors-sro.com/tags/Hexo/"/>
-    
-      <category term="YAML" scheme="http://en.ors-sro.com/tags/YAML/"/>
-    
-      <category term="多平台部署" scheme="http://en.ors-sro.com/tags/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[hexo3.0迁移]]></title>
-    <link href="http://en.ors-sro.com/2015/07/25/hexo3-0%E8%BF%81%E7%A7%BB/"/>
-    <id>http://en.ors-sro.com/2015/07/25/hexo3-0迁移/</id>
-    <published>2015-07-25T12:55:45.000Z</published>
-    <updated>2015-07-26T15:44:23.299Z</updated>
-    <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>因为折腾多平台部署，以为是<code>hexo</code>版本过低，所以升级了<code>hexo</code>到了3.0版本。结果却发现<code>hexo d</code>和<code>hexo g</code>等命令都失效了。运行会有类似提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Commands:&#10;  help     Get help on Hexo.&#10;  init     Create a new Hexo folder.&#10;  version  Display version information.&#10;&#10;Global Options:&#10;  --config  Specify config file instead of using _config.yml&#10;  --cwd     Specify the CWD&#10;  --debug   Display all verbose messages in the terminal&#10;  --safe    Disable all plugins and scripts&#10;  --silent  Hide output on console&#10;&#10;For more help, you can use &#39;hexo help [command]&#39; for the detailed information&#10;or you can check the docs: http://hexo.io/docs/</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="尝试官方迁移方案">尝试官方迁移方案</h2><p>由<strong>Hexo2.X</strong> —&gt; <strong>Hexo3.0</strong>，官方给出了具体的<a href="https://github.com/hexojs/hexo/wiki/Migrating-from-2.x-to-3.0" target="_blank" rel="external">升级方案</a>。</p>
-<p>但是我在升级的时候遇到了几个问题</p>
-<ol>
-<li>连接<strong>npm</strong>速度慢</li>
-<li>安装<strong>Hexo</strong>其他插件位置不当</li>
-</ol>
-<p>之后我放弃了官方的解决方案。自己尝试从头开始</p>
-<h2 id="自己的解决方案">自己的解决方案</h2><p>从头开始并不是把之前的博文都删掉。而是重新建立一个文件夹，运行<code>hexo init</code>后将原来的文章和<strong>.git</strong>文件复制过来。</p>
-<ol>
-<li><p>切换淘宝npm镜像<br> 连接<strong>npm</strong>国外镜像速度太慢，解决方案是切换<strong>npm</strong>的镜像。在<strong>npm</strong>的目录下找到<strong>.npmrc</strong>添加以下代码</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registry = https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装Hexo命令行</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>&gt;<span class="title">npm</span> <span class="title">install</span> <span class="title">hexo</span>-<span class="title">cli</span> -<span class="title">g</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新建文件夹<br> 这里为文件夹的名字为test</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>&gt;<span class="title">F</span>:</span><br><span class="line"></span><br><span class="line"><span class="title">F</span>:\&gt;<span class="title">mkdir</span> <span class="title">test</span></span><br><span class="line"></span><br><span class="line"><span class="title">F</span>:\&gt;<span class="title">cd</span> <span class="title">test</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化目录<br> 使用<code>hexo init</code>初始化目录即可</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">F:\<span class="title">test</span>&gt;<span class="title">hexo</span> <span class="title">init</span></span></span><br></pre></td></tr></table></figure>
-<p> 初始化成功后会有类似提示</p>
-<blockquote>
-<p>INFO  Copying data to F:\test<br>INFO  You are almost done! Don’t forget to run ‘npm install’ before you start bl<br>ogging with Hexo!</p>
-</blockquote>
-</li>
-<li><p>安装相应的插件<br> Hexo3.0最大的变化是将很多原来的功能都独立成了插件。这里的插件有文章生成插件，部署插件等。根据上面的提示使用<code>npm install</code>即可。</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">F:\<span class="title">test</span>&gt;<span class="title">npm</span> <span class="title">install</span></span></span><br></pre></td></tr></table></figure>
-<p> 等待一段时间后，所有插件会自动下载完毕。如果出现一下类似提示请重新运行<code>npm install</code>直至不再提示</p>
-<blockquote>
-<p>npm ERR! registry error parsing json</p>
-</blockquote>
-<p> <code>npm install</code>完成后<strong>node_modules</strong>的文件夹结构应该是这样的。</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">├─hexo</span><br><span class="line">│</span><br><span class="line">├─hexo-generator-archive</span><br><span class="line">│</span><br><span class="line">├─hexo-generator-category</span><br><span class="line">│</span><br><span class="line">├─hexo-generator-index</span><br><span class="line">│</span><br><span class="line">├─hexo-generator-tag</span><br><span class="line">│</span><br><span class="line">├─hexo-renderer-ejs</span><br><span class="line">│</span><br><span class="line">├─hexo-renderer-marked</span><br><span class="line">│</span><br><span class="line">├─hexo-renderer-stylus</span><br><span class="line">│</span><br><span class="line">└─hexo-server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>复制原来的文章和主题当前文件夹<br> 如果你有使用git管理整个网站的习惯还可以将原来的<strong>.git</strong>文件夹复制过来。但是请不要直接将原来的<strong>_config.yaml</strong>复制过来。而是<strong>用到的</strong>内容才复制</p>
-</li>
-<li><p>生成静态文件和运行博客</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">F:\<span class="title">test</span>&gt;<span class="title">hexo</span> <span class="title">g</span></span></span><br></pre></td></tr></table></figure>
-<p> 运行完成，生成网页成功以下类似提示</p>
-<blockquote>
-<p>INFO  Files loaded in 3.6 s<br>INFO  Generated: js/script.js<br>INFO  Generated: fancybox/jquery.fancybox.pack.js<br>INFO  Generated: fancybox/jquery.fancybox.js<br>…<br>INFO  Generated: archives/2015/index.html<br>INFO  Generated: archives/2015/07/index.html<br>INFO  Generated: index.html<br>INFO  28 files generated in 1.32 s</p>
-</blockquote>
-<p> 使用<code>hexo s</code>运行博客</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">F:\<span class="title">test</span>&gt;<span class="title">hexo</span> <span class="title">s</span></span></span><br></pre></td></tr></table></figure>
-<p> 运行成功有以下类似提示</p>
-<blockquote>
-<p>INFO  Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.</p>
-</blockquote>
-<p> 使用浏览器打开<code>http://localhost:4000</code>查看博客。<strong>Hello World Again！</strong></p>
-<p> 如果运行<code>hexo s</code>出现<code>hexo</code>的帮助页面。也就是类似下面的提示</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Usage: hexo &#60;command&#62;&#10;&#10;Commands:&#10;  clean     Removed generated files and cache.&#10;  config    Get or set configurations.&#10;  deploy    Deploy your website.&#10;  generate  Generate static files.&#10;  help      Get help on a command.&#10;  init      Create a new Hexo folder.&#10;  list      List the information of the site&#10;  migrate   Migrate your site from other system to Hexo.&#10;  new       Create a new post.&#10;  publish   Moves a draft post from _drafts to _posts folder.&#10;  render    Render files with renderer plugins.&#10;  version   Display version information.&#10;&#10;Global Options:&#10;  --config  Specify config file instead of using _config.yml&#10;  --cwd     Specify the CWD&#10;  --debug   Display all verbose messages in the terminal&#10;  --draft   Display draft posts&#10;  --safe    Disable all plugins and scripts&#10;  --silent  Hide output on console&#10;&#10;For more help, you can use &#39;hexo help [command]&#39; for the detailed information&#10;or you can check the docs: http://hexo.io/docs/</span><br></pre></td></tr></table></figure>
-<p> 请使用<code>npm install hexo-server --save</code>安装<code>hexo</code>服务器。</p>
-<p> 类似的如果运行命令没有得到应有的效果。请安装对应的插件。以下是一些常用的插件列表安装命令</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save @安装hexo 服务器</span><br><span class="line">npm install hexo-deployer-git --save @安装hexo git部署插件</span><br><span class="line">npm install hexo-deployer-heroku --save @安装hexo heroku 部署插件</span><br><span class="line">npm install hexo-deployer-rsync --save @安装hexo同步插件</span><br><span class="line">npm install hexo-deployer-openshift --save @不知道什么鬼</span><br><span class="line">npm install hexo-renderer-marked@<span class="number">0</span>.<span class="number">2</span> --save @安装hexo markdown渲染插件</span><br><span class="line">npm install hexo-renderer-stylus@<span class="number">0</span>.<span class="number">2</span> --save @安装hexo 模板插件</span><br><span class="line">npm install hexo-generator-feed@<span class="number">1</span> --save @安装hexo RSS插件</span><br><span class="line">npm install hexo-generator-sitemap@<span class="number">1</span> --save @安装hexo站点地图插件</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="起因">起因</h2><p>因为折腾多平台部署，以为是<code>hexo</code>版本过低，所以升级了<code>hexo</code>到了3.0版本。结果却发现<code>hexo d</code>和<code>hexo g</code>等命令都失效了。运行会有类似提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Commands:&#10;  help     Get help on Hexo.&#10;  init     Create a new Hexo folder.&#10;  version  Display version information.&#10;&#10;Global Options:&#10;  --config  Specify config file instead of using _config.yml&#10;  --cwd     Specify the CWD&#10;  --debug   Display all verbose messages in the terminal&#10;  --safe    Disable all plugins and scripts&#10;  --silent  Hide output on console&#10;&#10;For more help, you can use &#39;hexo help [command]&#39; for the detailed information&#10;or you can check the docs: http://hexo.io/docs/</span><br></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://en.ors-sro.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[chatwork插件]]></title>
-    <link href="http://en.ors-sro.com/2015/07/19/chatwork%E6%8F%92%E4%BB%B6/"/>
-    <id>http://en.ors-sro.com/2015/07/19/chatwork插件/</id>
-    <published>2015-07-19T05:16:36.000Z</published>
-    <updated>2015-07-28T15:00:56.522Z</updated>
-    <content type="html"><![CDATA[<h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>
-<h2 id="编写插件的原因">编写插件的原因</h2><p>因为<a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。</p>
-<h2 id="技术思路">技术思路</h2><p>插件的功能是有新消息到来时，提醒用户。</p>
-<p>提醒方式还没有确定。</p>
-<p>新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。</p>
-<p>所以可以通过检测页面结构<a href="http://www.w3.org/DOM/" target="_blank" rel="external">(DOM)</a>是否改变。如果改变则执行提醒函数即可。</p>
-<a id="more"></a>
-<h3 id="第一版">第一版</h3><p>先给页面挂事件。通过google查找到页面改变对应的事件名是<code>DOMSubtreeModified</code>，在控制带中输入<code>$</code>发现<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>有使用<code>jQuery</code>。那么事情就简单了。直接使用<code>jQuery</code>添加事件即可。代码如下。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".chatTimeLine"</span>).bind(<span class="string">"DOMSubtreeModified"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"tree changed"</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="测试">测试</h4><p>经过测试新消息到来时能够弹出提示框</p>
-<h4 id="缺点">缺点</h4><p>因为监听的是事件改动，所以对于新消息来的这个需求吻合得不够。目前有一下缺点。</p>
-<ol>
-<li>页面其他变动也会有提示</li>
-<li>一个新消息多次弹窗</li>
-<li>提醒的方式不够友好</li>
-</ol>
-<h3 id="第二版">第二版</h3><p>第一版中使用了<code>DOMSubtreeModified</code>事件，这个事件范围太广，来一次消息往往会多次改变DOM子节点，所以再次Google找到了新的事件监听方案——使用<code>MutationObserver</code></p>
-<blockquote>
-<p>MutationObserver给开发者们提供了一种能在某个范围内的DOM树发生变化时作出适当反应的能力.该API设计用来替换掉在DOM3事件规范中引入的Mutation事件 ——<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver" target="_blank" rel="external">Mozilla Develop</a></p>
-</blockquote>
-<p>使用<code>MutationObserver</code>有几个步骤</p>
-<ol>
-<li><p>编写回调函数<br> 在发生相应的事件时就会调用回调函数，代码如下</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">observer = <span class="keyword">new</span> (</span><br><span class="line"><span class="built_in">window</span>.MutationObserver ||<span class="built_in">window</span>.WebKitMutationObserver)(<span class="function"><span class="keyword">function</span>(<span class="params">mutationRecord,observer</span>)</span>&#123;</span><br><span class="line">     mutationRecord.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(mutation)</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
-<p> 其中<code>mutationRecord</code>和<code>observer</code>是调用回调函数时浏览器传入的参数。</p>
-</li>
-<li><p>注册事件监听<br> 向浏览器注册要监听的事件。</p>
-<blockquote>
-<p>注:  childList, attributes, 或者characterData三个属性中必须至少有一个为true.否则,会抛出异常”An invalid or illegal string was specified”.<br> 这里选择<code>childList</code>作为监听事件。因为来新消息的时候，DOM必定会增加子节点，所以<code>childList</code>必定会改变。相应的代码如下所示</p>
-</blockquote>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target = $(<span class="string">".chatTimeLine"</span>)[<span class="number">0</span>]</span><br><span class="line">config = &#123;childList:<span class="literal">true</span>&#125;</span><br><span class="line">observer.observe(target,config);</span><br></pre></td></tr></table></figure>
-<p> 其中<code>target</code>必须是DOM对象。所以使用取数组元素的方式将<code>jQuery</code>对象转换为<code>DOMObject</code>。</p>
-</li>
-</ol>
-<h4 id="测试-1">测试</h4><p>从控制台中看到返回两个<code>Mutation</code>，其中包含了每个改变的节点。</p>
-<h4 id="缺点-1">缺点</h4><p>换用了<code>MutationObserver</code>后，缩小了监控范围。使得事件更贴切需求。</p>
-<ol>
-<li><del>页面其他变动也会有提示</del></li>
-<li>一个新消息<strong>两</strong>次弹窗</li>
-<li>提醒的方式不够友好</li>
-</ol>
-<h3 id="第三版">第三版</h3><p>事件部分已经基本解决。接下来要解决提示部分。弹框实在是太不友好了。这里想到了HTML5的新特性之一桌面通知</p>
-<p>桌面通知的效果是这样的。</p>
-<p>先找到桌面通知的相关文档来学习使用桌面通知</p>
-<blockquote>
-<p>Notification 对象使用来为用户设置和显示桌面通知。——<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification" target="_blank" rel="external">Mozilla Develop</a></p>
-</blockquote>
-<p>在使用通知前必须先申请权限，申请权限的代码如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.Notification.requestPermission()</span><br></pre></td></tr></table></figure>
-<p>实例代码如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">window</span>.Notification(<span class="string">"有新消息"</span>,&#123;body:<span class="string">"消息内容"</span>&#125;)</span><br></pre></td></tr></table></figure>
-<p>提醒的标题可以改为说话者，消息内容既是接受到的内容。所以现在要获取消息的说话者和消息内容。</p>
-<p>通过使用<code>jQuery</code>可以轻松的获取，通过观察DOM结构即可得到一下代码。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).last().find(<span class="string">"span"</span>).text();</span><br><span class="line"><span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br></pre></td></tr></table></figure>
-<p>与上面提示的代码结合，稍微修改后如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).last().find(<span class="string">"span"</span>).text();</span><br><span class="line">	<span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br><span class="line">	<span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;body:message&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observer = <span class="keyword">new</span> (<span class="built_in">window</span>.MutationObserver||<span class="built_in">window</span>.WebKitMutationObserver)(show)</span><br></pre></td></tr></table></figure>
-<h4 id="测试-2">测试</h4><p>这次弹出两次提示。原因是<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>网站消息机制。至此基本功能已经开发完毕。但还有一些问题待解决</p>
-<ol>
-<li><del>页面其他变动也会有提示</del></li>
-<li>一个新消息<strong>两</strong>次弹窗</li>
-<li><del>提醒的方式不够友好</del></li>
-<li>提示不会自动关闭</li>
-<li>提示信息不够完善</li>
-</ol>
-<h3 id="第四版">第四版</h3><p>接下来解决一些主要问题。</p>
-<ol>
-<li><p>一个新消息<strong>两次</strong>弹窗<br> 一开始尝试了将提醒函数设定为只运行一次。之后发现只有第一次来消息时提示。后面就没有提示了。因为提醒函数运行一次就不会运行第二次了。思考良久，没有找到比较好的解决方案。在<strong>Snatic</strong>的提醒下，恍然开悟。只需要判断这两次的内容是否相同即可。代码如下</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> avatarSpeaker = $(<span class="string">".avatarSpeaker"</span>).last().find(<span class="string">"img"</span>).attr(<span class="string">"src"</span>);<span class="comment">//说话者</span></span><br><span class="line"><span class="keyword">var</span> speakTime = $(<span class="string">".timeStamp"</span>).last().text();<span class="comment">//讲话时间</span></span><br><span class="line"><span class="keyword">if</span>(message === last[<span class="string">"message"</span>] &amp;&amp;  speakTime === last[<span class="string">"speakTime"</span>] &amp;&amp; chatName === last[<span class="string">"chatName"</span>])&#123;</span><br><span class="line">	<span class="comment">//什么事都不做</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	last[<span class="string">"message"</span>] = message</span><br><span class="line">	last[<span class="string">"speakTime"</span>] = speakTime</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提示不会自动关闭<br> 添加计时函数，三秒后关闭对话框即可。</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;body:message&#125;)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n.close();&#125;,<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提示信息不够完善<br> 提示信息的左边是空白的比较难看。所以根据<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification" target="_blank" rel="external">文档</a>稍加修改，添加说话人的头像，提醒代码修改如下。</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> avatarSpeaker = $(<span class="string">".avatarSpeaker"</span>).last().find(<span class="string">"img"</span>).attr(<span class="string">"src"</span>);</span><br><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;icon:avatarSpeaker,body:message&#125;)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n.close();&#125;,<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
-<p> 至此已经解决剩余的问题。目前功能较为完善。最终代码如下</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">window</span>.Notification.requestPermission()</span><br><span class="line">	last = []</span><br><span class="line">	last[<span class="string">"message"</span>] = <span class="string">"tuoxiedafahao"</span></span><br><span class="line">	last[<span class="string">"speakTime"</span>] = <span class="string">"15:21"</span></span><br><span class="line">	last[<span class="string">"chatName"</span>] = <span class="string">"tuoxiedang"</span></span><br><span class="line">	</span><br><span class="line">	show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> chatNameArray = $(<span class="string">".chatName"</span>);</span><br><span class="line">		<span class="keyword">var</span> i = chatNameArray.length;</span><br><span class="line">		<span class="keyword">while</span>(i--)&#123;</span><br><span class="line">			<span class="keyword">if</span>(chatNameArray.eq(i).text() !== <span class="string">""</span>) <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).eq(i).find(<span class="string">"span"</span>).text();</span><br><span class="line">		<span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br><span class="line">		<span class="keyword">var</span> avatarSpeaker = $(<span class="string">".avatarSpeaker"</span>).last().find(<span class="string">"img"</span>).attr(<span class="string">"src"</span>);</span><br><span class="line">		<span class="keyword">var</span> speakTime = $(<span class="string">".timeStamp"</span>).last().text();</span><br><span class="line">		<span class="keyword">var</span> myName = $(<span class="string">".myStatusName"</span>).text();</span><br><span class="line">		<span class="keyword">if</span>(message === last[<span class="string">"message"</span>] &amp;&amp;  speakTime === last[<span class="string">"speakTime"</span>] &amp;&amp; chatName === last[<span class="string">"chatName"</span>])&#123;</span><br><span class="line"></span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (myName === chatName)&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"you say it"</span>)</span><br><span class="line">		&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;icon:avatarSpeaker,body:message&#125;)</span><br><span class="line">			setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n.close();&#125;,<span class="number">3000</span>)</span><br><span class="line">			last[<span class="string">"message"</span>] = message</span><br><span class="line">			last[<span class="string">"speakTime"</span>] = speakTime</span><br><span class="line">			last[<span class="string">"chatName"</span>] = chatName</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	observer = <span class="keyword">new</span> (<span class="built_in">window</span>.MutationObserver||<span class="built_in">window</span>.WebKitMutationObserver)(show)</span><br><span class="line"></span><br><span class="line">	target = $(<span class="string">".chatTimeLine"</span>)[<span class="number">0</span>]</span><br><span class="line">	config = &#123;childList:<span class="literal">true</span>&#125;</span><br><span class="line">	observer.observe(target,config);</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="测试-3">测试</h3><p>效果跟一开始想法差不多。</p>
-<h2 id="后记">后记</h2><p>这篇文章在我插件完成两个星期后才写完。其中还有一些功能没有介绍就突然在最终代码里面出现了。改天有空再来填坑吧。(改天根本就不会想起来好吧！摔！)</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>
-<h2 id="编写插件的原因">编写插件的原因</h2><p>因为<a href="http://chatwork.com">Chatwork</a>新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。</p>
-<h2 id="技术思路">技术思路</h2><p>插件的功能是有新消息到来时，提醒用户。</p>
-<p>提醒方式还没有确定。</p>
-<p>新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。</p>
-<p>所以可以通过检测页面结构<a href="http://www.w3.org/DOM/">(DOM)</a>是否改变。如果改变则执行提醒函数即可。</p>]]>
-    
-    </summary>
-    
-      <category term="Chatwork" scheme="http://en.ors-sro.com/tags/Chatwork/"/>
-    
-      <category term="jQuery" scheme="http://en.ors-sro.com/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[改过之后的标题]]></title>
-    <link href="http://en.ors-sro.com/2014/11/14/%E6%A0%87%E9%A2%98%E9%83%BD%E6%94%B9%E4%BA%86/"/>
-    <id>http://en.ors-sro.com/2014/11/14/标题都改了/</id>
-    <published>2014-11-14T14:23:28.000Z</published>
-    <updated>2015-07-25T15:18:51.771Z</updated>
-    <content type="html"><![CDATA[<p>再加一个文件看一下两个分支同步是否如所设想的那样。</p>
-<p>这一行是新加的。测试一下怎么修改文章</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>再加一个文件看一下两个分支同步是否如所设想的那样。</p>
-<p>这一行是新加的。测试一下怎么修改文章</p>
-]]>
-    </summary>
-    
-      <category term="test" scheme="http://en.ors-sro.com/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[test2]]></title>
-    <link href="http://en.ors-sro.com/2014/11/14/test2/"/>
-    <id>http://en.ors-sro.com/2014/11/14/test2/</id>
-    <published>2014-11-14T05:13:29.000Z</published>
-    <updated>2015-07-25T15:18:47.234Z</updated>
-    <content type="html"><![CDATA[<p>那我再来试一试好了。写一个C语言的Hello World好了<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"hello world!"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>那我再来试一试好了。写一个C语言的Hello World好了<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span cla]]>
-    </summary>
-    
-      <category term="test" scheme="http://en.ors-sro.com/tags/test/"/>
-    
-  </entry>
-  
-</feed>
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'httporssrocom';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
