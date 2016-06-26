@@ -5,7 +5,7 @@
   <subtitle><![CDATA[听说拖鞋才是本体]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-06-26T09:06:29.744Z</updated>
+  <updated>2016-06-26T09:11:02.491Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://en.ors-sro.com/2016/06/13/Airbnb-es6-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
     <id>http://en.ors-sro.com/2016/06/13/Airbnb-es6-编码规范/</id>
     <published>2016-06-13T13:13:54.000Z</published>
-    <updated>2016-06-26T09:06:29.744Z</updated>
+    <updated>2016-06-26T09:11:02.491Z</updated>
     <content type="html"><![CDATA[<p>Airbnb JavaScript 的编码风格 原文地址: <a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb/JavaScript</a></p>
 <a id="more"></a>
 <p><strong>前言</strong></p>
@@ -405,7 +405,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="迭代器与生成器">迭代器与生成器</h2><p>  <a name="iterators--nope"></a><a name="11.1"></a></p>
+<h2 id="迭代器_与_生成器">迭代器 与 生成器</h2><p>  <a name="iterators--nope"></a><a name="11.1"></a></p>
 <ul>
 <li><p><a href="#iterators--nope">11.1</a> 请勿使用迭代器。请使用 JavaScript 的高阶函数像 <code>map()</code> 和 <code>reduce()</code> 而不是使用循环像 <code>for-of</code> 。 eslint: <a href="http://eslint.org/docs/rules/no-iterator.html" target="_blank" rel="external"><code>no-iterator</code></a></p>
 <blockquote>
@@ -772,7 +772,7 @@
 <li><a href="#es6-rest">Rest</a></li>
 <li><a href="#es6-array-spreads">数组扩散符</a></li>
 <li><a href="#引用">Let 和 Const</a></li>
-<li><a href="#迭代器与生成器">迭代器和生成器</a></li>
+<li><a href="#迭代器_与_生成器">迭代器和生成器</a></li>
 <li><a href="#模块">模块</a></li>
 </ol>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
