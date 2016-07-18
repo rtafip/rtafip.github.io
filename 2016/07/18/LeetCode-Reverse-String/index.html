@@ -1,0 +1,555 @@
+
+ <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>LeetCode -- Reverse String | 拖鞋党的拖鞋铺</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="rtafip">
+    
+
+    
+    <meta name="description" content="找不到工作，刷刷 Leetcode 来保持一下写代码的手感。从最简单的开始，也就是 Acceptance 最高的开始。目前接受率最高的是逆序字符串">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode -- Reverse String">
+<meta property="og:url" content="http://en.ors-sro.com/2016/07/18/LeetCode-Reverse-String/index.html">
+<meta property="og:site_name" content="拖鞋党的拖鞋铺">
+<meta property="og:description" content="找不到工作，刷刷 Leetcode 来保持一下写代码的手感。从最简单的开始，也就是 Acceptance 最高的开始。目前接受率最高的是逆序字符串">
+<meta property="og:updated_time" content="2016-07-18T09:43:56.043Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode -- Reverse String">
+<meta name="twitter:description" content="找不到工作，刷刷 Leetcode 来保持一下写代码的手感。从最简单的开始，也就是 Acceptance 最高的开始。目前接受率最高的是逆序字符串">
+
+    
+    <link rel="alternative" href="/atom.xml" title="拖鞋党的拖鞋铺" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/logo.png" alt="拖鞋党的拖鞋铺" title="拖鞋党的拖鞋铺"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="拖鞋党的拖鞋铺">拖鞋党的拖鞋铺</a></h1>
+				<h2 class="blog-motto">听说拖鞋才是本体</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:en.ors-sro.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/18/LeetCode-Reverse-String/" title="LeetCode -- Reverse String" itemprop="url">LeetCode -- Reverse String</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="rtafip" target="_blank" itemprop="author">rtafip</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-18T07:09:14.000Z" itemprop="datePublished"> Published 2016-07-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In_Haskell_Way"><span class="toc-number">2.</span> <span class="toc-text">In Haskell Way</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">2.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">2.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果"><span class="toc-number">2.3.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In_Tail_Recursion_Way"><span class="toc-number">3.</span> <span class="toc-text">In Tail Recursion Way</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">3.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-1"><span class="toc-number">3.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-1"><span class="toc-number">3.3.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In_Loop_Way"><span class="toc-number">4.</span> <span class="toc-text">In Loop Way</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">4.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-2"><span class="toc-number">4.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-2"><span class="toc-number">4.3.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In_Place_Way"><span class="toc-number">5.</span> <span class="toc-text">In Place Way</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">5.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-3"><span class="toc-number">5.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-3"><span class="toc-number">5.3.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+		
+		</div>
+		
+		<p>找不到工作，刷刷 Leetcode 来保持一下写代码的手感。从最简单的开始，也就是 Acceptance 最高的开始。目前接受率最高的是<a href="https://leetcode.com/problems/reverse-string/" target="_blank" rel="external">逆序字符串</a></p>
+<a id="more"></a>
+<h2 id="题目">题目</h2><blockquote>
+<p>编写一个函数能够逆序输出字符串<br><strong> 例子 </strong><br>给定 <code>s = &quot;hello&quot;</code> 返回 <code>olleh</code></p>
+</blockquote>
+<p>总的来说是一个很简单的题目。<code>CS</code> 的学生估计都做过这道练手题。</p>
+<h2 id="In_Haskell_Way">In Haskell Way</h2><h3 id="思路">思路</h3><p>看到这个题目就很自然的想到使用<strong>分治</strong>的思想。如果是空字符串则不需要逆序，直接返回即可。如果是长度为1的字符串</p>
+<ol>
+<li>如果是空字符串，不需要逆序，直接返回即可</li>
+<li>如果不是空字符串，将除了第一个字符外的子字符串逆序，之后拼接上第一个字符串即可。</li>
+</ol>
+<h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.length() == <span class="number">0</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> reverseString(s.substr(<span class="number">1</span>, s.length())) + s[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结果">结果</h3><p>在遇到超长字符时提示 <code>Memory Limit Exceeded</code> 。估计是因为递归的次数太多，调用次数太多而产生 <code>StackOverflow</code> （栈溢出）。所以下一步是要优化递归。通常的解决方案是将递归优化为<strong>尾递归</strong>。递归通常需要全部展开之后才能计算值。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"Hello"</span>)</span></span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"ello"</span>)</span></span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"llo"</span>)</span></span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">			<span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"lo"</span>)</span></span> + <span class="string">'l'</span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">				<span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">'o'</span>)</span></span> + <span class="string">'l'</span> + <span class="string">'l'</span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">				<span class="string">'o'</span> + <span class="string">'l'</span> + <span class="string">'l'</span> + <span class="string">'e'</span> + <span class="string">'H'</span> <span class="comment">// 完全展开 开始计算</span></span><br><span class="line"></span><br><span class="line">			<span class="string">"ol"</span> + <span class="string">'l'</span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">		<span class="string">"oll"</span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"olle"</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line"><span class="string">"olleH"</span></span><br></pre></td></tr></table></figure>
+<p>尾递归是将计算结果传递到下一次递归中。因此之前的任何信息都不需要保存了，清理栈中的参数和返回地址等。这样就不会出现 <code>StackOverflow</code> 。当然这一步是编译器做的优化工作。</p>
+<h2 id="In_Tail_Recursion_Way">In Tail Recursion Way</h2><h3 id="思路-1">思路</h3><p>尾递归需要把计算结果传递到下一次递归中。纯函数的唯一输入只有参数。所以需要通过传递参数的方式将计算结果传递。</p>
+<h3 id="代码-1">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseStringTailRecursion</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> result = "")</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> result;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> reverseStringTailRecursion(s.substr(<span class="number">1</span>, s.length()), s[<span class="number">0</span>] + result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> reverseStringTailRecursion(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结果-1">结果</h3><p>先来看一下尾递归版本的计算过程</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"Hello"</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">"Hello"</span>,<span class="string">""</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">"ello"</span>,<span class="string">'H'</span> + <span class="string">""</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">"llo"</span>,<span class="string">'e'</span> + <span class="string">'H'</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">"lo"</span>,<span class="string">'l'</span> + <span class="string">"eH"</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">'o'</span>,<span class="string">'l'</span> + <span class="string">"leH"</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">""</span>,<span class="string">'o'</span> + <span class="string">"lleH"</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="string">"olleH"</span></span><br></pre></td></tr></table></figure>
+<p>可以发现每一次的计算都与之前的函数不再有关系，只与参数有关。从形状上来看，普通递归是一个箭头型 <code>&gt;</code> 。而尾递归是一个直筒型 <code>≡</code> 。信心满满的提交。最后报错，错误和上次一样 <code>StackOverflow</code> 。 看来编译环境没有开启尾递归优化。只好另行他法。既然不允许递归，那就想办法消除递归。通过观察普通递归的计算过程发现其分为<strong>展开</strong>和<strong>计算</strong>两个阶段。展开阶段会栈溢出。所以想办法去掉展开阶段，转为普通的循环即可。观察计算的过程，发现是从尾部开始拼接字符串。那么循环从尾部开始即可。</p>
+<h2 id="In_Loop_Way">In Loop Way</h2><h3 id="思路-2">思路</h3><p>从尾部开始去字符串，一直拼接，拼接到字符串第一个字符。</p>
+<h3 id="代码-2">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> result = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">	&#123;</span><br><span class="line">		result += s[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结果-2">结果</h3><p>通过 476 个测试用例，用时 13ms 。超过 25.5% 的人（C++）。总算是通过了。不过似乎成绩不是很理想，居然连一半的人都没有超过。仔细想想还是有优化空间的。现在的时间复杂度是 <code>O(n)</code>, 空间复杂度是 <code>O(1)</code> 。看起来似乎是很优秀的数据。但是逆序的过程需要额外的一个字符串来承载结果。能否做成原地（In Place）的呢？答案是肯定的。</p>
+<h2 id="In_Place_Way">In Place Way</h2><h3 id="思路-3">思路</h3><p>交换首尾字符直至完成。</p>
+<h3 id="代码-3">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> j = s.length() - <span class="number">1</span>; <span class="comment">//s.length() 位置是 '\0'</span></span><br><span class="line">	<span class="keyword">while</span> (i &lt; j)</span><br><span class="line">	&#123;</span><br><span class="line">		swap(s[i++], s[j--]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结果-3">结果</h3><p>通过 476 个测试用例，用时 12ms 。超过 29% 的人（C++）。噗，只提升了 5% 。不知道前面的人是不是用了什么稀奇古怪的 <code>Hack</code> 。 尝试了传递参数时传递引用。发现时间没有变化。又尝试了其他方法，都没有什么效果。</p>
+<h2 id="总结">总结</h2><p>先是根据直觉写出递归的方式，然后优化为尾递归，发现编译环境没有做优化。于是改为循环，此时时间复杂度为 <code>O(n)</code> 。之后使用原地交换的方法将时间复杂度降为 <code>O(n/2)</code> 。最后还是没有找到更快的解决方案。如果有更快的方案，欢迎交流。</p>
+<h2 id="参考">参考</h2><ol>
+<li><a href="https://www.zhihu.com/question/20761771/answer/19996299" target="_blank" rel="external">什么是尾递归</a></li>
+<li><a href="http://stackoverflow.com/questions/33923/what-is-tail-recursion" target="_blank" rel="external">What is tail recursion</a></li>
+<li><a href="http://blog.csdn.net/luoweifu/article/details/51470998" target="_blank" rel="external">C++ 性能分析</a></li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/C/">C++</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://en.ors-sro.com/2016/07/18/LeetCode-Reverse-String/" data-title="LeetCode -- Reverse String | 拖鞋党的拖鞋铺" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/06/13/Airbnb-es6-编码规范/"  title="Airbnb es6 编码风格翻译">
+ <strong>下一篇：</strong><br/> 
+ <span>Airbnb es6 编码风格翻译
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In_Haskell_Way"><span class="toc-number">2.</span> <span class="toc-text">In Haskell Way</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">2.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">2.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果"><span class="toc-number">2.3.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In_Tail_Recursion_Way"><span class="toc-number">3.</span> <span class="toc-text">In Tail Recursion Way</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-1"><span class="toc-number">3.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-1"><span class="toc-number">3.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-1"><span class="toc-number">3.3.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In_Loop_Way"><span class="toc-number">4.</span> <span class="toc-text">In Loop Way</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-number">4.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-2"><span class="toc-number">4.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-2"><span class="toc-number">4.3.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In_Place_Way"><span class="toc-number">5.</span> <span class="toc-text">In Place Way</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-3"><span class="toc-number">5.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-3"><span class="toc-number">5.2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-3"><span class="toc-number">5.3.</span> <span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/LeetCode/" title="LeetCode">LeetCode<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/test/" title="test">test<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yilia/" title="yilia">yilia<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/YAML/" title="YAML">YAML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多平台部署/" title="多平台部署">多平台部署<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Material-Design-Lite/" title="Material Design Lite">Material Design Lite<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AngularJS/" title="AngularJS">AngularJS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chatwork/" title="Chatwork">Chatwork<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://Snatic" target="_blank" title="一个文艺青年的独白">Snatic&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m crazy for web design <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="rtafip">rtafip</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'httporssrocom';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
