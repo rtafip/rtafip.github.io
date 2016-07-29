@@ -5,7 +5,7 @@
   <subtitle><![CDATA[听说拖鞋才是本体]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-07-27T09:44:46.555Z</updated>
+  <updated>2016-07-29T08:23:33.840Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title><![CDATA[消除多余的 switch 语句]]></title>
-    <link href="http://en.ors-sro.com/2016/07/27/%E6%B6%88%E9%99%A4%E5%A4%9A%E4%BD%99%E7%9A%84-Switch-%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://en.ors-sro.com/2016/07/27/消除多余的-Switch-语句/</id>
+    <link href="http://en.ors-sro.com/Remove-redundant-switch/"/>
+    <id>http://en.ors-sro.com/Remove-redundant-switch/</id>
     <published>2016-07-27T06:27:54.000Z</published>
-    <updated>2016-07-27T09:44:46.555Z</updated>
+    <updated>2016-07-29T08:23:33.840Z</updated>
     <content type="html"><![CDATA[<p>编写程序遇到多分支的情况总是少不了 <code>switch/if</code> 语句。在面向对象编程里大部分的 <code>switch</code> 语句都是可以避免的。使用<strong>多态</strong>和<strong>简单工厂模式</strong>可以消除多余的 <code>switch</code> 语句。</p>
 <a id="more"></a>
 <h2 id="简单的需求">简单的需求</h2><blockquote>
@@ -65,7 +65,7 @@
 <li>在工厂类 <code>AnimalFactory</code> 中添加新的 <code>case</code></li>
 </ol>
 <p>实际上就算是不了解简单工程模式也很可能写出来。设计模式应该是自然而然的应用而不是刻意地使用，产生冗余的代码。</p>
-<h2 id="总结">总结</h2><p>这个简单的例子还有很多可以优化的地方。例如 <code>Animal</code> 类应该是抽象类，不包含具体的实现。同时可以<a href="../../../../2016/06/10/烦人的Null/#合理地使用_Null">引入Null Class</a>来用于输出 <strong>这种情况是要加钱的！</strong>等类似没有实现的情况下的默认行为。还可以将简单工厂模式改成工厂模式以符合开放-封闭原则。不过这些都不是本文范围内的。我学膜法去了。 :)</p>
+<h2 id="总结">总结</h2><p>这个简单的例子还有很多可以优化的地方。例如 <code>Animal</code> 类应该是抽象类，不包含具体的实现。同时可以<a href="../Anonying-null/#合理地使用_Null">引入Null Class</a>来用于输出 <strong>这种情况是要加钱的！</strong>等类似没有实现的情况下的默认行为。还可以将简单工厂模式改成工厂模式以符合开放-封闭原则。不过这些都不是本文范围内的。我学膜法去了。 :)</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>编写程序遇到多分支的情况总是少不了 <code>switch/if</code> 语句。在面向对象编程里大部分的 <code>switch</code> 语句都是可以避免的。使用<strong>多态</strong>和<strong>简单工厂模式</strong>可以消除多余的 <code>switch</code> 语句。</p>]]>
@@ -80,10 +80,10 @@
   
   <entry>
     <title><![CDATA[LeetCode -- Reverse String]]></title>
-    <link href="http://en.ors-sro.com/2016/07/18/LeetCode-Reverse-String/"/>
-    <id>http://en.ors-sro.com/2016/07/18/LeetCode-Reverse-String/</id>
+    <link href="http://en.ors-sro.com/LeetCode-reverse-string/"/>
+    <id>http://en.ors-sro.com/LeetCode-reverse-string/</id>
     <published>2016-07-18T07:09:14.000Z</published>
-    <updated>2016-07-18T09:43:56.043Z</updated>
+    <updated>2016-07-29T07:57:25.130Z</updated>
     <content type="html"><![CDATA[<p>找不到工作，刷刷 Leetcode 来保持一下写代码的手感。从最简单的开始，也就是 Acceptance 最高的开始。目前接受率最高的是<a href="https://leetcode.com/problems/reverse-string/" target="_blank" rel="external">逆序字符串</a></p>
 <a id="more"></a>
 <h2 id="题目">题目</h2><blockquote>
@@ -124,14 +124,14 @@
     
       <category term="C++" scheme="http://en.ors-sro.com/tags/C/"/>
     
-      <category term="LeetCode" scheme="http://en.ors-sro.com/categories/LeetCode/"/>
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Airbnb es6 编码风格翻译]]></title>
-    <link href="http://en.ors-sro.com/2016/06/13/Airbnb-es6-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
-    <id>http://en.ors-sro.com/2016/06/13/Airbnb-es6-编码规范/</id>
+    <link href="http://en.ors-sro.com/Airbnb-es6-style-guide/"/>
+    <id>http://en.ors-sro.com/Airbnb-es6-style-guide/</id>
     <published>2016-06-13T13:13:54.000Z</published>
     <updated>2016-06-26T09:11:02.491Z</updated>
     <content type="html"><![CDATA[<p>Airbnb JavaScript 的编码风格 原文地址: <a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb/JavaScript</a></p>
@@ -931,59 +931,59 @@
   </entry>
   
   <entry>
-    <title><![CDATA[烦人的Null]]></title>
-    <link href="http://en.ors-sro.com/2016/06/10/%E7%83%A6%E4%BA%BA%E7%9A%84Null/"/>
-    <id>http://en.ors-sro.com/2016/06/10/烦人的Null/</id>
+    <title><![CDATA[烦人的 null]]></title>
+    <link href="http://en.ors-sro.com/Anonying-null/"/>
+    <id>http://en.ors-sro.com/Anonying-null/</id>
     <published>2016-06-10T06:31:38.000Z</published>
-    <updated>2016-06-10T09:40:19.645Z</updated>
-    <content type="html"><![CDATA[<p>经常写程序的童鞋一定会遇到 <code>Null Exception</code> ，但是大部分情况下出现 <code>Null Exception</code> 就意味着错误地使用了 <code>Null</code></p>
+    <updated>2016-07-29T08:26:41.556Z</updated>
+    <content type="html"><![CDATA[<p>经常写程序的童鞋一定会遇到 <code>null Exception</code> ，但是大部分情况下出现 <code>null Exception</code> 就意味着错误地使用了 <code>null</code></p>
 <a id="more"></a>
-<h2 id="Null_是什么">Null 是什么</h2><p><code>Null</code> 被设计为用于表达应用类型的缺失。可是不得不说这个设计是失败的。因为 <code>Null</code> 用起来方便了所以很多地方都用 <code>Null</code> 而不是<strong>异常 (Exception) </strong>。</p>
-<p>通常程序出错都是与 <code>Null</code> 相关的 <code>Null Exception</code> 。这是自然的，如果数据正常，也就是输入是正确的，自然就不会有问题。总不可能要求数据时时刻刻都是正确的吧？</p>
+<h2 id="null_是什么">null 是什么</h2><p>null 被设计为用于表达应用类型的缺失。可是不得不说这个设计是失败的。因为 null 用起来方便了所以很多地方都用 null 而不是<strong>异常 (Exception) </strong>。</p>
+<p>通常程序出错都是与 null 相关的 <code>null Exception</code> 。这是自然的，如果数据正常，也就是输入是正确的，自然就不会有问题。总不可能要求数据时时刻刻都是正确的吧？</p>
 <p>再谈到这个问题时，先看一下另一种类型—— <strong>值类型</strong> 是怎么解决这个问题的。</p>
-<p>值类型从来都不会出错。因为，很简单，值类型没有 <code>Null</code> 的情况。 值类型拥有默认值。比如 <code>int</code> 的默认值是 0 ，所以程序上只会出逻辑问题，而不是运行时错误(异常)。值类型出错最常见的场景是，这个值怎么会是0啊？哦，原来是这个 <code>int</code> 类型没有初始化。值类型没有 <code>Null</code> 所以不会去做空检查(Null Check)。比如值类型 <code>bool</code> 只有 <code>true</code> 和 <code>false</code>，所以使用 <code>bool</code> 类型的时候通常是这样的。</p>
+<p>值类型从来都不会出错。因为，很简单，值类型没有 null 的情况。 值类型拥有默认值。比如 <code>int</code> 的默认值是 0 ，所以程序上只会出逻辑问题，而不是运行时错误(异常)。值类型出错最常见的场景是，这个值怎么会是0啊？哦，原来是这个 <code>int</code> 类型没有初始化。值类型没有 null 所以不会去做空检查(null Check)。比如值类型 <code>bool</code> 只有 <code>true</code> 和 <code>false</code>，所以使用 <code>bool</code> 类型的时候通常是这样的。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> isFinish = IsDownloadFinish();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(isFinish)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Ding. X-art Download Finish</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Nope. Plz Go to bed.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>而不是</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> isFinish = IsDownloadFinish();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(isFinish != <span class="keyword">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(isFinish)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//Ding. X-art Download Finish</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//Nope. Plz Go to bed.</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Output X is null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种画蛇添足的做法。反之如果<strong>引用类型</strong>不做空检查就直接使用值，出问题程序很可能直接崩溃。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">int</span>&gt; studentNos = GetStudentNos();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="keyword">var</span> nos <span class="keyword">in</span> studentNos) <span class="comment">//No null check and Crash when null.</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Output Nos..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Null_is_nothing_but_everything">Null is nothing but everything</h2><p><code>Null</code> 就像是病毒，能够躲过类型检查。一旦某个地方使用了 <code>Null</code> 它就像病毒一样扩散开来。最后整个程序不得不充满空检查。</p>
-<p><code>Null</code> 是二义的。它即可表示变量没有初始化，也可以表示值不存在。</p>
-<p><code>Null</code> 什么都不是，它既不是 <code>List&lt;T&gt;</code> 类型，也不是 <code>String</code> 类型。甚至没有一个类型是 <code>Null</code>。</p>
-<p><code>Null</code> 又什么都是，它可以充当 <code>List&lt;T&gt;</code> ，也可以充当 <code>String</code> 类型。比如从字符串数组中查找以特定的字符串结尾时。</p>
+<h2 id="null_is_nothing_but_everything">null is nothing but everything</h2><p>null 就像是病毒，能够躲过类型检查。一旦某个地方使用了 null 它就像病毒一样扩散开来。最后整个程序不得不充满空检查。</p>
+<p>null 是二义的。它即可表示变量没有初始化，也可以表示值不存在。</p>
+<p>null 什么都不是，它既不是 <code>List&lt;T&gt;</code> 类型，也不是 <code>String</code> 类型。甚至没有一个类型是 null。</p>
+<p>null 又什么都是，它可以充当 <code>List&lt;T&gt;</code> ，也可以充当 <code>String</code> 类型。比如从字符串数组中查找以特定的字符串结尾时。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">FindStudent</span>(<span class="params">String[] Students,<span class="keyword">char</span> c</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">foreach</span>(<span class="keyword">var</span> student <span class="keyword">in</span> Students)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(student.EndWith(c))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> student;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个函数定义的最后返回的 <code>Null</code> 是最常见的一种误用 <code>Null</code> 的情况。而这个函数可以编译通过，代表着编译器认可 <code>Null</code> 是 <code>String</code> 类型。</p>
-<p>事实上并不是只有 <code>String</code> 类型会是这样，几乎所有的引用类型编译器都允许返回 <code>null</code>。 所以在使用数据的时候必须做空检查，因为不知道这个数据是否为空。这看起来是很正常的事情，毕竟输入有时候就是错的。但是问题的关键不在于不允许错误的输入，而在于使用了错误的方式来表达数据的异常。</p>
-<h2 id="没有_Null_的日子">没有 Null 的日子</h2><p><code>Null</code> 看起来是现代编程语言的标配。其实不然，有不少语言是没有 <code>Null</code> 的。比如以纯函数式编程而著称 <code>Haskell</code> 是没有 <code>Null</code> 的。那么 <code>Haskell</code> 是怎么应对数据异常，或者说怎么表达数据不存在这种情况的呢？</p>
+<p>这个函数定义的最后返回的 null 是最常见的一种误用 null 的情况。而这个函数可以编译通过，代表着编译器认可 null 是 <code>String</code> 类型。</p>
+<p>事实上并不是只有 <code>String</code> 类型会是这样，几乎所有的引用类型编译器都允许返回 null。 所以在使用数据的时候必须做空检查，因为不知道这个数据是否为空。这看起来是很正常的事情，毕竟输入有时候就是错的。但是问题的关键不在于不允许错误的输入，而在于使用了错误的方式来表达数据的异常。</p>
+<h2 id="没有_null_的日子">没有 null 的日子</h2><p>null 看起来是现代编程语言的标配。其实不然，有不少语言是没有 null 的。比如以纯函数式编程而著称 <code>Haskell</code> 是没有 null 的。那么 <code>Haskell</code> 是怎么应对数据异常，或者说怎么表达数据不存在这种情况的呢？</p>
 <p><strong>联合类型</strong> (Union Type)</p>
 <p>这个联合类型指的不是C语言里面的Union类型。而是由多种类型组成的类型。在传统的编程语言类型是互斥的。例如一个变量要么是 <code>String</code> 类型要么是 <code>int</code> 类型。绝对不会出现即使 <code>String</code> 类型又是 <code>int</code> 类型的情况。</p>
 <p>在 <code>Haskell</code> 中引入一种联合类型 <code>Maybe</code> 用于表达变量可能有值，也可能没有值。</p>
 <p>因为缺少对值缺失的表达方式，在使用 <code>int</code> 类型的时候通常使用 -1 来表示数据异常也就是值缺失的情况。在值不会取到 -1 情况下这是没问题的。万一值可以取到 -1 呢？无计可施。</p>
 <p>在 <code>Haskell</code> 中 <code>Maybe</code> 的 <code>Just</code> 类型用于表示有某种值类型， <code>None</code> 用于表示没有值类型。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Maybe</span> a = get a</span><br><span class="line"><span class="title">case</span> a <span class="keyword">of</span></span><br><span class="line">  <span class="type">Just</span> value -&gt; dosomething a</span><br><span class="line">  <span class="type">Nothing</span>    -&gt; show error</span><br></pre></td></tr></table></figure>
-<p>看起来和使用 <code>Null</code> 表示值缺失的情况并没有什么区别。实际上天差地别。 <code>Maybe</code> 中的 <code>None</code> 是有类型的，类型就是 <code>None</code>。而 <code>Null</code> 却不是。<code>Null</code> 是无类型的，它的类型不是 <code>Null</code>。最重要的是，使用 <code>Maybe</code> 类型编译器会强制你去检查两种类型，迫使你去应对各种情况。换言之，使用 <code>Maybe</code> 检查和取值是原子操作，不可能取值而不检查。而 <code>Null</code> 不是。编译器允许返回 <code>Null</code> ，而且允许在使用的时候不检查即可取值。没错说了这么多，这就是 <code>Null</code> 的万恶之源。理论上只要每次使用引用类型时做空检查就不会出现程序崩溃的问题。但是懒惰是人的天性，明明可以直接使用为什么还要做复杂的空检查。比如</p>
+<p>看起来和使用 null 表示值缺失的情况并没有什么区别。实际上天差地别。 <code>Maybe</code> 中的 <code>None</code> 是有类型的，类型就是 <code>None</code>。而 null 却不是。null 是无类型的，它的类型不是 null。最重要的是，使用 <code>Maybe</code> 类型编译器会强制你去检查两种类型，迫使你去应对各种情况。换言之，使用 <code>Maybe</code> 检查和取值是原子操作，不可能取值而不检查。而 null 不是。编译器允许返回 null ，而且允许在使用的时候不检查即可取值。没错说了这么多，这就是 null 的万恶之源。理论上只要每次使用引用类型时做空检查就不会出现程序崩溃的问题。但是懒惰是人的天性，明明可以直接使用为什么还要做复杂的空检查。比如</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Class Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">string</span> Name,</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> No,</span><br><span class="line">	pubilc <span class="keyword">string</span>[] Lessons, 	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student s</span><br><span class="line"></span><br><span class="line"><span class="comment">//...Init...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(s != <span class="keyword">null</span> &amp;&amp; s.Lessons != <span class="keyword">null</span> &amp;&amp; s.Lessons[<span class="number">0</span>] != <span class="keyword">null</span>) <span class="comment">//WTF??</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Output First Lesson is s.Lessons[0]	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>那么直接使用值不做空检查。等到有问题直接报异常就可以了。为什么不这么做呢。首先可能有 <code>null</code> 出现的地方直接使用，出现异常，而忽略是一种很被动的编程方式。相当于知道了问题的存在但是我不管，问题就是这样，爱咋咋地。其次在移动平台上异常如果没有被捕获(Catch)，整个应用很可能就直接崩溃了。就会上演经典的找Bug场景：找了半天的Bug，原来是这个地方为 <code>null</code>。如果一开始检查 <code>null</code> 然后做出应对，比如强制退出，或者界面提示错误码，又或者继续运行。都不会增加无意义的调试时间，用户的体验也更好。</p>
-<h2 id="解决方案">解决方案</h2><p>解决方案很简单：避免 <code>Null</code> 或 合理地使用 <code>Null</code></p>
-<h3 id="避免_Null">避免 Null</h3><p>无论是 <code>Haskell</code> 的 <code>Maybe</code> 还是 <code>Java8</code> 的 <code>Optional</code> 在其他语言都有相应的实现。选择喜欢的即可。但是请一定要检查和取值一起操作</p>
+<p>那么直接使用值不做空检查。等到有问题直接报异常就可以了。为什么不这么做呢。首先可能有 null 出现的地方直接使用，出现异常，而忽略是一种很被动的编程方式。相当于知道了问题的存在但是我不管，问题就是这样，爱咋咋地。其次在移动平台上异常如果没有被捕获(Catch)，整个应用很可能就直接崩溃了。就会上演经典的找Bug场景：找了半天的Bug，原来是这个地方为 null。如果一开始检查 null 然后做出应对，比如强制退出，或者界面提示错误码，又或者继续运行。都不会增加无意义的调试时间，用户的体验也更好。</p>
+<h2 id="解决方案">解决方案</h2><p>解决方案很简单：避免 null 或 合理地使用 null</p>
+<h3 id="避免_null">避免 null</h3><p>无论是 <code>Haskell</code> 的 <code>Maybe</code> 还是 <code>Java8</code> 的 <code>Optional</code> 在其他语言都有相应的实现。选择喜欢的即可。但是请一定要检查和取值一起操作</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Good</span></span><br><span class="line">Optional&lt;String&gt; upperName = name.map((value) -&gt; value.toUpperCase());</span><br><span class="line">System.out.println(upperName.orElse(<span class="string">"No value found"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Bad</span></span><br><span class="line">Optional&lt;String&gt; upperName = name.map((value) -&gt; value.toUpperCase());</span><br><span class="line"><span class="keyword">if</span>((name.isPresent())&#123;</span><br><span class="line">	System.out.println(upperName);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"No value found"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Code from http://www.importnew.com/6675.html</span></span><br></pre></td></tr></table></figure>
 <p>后者的做法跟直接空检查后再使用没有什么区别。</p>
-<h3 id="合理地使用_Null">合理地使用 Null</h3><p>合理地使用 <code>Null</code> 从合理地返回 <code>null</code> 开始</p>
-<p><code>Null</code> 表达的是一种值缺失的情况而且值缺失是很正常的情况。 比如从列表中查找某些元素，找不到是很正常的情况，所以这可以返回 <code>null</code>。又比如获得人物的性别，如果文件读写出错了，应该抛出异常，而不是返回 <code>null</code>。因为出错了就不是一种正常的情况。 <code>null</code> 只应该承担正常的值缺失的情况，出错了就应该用异常去承担。</p>
-<p>合理地使用 <code>Null</code> 还需合理地初始化引用类型。</p>
-<p>有些编程语言中引用类型的默认值是 <code>null</code> ，其实在业务逻辑中可以做的更好。比如 <code>String</code> 类型可以初始化为空字符串 <code>&quot;&quot;</code> ，<code>List&lt;T&gt;</code>类型可以初始化为空列表 <code>new List&lt;T&gt;()</code> 。在业务逻辑允许的情况下，函数出错时可以返回空字符串或者空列表。这样就不必做空检查了。搭配 <code>Foreach</code> 使用,如果是空列表，<code>foreach</code> 里面的逻辑不会运行，也就不会出错。初始化时没有引入 <code>null</code> ，调用函数时也没有引入 <code>null</code> ,自然就不会出现 <code>null</code> 的情况。</p>
-<p>尽可能消除 <code>null</code> 避免 <code>null</code> 的传播。</p>
-<p>比如查找一个人的地址，认为找不到是可接受的，就返回一个空字符串，如果认为找不到是不可接受的，请直接抛出异常。这个时候也不会返回 <code>null</code>。 自然不会产生 <code>null</code> 也不用做 <code>Null Check</code> （但是要捕捉异常） 。</p>
+<h3 id="合理地使用_null">合理地使用 null</h3><p>合理地使用 null 从合理地返回 null 开始</p>
+<p>null 表达的是一种值缺失的情况而且值缺失是很正常的情况。 比如从列表中查找某些元素，找不到是很正常的情况，所以这可以返回 null。又比如获得人物的性别，如果文件读写出错了，应该抛出异常，而不是返回 null。因为出错了就不是一种正常的情况。 null 只应该承担正常的值缺失的情况，出错了就应该用异常去承担。</p>
+<p>合理地使用 null 还需合理地初始化引用类型。</p>
+<p>有些编程语言中引用类型的默认值是 null ，其实在业务逻辑中可以做的更好。比如 <code>String</code> 类型可以初始化为空字符串 <code>&quot;&quot;</code> ，<code>List&lt;T&gt;</code>类型可以初始化为空列表 <code>new List&lt;T&gt;()</code> 。在业务逻辑允许的情况下，函数出错时可以返回空字符串或者空列表。这样就不必做空检查了。搭配 <code>Foreach</code> 使用,如果是空列表，<code>foreach</code> 里面的逻辑不会运行，也就不会出错。初始化时没有引入 null ，调用函数时也没有引入 null ,自然就不会出现 null 的情况。</p>
+<p>尽可能消除 null 避免 null 的传播。</p>
+<p>比如查找一个人的地址，认为找不到是可接受的，就返回一个空字符串，如果认为找不到是不可接受的，请直接抛出异常。这个时候也不会返回 null。 自然不会产生 null 也不用做 <code>null Check</code> （但是要捕捉异常） 。</p>
 <p>除此之外还有些小技巧可以用上。</p>
-<p>如果你使用面向对象编程，可以引用某种类型相应的 <code>null</code> 类型。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Class Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> String Name,</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> No,</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Say</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		Console.WriteLine(<span class="string">"My name is "</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Class NullStudent : Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Say</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		Console.WriteLine(<span class="string">""</span>);</span><br><span class="line">		<span class="comment">// or</span></span><br><span class="line">		<span class="comment">// Console.WriteLine("I don't have name");</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">List&lt;Student&gt; students = GetAllStudents();</span><br><span class="line"></span><br><span class="line"><span class="function">Student <span class="title">FindStudent</span>(<span class="params"><span class="keyword">string</span> name</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">foreach</span>(student <span class="keyword">in</span> students)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(student.name == name)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> student;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> NullStudent();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student s = <span class="keyword">new</span> NullStudent();</span><br><span class="line"></span><br><span class="line">s = FindStudent(<span class="string">"LeiFeng"</span>);</span><br><span class="line"></span><br><span class="line">s.Say(); <span class="comment">//No null check.</span></span><br></pre></td></tr></table></figure>
-<p>如果你有福能使用<code>C# 6.0</code>，你可以使用新的操作符 <code>?.</code> 。这个操作符只会在不是 <code>null</code> 的情况下执行。</p>
+<p>如果你使用面向对象编程，可以引用某种类型相应的 null 类型。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Class Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> String Name,</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> No,</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Say</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		Console.WriteLine(<span class="string">"My name is "</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Class nullStudent : Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Say</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		Console.WriteLine(<span class="string">""</span>);</span><br><span class="line">		<span class="comment">// or</span></span><br><span class="line">		<span class="comment">// Console.WriteLine("I don't have name");</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">List&lt;Student&gt; students = GetAllStudents();</span><br><span class="line"></span><br><span class="line"><span class="function">Student <span class="title">FindStudent</span>(<span class="params"><span class="keyword">string</span> name</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">foreach</span>(student <span class="keyword">in</span> students)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(student.name == name)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> student;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> nullStudent();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student s = <span class="keyword">new</span> nullStudent();</span><br><span class="line"></span><br><span class="line">s = FindStudent(<span class="string">"LeiFeng"</span>);</span><br><span class="line"></span><br><span class="line">s.Say(); <span class="comment">//No null check.</span></span><br></pre></td></tr></table></figure>
+<p>如果你有福能使用<code>C# 6.0</code>，你可以使用新的操作符 <code>?.</code> 。这个操作符只会在不是 null 的情况下执行。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Before C# 6.0</span></span><br><span class="line"><span class="keyword">if</span>(s != <span class="keyword">null</span> &amp;&amp; s.name != <span class="keyword">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">	Console.WriteLine(s.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//C# 6.0</span></span><br><span class="line">Console.WriteLine(s?.name);</span><br></pre></td></tr></table></figure>
-<p>但是请注意，在第一次使用某个值得时候最后手动做空检查，如果为 <code>null</code> 就报错(出现这种情况其实应该使用异常)。这样方便调试。之后第二次使用某个值时就直接使用 <code>?.</code>吧。</p>
-<h2 id="最后吐槽">最后吐槽</h2><p>null真是一个烦人的小妖精。</p>
+<p>但是请注意，在第一次使用某个值得时候最后手动做空检查，如果为 null 就报错(出现这种情况其实应该使用异常)。这样方便调试。之后第二次使用某个值时就直接使用 <code>?.</code>吧。</p>
+<h2 id="最后吐槽">最后吐槽</h2><p>null 真是一个烦人的小妖精。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>经常写程序的童鞋一定会遇到 <code>Null Exception</code> ，但是大部分情况下出现 <code>Null Exception</code> 就意味着错误地使用了 <code>Null</code></p>]]>
+    <![CDATA[<p>经常写程序的童鞋一定会遇到 <code>null Exception</code> ，但是大部分情况下出现 <code>null Exception</code> 就意味着错误地使用了 <code>null</code></p>]]>
     
     </summary>
     
@@ -991,8 +991,8 @@
   
   <entry>
     <title><![CDATA[NGUI学习笔记之搭建可拖动面板]]></title>
-    <link href="http://en.ors-sro.com/2016/04/04/NGUI%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E6%90%AD%E5%BB%BA%E5%8F%AF%E6%8B%96%E5%8A%A8%E9%9D%A2%E6%9D%BF/"/>
-    <id>http://en.ors-sro.com/2016/04/04/NGUI学习笔记之搭建可拖动面板/</id>
+    <link href="http://en.ors-sro.com/NGUI-build-a-draggable-panel/"/>
+    <id>http://en.ors-sro.com/NGUI-build-a-draggable-panel/</id>
     <published>2016-04-04T05:39:00.000Z</published>
     <updated>2016-04-04T05:39:58.831Z</updated>
     <content type="html"><![CDATA[<p>往下拖可以看到内容噢~</p>
@@ -1006,8 +1006,8 @@
   
   <entry>
     <title><![CDATA[NGUI学习笔记之Atlas和UITexture的取舍]]></title>
-    <link href="http://en.ors-sro.com/2016/04/04/NGUI%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8BAtlas%E5%92%8CUITexture%E7%9A%84%E5%8F%96%E8%88%8D/"/>
-    <id>http://en.ors-sro.com/2016/04/04/NGUI学习笔记之Atlas和UITexture的取舍/</id>
+    <link href="http://en.ors-sro.com/NGUI-Atlas-UITexture-notes/"/>
+    <id>http://en.ors-sro.com/NGUI-Atlas-UITexture-notes/</id>
     <published>2016-04-04T05:37:29.000Z</published>
     <updated>2016-04-04T05:39:41.732Z</updated>
     <content type="html"><![CDATA[<p>任性随便选</p>
@@ -1021,8 +1021,8 @@
   
   <entry>
     <title><![CDATA[Promise异步编程学习笔记]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Promise%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Promise异步编程学习笔记/</id>
+    <link href="http://en.ors-sro.com/Promise-notes/"/>
+    <id>http://en.ors-sro.com/Promise-notes/</id>
     <published>2016-04-03T07:35:56.000Z</published>
     <updated>2016-04-03T07:36:37.050Z</updated>
     <content type="html"><![CDATA[<p>Promise.Reject(‘鸽了’)</p>
@@ -1036,8 +1036,8 @@
   
   <entry>
     <title><![CDATA[Lambda表达式学习笔记]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Lambda表达式学习笔记/</id>
+    <link href="http://en.ors-sro.com/Lambda-notes/"/>
+    <id>http://en.ors-sro.com/Lambda-notes/</id>
     <published>2016-04-03T07:34:15.000Z</published>
     <updated>2016-04-03T07:34:50.737Z</updated>
     <content type="html"><![CDATA[<p>由于没有去过希腊，所以看不懂希腊字母，学习失败！</p>
@@ -1051,8 +1051,8 @@
   
   <entry>
     <title><![CDATA[C#学习笔记之命名规范]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/C#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
-    <id>http://en.ors-sro.com/2016/04/03/C#学习笔记之命名规范/</id>
+    <link href="http://en.ors-sro.com/C#-naming-style/"/>
+    <id>http://en.ors-sro.com/C#-naming-style/</id>
     <published>2016-04-03T07:30:52.000Z</published>
     <updated>2016-04-03T07:31:48.284Z</updated>
     <content type="html"><![CDATA[<p>现在改用c++做底层了，不用C#了</p>
@@ -1066,8 +1066,8 @@
   
   <entry>
     <title><![CDATA[旧版NGUI层级研究]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/%E6%97%A7%E7%89%88NGUI%E5%B1%82%E7%BA%A7%E7%A0%94%E7%A9%B6/"/>
-    <id>http://en.ors-sro.com/2016/04/03/旧版NGUI层级研究/</id>
+    <link href="http://en.ors-sro.com/Study-on-NGUI-depth/"/>
+    <id>http://en.ors-sro.com/Study-on-NGUI-depth/</id>
     <published>2016-04-03T07:29:51.000Z</published>
     <updated>2016-04-03T07:30:19.305Z</updated>
     <content type="html"><![CDATA[<p>换新版NGUI了。所以就不研究了呃呃呃</p>
@@ -1081,8 +1081,8 @@
   
   <entry>
     <title><![CDATA[Optional学习笔记]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Optional%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Optional学习笔记/</id>
+    <link href="http://en.ors-sro.com/Optional-notes/"/>
+    <id>http://en.ors-sro.com/Optional-notes/</id>
     <published>2016-04-03T07:27:04.000Z</published>
     <updated>2016-04-03T07:27:34.496Z</updated>
     <content type="html"><![CDATA[<p>学习到一半就玩游戏去了，然后就没然后了</p>
@@ -1096,8 +1096,8 @@
   
   <entry>
     <title><![CDATA[Monad学习笔记]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Monad%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Monad学习笔记/</id>
+    <link href="http://en.ors-sro.com/Monad-notes/"/>
+    <id>http://en.ors-sro.com/Monad-notes/</id>
     <published>2016-04-03T07:25:56.000Z</published>
     <updated>2016-04-04T08:55:39.994Z</updated>
     <content type="html"><![CDATA[<p>都说不要写Monad教程了。所以下面就没有了= =</p>
@@ -1126,8 +1126,8 @@
   
   <entry>
     <title><![CDATA[Chrome插件编写]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Chrome%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Chrome插件编写/</id>
+    <link href="http://en.ors-sro.com/Develop-a-chrome-plugin/"/>
+    <id>http://en.ors-sro.com/Develop-a-chrome-plugin/</id>
     <published>2016-04-03T07:25:00.000Z</published>
     <updated>2016-04-03T07:25:19.611Z</updated>
     <content type="html"><![CDATA[<p>这个坑就更大了哈哈哈</p>
@@ -1141,8 +1141,8 @@
   
   <entry>
     <title><![CDATA[Unity图片压缩格式]]></title>
-    <link href="http://en.ors-sro.com/2016/04/03/Unity%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F/"/>
-    <id>http://en.ors-sro.com/2016/04/03/Unity图片压缩格式/</id>
+    <link href="http://en.ors-sro.com/Unity-picture-compression/"/>
+    <id>http://en.ors-sro.com/Unity-picture-compression/</id>
     <published>2016-04-03T07:23:35.000Z</published>
     <updated>2016-04-03T07:24:21.476Z</updated>
     <content type="html"><![CDATA[<p>先挖坑，之后再填</p>
@@ -1156,8 +1156,8 @@
   
   <entry>
     <title><![CDATA[压缩博客图片]]></title>
-    <link href="http://en.ors-sro.com/2015/08/04/%E5%8E%8B%E7%BC%A9%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/"/>
-    <id>http://en.ors-sro.com/2015/08/04/压缩博客图片/</id>
+    <link href="http://en.ors-sro.com/Compress-blog-image/"/>
+    <id>http://en.ors-sro.com/Compress-blog-image/</id>
     <published>2015-08-04T13:56:42.000Z</published>
     <updated>2015-08-04T14:44:51.671Z</updated>
     <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>使用静态博客，空间的容量都是有一定的上限。通常情况下图片占据了空间的大部分。虽然说不要过早的优化。我也不知道能不能写到1G大小左右的博客（神奇的衡量方式- -）但当我发现<strong>PNG</strong>图片一般还有50%左右的空间可以压缩后就把持不住了。</p>
@@ -1179,8 +1179,8 @@
   
   <entry>
     <title><![CDATA[yilia主题使用体验]]></title>
-    <link href="http://en.ors-sro.com/2015/07/27/yilia%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/"/>
-    <id>http://en.ors-sro.com/2015/07/27/yilia主题使用体验/</id>
+    <link href="http://en.ors-sro.com/Try-theme-yilia/"/>
+    <id>http://en.ors-sro.com/Try-theme-yilia/</id>
     <published>2015-07-27T12:58:39.000Z</published>
     <updated>2015-07-27T13:36:55.496Z</updated>
     <content type="html"><![CDATA[<p><strong>yilia</strong>主题结合了<strong>pacman</strong>和常见的平板式主题。界面清爽简洁。在使用过程中，我发现了一些作者没有公布的接口因此针对自身的情况对主题进行了修改。</p>
@@ -1223,8 +1223,8 @@
   
   <entry>
     <title><![CDATA[MDL+AngularJS制作TodoList]]></title>
-    <link href="http://en.ors-sro.com/2015/07/27/MDL-AngularJS%E5%88%B6%E4%BD%9CTodoList/"/>
-    <id>http://en.ors-sro.com/2015/07/27/MDL-AngularJS制作TodoList/</id>
+    <link href="http://en.ors-sro.com/Develop-a-todo-list-with-MDL-and-AngularJS/"/>
+    <id>http://en.ors-sro.com/Develop-a-todo-list-with-MDL-and-AngularJS/</id>
     <published>2015-07-27T12:44:29.000Z</published>
     <updated>2016-04-03T06:58:18.687Z</updated>
     <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>
@@ -1287,8 +1287,8 @@
   
   <entry>
     <title><![CDATA[hexo多平台部署遇到的一个坑]]></title>
-    <link href="http://en.ors-sro.com/2015/07/25/hexo%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E5%9D%91/"/>
-    <id>http://en.ors-sro.com/2015/07/25/hexo多平台部署遇到的一个坑/</id>
+    <link href="http://en.ors-sro.com/Problem-in-hexo-deployment/"/>
+    <id>http://en.ors-sro.com/Problem-in-hexo-deployment/</id>
     <published>2015-07-25T12:56:06.000Z</published>
     <updated>2015-07-27T12:39:40.815Z</updated>
     <content type="html"><![CDATA[<p>在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。</p>
@@ -1330,8 +1330,8 @@
   
   <entry>
     <title><![CDATA[hexo3.0迁移]]></title>
-    <link href="http://en.ors-sro.com/2015/07/25/hexo3-0%E8%BF%81%E7%A7%BB/"/>
-    <id>http://en.ors-sro.com/2015/07/25/hexo3-0迁移/</id>
+    <link href="http://en.ors-sro.com/Migrate-to-hexo3/"/>
+    <id>http://en.ors-sro.com/Migrate-to-hexo3/</id>
     <published>2015-07-25T12:55:45.000Z</published>
     <updated>2015-07-26T15:44:23.299Z</updated>
     <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>因为折腾多平台部署，以为是<code>hexo</code>版本过低，所以升级了<code>hexo</code>到了3.0版本。结果却发现<code>hexo d</code>和<code>hexo g</code>等命令都失效了。运行会有类似提示</p>
@@ -1406,8 +1406,8 @@
   
   <entry>
     <title><![CDATA[chatwork插件]]></title>
-    <link href="http://en.ors-sro.com/2015/07/19/chatwork%E6%8F%92%E4%BB%B6/"/>
-    <id>http://en.ors-sro.com/2015/07/19/chatwork插件/</id>
+    <link href="http://en.ors-sro.com/Chatwork-plugin/"/>
+    <id>http://en.ors-sro.com/Chatwork-plugin/</id>
     <published>2015-07-19T05:16:36.000Z</published>
     <updated>2015-07-28T15:00:56.522Z</updated>
     <content type="html"><![CDATA[<h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>

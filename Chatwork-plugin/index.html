@@ -1,0 +1,650 @@
+
+ <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  
+    <title>chatwork插件 | 拖鞋党的拖鞋铺</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="rtafip">
+    
+
+    
+    <meta name="description" content="chatwork简介Chatwork是一个结合了聊天室与任务分配的一个在线系统。
+编写插件的原因因为Chatwork新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。
+技术思路插件的功能是有新消息到来时，提醒用户。
+提醒方式还没有确定。
+新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。
+所以可以通过检测页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chatwork插件">
+<meta property="og:url" content="http://en.ors-sro.com/Chatwork-plugin/index.html">
+<meta property="og:site_name" content="拖鞋党的拖鞋铺">
+<meta property="og:description" content="chatwork简介Chatwork是一个结合了聊天室与任务分配的一个在线系统。
+编写插件的原因因为Chatwork新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。
+技术思路插件的功能是有新消息到来时，提醒用户。
+提醒方式还没有确定。
+新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。
+所以可以通过检测页">
+<meta property="og:updated_time" content="2015-07-28T15:00:56.522Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="chatwork插件">
+<meta name="twitter:description" content="chatwork简介Chatwork是一个结合了聊天室与任务分配的一个在线系统。
+编写插件的原因因为Chatwork新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。
+技术思路插件的功能是有新消息到来时，提醒用户。
+提醒方式还没有确定。
+新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。
+所以可以通过检测页">
+
+    
+    <link rel="alternative" href="/atom.xml" title="拖鞋党的拖鞋铺" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/logo.png" alt="拖鞋党的拖鞋铺" title="拖鞋党的拖鞋铺"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="拖鞋党的拖鞋铺">拖鞋党的拖鞋铺</a></h1>
+				<h2 class="blog-motto">听说拖鞋才是本体</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:en.ors-sro.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/Chatwork-plugin/" title="chatwork插件" itemprop="url">chatwork插件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="rtafip" target="_blank" itemprop="author">rtafip</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-19T05:16:36.000Z" itemprop="datePublished"> Published 2015-07-19</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#chatwork简介"><span class="toc-number">1.</span> <span class="toc-text">chatwork简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写插件的原因"><span class="toc-number">2.</span> <span class="toc-text">编写插件的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术思路"><span class="toc-number">3.</span> <span class="toc-text">技术思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一版"><span class="toc-number">3.1.</span> <span class="toc-text">第一版</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试"><span class="toc-number">3.1.1.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-number">3.1.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二版"><span class="toc-number">3.2.</span> <span class="toc-text">第二版</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三版"><span class="toc-number">3.3.</span> <span class="toc-text">第三版</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试-2"><span class="toc-number">3.3.1.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四版"><span class="toc-number">3.4.</span> <span class="toc-text">第四版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试-3"><span class="toc-number">3.5.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">4.</span> <span class="toc-text">后记</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="chatwork简介">chatwork简介</h2><p><a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>是一个结合了聊天室与任务分配的一个在线系统。</p>
+<h2 id="编写插件的原因">编写插件的原因</h2><p>因为<a href="http://chatwork.com" target="_blank" rel="external">Chatwork</a>新消息到来时不会有任何提示。所以需要经常查看页面否则会使得回复速度变慢降低聊天的效率。</p>
+<h2 id="技术思路">技术思路</h2><p>插件的功能是有新消息到来时，提醒用户。</p>
+<p>提醒方式还没有确定。</p>
+<p>新消息到来，聊天页面会改变。改变的内容就是新的内容。新消息可以从页面中获取或者从与服务器交互中的表单获取。</p>
+<p>所以可以通过检测页面结构<a href="http://www.w3.org/DOM/" target="_blank" rel="external">(DOM)</a>是否改变。如果改变则执行提醒函数即可。</p>
+<a id="more"></a>
+<h3 id="第一版">第一版</h3><p>先给页面挂事件。通过google查找到页面改变对应的事件名是<code>DOMSubtreeModified</code>，在控制带中输入<code>$</code>发现<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>有使用<code>jQuery</code>。那么事情就简单了。直接使用<code>jQuery</code>添加事件即可。代码如下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".chatTimeLine"</span>).bind(<span class="string">"DOMSubtreeModified"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"tree changed"</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="测试">测试</h4><p>经过测试新消息到来时能够弹出提示框</p>
+<h4 id="缺点">缺点</h4><p>因为监听的是事件改动，所以对于新消息来的这个需求吻合得不够。目前有一下缺点。</p>
+<ol>
+<li>页面其他变动也会有提示</li>
+<li>一个新消息多次弹窗</li>
+<li>提醒的方式不够友好</li>
+</ol>
+<h3 id="第二版">第二版</h3><p>第一版中使用了<code>DOMSubtreeModified</code>事件，这个事件范围太广，来一次消息往往会多次改变DOM子节点，所以再次Google找到了新的事件监听方案——使用<code>MutationObserver</code></p>
+<blockquote>
+<p>MutationObserver给开发者们提供了一种能在某个范围内的DOM树发生变化时作出适当反应的能力.该API设计用来替换掉在DOM3事件规范中引入的Mutation事件 ——<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver" target="_blank" rel="external">Mozilla Develop</a></p>
+</blockquote>
+<p>使用<code>MutationObserver</code>有几个步骤</p>
+<ol>
+<li><p>编写回调函数<br> 在发生相应的事件时就会调用回调函数，代码如下</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">observer = <span class="keyword">new</span> (</span><br><span class="line"><span class="built_in">window</span>.MutationObserver ||<span class="built_in">window</span>.WebKitMutationObserver)(<span class="function"><span class="keyword">function</span>(<span class="params">mutationRecord,observer</span>)</span>&#123;</span><br><span class="line">     mutationRecord.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">mutation</span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(mutation)</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+<p> 其中<code>mutationRecord</code>和<code>observer</code>是调用回调函数时浏览器传入的参数。</p>
+</li>
+<li><p>注册事件监听<br> 向浏览器注册要监听的事件。</p>
+<blockquote>
+<p>注:  childList, attributes, 或者characterData三个属性中必须至少有一个为true.否则,会抛出异常”An invalid or illegal string was specified”.<br> 这里选择<code>childList</code>作为监听事件。因为来新消息的时候，DOM必定会增加子节点，所以<code>childList</code>必定会改变。相应的代码如下所示</p>
+</blockquote>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target = $(<span class="string">".chatTimeLine"</span>)[<span class="number">0</span>]</span><br><span class="line">config = &#123;childList:<span class="literal">true</span>&#125;</span><br><span class="line">observer.observe(target,config);</span><br></pre></td></tr></table></figure>
+<p> 其中<code>target</code>必须是DOM对象。所以使用取数组元素的方式将<code>jQuery</code>对象转换为<code>DOMObject</code>。</p>
+</li>
+</ol>
+<h4 id="测试-1">测试</h4><p>从控制台中看到返回两个<code>Mutation</code>，其中包含了每个改变的节点。</p>
+<h4 id="缺点-1">缺点</h4><p>换用了<code>MutationObserver</code>后，缩小了监控范围。使得事件更贴切需求。</p>
+<ol>
+<li><del>页面其他变动也会有提示</del></li>
+<li>一个新消息<strong>两</strong>次弹窗</li>
+<li>提醒的方式不够友好</li>
+</ol>
+<h3 id="第三版">第三版</h3><p>事件部分已经基本解决。接下来要解决提示部分。弹框实在是太不友好了。这里想到了HTML5的新特性之一桌面通知</p>
+<p>桌面通知的效果是这样的。</p>
+<p>先找到桌面通知的相关文档来学习使用桌面通知</p>
+<blockquote>
+<p>Notification 对象使用来为用户设置和显示桌面通知。——<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification" target="_blank" rel="external">Mozilla Develop</a></p>
+</blockquote>
+<p>在使用通知前必须先申请权限，申请权限的代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.Notification.requestPermission()</span><br></pre></td></tr></table></figure>
+<p>实例代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">window</span>.Notification(<span class="string">"有新消息"</span>,&#123;body:<span class="string">"消息内容"</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>提醒的标题可以改为说话者，消息内容既是接受到的内容。所以现在要获取消息的说话者和消息内容。</p>
+<p>通过使用<code>jQuery</code>可以轻松的获取，通过观察DOM结构即可得到一下代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).last().find(<span class="string">"span"</span>).text();</span><br><span class="line"><span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br></pre></td></tr></table></figure>
+<p>与上面提示的代码结合，稍微修改后如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).last().find(<span class="string">"span"</span>).text();</span><br><span class="line">	<span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br><span class="line">	<span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;body:message&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observer = <span class="keyword">new</span> (<span class="built_in">window</span>.MutationObserver||<span class="built_in">window</span>.WebKitMutationObserver)(show)</span><br></pre></td></tr></table></figure>
+<h4 id="测试-2">测试</h4><p>这次弹出两次提示。原因是<a href="http://chatwork.com" target="_blank" rel="external">chatwork</a>网站消息机制。至此基本功能已经开发完毕。但还有一些问题待解决</p>
+<ol>
+<li><del>页面其他变动也会有提示</del></li>
+<li>一个新消息<strong>两</strong>次弹窗</li>
+<li><del>提醒的方式不够友好</del></li>
+<li>提示不会自动关闭</li>
+<li>提示信息不够完善</li>
+</ol>
+<h3 id="第四版">第四版</h3><p>接下来解决一些主要问题。</p>
+<ol>
+<li><p>一个新消息<strong>两次</strong>弹窗<br> 一开始尝试了将提醒函数设定为只运行一次。之后发现只有第一次来消息时提示。后面就没有提示了。因为提醒函数运行一次就不会运行第二次了。思考良久，没有找到比较好的解决方案。在<strong>Snatic</strong>的提醒下，恍然开悟。只需要判断这两次的内容是否相同即可。代码如下</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> avatarSpeaker = $(<span class="string">".avatarSpeaker"</span>).last().find(<span class="string">"img"</span>).attr(<span class="string">"src"</span>);<span class="comment">//说话者</span></span><br><span class="line"><span class="keyword">var</span> speakTime = $(<span class="string">".timeStamp"</span>).last().text();<span class="comment">//讲话时间</span></span><br><span class="line"><span class="keyword">if</span>(message === last[<span class="string">"message"</span>] &amp;&amp;  speakTime === last[<span class="string">"speakTime"</span>] &amp;&amp; chatName === last[<span class="string">"chatName"</span>])&#123;</span><br><span class="line">	<span class="comment">//什么事都不做</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	last[<span class="string">"message"</span>] = message</span><br><span class="line">	last[<span class="string">"speakTime"</span>] = speakTime</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提示不会自动关闭<br> 添加计时函数，三秒后关闭对话框即可。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;body:message&#125;)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n.close();&#125;,<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提示信息不够完善<br> 提示信息的左边是空白的比较难看。所以根据<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification" target="_blank" rel="external">文档</a>稍加修改，添加说话人的头像，提醒代码修改如下。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> avatarSpeaker = $(<span class="string">".avatarSpeaker"</span>).last().find(<span class="string">"img"</span>).attr(<span class="string">"src"</span>);</span><br><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;icon:avatarSpeaker,body:message&#125;)</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n.close();&#125;,<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
+<p> 至此已经解决剩余的问题。目前功能较为完善。最终代码如下</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">window</span>.Notification.requestPermission()</span><br><span class="line">	last = []</span><br><span class="line">	last[<span class="string">"message"</span>] = <span class="string">"tuoxiedafahao"</span></span><br><span class="line">	last[<span class="string">"speakTime"</span>] = <span class="string">"15:21"</span></span><br><span class="line">	last[<span class="string">"chatName"</span>] = <span class="string">"tuoxiedang"</span></span><br><span class="line">	</span><br><span class="line">	show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> chatNameArray = $(<span class="string">".chatName"</span>);</span><br><span class="line">		<span class="keyword">var</span> i = chatNameArray.length;</span><br><span class="line">		<span class="keyword">while</span>(i--)&#123;</span><br><span class="line">			<span class="keyword">if</span>(chatNameArray.eq(i).text() !== <span class="string">""</span>) <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">var</span> chatName = $(<span class="string">".chatName"</span>).eq(i).find(<span class="string">"span"</span>).text();</span><br><span class="line">		<span class="keyword">var</span> message = $(<span class="string">"div.chatTimeLine div._message"</span>).last().find(<span class="string">"pre"</span>).text();</span><br><span class="line">		<span class="keyword">var</span> avatarSpeaker = $(<span class="string">".avatarSpeaker"</span>).last().find(<span class="string">"img"</span>).attr(<span class="string">"src"</span>);</span><br><span class="line">		<span class="keyword">var</span> speakTime = $(<span class="string">".timeStamp"</span>).last().text();</span><br><span class="line">		<span class="keyword">var</span> myName = $(<span class="string">".myStatusName"</span>).text();</span><br><span class="line">		<span class="keyword">if</span>(message === last[<span class="string">"message"</span>] &amp;&amp;  speakTime === last[<span class="string">"speakTime"</span>] &amp;&amp; chatName === last[<span class="string">"chatName"</span>])&#123;</span><br><span class="line"></span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (myName === chatName)&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"you say it"</span>)</span><br><span class="line">		&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">window</span>.Notification(chatName,&#123;icon:avatarSpeaker,body:message&#125;)</span><br><span class="line">			setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n.close();&#125;,<span class="number">3000</span>)</span><br><span class="line">			last[<span class="string">"message"</span>] = message</span><br><span class="line">			last[<span class="string">"speakTime"</span>] = speakTime</span><br><span class="line">			last[<span class="string">"chatName"</span>] = chatName</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	observer = <span class="keyword">new</span> (<span class="built_in">window</span>.MutationObserver||<span class="built_in">window</span>.WebKitMutationObserver)(show)</span><br><span class="line"></span><br><span class="line">	target = $(<span class="string">".chatTimeLine"</span>)[<span class="number">0</span>]</span><br><span class="line">	config = &#123;childList:<span class="literal">true</span>&#125;</span><br><span class="line">	observer.observe(target,config);</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="测试-3">测试</h3><p>效果跟一开始想法差不多。</p>
+<h2 id="后记">后记</h2><p>这篇文章在我插件完成两个星期后才写完。其中还有一些功能没有介绍就突然在最终代码里面出现了。改天有空再来填坑吧。(改天根本就不会想起来好吧！摔！)</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Chatwork/">Chatwork</a><a href="/tags/jQuery/">jQuery</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://en.ors-sro.com/Chatwork-plugin/" data-title="chatwork插件 | 拖鞋党的拖鞋铺" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/Migrate-to-hexo3/" title="hexo3.0迁移">
+  <strong>上一篇：</strong><br/>
+  <span>
+  hexo3.0迁移</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/Title-changed/"  title="改过之后的标题">
+ <strong>下一篇：</strong><br/> 
+ <span>改过之后的标题
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#chatwork简介"><span class="toc-number">1.</span> <span class="toc-text">chatwork简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写插件的原因"><span class="toc-number">2.</span> <span class="toc-text">编写插件的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术思路"><span class="toc-number">3.</span> <span class="toc-text">技术思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一版"><span class="toc-number">3.1.</span> <span class="toc-text">第一版</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试"><span class="toc-number">3.1.1.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-number">3.1.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二版"><span class="toc-number">3.2.</span> <span class="toc-text">第二版</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三版"><span class="toc-number">3.3.</span> <span class="toc-text">第三版</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#测试-2"><span class="toc-number">3.3.1.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四版"><span class="toc-number">3.4.</span> <span class="toc-text">第四版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试-3"><span class="toc-number">3.5.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">4.</span> <span class="toc-text">后记</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/玩/" title="玩">玩<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/test/" title="test">test<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yilia/" title="yilia">yilia<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/YAML/" title="YAML">YAML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多平台部署/" title="多平台部署">多平台部署<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Material-Design-Lite/" title="Material Design Lite">Material Design Lite<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AngularJS/" title="AngularJS">AngularJS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chatwork/" title="Chatwork">Chatwork<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+			
+		
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://Snatic" target="_blank" title="一个文艺青年的独白">Snatic&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m crazy for web design <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="rtafip">rtafip</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'httporssrocom';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>
