@@ -901,7 +901,6 @@ article header.article-info >p.article-time {
   padding-top: 0.5em;
   font-size: 0.8em;
   text-align: center;
-  margin-bottom: -2.7em;
 }
 @media only screen and (min-width: 768px) {
   article header.article-info >p.article-time {
