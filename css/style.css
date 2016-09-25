@@ -1496,7 +1496,7 @@ section.comment {
   padding-top: 0;
 }
 #toc.toc-aside {
-  display: block;
+  display: none;
   width: 13%;
   position: fixed;
   right: 2%;
@@ -1513,6 +1513,11 @@ section.comment {
   -o-transition: opacity 1s ease-out;
   -ms-transition: opacity 1s ease-out;
   transition: opacity 1s ease-out;
+}
+@media only screen and (min-width: 1024px) {
+  #toc.toc-aside {
+    display: block;
+  }
 }
 #toc.toc-aside strong {
   padding: 0.3em 0;
