@@ -90,13 +90,7 @@ a img {
   border: none;
 }
 /* custom Font*/
-@font-face {
-  font-family: "covered_by_your_graceregular";
-  font-weight: normal;
-  font-style: normal;
-  src: url("../font/coveredbyyourgrace-webfont.eot");
-  src: url("../font/coveredbyyourgrace-webfont.eot?#iefix") format('embedded-opentype'), url("../font/coveredbyyourgrace-webfont.svg#covered_by_your_graceregular") format('svg'), url("../font/coveredbyyourgrace-webfont.woff") format('woff'), url("../font/coveredbyyourgrace-webfont.ttf") format('truetype');
-}
+/*customfont(font-custom-family,font-custom-filename)*/
 /* icon Font */
 @font-face {
   font-family: "FontAwesome";
