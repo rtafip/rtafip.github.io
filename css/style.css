@@ -1156,6 +1156,9 @@ article .article-content .right {
   margin-left: 1em;
   float: right;
 }
+article .article-content .wx-hide {
+  display: none;
+}
 article[itemprop=articleBody] .article-content> *:first-child {
   margin-top: auto;
 }
