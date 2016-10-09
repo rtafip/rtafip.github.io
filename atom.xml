@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-09-25T11:01:33.048Z</updated>
+  <updated>2016-10-09T10:08:23.885Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,110 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[ZeroNet]]></title>
+    <link href="http://en.ors-sro.com/Zeronet/"/>
+    <id>http://en.ors-sro.com/Zeronet/</id>
+    <published>2016-10-09T07:03:25.000Z</published>
+    <updated>2016-10-09T10:08:23.885Z</updated>
+    <content type="html"><![CDATA[<p>比特币中的一项特性是去中心化。这使得比特币拥有较为自由的能力，不会因为某些服务器故障而无法运行。这是因为使用了去中心化技术。如果互联网去中心化会是怎样的呢？</p>
+<a id="more"></a>
+<h2 id="安装_ZeroNet">安装 ZeroNet</h2><p><a href="https://github.com/HelloZeroNet/ZeroNet" target="_blank" rel="external">ZeroNet</a> 是一个使用了比特币加密技术和 BT 分布式技术的网络。它的主要目的是将互联网去中心化。</p>
+<p>使用起来很方便，首先<a href="https://github.com/HelloZeroNet/ZeroNet#how-to-join" target="_blank" rel="external">下载</a> 相应的客户端。</p>
+<p>解压。发现文件目录为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZeroBundle&#10;  &#9500;&#9472;Python&#10;  &#9492;&#9472;ZeroNet.cmd</span><br></pre></td></tr></table></figure>
+<p>有一个 <code>pyhton2</code> 的环境和一个启动脚本。</p>
+<p>如果你是 Windows 用户直接运行 <strong>ZeroNet.cmd</strong> </p>
+<p>弹出黑框并开始下载主程序</p>
+<blockquote>
+<p>Downloading <a href="https://github.com/HelloZeroNet/ZeroNet/archive/master.zip" target="_blank" rel="external">https://github.com/HelloZeroNet/ZeroNet/archive/master.zip</a> to ZeroNet directory.</p>
+</blockquote>
+<p>大约一分钟后主程序下载完毕，你会发现任务栏里面出现一个 ZeroNet 的图标。</p>
+<p>这时候会弹出 Windows 防火墙，点允许免得出奇奇怪怪的问题。</p>
+<h2 id="初尝_ZeroNet">初尝 ZeroNet</h2><p>双击 ZeroNet 的图标或者直接在地址栏中输入 <a href="http://127.0.0.1:43110/" target="_blank" rel="external">http://127.0.0.1:43110/</a> 就会打开 ZeroNet 的初始欢迎界面。</p>
+<p><img src="/img/ZeroNet/Hello.png" alt="ZeroNet 欢迎页面"></p>
+<p>左边列出了 ZeroNet 中的部分网站。随便点一个进去</p>
+<p><img src="/img/ZeroNet/Loading.png" alt="ZeroNet 加载页面"></p>
+<p>等待一两秒的载入后，网页内容刷新出来了。</p>
+<p><img src="/img/ZeroNet/ZeroBoard.png" alt="ZeroNet ZeroBoard页面"></p>
+<p>从这个地址中我们发现它并没有直接访问任何现存互联网的资源。而是直接访问电脑地址 127.0.0.1 。</p>
+<p>这是官方的一个公告板网站，里面有很多刚来的人打招呼。</p>
+<p>这就是使用 ZeroNet 的基本流程。跟访问普通网站没有太大的区别。唯一要做的就是打开 ZeroNet 的客户端。这样才能访问 ZeroNet 中的网站。</p>
+<p>在使用者看来不连接现有互联网的情况下能够访问网页，感觉挺神奇的，像是打开的了新世界。</p>
+<h2 id="探索_ZeroNet">探索 ZeroNet</h2><p>第一次打开 ZeroNet 你会发现欢迎页面中的网站很少。是不是 ZeroNet 上只有这些网站呢？</p>
+<p>其实不是的。实际上 ZeroNet 拥有很多网站。只是没有看到而已。</p>
+<p>回想普通的互联网。想要访问一个网站应该怎么做？</p>
+<p>在地址栏中输入它的网址即可。</p>
+<p>那这个网址是怎么来的呢？有很多种渠道，不过最典型的渠道是搜索引擎。</p>
+<p>目前还没发现 ZeroNet 有相关的搜索引擎。不过 ZeroNet 的作者也考虑到了这一点所以提供了一个 ZeroNet 网站的列表</p>
+<p>这个列表就在欢迎页面的左边里面有个 <a href="http://127.0.0.1:43110/0list.bit/" target="_blank" rel="external">more site @ 0list</a></p>
+<p><img src="/img/ZeroNet/0list.png" alt="ZeroNet 网站列表"></p>
+<p>随便点击一个<a href="http://127.0.0.1:43110/1BEJbnufyav7TK23ADTs2Qi2UJeKSGDzw6/" target="_blank" rel="external">网站</a></p>
+<p><img src="/img/ZeroNet/ResouceSite.png" alt="ZeroNet 一个资源站"></p>
+<p>这是一个视频资源网站，相应的资源通过磁力链接下载。</p>
+<p>如果有耐心可以发现很多好玩的网站。比如</p>
+<ul>
+<li><a href="http://127.0.0.1:43110/14Q1So3DH9qvHts5VuLDgqGp7yCXceujop" target="_blank" rel="external">吃豆人游戏</a></li>
+<li><a href="http://127.0.0.1:43110/1EGBRuaoUg5JFENpDwn4RPu2ZP99KQ2h9C/" target="_blank" rel="external">一个中文博客</a></li>
+<li><a href="http://127.0.0.1:43110/shadowsocksr.bit" target="_blank" rel="external">SSR</a></li>
+</ul>
+<p>也会发现一些奇奇怪怪的东西。毕竟 ZeroNet 不受监管。</p>
+<h2 id="安家_ZeroNet">安家 ZeroNet</h2><p>在 ZeroNet 上创建一个网站也很方便。不需要审核。</p>
+<p>在创建之前先关闭 ZeroNet</p>
+<p>进入 ZeroNet 的目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZeroBundle&#10;  &#9500;&#9472;Python&#10;  &#9500;&#9472;ZeroNet&#10;  &#9474; &#9500;&#9472;data&#10;  &#9474; &#9500;&#9472;log&#10;  &#9474; &#9500;&#9472;plugins  &#9;&#10;  &#9474; &#9500;&#9472;...  &#9;&#10;  &#9474; &#9500;&#9472;zeronet.py  &#60;- &#20851;&#38190;&#33050;&#26412;&#10;  &#9474; &#9492;&#9472;... &#10;  &#9492;&#9472;ZeroNet.cmd</span><br></pre></td></tr></table></figure>
+<p>在文件夹地址栏中输入 <code>cmd</code> </p>
+<p>就会以当前路径运行黑框。</p>
+<p>输入以下命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\Python\python zeronet.py siteCreate</span><br></pre></td></tr></table></figure>
+<p>输出为</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Starting ZeroNet...&#10;- OpenSSL loaded, version: 01000201F&#10;- Version: 0.4.1 r1536, Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (Intel)], Gevent: 1.1.2&#10;- Generating new privatekey...&#10;- ----------------------------------------------------------------------&#10;- Site private key: 5KYXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#10;-                   !!! ^ Save it now, required to modify the site ^ !!!&#10;- Site address:     1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5&#10;- ----------------------------------------------------------------------&#10;? Have you secured your private key? (yes, no) &#62;</span><br></pre></td></tr></table></figure>
+<p>其中 <strong>Site private key</strong> 就是你的私钥。在修改自己的网站的时候会用到，请妥善保管</p>
+<p>地址为 <strong>Site address</strong> 后面的部分。比如我的就是 <strong>1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5</strong></p>
+<p>保存好私钥后输入 yes 。输出为</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Creating directory structure...&#10;- Creating content.json...&#10;Site:1BTG4L..eEQ5 Content.json not exist: data/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5/content.json&#10;Site:1BTG4L..eEQ5 File content.json not exist yet, loading default values...&#10;Site:1BTG4L..eEQ5 Opening site data directory: data/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5/...&#10;Site:1BTG4L..eEQ5 - index.html (SHA512: 20d3253a86e9e19d99c1e1c1ad7c8c272b0e1037ae1773aecc8ab6e09f2854e7)&#10;Site:1BTG4L..eEQ5 Adding timestamp and sha512sums to new content.json...&#10;Site:1BTG4L..eEQ5 Verifying private key...&#10;Site:1BTG4L..eEQ5 Correct 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5 in valid signers: [&#39;1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5&#39;]&#10;Site:1BTG4L..eEQ5 Signing content.json...&#10;Site:1BTG4L..eEQ5 Saving to content.json...&#10;Site:1BTG4L..eEQ5 File content.json signed!&#10;- Site created!</span><br></pre></td></tr></table></figure>
+<p>说明成功建立站点。地址为 <strong> <a href="http://127.0.0.1:43110/上面" target="_blank" rel="external">http://127.0.0.1:43110/上面</a> site address 的部分</strong> 。</p>
+<p>比如我的是 <strong><a href="http://127.0.0.1:43110/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5" target="_blank" rel="external">http://127.0.0.1:43110/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5</a></strong></p>
+<p>双击 <strong>ZeroNet.cmd</strong> 启动 ZeroNet</p>
+<p>在地址栏中输入刚建立站点的地址，会看到类似的页面</p>
+<p><img src="/img/ZeroNet/PersionalSite.png" alt="ZeroNet 常见站点"></p>
+<p>接下来修改个人网站。比如把 <strong>Hello</strong> 该成 <strong>Hi</strong>。这时候需要用到上面产生的私钥</p>
+<p>先找到自己的网站。位于 <strong>ZeroBundle\ZeroNet\data\你的私钥</strong> 文件夹中。比如我的就是 <strong>ZeroBundle\ZeroNet\data\1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5</strong></p>
+<p>目录结构如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5&#10;  &#9500;&#9472;content.json&#10;  &#9492;&#9472;index.html</span><br></pre></td></tr></table></figure>
+<p>用文本编辑器打开 <strong>index.html</strong></p>
+<p>把</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5!</span><br></pre></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5!</span><br></pre></td></tr></table></figure>
+<p>保存。双击 <strong>index.html</strong> 打开后发现内容已经发生改变。</p>
+<p>这只是本地预览的效果。要想其他人也能看到就需要发布。</p>
+<p>首先运行命令登陆自己的网站</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\Python\python zeronet.py siteSign &#20320;&#30340;&#22320;&#22336;</span><br></pre></td></tr></table></figure>
+<p>出现输入私钥的提示</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Starting ZeroNet...&#10;- OpenSSL loaded, version: 01000201F&#10;- Version: 0.4.1 r1536, Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (Intel)], Gevent: 1.1.2&#10;- Signing site: 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5...&#10;Private key (input hidden):</span><br></pre></td></tr></table></figure>
+<p>密码验证正确后提示</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Site:1BTG4L..eEQ5 Opening site data directory: data/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5/...&#10;Site:1BTG4L..eEQ5 - [SKIPPED] content.json&#10;Site:1BTG4L..eEQ5 - index.html (SHA512: d749c3e6ea1668e314fa3a32c5048313d2387a336abcd60b6ba1b50a0f4e0952)&#10;Site:1BTG4L..eEQ5 Adding timestamp and sha512sums to new content.json...&#10;Site:1BTG4L..eEQ5 Verifying private key...&#10;Site:1BTG4L..eEQ5 Correct 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5 in valid signers: [&#39;1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5&#39;]&#10;Site:1BTG4L..eEQ5 Signing content.json...&#10;Site:1BTG4L..eEQ5 Saving to content.json...&#10;Site:1BTG4L..eEQ5 File content.json signed!</span><br></pre></td></tr></table></figure>
+<p>登陆成功后接着发布网站</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\Python\python zeronet.py sitePublish &#20320;&#30340;&#22320;&#22336;</span><br></pre></td></tr></table></figure>
+<p>发布成功后提示</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Starting ZeroNet...&#10;- OpenSSL loaded, version: 01000201F&#10;- Version: 0.4.1 r1536, Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (Intel)], Gevent: 1.1.2&#10;- Loading site...&#10;- Creating FileServer....&#10;- Sending siteReload&#10;- &#123;&#39;to&#39;: 1, &#39;cmd&#39;: &#39;response&#39;, &#39;ok&#39;: &#39;Reloaded&#39;&#125;&#10;- Sending sitePublish&#10;- &#123;&#39;to&#39;: 2, &#39;cmd&#39;: &#39;response&#39;, &#39;ok&#39;: &#39;Successfuly published to 0 peers&#39;&#125;&#10;- Done.</span><br></pre></td></tr></table></figure>
+<p>其中有提示 <strong>Successfuly published to 0 peers</strong> 每一个访问者都会保存你的网站，因为你的网站还没人访问过。所以没有推送给任何一个用户。</p>
+<p>如何检验是否更新成功呢？很简单让小伙伴访问一下你的网站就可以了。</p>
+<p>如果想要做更多的自定义修改请参考<a href="https://zeronet.readthedocs.io/en/latest/" target="_blank" rel="external">官方开发者文档</a></p>
+<h2 id="看待_ZeroNet">看待 ZeroNet</h2><p>ZeroNet 是一个很有意思的项目。目前处于发展阶段。就算不能成功也会启发后来的人。目前 ZeroNet 最大的缺点是用户量比较少，部分网页访问速度比较慢。还有部分内容不是去完全中心化的。要说清楚得从原理说起，这个坑就太大了。<ruby>改天有空<rt>永远没空</rt></ruby>介绍吧。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>比特币中的一项特性是去中心化。这使得比特币拥有较为自由的能力，不会因为某些服务器故障而无法运行。这是因为使用了去中心化技术。如果互联网去中心化会是怎样的呢？</p>]]>
+    
+    </summary>
+    
+      <category term="ZeroNet" scheme="http://en.ors-sro.com/tags/ZeroNet/"/>
+    
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Quine]]></title>
@@ -1402,82 +1506,6 @@
       <category term="YAML" scheme="http://en.ors-sro.com/tags/YAML/"/>
     
       <category term="多平台部署" scheme="http://en.ors-sro.com/tags/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%83%A8%E7%BD%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[hexo3.0迁移]]></title>
-    <link href="http://en.ors-sro.com/Migrate-to-hexo3/"/>
-    <id>http://en.ors-sro.com/Migrate-to-hexo3/</id>
-    <published>2015-07-25T12:55:45.000Z</published>
-    <updated>2015-07-26T15:44:23.299Z</updated>
-    <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>因为折腾多平台部署，以为是<code>hexo</code>版本过低，所以升级了<code>hexo</code>到了3.0版本。结果却发现<code>hexo d</code>和<code>hexo g</code>等命令都失效了。运行会有类似提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Commands:&#10;  help     Get help on Hexo.&#10;  init     Create a new Hexo folder.&#10;  version  Display version information.&#10;&#10;Global Options:&#10;  --config  Specify config file instead of using _config.yml&#10;  --cwd     Specify the CWD&#10;  --debug   Display all verbose messages in the terminal&#10;  --safe    Disable all plugins and scripts&#10;  --silent  Hide output on console&#10;&#10;For more help, you can use &#39;hexo help [command]&#39; for the detailed information&#10;or you can check the docs: http://hexo.io/docs/</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="尝试官方迁移方案">尝试官方迁移方案</h2><p>由<strong>Hexo2.X</strong> —&gt; <strong>Hexo3.0</strong>，官方给出了具体的<a href="https://github.com/hexojs/hexo/wiki/Migrating-from-2.x-to-3.0" target="_blank" rel="external">升级方案</a>。</p>
-<p>但是我在升级的时候遇到了几个问题</p>
-<ol>
-<li>连接<strong>npm</strong>速度慢</li>
-<li>安装<strong>Hexo</strong>其他插件位置不当</li>
-</ol>
-<p>之后我放弃了官方的解决方案。自己尝试从头开始</p>
-<h2 id="自己的解决方案">自己的解决方案</h2><p>从头开始并不是把之前的博文都删掉。而是重新建立一个文件夹，运行<code>hexo init</code>后将原来的文章和<strong>.git</strong>文件复制过来。</p>
-<ol>
-<li><p>切换淘宝npm镜像<br> 连接<strong>npm</strong>国外镜像速度太慢，解决方案是切换<strong>npm</strong>的镜像。在<strong>npm</strong>的目录下找到<strong>.npmrc</strong>添加以下代码</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registry = https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装Hexo命令行</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>&gt;<span class="title">npm</span> <span class="title">install</span> <span class="title">hexo</span>-<span class="title">cli</span> -<span class="title">g</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新建文件夹<br> 这里为文件夹的名字为test</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>&gt;<span class="title">F</span>:</span><br><span class="line"></span><br><span class="line"><span class="title">F</span>:\&gt;<span class="title">mkdir</span> <span class="title">test</span></span><br><span class="line"></span><br><span class="line"><span class="title">F</span>:\&gt;<span class="title">cd</span> <span class="title">test</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化目录<br> 使用<code>hexo init</code>初始化目录即可</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">F:\<span class="title">test</span>&gt;<span class="title">hexo</span> <span class="title">init</span></span></span><br></pre></td></tr></table></figure>
-<p> 初始化成功后会有类似提示</p>
-<blockquote>
-<p>INFO  Copying data to F:\test<br>INFO  You are almost done! Don’t forget to run ‘npm install’ before you start bl<br>ogging with Hexo!</p>
-</blockquote>
-</li>
-<li><p>安装相应的插件<br> Hexo3.0最大的变化是将很多原来的功能都独立成了插件。这里的插件有文章生成插件，部署插件等。根据上面的提示使用<code>npm install</code>即可。</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">F:\<span class="title">test</span>&gt;<span class="title">npm</span> <span class="title">install</span></span></span><br></pre></td></tr></table></figure>
-<p> 等待一段时间后，所有插件会自动下载完毕。如果出现一下类似提示请重新运行<code>npm install</code>直至不再提示</p>
-<blockquote>
-<p>npm ERR! registry error parsing json</p>
-</blockquote>
-<p> <code>npm install</code>完成后<strong>node_modules</strong>的文件夹结构应该是这样的。</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">├─hexo</span><br><span class="line">│</span><br><span class="line">├─hexo-generator-archive</span><br><span class="line">│</span><br><span class="line">├─hexo-generator-category</span><br><span class="line">│</span><br><span class="line">├─hexo-generator-index</span><br><span class="line">│</span><br><span class="line">├─hexo-generator-tag</span><br><span class="line">│</span><br><span class="line">├─hexo-renderer-ejs</span><br><span class="line">│</span><br><span class="line">├─hexo-renderer-marked</span><br><span class="line">│</span><br><span class="line">├─hexo-renderer-stylus</span><br><span class="line">│</span><br><span class="line">└─hexo-server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>复制原来的文章和主题当前文件夹<br> 如果你有使用git管理整个网站的习惯还可以将原来的<strong>.git</strong>文件夹复制过来。但是请不要直接将原来的<strong>_config.yaml</strong>复制过来。而是<strong>用到的</strong>内容才复制</p>
-</li>
-<li><p>生成静态文件和运行博客</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">F:\<span class="title">test</span>&gt;<span class="title">hexo</span> <span class="title">g</span></span></span><br></pre></td></tr></table></figure>
-<p> 运行完成，生成网页成功以下类似提示</p>
-<blockquote>
-<p>INFO  Files loaded in 3.6 s<br>INFO  Generated: js/script.js<br>INFO  Generated: fancybox/jquery.fancybox.pack.js<br>INFO  Generated: fancybox/jquery.fancybox.js<br>…<br>INFO  Generated: archives/2015/index.html<br>INFO  Generated: archives/2015/07/index.html<br>INFO  Generated: index.html<br>INFO  28 files generated in 1.32 s</p>
-</blockquote>
-<p> 使用<code>hexo s</code>运行博客</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">F:\<span class="title">test</span>&gt;<span class="title">hexo</span> <span class="title">s</span></span></span><br></pre></td></tr></table></figure>
-<p> 运行成功有以下类似提示</p>
-<blockquote>
-<p>INFO  Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.</p>
-</blockquote>
-<p> 使用浏览器打开<code>http://localhost:4000</code>查看博客。<strong>Hello World Again！</strong></p>
-<p> 如果运行<code>hexo s</code>出现<code>hexo</code>的帮助页面。也就是类似下面的提示</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Usage: hexo &#60;command&#62;&#10;&#10;Commands:&#10;  clean     Removed generated files and cache.&#10;  config    Get or set configurations.&#10;  deploy    Deploy your website.&#10;  generate  Generate static files.&#10;  help      Get help on a command.&#10;  init      Create a new Hexo folder.&#10;  list      List the information of the site&#10;  migrate   Migrate your site from other system to Hexo.&#10;  new       Create a new post.&#10;  publish   Moves a draft post from _drafts to _posts folder.&#10;  render    Render files with renderer plugins.&#10;  version   Display version information.&#10;&#10;Global Options:&#10;  --config  Specify config file instead of using _config.yml&#10;  --cwd     Specify the CWD&#10;  --debug   Display all verbose messages in the terminal&#10;  --draft   Display draft posts&#10;  --safe    Disable all plugins and scripts&#10;  --silent  Hide output on console&#10;&#10;For more help, you can use &#39;hexo help [command]&#39; for the detailed information&#10;or you can check the docs: http://hexo.io/docs/</span><br></pre></td></tr></table></figure>
-<p> 请使用<code>npm install hexo-server --save</code>安装<code>hexo</code>服务器。</p>
-<p> 类似的如果运行命令没有得到应有的效果。请安装对应的插件。以下是一些常用的插件列表安装命令</p>
- <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save @安装hexo 服务器</span><br><span class="line">npm install hexo-deployer-git --save @安装hexo git部署插件</span><br><span class="line">npm install hexo-deployer-heroku --save @安装hexo heroku 部署插件</span><br><span class="line">npm install hexo-deployer-rsync --save @安装hexo同步插件</span><br><span class="line">npm install hexo-deployer-openshift --save @不知道什么鬼</span><br><span class="line">npm install hexo-renderer-marked@<span class="number">0</span>.<span class="number">2</span> --save @安装hexo markdown渲染插件</span><br><span class="line">npm install hexo-renderer-stylus@<span class="number">0</span>.<span class="number">2</span> --save @安装hexo 模板插件</span><br><span class="line">npm install hexo-generator-feed@<span class="number">1</span> --save @安装hexo RSS插件</span><br><span class="line">npm install hexo-generator-sitemap@<span class="number">1</span> --save @安装hexo站点地图插件</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="起因">起因</h2><p>因为折腾多平台部署，以为是<code>hexo</code>版本过低，所以升级了<code>hexo</code>到了3.0版本。结果却发现<code>hexo d</code>和<code>hexo g</code>等命令都失效了。运行会有类似提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Commands:&#10;  help     Get help on Hexo.&#10;  init     Create a new Hexo folder.&#10;  version  Display version information.&#10;&#10;Global Options:&#10;  --config  Specify config file instead of using _config.yml&#10;  --cwd     Specify the CWD&#10;  --debug   Display all verbose messages in the terminal&#10;  --safe    Disable all plugins and scripts&#10;  --silent  Hide output on console&#10;&#10;For more help, you can use &#39;hexo help [command]&#39; for the detailed information&#10;or you can check the docs: http://hexo.io/docs/</span><br></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://en.ors-sro.com/tags/Hexo/"/>
     
   </entry>
   
