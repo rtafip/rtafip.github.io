@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-10-09T10:08:23.885Z</updated>
+  <updated>2016-10-09T10:28:44.622Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -20,14 +20,14 @@
     <link href="http://en.ors-sro.com/Zeronet/"/>
     <id>http://en.ors-sro.com/Zeronet/</id>
     <published>2016-10-09T07:03:25.000Z</published>
-    <updated>2016-10-09T10:08:23.885Z</updated>
+    <updated>2016-10-09T10:28:44.622Z</updated>
     <content type="html"><![CDATA[<p>比特币中的一项特性是去中心化。这使得比特币拥有较为自由的能力，不会因为某些服务器故障而无法运行。这是因为使用了去中心化技术。如果互联网去中心化会是怎样的呢？</p>
 <a id="more"></a>
 <h2 id="安装_ZeroNet">安装 ZeroNet</h2><p><a href="https://github.com/HelloZeroNet/ZeroNet" target="_blank" rel="external">ZeroNet</a> 是一个使用了比特币加密技术和 BT 分布式技术的网络。它的主要目的是将互联网去中心化。</p>
 <p>使用起来很方便，首先<a href="https://github.com/HelloZeroNet/ZeroNet#how-to-join" target="_blank" rel="external">下载</a> 相应的客户端。</p>
 <p>解压。发现文件目录为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZeroBundle&#10;  &#9500;&#9472;Python&#10;  &#9492;&#9472;ZeroNet.cmd</span><br></pre></td></tr></table></figure>
-<p>有一个 <code>pyhton2</code> 的环境和一个启动脚本。</p>
+<p>有一个 <code>python2</code> 的环境和一个启动脚本。</p>
 <p>如果你是 Windows 用户直接运行 <strong>ZeroNet.cmd</strong> </p>
 <p>弹出黑框并开始下载主程序</p>
 <blockquote>
@@ -47,10 +47,10 @@
 <p>在使用者看来不连接现有互联网的情况下能够访问网页，感觉挺神奇的，像是打开的了新世界。</p>
 <h2 id="探索_ZeroNet">探索 ZeroNet</h2><p>第一次打开 ZeroNet 你会发现欢迎页面中的网站很少。是不是 ZeroNet 上只有这些网站呢？</p>
 <p>其实不是的。实际上 ZeroNet 拥有很多网站。只是没有看到而已。</p>
-<p>回想普通的互联网。想要访问一个网站应该怎么做？</p>
+<p>回想普通的互联网，想要访问一个网站应该怎么做？</p>
 <p>在地址栏中输入它的网址即可。</p>
 <p>那这个网址是怎么来的呢？有很多种渠道，不过最典型的渠道是搜索引擎。</p>
-<p>目前还没发现 ZeroNet 有相关的搜索引擎。不过 ZeroNet 的作者也考虑到了这一点所以提供了一个 ZeroNet 网站的列表</p>
+<p>目前还没发现 ZeroNet 有相关的搜索引擎。不过作者也考虑到了这一点所以提供了一个 ZeroNet 网站的列表</p>
 <p>这个列表就在欢迎页面的左边里面有个 <a href="http://127.0.0.1:43110/0list.bit/" target="_blank" rel="external">more site @ 0list</a></p>
 <p><img src="/img/ZeroNet/0list.png" alt="ZeroNet 网站列表"></p>
 <p>随便点击一个<a href="http://127.0.0.1:43110/1BEJbnufyav7TK23ADTs2Qi2UJeKSGDzw6/" target="_blank" rel="external">网站</a></p>
@@ -77,7 +77,7 @@
 <p>地址为 <strong>Site address</strong> 后面的部分。比如我的就是 <strong>1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5</strong></p>
 <p>保存好私钥后输入 yes 。输出为</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Creating directory structure...&#10;- Creating content.json...&#10;Site:1BTG4L..eEQ5 Content.json not exist: data/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5/content.json&#10;Site:1BTG4L..eEQ5 File content.json not exist yet, loading default values...&#10;Site:1BTG4L..eEQ5 Opening site data directory: data/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5/...&#10;Site:1BTG4L..eEQ5 - index.html (SHA512: 20d3253a86e9e19d99c1e1c1ad7c8c272b0e1037ae1773aecc8ab6e09f2854e7)&#10;Site:1BTG4L..eEQ5 Adding timestamp and sha512sums to new content.json...&#10;Site:1BTG4L..eEQ5 Verifying private key...&#10;Site:1BTG4L..eEQ5 Correct 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5 in valid signers: [&#39;1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5&#39;]&#10;Site:1BTG4L..eEQ5 Signing content.json...&#10;Site:1BTG4L..eEQ5 Saving to content.json...&#10;Site:1BTG4L..eEQ5 File content.json signed!&#10;- Site created!</span><br></pre></td></tr></table></figure>
-<p>说明成功建立站点。地址为 <strong> <a href="http://127.0.0.1:43110/上面" target="_blank" rel="external">http://127.0.0.1:43110/上面</a> site address 的部分</strong> 。</p>
+<p>说明成功建立站点。地址为 <a href="http://127.0.0.1:43110/你的+site+address" target="_blank" rel="external">http://127.0.0.1:43110/你的 site address</a> 。</p>
 <p>比如我的是 <strong><a href="http://127.0.0.1:43110/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5" target="_blank" rel="external">http://127.0.0.1:43110/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5</a></strong></p>
 <p>双击 <strong>ZeroNet.cmd</strong> 启动 ZeroNet</p>
 <p>在地址栏中输入刚建立站点的地址，会看到类似的页面</p>
