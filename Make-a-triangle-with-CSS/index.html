@@ -4,23 +4,25 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>NGUI学习笔记之Atlas和UITexture的取舍 | 拖鞋党的拖鞋摊</title>
+    <title>CSS 绘制三角形 | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="rtafip">
     
 
     
-    <meta name="description" content="任性随便选">
+    <meta name="description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NGUI学习笔记之Atlas和UITexture的取舍">
-<meta property="og:url" content="http://en.ors-sro.com/NGUI-Atlas-UITexture-notes/index.html">
+<meta property="og:title" content="CSS 绘制三角形">
+<meta property="og:url" content="http://en.ors-sro.com/Make-a-triangle-with-CSS/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="任性随便选">
-<meta property="og:updated_time" content="2016-04-04T05:39:41.732Z">
+<meta property="og:description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
+<meta property="og:image" content="http://en.ors-sro.com/img/CSSTriangle/MainPage.png">
+<meta property="og:image" content="http://en.ors-sro.com/img/CSSTriangle/Item.png">
+<meta property="og:updated_time" content="2016-10-23T07:49:38.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NGUI学习笔记之Atlas和UITexture的取舍">
-<meta name="twitter:description" content="任性随便选">
+<meta name="twitter:title" content="CSS 绘制三角形">
+<meta name="twitter:description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
 
     
     <link rel="alternative" href="/atom.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -82,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/NGUI-Atlas-UITexture-notes/" title="NGUI学习笔记之Atlas和UITexture的取舍" itemprop="url">NGUI学习笔记之Atlas和UITexture的取舍</a>
+      <a href="/Make-a-triangle-with-CSS/" title="CSS 绘制三角形" itemprop="url">CSS 绘制三角形</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="rtafip" target="_blank" itemprop="author">rtafip</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-04T05:37:29.000Z" itemprop="datePublished"> Published 2016-04-04</time>
+    <time datetime="2016-10-23T05:17:11.000Z" itemprop="datePublished"> Published 2016-10-23</time>
     
   </p>
 </header>
@@ -98,16 +100,80 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">1.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角形花招"><span class="toc-number">2.</span> <span class="toc-text">三角形花招</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-number">4.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
 		
 		</div>
 		
-		<p>任性随便选</p>
-<a id="more"></a>  
+		<p>CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？</p>
+<a id="more"></a>
+<h2 id="矩形">矩形</h2><p>在绘制三角形之前，先来看看如何绘制矩形。</p>
+<p>绘制矩形比较简单，主要用到了 <code>border</code> 属性。也就是一个东西四边都是边框就是矩形了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border:1px solid black"</span>&gt;</span>矩形<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><span style="border:1px solid black">矩形</span></p>
+<p>把中间的文字去掉就可以了。因为没有文字支撑。所以需要指定宽度或者使用空格（样式是样式，内容是内容，不要混淆，这里我偷懒就用空格来演示了）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border:1px solid black"</span>&gt;</span>　　<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><span style="border:1px solid black">　　</span></p>
+<p>但是这跟绘制三角形有什么关系呢？</p>
+<p>这就不得不提一个 CSS 的花招。</p>
+<h2 id="三角形花招">三角形花招</h2><p>如果把矩形的四边涂上颜色。看起来是这样的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border: 100px solid;border-left-color: #0066cc;</span><br><span class="line">             border-right-color: #0066cc;</span><br><span class="line">             border-top-color: white;</span><br><span class="line">             border-bottom-color: white;</span><br><span class="line">             display: inline-block;"</span>&gt;</span>囧<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;">囧</span></p>
+<p>把中间的文字去掉，就变成了这样。</p>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;"></span></p>
+<p>很明显出现了四个三角形。那怎么得到一个三角形呢？</p>
+<p>把其他三个三角形隐藏。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border: 100px solid;</span><br><span class="line">			 border-left-color: #0066cc;</span><br><span class="line">			 border-right-color: transparent;</span><br><span class="line">			 border-top-color: transparent;</span><br><span class="line">			 border-bottom-color: transparent;</span><br><span class="line">			 display: inline-block;"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: transparent;border-top-color: transparent;border-bottom-color: transparent;display: inline-block;"></span></p>
+<h2 id="原理">原理</h2><p>这究竟发生了什么？矩形的边是怎么变成三角形的？</p>
+<p>先从头看起。回到最开始的图形。</p>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;">囧</span></p>
+<p>注意看会发现，边其实不是一条线或者矩形，而是一个等腰梯形。</p>
+<p>当把文字去掉了之后就变成了三角形。</p>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;"></span></p>
+<p>这时候隐藏其他的三角形即可。</p>
+<p>也就是说原来边缘并不是我们想象中的一条线，而是一个梯形，当元素的宽度和高度都为0时，梯形就变成了三角形。</p>
+<p>动态过程是这样的。</p>
+<p style="width:300px;height:300px;"><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;width: 100px;height:100px;display: inline-block;animation: triangle 3s infinite ease;"></span></p>
+
+<style type="text/css">
+    @keyframes triangle{
+        from{width:100px;height:100px;}
+        to{width:0px;height:0px;}
+    }
+</style>
+
+<p>隐藏的过程是这样的</p>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;animation: one-triangle 3s infinite ease;"></span></p>
+<style type="text/css">
+    @keyframes one-triangle{
+        0% {}
+        25% {border-top-color:transparent;}
+        50% {border-right-color:transparent;}
+        100% {border-bottom-color:transparent;}
+    }
+</style>
+
+<h2 id="扩展">扩展</h2><p>利用类似的技巧就可以画出很多很多有趣的图形。<a href="http://cssicon.space/" target="_blank" rel="external">CSSIcon</a> 上有很好的示例。</p>
+<p><img src="/img/CSSTriangle/MainPage.png" alt="纯 CSS 图标"></p>
+<p>点开其中一个，鼠标移到属性上，会有详细介绍怎么实现的。</p>
+<p><img src="/img/CSSTriangle/Item.png" alt="详细实现"></p>
+<p>当然还可以用 CSS 绘制微信微笑的表情（<del>我就偷懒不写了</del>）</p>
+<h2 id="后记">后记</h2><p>三个月前看到这个 CSS 花招，到现在终于把这个坑天了。在写的时候多次想放弃。最有意思的是将原理用动态的方式展现，顺便学了一点 CSS 动画的皮毛。其实绘制三角形最简单的方法是使用 ► 符号（逃</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CSS/">CSS</a>
+  </div>
 
 </div>
 
@@ -115,7 +181,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/NGUI-Atlas-UITexture-notes/" data-title="NGUI学习笔记之Atlas和UITexture的取舍 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/Make-a-triangle-with-CSS/" data-title="CSS 绘制三角形 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -128,19 +194,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/NGUI-build-a-draggable-panel/" title="NGUI学习笔记之搭建可拖动面板">
-  <strong>上一篇：</strong><br/>
-  <span>
-  NGUI学习笔记之搭建可拖动面板</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/Promise-notes/"  title="Promise异步编程学习笔记">
+<a href="/Learn-some-Javascript/"  title="学一些 Javascript">
  <strong>下一篇：</strong><br/> 
- <span>Promise异步编程学习笔记
+ <span>学一些 Javascript
 </span>
 </a>
 </div>
@@ -149,7 +207,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="NGUI-Atlas-UITexture-notes/" data-title="NGUI学习笔记之Atlas和UITexture的取舍" data-url="http://en.ors-sro.com/NGUI-Atlas-UITexture-notes/"></div>
+	<div class="ds-thread" data-thread-key="Make-a-triangle-with-CSS/" data-title="CSS 绘制三角形" data-url="http://en.ors-sro.com/Make-a-triangle-with-CSS/"></div>
 </section>
 
 
@@ -159,7 +217,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">1.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角形花招"><span class="toc-number">2.</span> <span class="toc-text">三角形花招</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-number">4.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
  
   </div>
 

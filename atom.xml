@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-10-15T12:37:37.382Z</updated>
+  <updated>2016-10-23T07:49:38.990Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,79 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[CSS 绘制三角形]]></title>
+    <link href="http://en.ors-sro.com/Make-a-triangle-with-CSS/"/>
+    <id>http://en.ors-sro.com/Make-a-triangle-with-CSS/</id>
+    <published>2016-10-23T05:17:11.000Z</published>
+    <updated>2016-10-23T07:49:38.990Z</updated>
+    <content type="html"><![CDATA[<p>CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？</p>
+<a id="more"></a>
+<h2 id="矩形">矩形</h2><p>在绘制三角形之前，先来看看如何绘制矩形。</p>
+<p>绘制矩形比较简单，主要用到了 <code>border</code> 属性。也就是一个东西四边都是边框就是矩形了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border:1px solid black"</span>&gt;</span>矩形<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><span style="border:1px solid black">矩形</span></p>
+<p>把中间的文字去掉就可以了。因为没有文字支撑。所以需要指定宽度或者使用空格（样式是样式，内容是内容，不要混淆，这里我偷懒就用空格来演示了）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border:1px solid black"</span>&gt;</span>　　<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><span style="border:1px solid black">　　</span></p>
+<p>但是这跟绘制三角形有什么关系呢？</p>
+<p>这就不得不提一个 CSS 的花招。</p>
+<h2 id="三角形花招">三角形花招</h2><p>如果把矩形的四边涂上颜色。看起来是这样的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border: 100px solid;border-left-color: #0066cc;</span><br><span class="line">             border-right-color: #0066cc;</span><br><span class="line">             border-top-color: white;</span><br><span class="line">             border-bottom-color: white;</span><br><span class="line">             display: inline-block;"</span>&gt;</span>囧<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;">囧</span></p>
+<p>把中间的文字去掉，就变成了这样。</p>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;"></span></p>
+<p>很明显出现了四个三角形。那怎么得到一个三角形呢？</p>
+<p>把其他三个三角形隐藏。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border: 100px solid;</span><br><span class="line">			 border-left-color: #0066cc;</span><br><span class="line">			 border-right-color: transparent;</span><br><span class="line">			 border-top-color: transparent;</span><br><span class="line">			 border-bottom-color: transparent;</span><br><span class="line">			 display: inline-block;"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: transparent;border-top-color: transparent;border-bottom-color: transparent;display: inline-block;"></span></p>
+<h2 id="原理">原理</h2><p>这究竟发生了什么？矩形的边是怎么变成三角形的？</p>
+<p>先从头看起。回到最开始的图形。</p>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;">囧</span></p>
+<p>注意看会发现，边其实不是一条线或者矩形，而是一个等腰梯形。</p>
+<p>当把文字去掉了之后就变成了三角形。</p>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;"></span></p>
+<p>这时候隐藏其他的三角形即可。</p>
+<p>也就是说原来边缘并不是我们想象中的一条线，而是一个梯形，当元素的宽度和高度都为0时，梯形就变成了三角形。</p>
+<p>动态过程是这样的。</p>
+<p style="width:300px;height:300px;"><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;width: 100px;height:100px;display: inline-block;animation: triangle 3s infinite ease;"></span></p>
+
+<style type="text/css">
+    @keyframes triangle{
+        from{width:100px;height:100px;}
+        to{width:0px;height:0px;}
+    }
+</style>
+
+<p>隐藏的过程是这样的</p>
+<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;animation: one-triangle 3s infinite ease;"></span></p>
+<style type="text/css">
+    @keyframes one-triangle{
+        0% {}
+        25% {border-top-color:transparent;}
+        50% {border-right-color:transparent;}
+        100% {border-bottom-color:transparent;}
+    }
+</style>
+
+<h2 id="扩展">扩展</h2><p>利用类似的技巧就可以画出很多很多有趣的图形。<a href="http://cssicon.space/" target="_blank" rel="external">CSSIcon</a> 上有很好的示例。</p>
+<p><img src="/img/CSSTriangle/MainPage.png" alt="纯 CSS 图标"></p>
+<p>点开其中一个，鼠标移到属性上，会有详细介绍怎么实现的。</p>
+<p><img src="/img/CSSTriangle/Item.png" alt="详细实现"></p>
+<p>当然还可以用 CSS 绘制微信微笑的表情（<del>我就偷懒不写了</del>）</p>
+<h2 id="后记">后记</h2><p>三个月前看到这个 CSS 花招，到现在终于把这个坑天了。在写的时候多次想放弃。最有意思的是将原理用动态的方式展现，顺便学了一点 CSS 动画的皮毛。其实绘制三角形最简单的方法是使用 ► 符号（逃</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？</p>]]>
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://en.ors-sro.com/tags/CSS/"/>
+    
+      <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[学一些 Javascript]]></title>
@@ -1496,70 +1569,6 @@
       <category term="yilia" scheme="http://en.ors-sro.com/tags/yilia/"/>
     
       <category term="主题" scheme="http://en.ors-sro.com/tags/%E4%B8%BB%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[MDL+AngularJS制作TodoList]]></title>
-    <link href="http://en.ors-sro.com/Develop-a-todo-list-with-MDL-and-AngularJS/"/>
-    <id>http://en.ors-sro.com/Develop-a-todo-list-with-MDL-and-AngularJS/</id>
-    <published>2015-07-27T12:44:29.000Z</published>
-    <updated>2016-04-03T06:58:18.687Z</updated>
-    <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>
-<a id="more"></a>
-<h2 id="框架简介">框架简介</h2><h3 id="Material_Design_Lite(MDL)">Material Design Lite(MDL)</h3><p><a href="http://www.getmdl.io/" target="_blank" rel="external"><strong>Material Design Lite</strong></a>是<strong>Google</strong>推出的一个<strong>CSS</strong>框架，作用类似于<strong>Bootstrap</strong>，用于快速开发出符合<strong>Material Design</strong>风格的网页。</p>
-<h3 id="AngularJS">AngularJS</h3><p><a href="https://angularjs.org/" target="_blank" rel="external"><strong>AngularJS</strong></a>是<strong>Google</strong>推出的一个<strong>JS</strong>框架，用于制作网页应用。其特点是<strong>双向数据绑定</strong>，<strong>MVC</strong>等。</p>
-<h2 id="需求定义">需求定义</h2><p>这个<strong>清单</strong>（TodoList）需求很简单。只需要能够记录待办事项即可。稍微详细的需求如下</p>
-<ol>
-<li>支持输入待办事项</li>
-<li>支持标记待办事项为完成</li>
-<li>支持储存。关闭网页后再打开待办事项还在</li>
-<li>拥有良好的交互界面</li>
-</ol>
-<h2 id="实现">实现</h2><h3 id="实现思路">实现思路</h3><p>其实完全可以用纯<strong>HTML</strong>和<strong>jQuery</strong>来制作。甚至不需要<strong>jQuery</strong>只需要原生<strong>JS</strong>。整个页面只需要有一个输入框，一个确定按钮，一个列表(无序列表<code>&lt;ul&gt;</code>或有序列表<code>&lt;ol&gt;</code>均可)。使用<strong>jQuery</strong>来做就是一个操纵<strong>DOM</strong>的过程。而使用<strong>AngularJS</strong>框架的<strong>双向数据绑定</strong>功能就不需要操纵<strong>DOM</strong>，只需要关注逻辑，修改数据存储的变量即可。</p>
-<h3 id="获取Material_Design_Lite">获取Material Design Lite</h3><p>打开<a href="http://www.getmdl.io/started/index.html" target="_blank" rel="external">Material Design Lite的起步页面</a>，选择获取方式。因为国内连接比较慢，所以我选择了下载的方式。</p>
-<h3 id="获取AngularJS">获取AngularJS</h3><p>打开<a href="https://angularjs.org/" target="_blank" rel="external">AngularJS</a>的主页，点击<strong>Download</strong>，因为要开发所以选择<strong>Uncompressed</strong>不压缩版。</p>
-<h3 id="第一版">第一版</h3><p>工程的目录结构如下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">F:\</span><br><span class="line">├─MDL</span><br><span class="line">│  └─material.css</span><br><span class="line">├─AngularJS</span><br><span class="line">│  └─angular.js</span><br><span class="line">└─TodoList</span><br><span class="line">   └─TodoList.html</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>引入<strong>MDL</strong>和<strong>AngularJS</strong><br> 通过<code>&lt;script&gt;</code>标签和<code>&lt;link&gt;</code>标签在<code>&lt;head&gt;</code>引入即可</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"../MDL/material.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../MDL/material.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../AngularJS/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>搭建<strong>AngularJS</strong>的Hello World<br> 因为会写一些<strong>AngularJS</strong>代码。所以我们在TodoList文件夹下新建一个<strong>Javascript</strong>文件，名称是<strong>todolist.js</strong>。输入以下代码</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> todoList = angular.module(<span class="string">'todo-list'</span>,[]);</span><br></pre></td></tr></table></figure>
-<p> 在TodoList.html中的<code>&lt;html&gt;</code>标签加入属性<code>ng-app</code>，在<code>&lt;body&gt;</code>中添加以下代码。</p>
- <figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ng-model</span>=<span class="value">"helloworld"</span>&gt;</span><span class="tag">&lt;<span class="title">button</span>&gt;</span>DO IT<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Hello,</span><span class="expression">&#123;&#123;<span class="variable">helloworld</span>&#125;&#125;</span><span class="xml"> !<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="第一版测试">第一版测试</h3><p>运行发现输入什么就会显示什么。没有使用任何<strong>Javascript</strong>代码就实现了输入的数据同步到<strong>helloworld</strong>这个变量（暂且这么认为），<strong>helloworld</strong>变量的改变有同步到了引用它的地方这一个双向的过程。</p>
-<p>目前的问题有</p>
-<ol>
-<li>没有实现记事功能</li>
-<li>太丑</li>
-</ol>
-<h3 id="第二版">第二版</h3><p><strong>Hello World</strong>搭建完毕后，接下来就是引入<strong>Material Design Lite</strong>的样式。首先我们需要一个<strong>输入框</strong>和<strong>按钮</strong>的样式，还有一个<strong>列表</strong>的样式。<strong>按钮</strong>的样式可以在<a href="http://www.getmdl.io/components/index.html#buttons-section" target="_blank" rel="external">Material Design Lite的按钮组件</a>页面获取。这里选择了带<strong>ripple</strong>的按钮，样式如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"</span>&gt;</span></span><br><span class="line">  Button</span><br><span class="line"><span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>输入框</strong>的样式可以在<a href="http://www.getmdl.io/components/index.html#textfields-section" target="_blank" rel="external">Material Design Lite的输入框组件</a>页面获取。这里选择了简单的输入框。样式如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Simple Textfield --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield mdl-js-textfield textfield-demo"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__input"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"sample1"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">label</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__label"</span> <span class="attribute">for</span>=<span class="value">"sample1"</span>&gt;</span>Text...<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>列表</strong>的样式可以在<a href="http://www.getmdl.io/components/index.html#tables-section" target="_blank" rel="external">Material Design Lite的表格组件</a>页面获取。这里是因为看起来差不多才选择了表格组件。样式如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">th</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Material<span class="tag">&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">th</span>&gt;</span>Quantity<span class="tag">&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">th</span>&gt;</span>Unit price<span class="tag">&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">thead</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Acrylic (Transparent)<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>25<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>$2.90<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Plywood (Birch)<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>50<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>$1.25<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table__cell--non-numeric"</span>&gt;</span>Laminate (Gold on Blue)<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>10<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">td</span>&gt;</span>$2.35<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>将代码整合一下。完整的代码如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>待办事项<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"../MDL/material.min.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../MDL/material.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../AngularJS/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>待办事项<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">form</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield mdl-js-textfield textfield-demo"</span>&gt;</span></span><br><span class="line">  	  <span class="tag">&lt;<span class="title">input</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__input"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"sample1"</span> <span class="attribute">ng-model</span>=<span class="value">"helloworld"</span> /&gt;</span></span><br><span class="line">  	  <span class="tag">&lt;<span class="title">label</span> <span class="attribute">class</span>=<span class="value">"mdl-textfield__label"</span> <span class="attribute">for</span>=<span class="value">"sample1"</span>&gt;</span>想做啥？<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"</span>&gt;</span>DO IT<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tbody</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">td</span>&gt;</span>Hello, &#123;&#123; helloworld &#125;&#125;!<span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tbody</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="第二版测试">第二版测试</h3><p>虽然还是很丑，但是基本的外观还是有的。现在的主要问题有</p>
-<ol>
-<li>没有实现记事功能</li>
-<li><del>太丑</del></li>
-<li>丑</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="起因">起因</h2><p>有时候会有很多事情要做。但又不是私事不想记在手机上的<strong>Inbox</strong>上。申请马甲邮箱网页登陆<strong>Inbox</strong>还得在手机客户端激活一下才能使用。太麻烦了。找了一段时间没有找到比较简单纯粹的<strong>TodoList</strong>应用。干脆自己做一个。顺便学习<strong>AngularJS</strong>和<strong>Material Design Light</strong>的用法。</p>]]>
-    
-    </summary>
-    
-      <category term="AngularJS" scheme="http://en.ors-sro.com/tags/AngularJS/"/>
-    
-      <category term="Material Design Lite" scheme="http://en.ors-sro.com/tags/Material-Design-Lite/"/>
     
   </entry>
   
