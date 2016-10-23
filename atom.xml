@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-10-23T07:49:38.990Z</updated>
+  <updated>2016-10-23T07:59:36.052Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://en.ors-sro.com/Make-a-triangle-with-CSS/"/>
     <id>http://en.ors-sro.com/Make-a-triangle-with-CSS/</id>
     <published>2016-10-23T05:17:11.000Z</published>
-    <updated>2016-10-23T07:49:38.990Z</updated>
+    <updated>2016-10-23T07:59:36.052Z</updated>
     <content type="html"><![CDATA[<p>CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？</p>
 <a id="more"></a>
 <h2 id="矩形">矩形</h2><p>在绘制三角形之前，先来看看如何绘制矩形。</p>
@@ -63,10 +63,10 @@
 <p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;animation: one-triangle 3s infinite ease;"></span></p>
 <style type="text/css">
     @keyframes one-triangle{
-        0% {}
+        0% {border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;}
         25% {border-top-color:transparent;}
-        50% {border-right-color:transparent;}
-        100% {border-bottom-color:transparent;}
+        50% {border-top-color:transparent;border-right-color:transparent;}
+        100% {border-top-color:transparent;border-right-color:transparent;border-bottom-color:transparent;}
     }
 </style>
 
@@ -75,7 +75,7 @@
 <p>点开其中一个，鼠标移到属性上，会有详细介绍怎么实现的。</p>
 <p><img src="/img/CSSTriangle/Item.png" alt="详细实现"></p>
 <p>当然还可以用 CSS 绘制微信微笑的表情（<del>我就偷懒不写了</del>）</p>
-<h2 id="后记">后记</h2><p>三个月前看到这个 CSS 花招，到现在终于把这个坑天了。在写的时候多次想放弃。最有意思的是将原理用动态的方式展现，顺便学了一点 CSS 动画的皮毛。其实绘制三角形最简单的方法是使用 ► 符号（逃</p>
+<h2 id="后记">后记</h2><p>三个月前看到这个 CSS 花招，到现在终于把这个坑填了。在写的时候多次想放弃。最有意思的是将原理用动态的方式展现，顺便学了一点 CSS 动画的皮毛。其实绘制三角形最简单的方法是使用 ► 符号（逃</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？</p>]]>
