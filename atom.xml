@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-10-30T06:58:46.373Z</updated>
+  <updated>2016-10-30T07:10:20.520Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://en.ors-sro.com/FiraCode/"/>
     <id>http://en.ors-sro.com/FiraCode/</id>
     <published>2016-10-30T04:42:35.000Z</published>
-    <updated>2016-10-30T06:58:46.373Z</updated>
+    <updated>2016-10-30T07:10:20.520Z</updated>
     <content type="html"><![CDATA[<p>表示大于等于关系通常使用大于等于符号 <code>≥</code> ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 <code>&gt;=</code> 。能不能在不改变现有语言的情况下使用 <code>≥</code> 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =<br><a id="more"></a></p>
 <h2 id="合字">合字</h2><p>先来看一段 C 语言代码。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;number);</span><br><span class="line">	<span class="keyword">if</span> (<span class="number">0</span> &lt;= number &amp;&amp; number &lt;= <span class="number">60</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"你挂了！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"还好没挂！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -36,7 +36,7 @@
 </style>
 
 
-<p>很简单的程序，好像没什么特别的。但是注意看第七行也就是第一个 <code>if</code> 中的 <code>≥</code> 符号。有没有发现它居然不是 <code>&gt;=</code> ，并不是作弊使用了 <code>≥</code> 不信你选择大于等于符号试试。（浏览器版本太低是看不到效果的。建议升级 Chrome 或者使用水果机上的 Safari 浏览本页）</p>
+<p>很简单的程序，好像没什么特别的。但是注意看第七行也就是第一个 <code>if</code> 中的 <code>≥</code> 符号。有没有发现它居然不是 <code>&gt;=</code> ，并不是作弊使用了 <code>≥</code> 不信你选择大于等于符号试试。（浏览器版本太低会看不到效果。建议升级 Chrome 或者使用水果机上的 Safari 浏览本页）</p>
 <p>选择时会发现，这个 <code>≥</code> 居然占了两个字符。也就是可以选择前一半，再选择后一半。</p>
 <p>并不是只是在网页上可以有这种效果。编辑器里面也是可以的。</p>
 <p><img src="/img/FiraCode/VS2015.png" alt="Visual Studio 2015 ≤可以被部分选择"></p>
@@ -59,8 +59,8 @@
 <p>工具→选项→环境→字体和颜色→FiraCode</p>
 <p>试着输入 <code>&gt;=</code> 和 <code>!=</code> 看看吧。</p>
 <p>是不是看到了 <code>!=</code> 输入后直接变成了 <code>≠</code></p>
-<p><a href="https://github.com/tonsky/FiraCode/issues/273" target="_blank" rel="external">FiraCode 支持</a> <code>-&gt;</code> 转为 <code>→</code> 但是 VS 不支持，所以看不到效果。（鬼知道为什么选择性的支持合字。）</p>
-<p>FiraCode 除了支持 VS 之外还支持一下编辑器</p>
+<p><a href="https://github.com/tonsky/FiraCode/issues/273" target="_blank" rel="external">FiraCode 支持</a> <code>-&gt;</code> 转为 <code>→</code> 但是 VS 不支持，所以看不到效果。（鬼知道为什么选择性地支持合字。）</p>
+<p>FiraCode 除了支持 VS 之外还支持以下编辑器</p>
 <table>
 <thead>
 <tr>
