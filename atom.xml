@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-10-23T07:59:36.052Z</updated>
+  <updated>2016-10-30T06:58:46.373Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,205 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[FiraCode]]></title>
+    <link href="http://en.ors-sro.com/FiraCode/"/>
+    <id>http://en.ors-sro.com/FiraCode/</id>
+    <published>2016-10-30T04:42:35.000Z</published>
+    <updated>2016-10-30T06:58:46.373Z</updated>
+    <content type="html"><![CDATA[<p>表示大于等于关系通常使用大于等于符号 <code>≥</code> ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 <code>&gt;=</code> 。能不能在不改变现有语言的情况下使用 <code>≥</code> 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =<br><a id="more"></a></p>
+<h2 id="合字">合字</h2><p>先来看一段 C 语言代码。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;number);</span><br><span class="line">	<span class="keyword">if</span> (<span class="number">0</span> &lt;= number &amp;&amp; number &lt;= <span class="number">60</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"你挂了！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"还好没挂！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<style type="text/css">
+    @font-face { 
+    font-family: FiraCode; 
+    src: url('/font/FiraCode-Regular.woff2'); 
+    } 
+
+    .article-content pre { 
+        font-family: FiraCode !important; 
+    }
+</style>
+
+
+<p>很简单的程序，好像没什么特别的。但是注意看第七行也就是第一个 <code>if</code> 中的 <code>≥</code> 符号。有没有发现它居然不是 <code>&gt;=</code> ，并不是作弊使用了 <code>≥</code> 不信你选择大于等于符号试试。（浏览器版本太低是看不到效果的。建议升级 Chrome 或者使用水果机上的 Safari 浏览本页）</p>
+<p>选择时会发现，这个 <code>≥</code> 居然占了两个字符。也就是可以选择前一半，再选择后一半。</p>
+<p>并不是只是在网页上可以有这种效果。编辑器里面也是可以的。</p>
+<p><img src="/img/FiraCode/VS2015.png" alt="Visual Studio 2015 ≤可以被部分选择"></p>
+<p>为什么可以输入的是 <code>&gt;=</code> ，显示的却是 <code>≥</code> ，而编辑器识别的是 <code>&gt;=</code> 呢？</p>
+<p>因为使用了特殊的字体。这个字体中用到了<strong>合字</strong>（<a href="https://en.wikipedia.org/wiki/Typographic_ligature" target="_blank" rel="external">ligature</a>）技术</p>
+<p>合字，顾名思义，就是将字合到一起。</p>
+<p>比如 a 和 e 对应的合字是 æ 。</p>
+<p>其实 &amp; 是一个合字，由 e 和 t 合成。</p>
+<p><img src="/img/FiraCode/et.png" alt="&amp; 由 e 和 t 合成"></p>
+<p>使用了合字技术后，编辑器会将字体中指定的两个字符渲染为它们的合字。</p>
+<p>所以 <code>&gt;</code> 和 <code>=</code> 会被渲染为它们的合字 <code>≥</code> 。</p>
+<h2 id="FiraCode">FiraCode</h2><p><strong>FiraCode</strong> 是为数不多的支持合字的编程字体。</p>
+<p>支持将 <code>&gt;=</code> 转为 <code>≥</code> ，<code>-&gt;</code> 转为 <code>→</code> 和 <code>!=</code> 转为 <code>≠</code> 等。</p>
+<p>全部字符如下</p>
+<p><img src="/img/FiraCode/AllLigatures.png" alt="FiraCode 合字列表"></p>
+<p>在 VS2015 中启用 FiraCode 也很简单</p>
+<p>首先下载 <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">FiraCode</a> 字体。</p>
+<p>解压，打开 <strong>TTF</strong> 文件夹，在 FiraCode-Regular.ttf 上右键安装。 这样字体就安装完成。</p>
+<p>接着在 VS 修改字体。</p>
+<p>工具→选项→环境→字体和颜色→FiraCode</p>
+<p>试着输入 <code>&gt;=</code> 和 <code>!=</code> 看看吧。</p>
+<p>是不是看到了 <code>!=</code> 输入后直接变成了 <code>≠</code></p>
+<p><a href="https://github.com/tonsky/FiraCode/issues/273" target="_blank" rel="external">FiraCode 支持</a> <code>-&gt;</code> 转为 <code>→</code> 但是 VS 不支持，所以看不到效果。（鬼知道为什么选择性的支持合字。）</p>
+<p>FiraCode 除了支持 VS 之外还支持一下编辑器</p>
+<table>
+<thead>
+<tr>
+<th>支持</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anjuta (unless at the EOF)</td>
+</tr>
+<tr>
+<td>AppCode (2016.2+, instructions)</td>
+</tr>
+<tr>
+<td>Atom 1.1 or newer (instructions)</td>
+</tr>
+<tr>
+<td>BBEdit (instructions)</td>
+</tr>
+<tr>
+<td>Brackets (with this plugin)</td>
+</tr>
+<tr>
+<td>Chocolat</td>
+</tr>
+<tr>
+<td>CLion (2016.2+, instructions)</td>
+</tr>
+<tr>
+<td>Coda 2</td>
+</tr>
+<tr>
+<td>CodeLite</td>
+</tr>
+<tr>
+<td>Eclipse (Linux)</td>
+</tr>
+<tr>
+<td>Geany</td>
+</tr>
+<tr>
+<td>gEdit / Pluma</td>
+</tr>
+<tr>
+<td>GNOME Builder</td>
+</tr>
+<tr>
+<td>IntelliJ IDEA (2016.2+, instructions)</td>
+</tr>
+<tr>
+<td>Kate, KWrite</td>
+</tr>
+<tr>
+<td>Komodo</td>
+</tr>
+<tr>
+<td>Leafpad</td>
+</tr>
+<tr>
+<td>LibreOffice</td>
+</tr>
+<tr>
+<td>LightTable (instructions)</td>
+</tr>
+<tr>
+<td>MacVim 7.4 or newer (instructions)</td>
+</tr>
+<tr>
+<td>Mancy</td>
+</tr>
+<tr>
+<td>Meld</td>
+</tr>
+<tr>
+<td>Mousepad</td>
+</tr>
+<tr>
+<td>NetBeans</td>
+</tr>
+<tr>
+<td>Notepad (Win)</td>
+</tr>
+<tr>
+<td>PhpStorm (2016.2+, instructions)</td>
+</tr>
+<tr>
+<td>PyCharm (2016.2+, instructions)</td>
+</tr>
+<tr>
+<td>QtCreator</td>
+</tr>
+<tr>
+<td>RStudio (instructions)</td>
+</tr>
+<tr>
+<td>RubyMine (2016.2+, instructions)</td>
+</tr>
+<tr>
+<td>Scratch</td>
+</tr>
+<tr>
+<td>TextAdept (Linux, Mac)</td>
+</tr>
+<tr>
+<td>TextEdit</td>
+</tr>
+<tr>
+<td>TextMate 2</td>
+</tr>
+<tr>
+<td>Visual Studio 2015</td>
+</tr>
+<tr>
+<td>Visual Studio Code (instructions)</td>
+</tr>
+<tr>
+<td>WebStorm (2016.2+, instructions)</td>
+</tr>
+<tr>
+<td>Xamarin Studio/Monodevelop</td>
+</tr>
+<tr>
+<td>Xcode (with this plugin)</td>
+</tr>
+<tr>
+<td>Probably work: Smultron, Vico</td>
+</tr>
+</tbody>
+</table>
+<p>除了 FiraCode 还有其他支持合字的编程字体</p>
+<ul>
+<li><a href="https://github.com/i-tu/Hasklig" target="_blank" rel="external">Hasklig (free)</a></li>
+<li><a href="http://www.fsd.it/fonts/pragmatapro.htm" target="_blank" rel="external">PragmataPro (€59)</a></li>
+<li><a href="http://larsenwork.com/monoid/" target="_blank" rel="external">Monoid (free)</a></li>
+<li><a href="https://github.com/kika/fixedsys" target="_blank" rel="external">Fixedsys Excelsior (free)</a></li>
+<li><a href="https://be5invis.github.io/Iosevka/" target="_blank" rel="external">Iosevka (free)</a></li>
+<li><a href="https://github.com/SSNikolaevich/DejaVuSansCode" target="_blank" rel="external">DejaVu Sans Code (free)</a></li>
+</ul>
+<h2 id="最后">最后</h2><p>支持合字的编程字体还很少。使用合字能够让代码看起来更易读，而且能一眼看出错误的字符输入。但是 FiraCode 感觉不是很好看。什么时候有大神能让 Consolas 支持合字技术啊。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>表示大于等于关系通常使用大于等于符号 <code>≥</code> ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 <code>&gt;=</code> 。能不能在不改变现有语言的情况下使用 <code>≥</code> 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =<br>]]>
+    
+    </summary>
+    
+      <category term="FiraCode" scheme="http://en.ors-sro.com/tags/FiraCode/"/>
+    
+      <category term="编程字体" scheme="http://en.ors-sro.com/tags/%E7%BC%96%E7%A8%8B%E5%AD%97%E4%BD%93/"/>
+    
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[CSS 绘制三角形]]></title>
@@ -1525,50 +1724,6 @@
     <![CDATA[<h2 id="起因">起因</h2><p>使用静态博客，空间的容量都是有一定的上限。通常情况下图片占据了空间的大部分。虽然说不要过早的优化。我也不知道能不能写到1G大小左右的博客（神奇的衡量方式- -）但当我发现<strong>PNG</strong>图片一般还有50%左右的空间可以压缩后就把持不住了。</p>]]>
     
     </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[yilia主题使用体验]]></title>
-    <link href="http://en.ors-sro.com/Try-theme-yilia/"/>
-    <id>http://en.ors-sro.com/Try-theme-yilia/</id>
-    <published>2015-07-27T12:58:39.000Z</published>
-    <updated>2015-07-27T13:36:55.496Z</updated>
-    <content type="html"><![CDATA[<p><strong>yilia</strong>主题结合了<strong>pacman</strong>和常见的平板式主题。界面清爽简洁。在使用过程中，我发现了一些作者没有公布的接口因此针对自身的情况对主题进行了修改。</p>
-<a id="more"></a>
-<h2 id="yilia主题现存问题">yilia主题现存问题</h2><p>虽然作者说<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">不会支持低版本的IE</a>，但在我电脑上<strong>IE11</strong>打开时整个排版全都乱了。调出控制台查看发现是渲染引擎的问题。默认的渲染引擎被降到了<strong>IE7</strong>,经过测试<strong>yilia</strong>主题至少需要<strong>IE9</strong>排版才不会乱。问题的关键是这个现象只在我的电脑上出现。朋友的电脑的<strong>IE11</strong>访问排版并不会乱。我查看了一下默认的渲染引擎是<strong>Edge</strong>。我也不清楚是怎么回事，所以只好自己修改主题，加上强制使用<strong>IE9</strong>渲染引擎的代码。添加到了<code>\yilia\layout\_partial\head.ejs</code>文件下。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"x-ua-compatible"</span> <span class="attribute">content</span>=<span class="value">"IE=9"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>重启电脑后一切都好了。</p>
-<h2 id="小坑">小坑</h2><ol>
-<li><p>多说ID<br> 我原以为<strong>多说ID</strong>应在是写在整个网站的配置文件<strong>_config.yaml</strong>中，但我仔细查看了yilia主题的配置发现<code>duoshuo: true</code>应该是没问题的。但是却出现了别人的评论。我去了主题作者的博客发现也有人遇到这个问题。后来我查看了多说的<strong>JS</strong>代码才发现。原来多说的ID被设置成了<strong>true</strong>。虽然作者有在主题文件中提示改为<strong>duoshuo key</strong>但是下面的值是<strong>true</strong>太容易误导了。作者应该这么改比较好。</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&#26159;&#21542;&#24320;&#21551;&#22810;&#35828;&#35780;&#35770;&#65292;&#22635;&#20889;&#20320;&#22312;&#22810;&#35828;&#30003;&#35831;&#30340;&#39033;&#30446;&#21517;&#31216; duoshuo: duoshuo-key&#10;#&#33509;&#20351;&#29992;disqus&#65292;&#35831;&#22312;&#21338;&#23458;config&#25991;&#20214;&#20013;&#22635;&#20889;disqus_shortname&#65292;&#24182;&#20851;&#38381;&#22810;&#35828;&#35780;&#35770;&#10;duoshuo: your-duoshuo-key #&#60;-&#36825;&#37324;&#36755;&#20837;&#20320;&#30340;&#22810;&#35828;ID</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>站长昵称没有中文字体<br> 网站头像下面就是站长昵称。主题作者的昵称是英文的所以看不出来问题。但我的是中文的，很容易看出来因为没有指定中文字体，而被默认设为了宋体。非常难看。这里我本来想修改他的类加上<code>font-family:&#39;MicroSoft YaHei&#39;</code>但尝试了几种方案都没有奏效。只好直接加行内样式了。解决方案如下。打开<code>themes\yilia\layout\_partial\left-col.ejs</code>找到<code>&lt;hgroup&gt;</code>标签。改为以下代码。</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">hgroup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"header-author"</span> <span class="attribute">style</span>=<span class="value">"font-family: 'MicroSoft YaHei'"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"/"</span>&gt;</span><span class="tag">&lt;<span class="title">%=theme.author%</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">hgroup</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>头像的圆形遮罩<br> 我把头像换了之后发现两边居然还有蓝色的背景。最后决定将头像的背景颜色改为我头像自带的背景颜色。</p>
-</li>
-</ol>
-<h2 id="隐藏参数">隐藏参数</h2><p>有些参数作者并没有在<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">主题介绍页</a>中说明，但我观察作者的博客发现了这些特性的存在。</p>
-<ol>
-<li><p>博客介绍<br> 头像下面还可以有一行文字用于介绍博客。对应的参数是</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#subtitle&#10;subtitle: &#21548;&#35828;&#25302;&#38795;&#25165;&#26159;&#26412;&#20307;</span><br></pre></td></tr></table></figure>
-<p> 只需要将这个参数添加到主题的<strong>_config.yaml</strong>中即可。</p>
-</li>
-<li><p>其他<br> 其他小的想不起来了。改天再来填坑吧。（根本不可能好吗，之前的坑还没填呢！再摔！）</p>
-</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><strong>yilia</strong>主题结合了<strong>pacman</strong>和常见的平板式主题。界面清爽简洁。在使用过程中，我发现了一些作者没有公布的接口因此针对自身的情况对主题进行了修改。</p>]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://en.ors-sro.com/tags/Hexo/"/>
-    
-      <category term="yilia" scheme="http://en.ors-sro.com/tags/yilia/"/>
-    
-      <category term="主题" scheme="http://en.ors-sro.com/tags/%E4%B8%BB%E9%A2%98/"/>
     
   </entry>
   
