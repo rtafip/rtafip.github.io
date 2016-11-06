@@ -4,26 +4,23 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>FiraCode | 拖鞋党的拖鞋摊</title>
+    <title>Non-alpha Javascript | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="rtafip">
     
 
     
-    <meta name="description" content="表示大于等于关系通常使用大于等于符号 ≥ ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 &amp;gt;= 。能不能在不改变现有语言的情况下使用 ≥ 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =">
+    <meta name="description" content="+[] 也是一段 JS 代码。 运行的结果是什么呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FiraCode">
-<meta property="og:url" content="http://en.ors-sro.com/FiraCode/index.html">
+<meta property="og:title" content="Non-alpha Javascript">
+<meta property="og:url" content="http://en.ors-sro.com/Non-alpha-Javascript/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="表示大于等于关系通常使用大于等于符号 ≥ ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 &amp;gt;= 。能不能在不改变现有语言的情况下使用 ≥ 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =">
-<meta property="og:image" content="http://en.ors-sro.com/img/FiraCode/VS2015.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/FiraCode/et.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/FiraCode/AllLigatures.png">
-<meta property="og:updated_time" content="2016-10-30T07:10:20.520Z">
+<meta property="og:description" content="+[] 也是一段 JS 代码。 运行的结果是什么呢？">
+<meta property="og:updated_time" content="2016-11-06T07:14:32.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FiraCode">
-<meta name="twitter:description" content="表示大于等于关系通常使用大于等于符号 ≥ ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 &amp;gt;= 。能不能在不改变现有语言的情况下使用 ≥ 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =">
+<meta name="twitter:title" content="Non-alpha Javascript">
+<meta name="twitter:description" content="+[] 也是一段 JS 代码。 运行的结果是什么呢？">
 
     
     <link rel="alternative" href="/atom.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -85,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/FiraCode/" title="FiraCode" itemprop="url">FiraCode</a>
+      <a href="/Non-alpha-Javascript/" title="Non-alpha Javascript" itemprop="url">Non-alpha Javascript</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="rtafip" target="_blank" itemprop="author">rtafip</a>
 		
   <p class="article-time">
-    <time datetime="2016-10-30T04:42:35.000Z" itemprop="datePublished"> Published 2016-10-30</time>
+    <time datetime="2016-11-06T04:23:09.000Z" itemprop="datePublished"> Published 2016-11-06</time>
     
   </p>
 </header>
@@ -101,189 +98,130 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#合字"><span class="toc-number">1.</span> <span class="toc-text">合字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FiraCode"><span class="toc-number">2.</span> <span class="toc-text">FiraCode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求值"><span class="toc-number">1.</span> <span class="toc-text">求值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全家福"><span class="toc-number">2.</span> <span class="toc-text">全家福</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字"><span class="toc-number">3.</span> <span class="toc-text">数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字母"><span class="toc-number">4.</span> <span class="toc-text">字母</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
 		
 		</div>
 		
-		<p>表示大于等于关系通常使用大于等于符号 <code>≥</code> ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 <code>&gt;=</code> 。能不能在不改变现有语言的情况下使用 <code>≥</code> 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =<br><a id="more"></a></p>
-<h2 id="合字">合字</h2><p>先来看一段 C 语言代码。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;number);</span><br><span class="line">	<span class="keyword">if</span> (<span class="number">0</span> &lt;= number &amp;&amp; number &lt;= <span class="number">60</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"你挂了！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"还好没挂！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<style type="text/css">
-    @font-face { 
-    font-family: FiraCode; 
-    src: url('/font/FiraCode-Regular.woff2'); 
-    } 
-
-    .article-content pre { 
-        font-family: FiraCode !important; 
-    }
-</style>
-
-
-<p>很简单的程序，好像没什么特别的。但是注意看第七行也就是第一个 <code>if</code> 中的 <code>≥</code> 符号。有没有发现它居然不是 <code>&gt;=</code> ，并不是作弊使用了 <code>≥</code> 不信你选择大于等于符号试试。（浏览器版本太低会看不到效果。建议升级 Chrome 或者使用水果机上的 Safari 浏览本页）</p>
-<p>选择时会发现，这个 <code>≥</code> 居然占了两个字符。也就是可以选择前一半，再选择后一半。</p>
-<p>并不是只是在网页上可以有这种效果。编辑器里面也是可以的。</p>
-<p><img src="/img/FiraCode/VS2015.png" alt="Visual Studio 2015 ≤可以被部分选择"></p>
-<p>为什么可以输入的是 <code>&gt;=</code> ，显示的却是 <code>≥</code> ，而编辑器识别的是 <code>&gt;=</code> 呢？</p>
-<p>因为使用了特殊的字体。这个字体中用到了<strong>合字</strong>（<a href="https://en.wikipedia.org/wiki/Typographic_ligature" target="_blank" rel="external">ligature</a>）技术</p>
-<p>合字，顾名思义，就是将字合到一起。</p>
-<p>比如 a 和 e 对应的合字是 æ 。</p>
-<p>其实 &amp; 是一个合字，由 e 和 t 合成。</p>
-<p><img src="/img/FiraCode/et.png" alt="&amp; 由 e 和 t 合成"></p>
-<p>使用了合字技术后，编辑器会将字体中指定的两个字符渲染为它们的合字。</p>
-<p>所以 <code>&gt;</code> 和 <code>=</code> 会被渲染为它们的合字 <code>≥</code> 。</p>
-<h2 id="FiraCode">FiraCode</h2><p><strong>FiraCode</strong> 是为数不多的支持合字的编程字体。</p>
-<p>支持将 <code>&gt;=</code> 转为 <code>≥</code> ，<code>-&gt;</code> 转为 <code>→</code> 和 <code>!=</code> 转为 <code>≠</code> 等。</p>
-<p>全部字符如下</p>
-<p><img src="/img/FiraCode/AllLigatures.png" alt="FiraCode 合字列表"></p>
-<p>在 VS2015 中启用 FiraCode 也很简单</p>
-<p>首先下载 <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">FiraCode</a> 字体。</p>
-<p>解压，打开 <strong>TTF</strong> 文件夹，在 FiraCode-Regular.ttf 上右键安装。 这样字体就安装完成。</p>
-<p>接着在 VS 修改字体。</p>
-<p>工具→选项→环境→字体和颜色→FiraCode</p>
-<p>试着输入 <code>&gt;=</code> 和 <code>!=</code> 看看吧。</p>
-<p>是不是看到了 <code>!=</code> 输入后直接变成了 <code>≠</code></p>
-<p><a href="https://github.com/tonsky/FiraCode/issues/273" target="_blank" rel="external">FiraCode 支持</a> <code>-&gt;</code> 转为 <code>→</code> 但是 VS 不支持，所以看不到效果。（鬼知道为什么选择性地支持合字。）</p>
-<p>FiraCode 除了支持 VS 之外还支持以下编辑器</p>
+		<p><code>+[]</code> 也是一段 JS 代码。 运行的结果是什么呢？</p>
+<a id="more"></a>
+<h2 id="求值">求值</h2><p><code>+[]</code> 的运行结果是 <strong>0</strong> 。 如果不相信，按 F12 打开浏览器的控制台，按 ESC 调出控制台。输入 <code>+[]</code> ，回车就可以看到结果。</p>
+<p>结果为什么这么反直觉？</p>
+<p>想知道运算过程中发生了什么，一个最好不过的方式就是去看语言的规范。</p>
+<p>比如想看 <code>+</code> 操作符的运算过程，打开 <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.4.6" target="_blank" rel="external">JS 规范</a>。</p>
+<p>转到<strong>一元 + 操作符</strong> 这一节。</p>
+<blockquote>
+<p>The unary + operator converts its operand to Number type.</p>
+<p>The production UnaryExpression : + UnaryExpression is evaluated as follows:</p>
+<ol>
+<li>Let expr be the result of evaluating UnaryExpression.</li>
+<li>Return ToNumber(GetValue(expr)).</li>
+</ol>
+</blockquote>
+<p>也就是求 <code>ToNumber(GetValue([]))</code> 。可以简单地认为求的是 <code>ToNumber(false)</code> 。</p>
+<p><code>false</code> 转成数字自然是 0 。</p>
+<p>所以 <code>+[]</code> 的结果为 0 。</p>
+<h2 id="全家福">全家福</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+!![]+!![]+[])+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+!![]+[]))+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]</span><br></pre></td></tr></table></figure>
+<p>这段代码的输出结果是 “Hello” 。是不是有点不可思议？代码中没有包含任何 “Hello” 字母。</p>
+<p>JS 可以做到没有任何字母和数字就能编写代码。</p>
+<p>只需要用到 <code>!</code> ，<code>+</code>，<code>[]</code> ，<code>{}</code> 和 <code>()</code> 8个字符就可以编写大部分代码。这样没有数字字母的 JS 代码称为 <strong>non-alpha Javascript</strong> 。</p>
+<h2 id="数字">数字</h2><p>non-alpha Javascript 是怎么做到没有数字字母也能写代码的呢？</p>
+<p>其实本质是将数字字母转化为上述的八个字符。</p>
+<p>上面分析了 <code>+[]</code> 等于 0</p>
+<p>那么如果是 2 ，5 ，8 这种数字该怎么表达呢？</p>
+<p>光用 0 是没有办法得到其他数字的。</p>
+<p>1 + 1 = 2 。</p>
+<p>所以只需要再得到 1 即可得到其他所有数字。</p>
+<p>很容易联想到 false 对应的是 0 ，那么 true 对应的应该是 1 。</p>
+<p>怎么得到 true ？已有的条件是 false 。那只需要取反即可。</p>
+<p>也就是 <code>!false</code> 。在 JS 中，<code>[]</code> 被当作 <code>false</code> 。所以带入前式得 <code>![]</code> 。</p>
+<p>还要使用 <code>+</code> 将 <code>![]</code> 将结果转为数字。</p>
+<p>所以 <code>+![]</code> 就会得到 1 。</p>
+<p>要是这么想就大错特错了。JS 可不是凡人能够理解的。</p>
+<p><code>+![]</code> 的结果是 0 ，跟 <code>+[]</code> 一样。</p>
+<p>为什么是这样哪里出错了？</p>
+<p>看代码就清楚了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[] == <span class="literal">false</span></span><br><span class="line"><span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line">![] == <span class="literal">false</span></span><br><span class="line"><span class="comment">// =&gt; true    WTF???</span></span><br><span class="line"></span><br><span class="line">!![] == []</span><br><span class="line"><span class="comment">// =&gt; false   WTFF???</span></span><br><span class="line"></span><br><span class="line">!![] == <span class="literal">true</span></span><br><span class="line"><span class="comment">// =&gt; true    WTFFF???</span></span><br></pre></td></tr></table></figure>
+<p>这里面是有深坑的（捂眼痛哭），我比较懒就暂时不深究了。</p>
+<p>从上面可以看到 <code>!![] == true</code> 。所以 <code>+true</code> 等于 <code>!![]</code></p>
+<p>使用 + 将结果强制转化为数字。</p>
+<p><code>+!![]</code> 的结果就是 1 。</p>
+<p>所以 2 = 1 + 1</p>
+<p>也就是 2 = <code>+!![]</code> + <code>+!![]</code></p>
+<p>利用进行 + 运算时只要一边是整数类型，就会把另一边也强制转化为整数类型，上式可以简化为</p>
+<p>2 = <code>!![]</code> + <code>!![]</code></p>
+<p>1 的表达式不是唯一的。</p>
+<p>注意到 <code>!0 == true</code>。</p>
+<p>所以 <code>+!0 == 1</code>。</p>
+<p>也就是 <code>+!+[]</code> 的值为 1</p>
+<p>所以 2 还可以表示为 <code>+!+[]</code> + <code>+!+[]</code></p>
+<p>简化一下得 <code>!+[]</code> + <code>!+[]</code></p>
+<p>现在知道 JS 有多<ruby>灵活<rt>凌乱</rt></ruby>了吧。</p>
+<p>类似的可以得到所有数字</p>
 <table>
 <thead>
 <tr>
-<th>支持</th>
+<th>数字</th>
+<th>JS</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Anjuta (unless at the EOF)</td>
+<td>0</td>
+<td>+[]</td>
 </tr>
 <tr>
-<td>AppCode (2016.2+, instructions)</td>
+<td>1</td>
+<td>!+[]</td>
 </tr>
 <tr>
-<td>Atom 1.1 or newer (instructions)</td>
+<td>2</td>
+<td>!+[] + !+[]</td>
 </tr>
 <tr>
-<td>BBEdit (instructions)</td>
+<td>3</td>
+<td>!+[] + !+[] + !+[]</td>
 </tr>
 <tr>
-<td>Brackets (with this plugin)</td>
+<td>4</td>
+<td>!+[] + !+[] + !+[] + !+[]</td>
 </tr>
 <tr>
-<td>Chocolat</td>
+<td>5</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[]</td>
 </tr>
 <tr>
-<td>CLion (2016.2+, instructions)</td>
+<td>6</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
 </tr>
 <tr>
-<td>Coda 2</td>
+<td>7</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
 </tr>
 <tr>
-<td>CodeLite</td>
+<td>8</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
 </tr>
 <tr>
-<td>Eclipse (Linux)</td>
-</tr>
-<tr>
-<td>Geany</td>
-</tr>
-<tr>
-<td>gEdit / Pluma</td>
-</tr>
-<tr>
-<td>GNOME Builder</td>
-</tr>
-<tr>
-<td>IntelliJ IDEA (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Kate, KWrite</td>
-</tr>
-<tr>
-<td>Komodo</td>
-</tr>
-<tr>
-<td>Leafpad</td>
-</tr>
-<tr>
-<td>LibreOffice</td>
-</tr>
-<tr>
-<td>LightTable (instructions)</td>
-</tr>
-<tr>
-<td>MacVim 7.4 or newer (instructions)</td>
-</tr>
-<tr>
-<td>Mancy</td>
-</tr>
-<tr>
-<td>Meld</td>
-</tr>
-<tr>
-<td>Mousepad</td>
-</tr>
-<tr>
-<td>NetBeans</td>
-</tr>
-<tr>
-<td>Notepad (Win)</td>
-</tr>
-<tr>
-<td>PhpStorm (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>PyCharm (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>QtCreator</td>
-</tr>
-<tr>
-<td>RStudio (instructions)</td>
-</tr>
-<tr>
-<td>RubyMine (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Scratch</td>
-</tr>
-<tr>
-<td>TextAdept (Linux, Mac)</td>
-</tr>
-<tr>
-<td>TextEdit</td>
-</tr>
-<tr>
-<td>TextMate 2</td>
-</tr>
-<tr>
-<td>Visual Studio 2015</td>
-</tr>
-<tr>
-<td>Visual Studio Code (instructions)</td>
-</tr>
-<tr>
-<td>WebStorm (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Xamarin Studio/Monodevelop</td>
-</tr>
-<tr>
-<td>Xcode (with this plugin)</td>
-</tr>
-<tr>
-<td>Probably work: Smultron, Vico</td>
+<td>9</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
 </tr>
 </tbody>
 </table>
-<p>除了 FiraCode 还有其他支持合字的编程字体</p>
-<ul>
-<li><a href="https://github.com/i-tu/Hasklig" target="_blank" rel="external">Hasklig (free)</a></li>
-<li><a href="http://www.fsd.it/fonts/pragmatapro.htm" target="_blank" rel="external">PragmataPro (€59)</a></li>
-<li><a href="http://larsenwork.com/monoid/" target="_blank" rel="external">Monoid (free)</a></li>
-<li><a href="https://github.com/kika/fixedsys" target="_blank" rel="external">Fixedsys Excelsior (free)</a></li>
-<li><a href="https://be5invis.github.io/Iosevka/" target="_blank" rel="external">Iosevka (free)</a></li>
-<li><a href="https://github.com/SSNikolaevich/DejaVuSansCode" target="_blank" rel="external">DejaVu Sans Code (free)</a></li>
-</ul>
-<h2 id="最后">最后</h2><p>支持合字的编程字体还很少。使用合字能够让代码看起来更易读，而且能一眼看出错误的字符输入。但是 FiraCode 感觉不是很好看。什么时候有大神能让 Consolas 支持合字技术啊。</p>
+<p>现在已经拥有所有数字了。假设想得到 12 。用 9 + 4 即可。</p>
+<h2 id="字母">字母</h2><p>如果说得到数字的过程还算正常的话，那么下面介绍得到字母的方法只能说是奇技淫巧。</p>
+<p>基本的思想是从 JS 内置的关键字中按索引得到单一的字母。</p>
+<p>比如 JS 有一个 <code>NaN</code> 表示非数字。</p>
+<p>从 <code>NaN</code> 中可以得到 <code>N</code> 和 <code>a</code></p>
+<p>想要得到 <code>a</code> 只需要 <code>&quot;NaN&quot;[1]</code> </p>
+<p><code>&quot;NaN&quot;</code> 等于 <code>+{}+[]</code></p>
+<p>所以 <code>&quot;NaN&quot;[1]</code> 等于 <code>(+{}+[])[1]</code></p>
+<p>因为 1 等于 <code>+!+[]</code></p>
+<p>所以最后结果是 <code>(+{}+[])[+!+[]]</code></p>
+<p>类似地，从 <code>true</code> 中可以得到 <code>t</code>,<code>r</code>,<code>u</code>,<code>e</code></p>
+<p>从 <code>undefine</code> 可以得到 <code>n</code>,<code>d</code>,<code>f</code>,<code>i</code></p>
+<p>还有一种获取字母的<a href="http://patriciopalladino.com/blog/2012/08/09/non-alphanumeric-javascript.html" target="_blank" rel="external">通用方法</a>。</p>
+<p>至此已经获得了所有的数字字母。可以<a href="http://patriciopalladino.com/files/hieroglyphy/" target="_blank" rel="external">愉快的编程</a>了。</p>
+<h2 id="后记">后记</h2><p>non-alpha javascript 也不知道是谁先想出来的。真的是太有才了。有的人用它绕过 XSS 的过滤。这种思路写过滤器的人估计也没考虑到吧。也从侧面证明了 JS 的类型转化太灵活了，存在太多种特例。平时写代码要避免这些奇怪的边角情况。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -297,7 +235,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/FiraCode/">FiraCode</a><a href="/tags/编程字体/">编程字体</a>
+  <span></span> <a href="/tags/Javascript/">Javascript</a>
   </div>
 
 </div>
@@ -306,7 +244,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/FiraCode/" data-title="FiraCode | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/Non-alpha-Javascript/" data-title="Non-alpha Javascript | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -319,19 +257,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/Non-alpha-Javascript/" title="Non-alpha Javascript">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Non-alpha Javascript</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/Make-a-triangle-with-CSS/"  title="CSS 绘制三角形">
+<a href="/FiraCode/"  title="FiraCode">
  <strong>下一篇：</strong><br/> 
- <span>CSS 绘制三角形
+ <span>FiraCode
 </span>
 </a>
 </div>
@@ -340,7 +270,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="FiraCode/" data-title="FiraCode" data-url="http://en.ors-sro.com/FiraCode/"></div>
+	<div class="ds-thread" data-thread-key="Non-alpha-Javascript/" data-title="Non-alpha Javascript" data-url="http://en.ors-sro.com/Non-alpha-Javascript/"></div>
 </section>
 
 
@@ -350,7 +280,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#合字"><span class="toc-number">1.</span> <span class="toc-text">合字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FiraCode"><span class="toc-number">2.</span> <span class="toc-text">FiraCode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求值"><span class="toc-number">1.</span> <span class="toc-text">求值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全家福"><span class="toc-number">2.</span> <span class="toc-text">全家福</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字"><span class="toc-number">3.</span> <span class="toc-text">数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字母"><span class="toc-number">4.</span> <span class="toc-text">字母</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
  
   </div>
 

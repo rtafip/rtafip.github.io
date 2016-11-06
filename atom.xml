@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-10-30T07:10:20.520Z</updated>
+  <updated>2016-11-06T07:14:32.918Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,144 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Non-alpha Javascript]]></title>
+    <link href="http://en.ors-sro.com/Non-alpha-Javascript/"/>
+    <id>http://en.ors-sro.com/Non-alpha-Javascript/</id>
+    <published>2016-11-06T04:23:09.000Z</published>
+    <updated>2016-11-06T07:14:32.918Z</updated>
+    <content type="html"><![CDATA[<p><code>+[]</code> 也是一段 JS 代码。 运行的结果是什么呢？</p>
+<a id="more"></a>
+<h2 id="求值">求值</h2><p><code>+[]</code> 的运行结果是 <strong>0</strong> 。 如果不相信，按 F12 打开浏览器的控制台，按 ESC 调出控制台。输入 <code>+[]</code> ，回车就可以看到结果。</p>
+<p>结果为什么这么反直觉？</p>
+<p>想知道运算过程中发生了什么，一个最好不过的方式就是去看语言的规范。</p>
+<p>比如想看 <code>+</code> 操作符的运算过程，打开 <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.4.6" target="_blank" rel="external">JS 规范</a>。</p>
+<p>转到<strong>一元 + 操作符</strong> 这一节。</p>
+<blockquote>
+<p>The unary + operator converts its operand to Number type.</p>
+<p>The production UnaryExpression : + UnaryExpression is evaluated as follows:</p>
+<ol>
+<li>Let expr be the result of evaluating UnaryExpression.</li>
+<li>Return ToNumber(GetValue(expr)).</li>
+</ol>
+</blockquote>
+<p>也就是求 <code>ToNumber(GetValue([]))</code> 。可以简单地认为求的是 <code>ToNumber(false)</code> 。</p>
+<p><code>false</code> 转成数字自然是 0 。</p>
+<p>所以 <code>+[]</code> 的结果为 0 。</p>
+<h2 id="全家福">全家福</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+!![]+!![]+[])+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+!![]+[]))+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]</span><br></pre></td></tr></table></figure>
+<p>这段代码的输出结果是 “Hello” 。是不是有点不可思议？代码中没有包含任何 “Hello” 字母。</p>
+<p>JS 可以做到没有任何字母和数字就能编写代码。</p>
+<p>只需要用到 <code>!</code> ，<code>+</code>，<code>[]</code> ，<code>{}</code> 和 <code>()</code> 8个字符就可以编写大部分代码。这样没有数字字母的 JS 代码称为 <strong>non-alpha Javascript</strong> 。</p>
+<h2 id="数字">数字</h2><p>non-alpha Javascript 是怎么做到没有数字字母也能写代码的呢？</p>
+<p>其实本质是将数字字母转化为上述的八个字符。</p>
+<p>上面分析了 <code>+[]</code> 等于 0</p>
+<p>那么如果是 2 ，5 ，8 这种数字该怎么表达呢？</p>
+<p>光用 0 是没有办法得到其他数字的。</p>
+<p>1 + 1 = 2 。</p>
+<p>所以只需要再得到 1 即可得到其他所有数字。</p>
+<p>很容易联想到 false 对应的是 0 ，那么 true 对应的应该是 1 。</p>
+<p>怎么得到 true ？已有的条件是 false 。那只需要取反即可。</p>
+<p>也就是 <code>!false</code> 。在 JS 中，<code>[]</code> 被当作 <code>false</code> 。所以带入前式得 <code>![]</code> 。</p>
+<p>还要使用 <code>+</code> 将 <code>![]</code> 将结果转为数字。</p>
+<p>所以 <code>+![]</code> 就会得到 1 。</p>
+<p>要是这么想就大错特错了。JS 可不是凡人能够理解的。</p>
+<p><code>+![]</code> 的结果是 0 ，跟 <code>+[]</code> 一样。</p>
+<p>为什么是这样哪里出错了？</p>
+<p>看代码就清楚了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[] == <span class="literal">false</span></span><br><span class="line"><span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line">![] == <span class="literal">false</span></span><br><span class="line"><span class="comment">// =&gt; true    WTF???</span></span><br><span class="line"></span><br><span class="line">!![] == []</span><br><span class="line"><span class="comment">// =&gt; false   WTFF???</span></span><br><span class="line"></span><br><span class="line">!![] == <span class="literal">true</span></span><br><span class="line"><span class="comment">// =&gt; true    WTFFF???</span></span><br></pre></td></tr></table></figure>
+<p>这里面是有深坑的（捂眼痛哭），我比较懒就暂时不深究了。</p>
+<p>从上面可以看到 <code>!![] == true</code> 。所以 <code>+true</code> 等于 <code>!![]</code></p>
+<p>使用 + 将结果强制转化为数字。</p>
+<p><code>+!![]</code> 的结果就是 1 。</p>
+<p>所以 2 = 1 + 1</p>
+<p>也就是 2 = <code>+!![]</code> + <code>+!![]</code></p>
+<p>利用进行 + 运算时只要一边是整数类型，就会把另一边也强制转化为整数类型，上式可以简化为</p>
+<p>2 = <code>!![]</code> + <code>!![]</code></p>
+<p>1 的表达式不是唯一的。</p>
+<p>注意到 <code>!0 == true</code>。</p>
+<p>所以 <code>+!0 == 1</code>。</p>
+<p>也就是 <code>+!+[]</code> 的值为 1</p>
+<p>所以 2 还可以表示为 <code>+!+[]</code> + <code>+!+[]</code></p>
+<p>简化一下得 <code>!+[]</code> + <code>!+[]</code></p>
+<p>现在知道 JS 有多<ruby>灵活<rt>凌乱</rt></ruby>了吧。</p>
+<p>类似的可以得到所有数字</p>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>JS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>+[]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>!+[]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>!+[] + !+[]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>!+[] + !+[] + !+[]</td>
+</tr>
+<tr>
+<td>4</td>
+<td>!+[] + !+[] + !+[] + !+[]</td>
+</tr>
+<tr>
+<td>5</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[]</td>
+</tr>
+<tr>
+<td>6</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
+</tr>
+<tr>
+<td>7</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
+</tr>
+<tr>
+<td>8</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
+</tr>
+<tr>
+<td>9</td>
+<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
+</tr>
+</tbody>
+</table>
+<p>现在已经拥有所有数字了。假设想得到 12 。用 9 + 4 即可。</p>
+<h2 id="字母">字母</h2><p>如果说得到数字的过程还算正常的话，那么下面介绍得到字母的方法只能说是奇技淫巧。</p>
+<p>基本的思想是从 JS 内置的关键字中按索引得到单一的字母。</p>
+<p>比如 JS 有一个 <code>NaN</code> 表示非数字。</p>
+<p>从 <code>NaN</code> 中可以得到 <code>N</code> 和 <code>a</code></p>
+<p>想要得到 <code>a</code> 只需要 <code>&quot;NaN&quot;[1]</code> </p>
+<p><code>&quot;NaN&quot;</code> 等于 <code>+{}+[]</code></p>
+<p>所以 <code>&quot;NaN&quot;[1]</code> 等于 <code>(+{}+[])[1]</code></p>
+<p>因为 1 等于 <code>+!+[]</code></p>
+<p>所以最后结果是 <code>(+{}+[])[+!+[]]</code></p>
+<p>类似地，从 <code>true</code> 中可以得到 <code>t</code>,<code>r</code>,<code>u</code>,<code>e</code></p>
+<p>从 <code>undefine</code> 可以得到 <code>n</code>,<code>d</code>,<code>f</code>,<code>i</code></p>
+<p>还有一种获取字母的<a href="http://patriciopalladino.com/blog/2012/08/09/non-alphanumeric-javascript.html" target="_blank" rel="external">通用方法</a>。</p>
+<p>至此已经获得了所有的数字字母。可以<a href="http://patriciopalladino.com/files/hieroglyphy/" target="_blank" rel="external">愉快的编程</a>了。</p>
+<h2 id="后记">后记</h2><p>non-alpha javascript 也不知道是谁先想出来的。真的是太有才了。有的人用它绕过 XSS 的过滤。这种思路写过滤器的人估计也没考虑到吧。也从侧面证明了 JS 的类型转化太灵活了，存在太多种特例。平时写代码要避免这些奇怪的边角情况。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><code>+[]</code> 也是一段 JS 代码。 运行的结果是什么呢？</p>]]>
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://en.ors-sro.com/tags/Javascript/"/>
+    
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[FiraCode]]></title>
@@ -219,7 +357,7 @@
     <link href="http://en.ors-sro.com/Make-a-triangle-with-CSS/"/>
     <id>http://en.ors-sro.com/Make-a-triangle-with-CSS/</id>
     <published>2016-10-23T05:17:11.000Z</published>
-    <updated>2016-10-23T07:59:36.052Z</updated>
+    <updated>2016-11-06T07:32:06.947Z</updated>
     <content type="html"><![CDATA[<p>CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？</p>
 <a id="more"></a>
 <h2 id="矩形">矩形</h2><p>在绘制三角形之前，先来看看如何绘制矩形。</p>
@@ -274,6 +412,80 @@
 <p>点开其中一个，鼠标移到属性上，会有详细介绍怎么实现的。</p>
 <p><img src="/img/CSSTriangle/Item.png" alt="详细实现"></p>
 <p>当然还可以用 CSS 绘制微信微笑的表情（<del>我就偷懒不写了</del>）</p>
+<div class="smiley icon"><i></i></div>
+
+<style type="text/css">
+    .smiley.icon {
+      color: #000;
+      position: absolute;
+      margin-left: 2px;
+      margin-top: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: solid 1px currentColor;
+    }
+
+    .smiley.icon:before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 3px;
+      width: 3px;
+      height: 4px;
+      border-radius: 3px;
+      border: solid 1px currentColor;
+    }
+
+    .smiley.icon:after {
+      content: '';
+      position: absolute;
+      right: 2px;
+      top: 3px;
+      width: 3px;
+      height: 4px;
+      border-radius: 3px;
+      border: solid 1px currentColor;
+    }
+
+    .smiley.icon i {
+      position: absolute;
+      left: 2px;
+      top: 7px;
+      width: 10px;
+      height: 5px;
+      border-radius: 0 0 6px 6px;
+      border-top: solid 1px transparent;
+      border-bottom: solid 1px currentColor;
+      border-left: solid 1px currentColor;
+      border-right: solid 1px currentColor;
+    }
+
+    .smiley.icon i:before {
+      content: '';
+      position: absolute;
+      left: 0px;
+      top: -3px;
+      width: 1px;
+      height: 1px;
+      border-radius: 50%;
+      border: solid 1px currentColor;
+      background-color: currentColor;
+    }
+
+    .smiley.icon i:after {
+      content: '';
+      position: absolute;
+      right: 0px;
+      top: -3px;
+      width: 1px;
+      height: 1px;
+      border-radius: 50%;
+      border: solid 1px currentColor;
+      background-color: currentColor;
+    }
+</style>
+
 <h2 id="后记">后记</h2><p>三个月前看到这个 CSS 花招，到现在终于把这个坑填了。在写的时候多次想放弃。最有意思的是将原理用动态的方式展现，顺便学了一点 CSS 动画的皮毛。其实绘制三角形最简单的方法是使用 ► 符号（逃</p>
 ]]></content>
     <summary type="html">
@@ -292,7 +504,7 @@
     <link href="http://en.ors-sro.com/Learn-some-Javascript/"/>
     <id>http://en.ors-sro.com/Learn-some-Javascript/</id>
     <published>2016-10-15T07:47:34.000Z</published>
-    <updated>2016-10-15T12:37:37.382Z</updated>
+    <updated>2016-11-06T07:22:19.521Z</updated>
     <content type="html"><![CDATA[<p>如果再学一种编程语言，会选择哪个语言呢？<br><a id="more"></a></p>
 <p>当然是 JS (Javascript) 啦！</p>
 <p>原因有很多。</p>
@@ -368,7 +580,7 @@
 <p>Typescript 加上了静态类型，把解释执行的语言搞得类似编译型语言一样。</p>
 <p>觉得太死板？可以用<a href="http://utf-8.jp/public/aaencode.html" target="_blank" rel="external">颜文字来写 JS</a> ！</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ﾟωﾟﾉ= <span class="regexp">/｀ｍ´）ﾉ ~┻━┻   /</span><span class="comment">/*´∇｀*/</span> [<span class="string">'_'</span>]; o=(ﾟｰﾟ)  =_=<span class="number">3</span>; c=(ﾟΘﾟ) =(ﾟｰﾟ)-(ﾟｰﾟ); (ﾟДﾟ) =(ﾟΘﾟ)= (o^_^o)/ (o^_^o);(ﾟДﾟ)=&#123;ﾟΘﾟ: <span class="string">'_'</span> ,ﾟωﾟﾉ : ((ﾟωﾟﾉ==<span class="number">3</span>) +<span class="string">'_'</span>) [ﾟΘﾟ] ,ﾟｰﾟﾉ :(ﾟωﾟﾉ+ <span class="string">'_'</span>)[o^_^o -(ﾟΘﾟ)] ,ﾟДﾟﾉ:((ﾟｰﾟ==<span class="number">3</span>) +<span class="string">'_'</span>)[ﾟｰﾟ] &#125;; (ﾟДﾟ) [ﾟΘﾟ] =((ﾟωﾟﾉ==<span class="number">3</span>) +<span class="string">'_'</span>) [c^_^o];(ﾟДﾟ) [<span class="string">'c'</span>] = ((ﾟДﾟ)+<span class="string">'_'</span>) [ (ﾟｰﾟ)+(ﾟｰﾟ)-(ﾟΘﾟ) ];(ﾟДﾟ) [<span class="string">'o'</span>] = ((ﾟДﾟ)+<span class="string">'_'</span>) [ﾟΘﾟ];(ﾟoﾟ)=(ﾟДﾟ) [<span class="string">'c'</span>]+(ﾟДﾟ) [<span class="string">'o'</span>]+(ﾟωﾟﾉ +<span class="string">'_'</span>)[ﾟΘﾟ]+ ((ﾟωﾟﾉ==<span class="number">3</span>) +<span class="string">'_'</span>) [ﾟｰﾟ] + ((ﾟДﾟ) +<span class="string">'_'</span>) [(ﾟｰﾟ)+(ﾟｰﾟ)]+ ((ﾟｰﾟ==<span class="number">3</span>) +<span class="string">'_'</span>) [ﾟΘﾟ]+((ﾟｰﾟ==<span class="number">3</span>) +<span class="string">'_'</span>) [(ﾟｰﾟ) - (ﾟΘﾟ)]+(ﾟДﾟ) [<span class="string">'c'</span>]+((ﾟДﾟ)+<span class="string">'_'</span>) [(ﾟｰﾟ)+(ﾟｰﾟ)]+ (ﾟДﾟ) [<span class="string">'o'</span>]+((ﾟｰﾟ==<span class="number">3</span>) +<span class="string">'_'</span>) [ﾟΘﾟ];(ﾟДﾟ) [<span class="string">'_'</span>] =(o^_^o) [ﾟoﾟ] [ﾟoﾟ];(ﾟεﾟ)=((ﾟｰﾟ==<span class="number">3</span>) +<span class="string">'_'</span>) [ﾟΘﾟ]+ (ﾟДﾟ) .ﾟДﾟﾉ+((ﾟДﾟ)+<span class="string">'_'</span>) [(ﾟｰﾟ) + (ﾟｰﾟ)]+((ﾟｰﾟ==<span class="number">3</span>) +<span class="string">'_'</span>) [o^_^o -ﾟΘﾟ]+((ﾟｰﾟ==<span class="number">3</span>) +<span class="string">'_'</span>) [ﾟΘﾟ]+ (ﾟωﾟﾉ +<span class="string">'_'</span>) [ﾟΘﾟ]; (ﾟｰﾟ)+=(ﾟΘﾟ); (ﾟДﾟ)[ﾟεﾟ]=<span class="string">'\\'</span>; (ﾟДﾟ).ﾟΘﾟﾉ=(ﾟДﾟ+ ﾟｰﾟ)[o^_^o -(ﾟΘﾟ)];(oﾟｰﾟo)=(ﾟωﾟﾉ +<span class="string">'_'</span>)[c^_^o];(ﾟДﾟ) [ﾟoﾟ]=<span class="string">'\"'</span>;(ﾟДﾟ) [<span class="string">'_'</span>] ( (ﾟДﾟ) [<span class="string">'_'</span>] (ﾟεﾟ+(ﾟДﾟ)[ﾟoﾟ]+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((o^_^o) +(o^_^o))+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((o^_^o) +(o^_^o))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+((ﾟｰﾟ) + (ﾟΘﾟ))+ (c^_^o)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟｰﾟ)+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟΘﾟ)+ (c^_^o)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ (ﾟｰﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟｰﾟ)+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟΘﾟ)+ ((ﾟｰﾟ) + (ﾟΘﾟ))+ ((ﾟｰﾟ) + (o^_^o))+ (ﾟДﾟ)[ﾟεﾟ]+(ﾟｰﾟ)+ ((o^_^o) - (ﾟΘﾟ))+ (ﾟДﾟ)[ﾟεﾟ]+((ﾟｰﾟ) + (ﾟΘﾟ))+ (ﾟΘﾟ)+ (ﾟДﾟ)[ﾟoﾟ]) (ﾟΘﾟ)) (<span class="string">'_'</span>);</span><br><span class="line"><span class="comment">// =&gt; "Hello"</span></span><br></pre></td></tr></table></figure>
-<p>颜文字输入太麻烦？你可以只用 <a href="http://patriciopalladino.com/blog/2012/08/09/non-alphanumeric-javascript.html" target="_blank" rel="external">8 种字符写 JS</a> ！</p>
+<p>颜文字输入太麻烦？你可以只用 <a href="/Non-alpha-Javascript">8 种字符写 JS</a> ！</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+!![]+!![]+[])+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+!![]+[]))+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]</span><br><span class="line"><span class="comment">// =&gt; Hello</span></span><br></pre></td></tr></table></figure>
 <p>满意了吗？还有哪个语言能这么灵活满足各种奇奇怪怪的要求？</p>
 <h2 id="最后">最后</h2><p>本文仅用于调侃 JS 。并不是用于安利 JS 。请不要相信文中的任何<ruby>一本正经<rt>胡说八道</rt></ruby>的话。</p>
@@ -1699,29 +1911,6 @@
 <a id="more"></a>]]></content>
     <summary type="html">
     <![CDATA[<p>先挖坑，之后再填</p>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[压缩博客图片]]></title>
-    <link href="http://en.ors-sro.com/Compress-blog-image/"/>
-    <id>http://en.ors-sro.com/Compress-blog-image/</id>
-    <published>2015-08-04T13:56:42.000Z</published>
-    <updated>2015-08-04T14:44:51.671Z</updated>
-    <content type="html"><![CDATA[<h2 id="起因">起因</h2><p>使用静态博客，空间的容量都是有一定的上限。通常情况下图片占据了空间的大部分。虽然说不要过早的优化。我也不知道能不能写到1G大小左右的博客（神奇的衡量方式- -）但当我发现<strong>PNG</strong>图片一般还有50%左右的空间可以压缩后就把持不住了。</p>
-<a id="more"></a>
-<h2 id="压缩工具">压缩工具</h2><p>目前两个比较好的<strong>PNG</strong>压缩工具有</p>
-<ol>
-<li><a href="https://tinypng.com/" target="_blank" rel="external">Tiny PNG</a></li>
-<li>PhotoShop</li>
-</ol>
-<p>我尝试使用了<strong>Tiny Png</strong>和<strong>PhotoShop</strong>压缩同一张图片。结果是<strong>PhotoShop</strong>费心费力压缩后还比不上<strong>Tiny PNG</strong>的简单粗暴的压缩。</p>
-<h2 id="压缩原理">压缩原理</h2><h2 id="后续">后续</h2><p>想为<strong>Hexo</strong>编写一个<strong>Tiny PNG</strong>的插件。但是最近实在是太忙了= =</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="起因">起因</h2><p>使用静态博客，空间的容量都是有一定的上限。通常情况下图片占据了空间的大部分。虽然说不要过早的优化。我也不知道能不能写到1G大小左右的博客（神奇的衡量方式- -）但当我发现<strong>PNG</strong>图片一般还有50%左右的空间可以压缩后就把持不住了。</p>]]>
     
     </summary>
     

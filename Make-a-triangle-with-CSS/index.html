@@ -19,7 +19,7 @@
 <meta property="og:description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
 <meta property="og:image" content="http://en.ors-sro.com/img/CSSTriangle/MainPage.png">
 <meta property="og:image" content="http://en.ors-sro.com/img/CSSTriangle/Item.png">
-<meta property="og:updated_time" content="2016-10-23T07:59:36.052Z">
+<meta property="og:updated_time" content="2016-11-06T07:32:06.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 绘制三角形">
 <meta name="twitter:description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
@@ -158,6 +158,80 @@
 <p>点开其中一个，鼠标移到属性上，会有详细介绍怎么实现的。</p>
 <p><img src="/img/CSSTriangle/Item.png" alt="详细实现"></p>
 <p>当然还可以用 CSS 绘制微信微笑的表情（<del>我就偷懒不写了</del>）</p>
+<div class="smiley icon"><i></i></div>
+
+<style type="text/css">
+    .smiley.icon {
+      color: #000;
+      position: absolute;
+      margin-left: 2px;
+      margin-top: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: solid 1px currentColor;
+    }
+
+    .smiley.icon:before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 3px;
+      width: 3px;
+      height: 4px;
+      border-radius: 3px;
+      border: solid 1px currentColor;
+    }
+
+    .smiley.icon:after {
+      content: '';
+      position: absolute;
+      right: 2px;
+      top: 3px;
+      width: 3px;
+      height: 4px;
+      border-radius: 3px;
+      border: solid 1px currentColor;
+    }
+
+    .smiley.icon i {
+      position: absolute;
+      left: 2px;
+      top: 7px;
+      width: 10px;
+      height: 5px;
+      border-radius: 0 0 6px 6px;
+      border-top: solid 1px transparent;
+      border-bottom: solid 1px currentColor;
+      border-left: solid 1px currentColor;
+      border-right: solid 1px currentColor;
+    }
+
+    .smiley.icon i:before {
+      content: '';
+      position: absolute;
+      left: 0px;
+      top: -3px;
+      width: 1px;
+      height: 1px;
+      border-radius: 50%;
+      border: solid 1px currentColor;
+      background-color: currentColor;
+    }
+
+    .smiley.icon i:after {
+      content: '';
+      position: absolute;
+      right: 0px;
+      top: -3px;
+      width: 1px;
+      height: 1px;
+      border-radius: 50%;
+      border: solid 1px currentColor;
+      background-color: currentColor;
+    }
+</style>
+
 <h2 id="后记">后记</h2><p>三个月前看到这个 CSS 花招，到现在终于把这个坑填了。在写的时候多次想放弃。最有意思的是将原理用动态的方式展现，顺便学了一点 CSS 动画的皮毛。其实绘制三角形最简单的方法是使用 ► 符号（逃</p>
   
 	</div>
@@ -243,7 +317,7 @@
 		  
 		
 		  
-			<li><a href="/categories/玩/" title="玩">玩<sup>5</sup></a></li>
+			<li><a href="/categories/玩/" title="玩">玩<sup>6</sup></a></li>
 		  
 		
 		  
@@ -268,7 +342,7 @@
 			
 		
 			
-				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+				<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
 			
 		
 			
@@ -304,7 +378,7 @@
 			
 		
 			
-				<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>1</sup></a></li>
+				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
 			
 		
 			
