@@ -4,26 +4,23 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>hexo多平台部署遇到的一个坑 | 拖鞋党的拖鞋摊</title>
+    <title>常用的正则表达式 | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="rtafip">
     
 
     
-    <meta name="description" content="在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。
-1FATAL Something&amp;#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&amp;#10;cs/troubleshooting.html&amp;#10;JS-YAML: bad indentation of a mapping entry at">
+    <meta name="description" content="正则表达式可以算做一门编程语言。关键字繁多且复杂。但是熟悉几个常用的正则表达式还是很好用的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo多平台部署遇到的一个坑">
-<meta property="og:url" content="http://en.ors-sro.com/Problem-in-hexo-deployment/index.html">
+<meta property="og:title" content="常用的正则表达式">
+<meta property="og:url" content="http://en.ors-sro.com/常用的正则表达式/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。
-1FATAL Something&amp;#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&amp;#10;cs/troubleshooting.html&amp;#10;JS-YAML: bad indentation of a mapping entry at">
-<meta property="og:updated_time" content="2015-07-27T12:39:40.815Z">
+<meta property="og:description" content="正则表达式可以算做一门编程语言。关键字繁多且复杂。但是熟悉几个常用的正则表达式还是很好用的。">
+<meta property="og:updated_time" content="2016-07-29T07:23:37.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo多平台部署遇到的一个坑">
-<meta name="twitter:description" content="在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。
-1FATAL Something&amp;#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&amp;#10;cs/troubleshooting.html&amp;#10;JS-YAML: bad indentation of a mapping entry at">
+<meta name="twitter:title" content="常用的正则表达式">
+<meta name="twitter:description" content="正则表达式可以算做一门编程语言。关键字繁多且复杂。但是熟悉几个常用的正则表达式还是很好用的。">
 
     
     <link rel="alternative" href="/atom.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -85,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/Problem-in-hexo-deployment/" title="hexo多平台部署遇到的一个坑" itemprop="url">hexo多平台部署遇到的一个坑</a>
+      <a href="/常用的正则表达式/" title="常用的正则表达式" itemprop="url">常用的正则表达式</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="rtafip" target="_blank" itemprop="author">rtafip</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-25T12:56:06.000Z" itemprop="datePublished"> Published 2015-07-25</time>
+    <time datetime="2016-07-29T06:34:55.000Z" itemprop="datePublished"> Published 2016-07-29</time>
     
   </p>
 </header>
@@ -101,41 +98,53 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.</span> <span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#精确匹配字符"><span class="toc-number">2.</span> <span class="toc-text">精确匹配字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text"> </span></a></li></ol>
 		
 		</div>
 		
-		<p>在尝试部署网站到Github和Gitcafe的时候，一直出现以下问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;           ^</span><br></pre></td></tr></table></figure>
+		<p>正则表达式可以算做一门编程语言。关键字繁多且复杂。但是熟悉几个常用的正则表达式还是很好用的。</p>
 <a id="more"></a>
-<p>尝试了各种解决方案</p>
-<ol>
-<li><p>方案一<br> 在repo:冒号后面加一个空格变成</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: #&#60;-&#65283;&#21069;&#38754;&#26377;&#19968;&#20010;&#31354;&#26684; &#10;   github: git@github.com:rtafip/rtafip.github.io.git&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
-<p> 还是报相同的错误</p>
-</li>
-<li><p>方案二<br> 将repo:git@github.com:rtafip/rtafip.github.io.git使用双引号包住</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: &#10;   github: &#34;git@github.com:rtafip/rtafip.github.io.git&#34;&#10;   gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure>
-<p> 还是提示相同的问题</p>
-</li>
-</ol>
-<p>……<br>……<br>……</p>
-<p>最后要都要抓狂了才找到解决方案<br>原来的代码是这样的<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;   repo:  &#10;    github: git@github.com:rtafip/rtafip.github.io.git&#10;    gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure></p>
-<p>最后的代码是这样的<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;  repo:  &#10;    github: git@github.com:rtafip/rtafip.github.io.git&#10;    gitcafe: https://gitcafe.com/rtafip/rtafip.git</span><br></pre></td></tr></table></figure></p>
-<p>看出区别了吗？</p>
-<p>原来只是repo前面多了一个空格！！！</p>
-<p>YAML真是一种脆弱的格式！多一个空格不行，少一个空格不行，空格位置不对不行。而且我也不知道怎么把这个空格引进来的。最重要是提示的位置不对啊。提示的是冒号后面啊。应该这么提示才对</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/do&#10;cs/troubleshooting.html&#10;JS-YAML: bad indentation of a mapping entry at line 75, column 8:&#10;       repo:&#10;      ^</span><br></pre></td></tr></table></figure>
-<p>替我问候写这个分析工具的人母亲。</p>
-  
+<h2 id="正则表达式">正则表达式</h2><h2 id="精确匹配字符">精确匹配字符</h2><p>正则表达式与平时 <code>Ctrl + F</code> 查找类似，准确的说语法上部分兼容。直接使用相应的字符串即可。例如在 Hello world 中查找 Hello 只需要输入 Hello</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>源字符串</td>
+<td>Hello world</td>
+</tr>
+<tr>
+<td>Ctrl + F</td>
+<td>Hello</td>
+</tr>
+<tr>
+<td>正则表达式</td>
+<td>Hello</td>
+</tr>
+<tr>
+<td>匹配结果</td>
+<td><strong>Hello</strong> world</td>
+</tr>
+</tbody>
+</table>
+<h2 id=""> </h2>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+</div>
+
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Hexo/">Hexo</a><a href="/tags/YAML/">YAML</a><a href="/tags/多平台部署/">多平台部署</a>
+  <span></span> <a href="/tags/正则表达式/">正则表达式</a>
   </div>
 
 </div>
@@ -144,7 +153,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/Problem-in-hexo-deployment/" data-title="hexo多平台部署遇到的一个坑 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/常用的正则表达式/" data-title="常用的正则表达式 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -158,18 +167,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/Develop-a-todo-list-with-MDL-and-AngularJS/" title="MDL+AngularJS制作TodoList">
+ <a href="/test/" title="test">
   <strong>上一篇：</strong><br/>
   <span>
-  MDL+AngularJS制作TodoList</span>
+  test</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/Migrate-to-hexo3/"  title="hexo3.0迁移">
+<a href="/Remove-redundant-switch/"  title="消除多余的 switch 语句">
  <strong>下一篇：</strong><br/> 
- <span>hexo3.0迁移
+ <span>消除多余的 switch 语句
 </span>
 </a>
 </div>
@@ -178,7 +187,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="Problem-in-hexo-deployment/" data-title="hexo多平台部署遇到的一个坑" data-url="http://en.ors-sro.com/Problem-in-hexo-deployment/"></div>
+	<div class="ds-thread" data-thread-key="常用的正则表达式/" data-title="常用的正则表达式" data-url="http://en.ors-sro.com/常用的正则表达式/"></div>
 </section>
 
 
@@ -188,7 +197,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.</span> <span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#精确匹配字符"><span class="toc-number">2.</span> <span class="toc-text">精确匹配字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text"> </span></a></li></ol>
  
   </div>
 
