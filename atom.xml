@@ -61,8 +61,8 @@
     <title><![CDATA[Promise]]></title>
     <link href="http://en.ors-sro.com/Promise/"/>
     <id>http://en.ors-sro.com/Promise/</id>
-    <published>2016-12-11T07:14:35.000Z</published>
-    <updated>2016-12-18T10:49:04.184Z</updated>
+    <published>2016-12-18T07:14:35.000Z</published>
+    <updated>2016-12-25T10:02:26.561Z</updated>
     <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"拉数据"</span>);</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"做这个那个，再发数据"</span>);</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"数据发送成功，恭喜充值成功游戏时间 +1s!"</span>);</span><br><span class="line">		&#125;,<span class="number">3000</span>)</span><br><span class="line">	&#125;,<span class="number">2000</span>)</span><br><span class="line">&#125;,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
 <p>噢，亲爱的，你一定去过地狱，是吗？</p>
 <a id="more"></a>
