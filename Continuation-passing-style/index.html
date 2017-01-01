@@ -4,23 +4,23 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Promise异步编程学习笔记 | 拖鞋党的拖鞋摊</title>
+    <title>Continuation-passing style | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="rtafip">
     
 
     
-    <meta name="description" content="Promise.Reject(‘鸽了’)">
+    <meta name="description" content="我把未来抛给了你。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise异步编程学习笔记">
-<meta property="og:url" content="http://en.ors-sro.com/Promise-notes/index.html">
+<meta property="og:title" content="Continuation-passing style">
+<meta property="og:url" content="http://en.ors-sro.com/Continuation-passing-style/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="Promise.Reject(‘鸽了’)">
-<meta property="og:updated_time" content="2016-04-03T07:36:37.050Z">
+<meta property="og:description" content="我把未来抛给了你。">
+<meta property="og:updated_time" content="2017-01-01T13:30:12.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise异步编程学习笔记">
-<meta name="twitter:description" content="Promise.Reject(‘鸽了’)">
+<meta name="twitter:title" content="Continuation-passing style">
+<meta name="twitter:description" content="我把未来抛给了你。">
 
     
     <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/Promise-notes/" title="Promise异步编程学习笔记" itemprop="url">Promise异步编程学习笔记</a>
+      <a href="/Continuation-passing-style/" title="Continuation-passing style" itemprop="url">Continuation-passing style</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="rtafip" target="_blank" itemprop="author">rtafip</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-03T07:35:56.000Z" itemprop="datePublished"> Published 2016-04-03</time>
+    <time datetime="2017-01-01T09:19:32.000Z" itemprop="datePublished"> Published 2017-01-01</time>
     
   </p>
 </header>
@@ -98,16 +98,50 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#有话好好说别乱来啊"><span class="toc-number">1.</span> <span class="toc-text">有话好好说别乱来啊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#所以有什么用呢"><span class="toc-number">2.</span> <span class="toc-text">所以有什么用呢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
 		
 		</div>
 		
-		<p>Promise.Reject(‘鸽了’)</p>
-<a id="more"></a>  
+		<p>我把未来抛给了你。</p>
+<a id="more"></a>
+<h2 id="有话好好说别乱来啊">有话好好说别乱来啊</h2><p>两个数相加，翻倍，输出结果。可以这么写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutputDoubleSum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = a + b;</span><br><span class="line">  result = result * <span class="number">2</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以这么写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Double</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x*<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Output</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutputDoubleSum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  Output(Double(Sum(a,b)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还能这么写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sum</span>(<span class="params">a,b,k</span>)</span>&#123;</span><br><span class="line">  k(a+b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Double</span>(<span class="params">x,k</span>)</span>&#123;</span><br><span class="line">  k(x*<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Output</span>(<span class="params">x,k</span>)</span>&#123;</span><br><span class="line">  k(<span class="built_in">console</span>.log(x));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutputDoubleSum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  Sum(a,b,<span class="function"><span class="keyword">function</span> (<span class="params">sumxy</span>)</span>&#123;</span><br><span class="line">    Double(sumxy,<span class="function"><span class="keyword">function</span> (<span class="params">doublex</span>)</span>&#123;</span><br><span class="line">      Output(doublex,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一种是顺序风格，第二种是函数组合风格，第三种是后继传递风格。</p>
+<p><strong>后继传递风格</strong>（<a href="https://en.wikipedia.org/wiki/Continuation-passing_style" target="_blank" rel="external">Continuation-passing style</a>）是一种控制流通过参数传递的风格。</p>
+<p>简单的说就是把后继，也就是下一步要运行的代码，封装成函数，通过参数传递的方式传给当前运行的函数。</p>
+<p>在例子中 <code>Output(x,k)</code> 的第二个参数接受一个后继，在 <code>Output</code> 执行完成后调用后继。 <code>Output</code> 的后继为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>是一个空函数，表示后面什么事情都不做。</p>
+<p><code>Double</code> 的后继是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">doublex</span>)</span>&#123;</span><br><span class="line">  Output(doublex,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>表示收到 <code>Double</code> 的计算结果后，执行 <code>Output</code> </p>
+<p><code>Sum</code> 的后继是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">sumxy</span>)</span>&#123;</span><br><span class="line">  Double(sumxy,<span class="function"><span class="keyword">function</span> (<span class="params">doublex</span>)</span>&#123;</span><br><span class="line">    Output(doublex,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>表示收到 <code>Sum</code> 的计算结果后，执行 <code>Double</code> </p>
+<p>这样通过参数传递的方式将顺序风格改为了后继传递风格。</p>
+<h2 id="所以有什么用呢">所以有什么用呢</h2><p><del>没什么用</del>。当然是有用的啦，不然干嘛这么费力不讨好。</p>
+<p>一个最常见的用法是用在异步代码中，也就是<a href="/Promise">异步代码的回调</a>。</p>
+<p>搭配 <code>Call/cc</code> 能够实现控制流中的 <code>try/catch</code> 和 <code>yield</code> 等控制方式。</p>
+<h2 id="最后">最后</h2><p>「CPS 就是把用于经典逻辑和直觉逻辑间命题转换的 Gödel–Gentzen 转换，经 Curry–Howard correspondence 应用到证明过程表示的自然结果。」（逃</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/玩/">玩</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CPS/">CPS</a>
+  </div>
 
 </div>
 
@@ -115,7 +149,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/Promise-notes/" data-title="Promise异步编程学习笔记 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/Continuation-passing-style/" data-title="Continuation-passing style | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -128,19 +162,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/NGUI-Atlas-UITexture-notes/" title="NGUI学习笔记之Atlas和UITexture的取舍">
-  <strong>上一篇：</strong><br/>
-  <span>
-  NGUI学习笔记之Atlas和UITexture的取舍</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/Lambda-notes/"  title="Lambda表达式学习笔记">
+<a href="/Evaluation-strategy/"  title="求值策略">
  <strong>下一篇：</strong><br/> 
- <span>Lambda表达式学习笔记
+ <span>求值策略
 </span>
 </a>
 </div>
@@ -149,7 +175,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="Promise-notes/" data-title="Promise异步编程学习笔记" data-url="http://en.ors-sro.com/Promise-notes/"></div>
+	<div class="ds-thread" data-thread-key="Continuation-passing-style/" data-title="Continuation-passing style" data-url="http://en.ors-sro.com/Continuation-passing-style/"></div>
 </section>
 
 
@@ -159,7 +185,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#有话好好说别乱来啊"><span class="toc-number">1.</span> <span class="toc-text">有话好好说别乱来啊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#所以有什么用呢"><span class="toc-number">2.</span> <span class="toc-text">所以有什么用呢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
  
   </div>
 
@@ -177,7 +203,7 @@
 		  
 		
 		  
-			<li><a href="/categories/玩/" title="玩">玩<sup>9</sup></a></li>
+			<li><a href="/categories/玩/" title="玩">玩<sup>10</sup></a></li>
 		  
 		
 		  
@@ -335,7 +361,7 @@
     
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="rtafip">rtafip</a>
 		

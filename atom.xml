@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2016-12-25T09:56:34.762Z</updated>
+  <updated>2017-01-01T13:30:12.327Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Continuation-passing style]]></title>
+    <link href="http://en.ors-sro.com/Continuation-passing-style/"/>
+    <id>http://en.ors-sro.com/Continuation-passing-style/</id>
+    <published>2017-01-01T09:19:32.000Z</published>
+    <updated>2017-01-01T13:30:12.327Z</updated>
+    <content type="html"><![CDATA[<p>我把未来抛给了你。</p>
+<a id="more"></a>
+<h2 id="有话好好说别乱来啊">有话好好说别乱来啊</h2><p>两个数相加，翻倍，输出结果。可以这么写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutputDoubleSum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = a + b;</span><br><span class="line">  result = result * <span class="number">2</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以这么写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Double</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x*<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Output</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutputDoubleSum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  Output(Double(Sum(a,b)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还能这么写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sum</span>(<span class="params">a,b,k</span>)</span>&#123;</span><br><span class="line">  k(a+b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Double</span>(<span class="params">x,k</span>)</span>&#123;</span><br><span class="line">  k(x*<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Output</span>(<span class="params">x,k</span>)</span>&#123;</span><br><span class="line">  k(<span class="built_in">console</span>.log(x));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutputDoubleSum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  Sum(a,b,<span class="function"><span class="keyword">function</span> (<span class="params">sumxy</span>)</span>&#123;</span><br><span class="line">    Double(sumxy,<span class="function"><span class="keyword">function</span> (<span class="params">doublex</span>)</span>&#123;</span><br><span class="line">      Output(doublex,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一种是顺序风格，第二种是函数组合风格，第三种是后继传递风格。</p>
+<p><strong>后继传递风格</strong>（<a href="https://en.wikipedia.org/wiki/Continuation-passing_style" target="_blank" rel="external">Continuation-passing style</a>）是一种控制流通过参数传递的风格。</p>
+<p>简单的说就是把后继，也就是下一步要运行的代码，封装成函数，通过参数传递的方式传给当前运行的函数。</p>
+<p>在例子中 <code>Output(x,k)</code> 的第二个参数接受一个后继，在 <code>Output</code> 执行完成后调用后继。 <code>Output</code> 的后继为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>是一个空函数，表示后面什么事情都不做。</p>
+<p><code>Double</code> 的后继是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">doublex</span>)</span>&#123;</span><br><span class="line">  Output(doublex,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>表示收到 <code>Double</code> 的计算结果后，执行 <code>Output</code> </p>
+<p><code>Sum</code> 的后继是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">sumxy</span>)</span>&#123;</span><br><span class="line">  Double(sumxy,<span class="function"><span class="keyword">function</span> (<span class="params">doublex</span>)</span>&#123;</span><br><span class="line">    Output(doublex,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>表示收到 <code>Sum</code> 的计算结果后，执行 <code>Double</code> </p>
+<p>这样通过参数传递的方式将顺序风格改为了后继传递风格。</p>
+<h2 id="所以有什么用呢">所以有什么用呢</h2><p><del>没什么用</del>。当然是有用的啦，不然干嘛这么费力不讨好。</p>
+<p>一个最常见的用法是用在异步代码中，也就是<a href="/Promise">异步代码的回调</a>。</p>
+<p>搭配 <code>Call/cc</code> 能够实现控制流中的 <code>try/catch</code> 和 <code>yield</code> 等控制方式。</p>
+<h2 id="最后">最后</h2><p>「CPS 就是把用于经典逻辑和直觉逻辑间命题转换的 Gödel–Gentzen 转换，经 Curry–Howard correspondence 应用到证明过程表示的自然结果。」（逃</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我把未来抛给了你。</p>]]>
+    
+    </summary>
+    
+      <category term="CPS" scheme="http://en.ors-sro.com/tags/CPS/"/>
+    
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[求值策略]]></title>
@@ -2624,21 +2667,6 @@
 <a id="more"></a>]]></content>
     <summary type="html">
     <![CDATA[<p>任性随便选</p>]]>
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Promise异步编程学习笔记]]></title>
-    <link href="http://en.ors-sro.com/Promise-notes/"/>
-    <id>http://en.ors-sro.com/Promise-notes/</id>
-    <published>2016-04-03T07:35:56.000Z</published>
-    <updated>2016-04-03T07:36:37.050Z</updated>
-    <content type="html"><![CDATA[<p>Promise.Reject(‘鸽了’)</p>
-<a id="more"></a>]]></content>
-    <summary type="html">
-    <![CDATA[<p>Promise.Reject(‘鸽了’)</p>]]>
     
     </summary>
     
