@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2017-01-15T11:32:20.434Z</updated>
+  <updated>2017-01-22T09:22:11.842Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,512 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[《Haskell 趣学指南》 笔记]]></title>
+    <link href="http://en.ors-sro.com/Learn-you-a-Haskell-for-great-good-notes/"/>
+    <id>http://en.ors-sro.com/Learn-you-a-Haskell-for-great-good-notes/</id>
+    <published>2017-01-22T08:42:08.000Z</published>
+    <updated>2017-01-22T09:22:11.842Z</updated>
+    <content type="html"><![CDATA[<p>《Haskell 趣学指南》是一本非常简洁明了的入门书。</p>
+<a id="more"></a>
+<h2 id="Introduction">Introduction</h2><p><strong>Haskell</strong> 是一门纯函数式编程语言。</p>
+<p>函数式，相对于命令式，解决问题的方式是定义问题，而不是定义如何做。</p>
+<p>纯函数，说的是没有副作用。也就是函数的执行不会依赖和改变状态（变量的值等）。只依赖输入。两次相同输入对应同一个输出。</p>
+<p>Haskell 是<strong>惰性</strong>的。</p>
+<p>表达式的值只会在需要的时候才会求值。所以使用无限长度的列表也不会有问题。</p>
+<p>Haskell 基于<strong>静态类型</strong>。</p>
+<p>也就是 Haskell 编译期能够在运行前推断出值的类型。</p>
+<p>Haskell 是一帮博士设计的语言。第一版语言报告在 2003 年公布。</p>
+<p>Haskell 的一个运行平台是 GHC (Glasgow Haskell Complier) 。文件后缀为 <code>.hs</code> </p>
+<p>类型名称使用大驼峰。</p>
+<p>变量使用小驼峰。</p>
+<p>变量名称中可以使用 <code>&#39;</code> 和 <code>_</code> 字符。</p>
+<p><code>&#39;</code> 表示稍微修改的版本。</p>
+<p><code>_</code> 表示不关注该变量。</p>
+<p>GHC 的一些命令</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:l</td>
+<td>加载文件 (Load)</td>
+</tr>
+<tr>
+<td>:r</td>
+<td>重新加载文件</td>
+</tr>
+<tr>
+<td>:t</td>
+<td>查看类型</td>
+</tr>
+<tr>
+<td>:set prompt</td>
+<td>改变 prelude 提示字符</td>
+</tr>
+<tr>
+<td>:m + 模块名称</td>
+<td>加载模块的某一部分</td>
+</tr>
+<tr>
+<td>it</td>
+<td>上一个表达式结果</td>
+</tr>
+<tr>
+<td>ghc —make xxx.hs</td>
+<td>编译文件</td>
+</tr>
+<tr>
+<td>runhaskell xxx.hs</td>
+<td>跳过编译临时运行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Starting_Out">Starting Out</h2><p>支持大部分算术符号。使用负数需要用括号括起来。使用括号可以改变优先级</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>加法</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法，负数</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+</tr>
+<tr>
+<td>/</td>
+<td>除法，结果为小数</td>
+</tr>
+<tr>
+<td>()</td>
+<td>括号，改变优先级</td>
+</tr>
+<tr>
+<td>True</td>
+<td>布尔值真</td>
+</tr>
+<tr>
+<td>False</td>
+<td>布尔值假</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>布尔运算且</td>
+</tr>
+<tr>
+<td>&#124;&#124;</td>
+<td>布尔运算或</td>
+</tr>
+<tr>
+<td>not</td>
+<td>布尔运算非</td>
+</tr>
+<tr>
+<td>==</td>
+<td>判断是否相等</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>判断是否不等</td>
+</tr>
+</tbody>
+</table>
+<p>Haskell 不会自动隐式类型转换。所以 <code>5 + True</code> 会报错。<code>5 + 4.0</code> 也是会报错的。因为一个是整数一个是浮点数。</p>
+<p>以上操作符均为中缀操作符。</p>
+<p>函数调用使用前缀表达式。函数名后跟参数，以空格区分。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; succ <span class="number">8</span>  </span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>函数调用优先级最高。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; succ <span class="number">9</span> + max <span class="number">5</span> <span class="number">4</span> + <span class="number">1</span>  </span><br><span class="line"><span class="number">16</span>  </span><br><span class="line"><span class="comment">-- 相当于下面的式子</span></span><br><span class="line"><span class="title">ghci</span>&gt; (succ <span class="number">9</span>) + (max <span class="number">5</span> <span class="number">4</span>) + <span class="number">1</span>  </span><br><span class="line"><span class="number">16</span></span><br></pre></td></tr></table></figure>
+<p>函数使用反引号「`」包裹后可使用中缀的表达式</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; div <span class="number">92</span> <span class="number">10</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">92</span> `div` <span class="number">10</span></span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>函数嵌套需要括号括住</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; succ (succ <span class="number">7</span>)</span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>函数定义格式为，函数名，参数列表，=，表达式。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">doubleMe</span> x = x + x</span><br></pre></td></tr></table></figure>
+<p>函数定义不需要手动提升。先定义的函数可以调用后定义的函数</p>
+<p>条件判断操作符为 <code>if ... then ... else ...</code> 。没有大括号，必须有 <code>else</code> 分支以保证 <code>if</code> 表达式一定有值。</p>
+<p>条件判断操作符可以换行，但要注意缩进。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">doubleSmallNumber</span> x = <span class="keyword">if</span> x &gt; <span class="number">100</span>  </span><br><span class="line">                        <span class="keyword">then</span> x  </span><br><span class="line">                        <span class="keyword">else</span> x*<span class="number">2</span>   </span><br><span class="line"></span><br><span class="line"><span class="title">doubleSmallNumber'</span> x = (<span class="keyword">if</span> x &gt; <span class="number">100</span> <span class="keyword">then</span> x <span class="keyword">else</span> x*<span class="number">2</span>) + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>通常在函数后面加 <code>&#39;</code> 表示稍微修改的函数。</p>
+<p>字符串使用双引号，字符使用单引号。</p>
+<p>变量绑定使用 <code>let</code> 关键字。不需要声明类型。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">let</span> a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>列表使用 <code>[]</code> ，元素用 <code>,</code> 分隔</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">['h','e','l','l','o']</span><br></pre></td></tr></table></figure>
+<p>列表使用 <code>++</code> 函数拼接。字符串是字符列表所以用 <code>++</code> 拼接</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] ++ [<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="string">"hello"</span> ++ <span class="string">" "</span> ++ <span class="string">"world"</span>  </span><br><span class="line"><span class="string">"hello world"</span></span><br></pre></td></tr></table></figure>
+<p><code>:</code> 用于向列表最前端插入一个元素。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; '<span class="type">A'</span>:<span class="string">" SMALL CAT"</span>  </span><br><span class="line"><span class="string">"A SMALL CAT"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">5</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]  </span><br><span class="line">[<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<p><code>!!</code> 用于取出元素，长度不够会报错。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="string">"Steve Buscemi"</span> !! <span class="number">6</span>  </span><br><span class="line">'<span class="type">B'</span></span><br></pre></td></tr></table></figure>
+<p><code>head</code> 获得列表头元素。 <code>tail</code> 获得尾列表</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; head [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line"><span class="number">5</span> </span><br><span class="line"><span class="title">ghci</span>&gt; tail [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line">[<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p><code>elem</code> 用于判断元素是否在列表中</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="number">4</span> `elem` [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="type">True</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">10</span> `elem` [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="type">False</span></span><br></pre></td></tr></table></figure>
+<p><code>..</code> 在列表中表示范围</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; [<span class="number">1.</span>.<span class="number">20</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; ['<span class="type">K'</span>..'<span class="type">Z'</span>]  </span><br><span class="line"><span class="string">"KLMNOPQRSTUVWXYZ"</span></span><br><span class="line"><span class="title">ghci</span>&gt; [<span class="number">2</span>,<span class="number">4.</span>.<span class="number">20</span>]  </span><br><span class="line">[<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">14</span>,<span class="number">16</span>,<span class="number">18</span>,<span class="number">20</span>]</span><br></pre></td></tr></table></figure>
+<p><code>replicate</code> 用于重复相同元素一定的次数。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; replicate <span class="number">3</span> <span class="number">10</span></span><br><span class="line">[<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<p>其他函数参见<strong>常用函数</strong></p>
+<p>列表解析式（List comprehensions）是 Haskell 中一种特殊的列表构造方式，类似于数学中的集合。</p>
+<p>比如集合 $S = { 2 \cdot x | x \in \Bbb{N} , x \le 10 }$ 对应的 Haskell 代码</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; [x*<span class="number">2</span> | x &lt;- [<span class="number">1.</span>.<span class="number">10</span>]]  </span><br><span class="line">[<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">14</span>,<span class="number">16</span>,<span class="number">18</span>,<span class="number">20</span>]</span><br></pre></td></tr></table></figure>
+<p><code>|</code> 左边为集合元素表达式，右边为过滤条件。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; [x*<span class="number">2</span> | x &lt;- [<span class="number">1.</span>.<span class="number">10</span>], x*<span class="number">2</span> &gt;= <span class="number">12</span>]  </span><br><span class="line">[<span class="number">12</span>,<span class="number">14</span>,<span class="number">16</span>,<span class="number">18</span>,<span class="number">20</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; [ x | x &lt;- [<span class="number">50.</span>.<span class="number">100</span>], x `mod` <span class="number">7</span> == <span class="number">3</span>]  </span><br><span class="line">[<span class="number">52</span>,<span class="number">59</span>,<span class="number">66</span>,<span class="number">73</span>,<span class="number">80</span>,<span class="number">87</span>,<span class="number">94</span>]   </span><br><span class="line"><span class="title">ghci</span>&gt; [ <span class="keyword">if</span> x &lt; <span class="number">10</span> <span class="keyword">then</span> <span class="string">"BOOM!"</span> <span class="keyword">else</span> <span class="string">"BANG!"</span> | x &lt;- [<span class="number">1.</span>.<span class="number">10</span>], odd x] </span><br><span class="line">[<span class="string">"BOOM!"</span>,<span class="string">"BOOM!"</span>,<span class="string">"BOOM!"</span>,<span class="string">"BOOM!"</span>,<span class="string">"BOOM!"</span>]</span><br></pre></td></tr></table></figure>
+<p>支持多个元素（变量）</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; [ x*y | x &lt;- [<span class="number">2</span>,<span class="number">5</span>,<span class="number">10</span>], y &lt;- [<span class="number">8</span>,<span class="number">10</span>,<span class="number">11</span>]]  </span><br><span class="line">[<span class="number">16</span>,<span class="number">20</span>,<span class="number">22</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">80</span>,<span class="number">100</span>,<span class="number">110</span>]   </span><br><span class="line"><span class="title">ghci</span>&gt; [ (a,b,c) | c &lt;- [<span class="number">1.</span>.<span class="number">10</span>], b &lt;- [<span class="number">1.</span>.c], a &lt;- [<span class="number">1.</span>.b], a^<span class="number">2</span> + b^<span class="number">2</span> == c^<span class="number">2</span>] </span><br><span class="line">[(<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>),(<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>)]</span><br></pre></td></tr></table></figure>
+<p>元组用于保存不同类型变量。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">"Christopher"</span>, <span class="string">"Walken"</span>, <span class="number">55</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Types_and_Typeclasses">Types and Typeclasses</h2><p>Haskell 使用 Hindley-Milner 类型系统。格式为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20989;&#25968;&#21517;&#23383; :: (&#31867;&#22411;&#32422;&#26463;) =&#62; &#21442;&#25968;1 -&#62; &#21442;&#25968;2 ... -&#62; &#21442;&#25968;n</span><br></pre></td></tr></table></figure>
+<p>比如加法的类型签名为</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; :t (+)</span><br><span class="line">(+) :: <span class="type">Num</span> a =&gt; a -&gt; a -&gt; a</span><br></pre></td></tr></table></figure>
+<p>其中 <code>a</code> 为类型变量。<code>Num a</code> 表示 <code>a</code> 为数字类型，可以是 <code>int</code> ，<code>Integer</code> 等。</p>
+<p>Haskell 的常见类型</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Int</td>
+<td>整数，[$ -2^{31}$,$2^{31} - 1 $ ]</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>整数，无范围限制</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>单精度浮点数</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>双精度浮点数</td>
+</tr>
+<tr>
+<td>Bool</td>
+<td>布尔类型</td>
+</tr>
+<tr>
+<td>Char</td>
+<td>字符</td>
+</tr>
+</tbody>
+</table>
+<p>类型类（Typeclass） 指的是类型的类型。是对类型的再一次归类。如 <code>int</code> 可以是 <code>Eq</code> 类，也可以是 <code>Ord</code> 类。</p>
+<p>Haskell 的常见类型类</p>
+<table>
+<thead>
+<tr>
+<th>类型类</th>
+<th>描述</th>
+<th>支持的操作符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eq</td>
+<td>可比较是否相等</td>
+<td>== /= elem</td>
+</tr>
+<tr>
+<td>Ord</td>
+<td>可比较顺序</td>
+<td>&lt; &gt; &lt;= &gt;=</td>
+</tr>
+<tr>
+<td>Show</td>
+<td>任意类型转为可显示的字符串</td>
+<td>show</td>
+</tr>
+<tr>
+<td>Read</td>
+<td>字符串解析为特定类型</td>
+<td>read</td>
+</tr>
+<tr>
+<td></td>
+<td>可枚举类型类</td>
+<td>.. succ pred</td>
+</tr>
+<tr>
+<td>Bounded</td>
+<td>有界类型类</td>
+<td>minBound maxBound</td>
+</tr>
+<tr>
+<td>Num</td>
+<td>数字类型类</td>
+<td>+ - *</td>
+</tr>
+<tr>
+<td>Integral</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Floating</td>
+<td>小数类型类</td>
+<td></td>
+</tr>
+<tr>
+<td>Functor</td>
+<td>函子</td>
+<td>fmap</td>
+</tr>
+<tr>
+<td>Applicative Functor</td>
+<td>可相互应用的函子</td>
+<td>pure &lt;*&gt;</td>
+</tr>
+<tr>
+<td>Monad</td>
+<td>单子</td>
+<td>return &gt;&gt;=</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Syntax_in_Functions">Syntax in Functions</h2><p>模式匹配类似于命令式语言中的 <code>Switch ... case</code> 匹配，不过匹配的源表达式更复杂。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">lucky</span> :: (<span class="type">Integral</span> a) =&gt; a -&gt; <span class="type">String</span>  </span><br><span class="line"><span class="title">lucky</span> <span class="number">8</span> = <span class="string">"LUCKY NUMBER EIGHT!"</span>  </span><br><span class="line"><span class="title">lucky</span> x = <span class="string">"Sorry, you're out of luck, pal!"</span></span><br></pre></td></tr></table></figure>
+<p>匹配顺序从上到下，匹配失败会报错。</p>
+<p>模式匹配经常于递归搭配使用，先写出递归的边界条件，然后匹配剩下的递归</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">factorial</span> :: (<span class="type">Integral</span> a) =&gt; a -&gt; a  </span><br><span class="line"><span class="title">factorial</span> <span class="number">0</span> = <span class="number">1</span>  </span><br><span class="line"><span class="title">factorial</span> n = n * factorial (n - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>模式匹配还可用于元组和列表</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">addVectors</span> :: (<span class="type">Num</span> a) =&gt; (a, a) -&gt; (a, a) -&gt; (a, a)  </span><br><span class="line"><span class="title">addVectors</span> a b = (fst a + fst b, snd a + snd b)  </span><br><span class="line"><span class="comment">-- 使用模式匹配后</span></span><br><span class="line"><span class="title">addVectors</span> :: (<span class="type">Num</span> a) =&gt; (a, a) -&gt; (a, a) -&gt; (a, a)  </span><br><span class="line"><span class="title">addVectors</span> (x1, y1) (x2, y2) = (x1 + x2, y1 + y2)  </span><br><span class="line"><span class="comment">-- 列表的模式匹配</span></span><br><span class="line"><span class="title">ghci</span>&gt; <span class="keyword">let</span> xs = [(<span class="number">1</span>,<span class="number">3</span>), (<span class="number">4</span>,<span class="number">3</span>), (<span class="number">2</span>,<span class="number">4</span>), (<span class="number">5</span>,<span class="number">3</span>), (<span class="number">5</span>,<span class="number">6</span>), (<span class="number">3</span>,<span class="number">1</span>)]  </span><br><span class="line"><span class="title">ghci</span>&gt; [a+b | (a,b) &lt;- xs]  </span><br><span class="line">[<span class="number">4</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">11</span>,<span class="number">4</span>]   </span><br><span class="line"></span><br><span class="line"><span class="title">head'</span> :: [a] -&gt; a  </span><br><span class="line"><span class="title">head'</span> [] = error <span class="string">"Can't call head on an empty list, dummy!"</span>  </span><br><span class="line"><span class="title">head'</span> (x:_) = x  </span><br><span class="line"></span><br><span class="line"><span class="title">length'</span> :: (<span class="type">Num</span> b) =&gt; [a] -&gt; b  </span><br><span class="line"><span class="title">length'</span> [] = <span class="number">0</span>  </span><br><span class="line"><span class="title">length'</span> (_:xs) = <span class="number">1</span> + length' xs</span><br></pre></td></tr></table></figure>
+<p>模式匹配支持 <code>all@pattern</code> 的方式匹配。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">capital</span> :: <span class="type">String</span> -&gt; <span class="type">String</span>  </span><br><span class="line"><span class="title">capital</span> <span class="string">""</span> = <span class="string">"Empty string, whoops!"</span>  </span><br><span class="line"><span class="title">capital</span> all@(x:xs) = <span class="string">"The first letter of "</span> ++ all ++ <span class="string">" is "</span> ++ [x]</span><br></pre></td></tr></table></figure>
+<p>如果说模式匹配类似于 <code>Switch ... case</code> ，那么条件匹配（Guards）类似于 <code>if ... then ... else</code></p>
+<p>条件匹配可以支持一个范围区间，而模式匹配不可以，除非手写范围区间内所有情况。</p>
+<p>条件匹配用 <code>|</code> 分隔条件。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">bmiTell</span> :: (<span class="type">RealFloat</span> a) =&gt; a -&gt; <span class="type">String</span>  </span><br><span class="line"><span class="title">bmiTell</span> bmi  </span><br><span class="line">    | bmi &lt;= <span class="number">18.5</span> = <span class="string">"You're underweight, you emo, you!"</span>  </span><br><span class="line">    | bmi &lt;= <span class="number">25.0</span> = <span class="string">"You're supposedly normal. Pffft, I bet you're ugly!"</span>  </span><br><span class="line">    | bmi &lt;= <span class="number">30.0</span> = <span class="string">"You're fat! Lose some weight, fatty!"</span>  </span><br><span class="line">    | otherwise   = <span class="string">"You're a whale, congratulations!"</span></span><br></pre></td></tr></table></figure>
+<p> 与 <code>if</code> 类似，条件匹配必须有 <code>otherwise</code> 保证表达式一定有值。</p>
+<p>定义函数时可以使用反引号「`」</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">myCompare</span> :: (<span class="type">Ord</span> a) =&gt; a -&gt; a -&gt; <span class="type">Ordering</span>  </span><br><span class="line"><span class="title">a</span> `myCompare` b  </span><br><span class="line">    | a &gt; b     = <span class="type">GT</span>  </span><br><span class="line">    | a == b    = <span class="type">EQ</span>  </span><br><span class="line">    | otherwise = <span class="type">LT</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">3</span> `myCompare` <span class="number">2</span>  </span><br><span class="line"><span class="type">GT</span></span><br></pre></td></tr></table></figure>
+<p>限定语句（Where） ，可用于声明变量。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">bmiTell</span> :: (<span class="type">RealFloat</span> a) =&gt; a -&gt; a -&gt; <span class="type">String</span>  </span><br><span class="line"><span class="title">bmiTell</span> weight height  </span><br><span class="line">    | bmi &lt;= skinny = <span class="string">"You're underweight, you emo, you!"</span>  </span><br><span class="line">    | bmi &lt;= normal = <span class="string">"You're supposedly normal. Pffft, I bet you're ugly!"</span>  </span><br><span class="line">    | bmi &lt;= fat    = <span class="string">"You're fat! Lose some weight, fatty!"</span>  </span><br><span class="line">    | otherwise     = <span class="string">"You're a whale, congratulations!"</span>  </span><br><span class="line">    <span class="keyword">where</span> bmi = weight / height ^ <span class="number">2</span>  </span><br><span class="line">          (skinny, normal, fat) = (<span class="number">18.5</span>, <span class="number">25.0</span>, <span class="number">30.0</span>)</span><br></pre></td></tr></table></figure>
+<p>绑定语句（Let），与限定语句对应，用于在开头绑定变量。</p>
+<p>形式为 <code>Let &lt;binding&gt; in &lt;expression&gt;</code>  。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">cylinder</span> :: (<span class="type">RealFloat</span> a) =&gt; a -&gt; a -&gt; a  </span><br><span class="line"><span class="title">cylinder</span> r h = </span><br><span class="line">    <span class="keyword">let</span> sideArea = <span class="number">2</span> * pi * r * h  </span><br><span class="line">        topArea = pi * r ^<span class="number">2</span>  </span><br><span class="line">    <span class="keyword">in</span>  sideArea + <span class="number">2</span> * topArea</span><br></pre></td></tr></table></figure>
+<p>绑定语句很灵活，不仅仅在函数定义中使用，还可以在列表等多处地方使用。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; [<span class="keyword">let</span> square x = x * x <span class="keyword">in</span> (square <span class="number">5</span>, square <span class="number">3</span>, square <span class="number">2</span>)]  </span><br><span class="line">[(<span class="number">25</span>,<span class="number">9</span>,<span class="number">4</span>)]</span><br></pre></td></tr></table></figure>
+<p><code>case</code> 语句。类似于命令式语言的 <code>case</code> 。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">head'</span> :: [a] -&gt; a  </span><br><span class="line"><span class="title">head'</span> xs = <span class="keyword">case</span> xs <span class="keyword">of</span> [] -&gt; error <span class="string">"No head for empty lists!"</span>  </span><br><span class="line">                      (x:_) -&gt; x</span><br></pre></td></tr></table></figure>
+<h2 id="Recursion">Recursion</h2><p>Haskell 的函数定义支持递归</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">quicksort</span> :: (<span class="type">Ord</span> a) =&gt; [a] -&gt; [a]  </span><br><span class="line"><span class="title">quicksort</span> [] = []  </span><br><span class="line"><span class="title">quicksort</span> (x:xs) = quicksort [a | a &lt;- xs, a &lt;= x] ++ [x] ++ quicksort [a | a &lt;- xs, a &gt; x]</span><br></pre></td></tr></table></figure>
+<p>有了递归之后常见函数都可以使用递归实现</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">replicate'</span> :: (<span class="type">Num</span> i, <span class="type">Ord</span> i) =&gt; i -&gt; a -&gt; [a]  </span><br><span class="line"><span class="title">replicate'</span> n x  </span><br><span class="line">    | n &lt;= <span class="number">0</span>    = []  </span><br><span class="line">    | otherwise = x:replicate' (n-<span class="number">1</span>) x  </span><br><span class="line">    </span><br><span class="line"><span class="title">take'</span> :: (<span class="type">Num</span> i, <span class="type">Ord</span> i) =&gt; i -&gt; [a] -&gt; [a]  </span><br><span class="line"><span class="title">take'</span> n _  </span><br><span class="line">    | n &lt;= <span class="number">0</span>   = []  </span><br><span class="line"><span class="title">take'</span> _ []     = []  </span><br><span class="line"><span class="title">take'</span> n (x:xs) = x : take' (n-<span class="number">1</span>) xs  </span><br><span class="line"></span><br><span class="line"><span class="title">reverse'</span> :: [a] -&gt; [a]  </span><br><span class="line"><span class="title">reverse'</span> [] = []  </span><br><span class="line"><span class="title">reverse'</span> (x:xs) = reverse' xs ++ [x]  </span><br><span class="line"></span><br><span class="line"><span class="title">repeat'</span> :: a -&gt; [a]  </span><br><span class="line"><span class="title">repeat'</span> x = x:repeat' x</span><br></pre></td></tr></table></figure>
+<h2 id="Higher_order_functions">Higher order functions</h2><p>柯里化是一种将多参函数化为多个单参函数的奇数。Haskell 中函数只支持一个参数，通过柯里化就能实现支持多个参数的函数。多参函数的调用过程可以视为单参函数的逐步填充过程。调用函数却没有给够参数的过程称为部分应用（partially apply）</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; max <span class="number">4</span> <span class="number">5</span>  </span><br><span class="line"><span class="number">5</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; (max <span class="number">4</span>) <span class="number">5</span>  <span class="comment">-- (max 4) 是一个函数</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>接收或返回函数的一类函数称为高阶函数。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">applyTwice</span> :: (a -&gt; a) -&gt; a -&gt; a  </span><br><span class="line"><span class="title">applyTwice</span> f x = f (f x)  </span><br><span class="line"></span><br><span class="line"><span class="title">ghci</span>&gt; applyTwice (+<span class="number">3</span>) <span class="number">10</span>  </span><br><span class="line"><span class="number">16</span>  </span><br><span class="line"></span><br><span class="line"><span class="title">ghci</span>&gt; applyTwice (++ <span class="string">" HAHA"</span>) <span class="string">"HEY"</span>  </span><br><span class="line"><span class="string">"HEY HAHA HAHA"</span></span><br></pre></td></tr></table></figure>
+<p>Haskell 常见的高阶函数</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>map</td>
+<td>对列表所有元素应用函数，返回所有元素应用函数后的列表</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>对列表所有函数应用过滤函数，返回符合条件的列表</td>
+</tr>
+<tr>
+<td>foldl</td>
+<td>从最左边的元素开始，从左往右应用函数，返回累积值。</td>
+</tr>
+<tr>
+<td>foldr</td>
+<td>从最右边的元素开始，从右往左应用函数，返回累积值。</td>
+</tr>
+<tr>
+<td>foldl1</td>
+<td>与 foldl 类似，不用提供初始值</td>
+</tr>
+<tr>
+<td>foldr1</td>
+<td>与 foldr 类似，不用提供初始值</td>
+</tr>
+<tr>
+<td>scanl</td>
+<td>与 foldl 类似，不过保留每个步骤的结果</td>
+</tr>
+<tr>
+<td>scanr</td>
+<td>与 foldr 类似，不过保留每个步骤的结果</td>
+</tr>
+</tbody>
+</table>
+<p>例子</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; sum (takeWhile (&lt;<span class="number">10000</span>) (filter odd (map (^<span class="number">2</span>) [<span class="number">1.</span>.])))  </span><br><span class="line"><span class="number">166650</span></span><br></pre></td></tr></table></figure>
+<p>列表操作大部分都可以使用 <code>fold</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">maximum'</span> :: (<span class="type">Ord</span> a) =&gt; [a] -&gt; a  </span><br><span class="line"><span class="title">maximum'</span> = foldr1 (\x acc -&gt; <span class="keyword">if</span> x &gt; acc <span class="keyword">then</span> x <span class="keyword">else</span> acc)  </span><br><span class="line">  </span><br><span class="line"><span class="title">reverse'</span> :: [a] -&gt; [a]  </span><br><span class="line"><span class="title">reverse'</span> = foldl (\acc x -&gt; x : acc) []  </span><br><span class="line">  </span><br><span class="line"><span class="title">product'</span> :: (<span class="type">Num</span> a) =&gt; [a] -&gt; a  </span><br><span class="line"><span class="title">product'</span> = foldr1 (*)  </span><br><span class="line">  </span><br><span class="line"><span class="title">filter'</span> :: (a -&gt; <span class="type">Bool</span>) -&gt; [a] -&gt; [a]  </span><br><span class="line"><span class="title">filter'</span> p = foldr (\x acc -&gt; <span class="keyword">if</span> p x <span class="keyword">then</span> x : acc <span class="keyword">else</span> acc) []  </span><br><span class="line">  </span><br><span class="line"><span class="title">head'</span> :: [a] -&gt; a  </span><br><span class="line"><span class="title">head'</span> = foldr1 (\x _ -&gt; x)  </span><br><span class="line">  </span><br><span class="line"><span class="title">last'</span> :: [a] -&gt; a  </span><br><span class="line"><span class="title">last'</span> = foldl1 (\_ x -&gt; x)</span><br></pre></td></tr></table></figure>
+<p>匿名函数（Lambda），没有名字的函数。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">numLongChains</span> :: <span class="type">Int</span>  </span><br><span class="line"><span class="title">numLongChains</span> = length (filter (\xs -&gt; length xs &gt; <span class="number">15</span>) (map chain [<span class="number">1.</span>.<span class="number">100</span>]))  </span><br><span class="line"></span><br><span class="line"><span class="title">ghci</span>&gt; map (+<span class="number">3</span>) [<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">[<span class="number">4</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">5</span>]</span><br><span class="line"><span class="title">ghci</span>&gt; map (\x -&gt; x + <span class="number">3</span>) [<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">[<span class="number">4</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<p><code>$</code> 函数应用符。右结合，优先级很低，所以可以用来节省括号。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sum</span> (filter (&gt; <span class="number">10</span>) (map (*<span class="number">2</span>) [<span class="number">2.</span>.<span class="number">10</span>]))</span><br><span class="line"></span><br><span class="line"><span class="title">sum</span> $ filter (&gt; <span class="number">10</span>) $ map (*<span class="number">2</span>) [<span class="number">2.</span>.<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<p>还可以这么玩</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; map ($ <span class="number">3</span>) [(<span class="number">4</span>+), (<span class="number">10</span>*), (^<span class="number">2</span>), sqrt]  </span><br><span class="line">[<span class="number">7.0</span>,<span class="number">30.0</span>,<span class="number">9.0</span>,<span class="number">1.7320508075688772</span>]</span><br></pre></td></tr></table></figure>
+<p><code>(.)</code> 函数组合。 <code>(f . g) x = f (g x)</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; map (negate . abs) [<span class="number">5</span>,-<span class="number">3</span>,-<span class="number">6</span>,<span class="number">7</span>,-<span class="number">3</span>,<span class="number">2</span>,-<span class="number">19</span>,<span class="number">24</span>]  </span><br><span class="line">[-<span class="number">5</span>,-<span class="number">3</span>,-<span class="number">6</span>,-<span class="number">7</span>,-<span class="number">3</span>,-<span class="number">2</span>,-<span class="number">19</span>,-<span class="number">24</span>]  </span><br><span class="line"></span><br><span class="line"><span class="title">oddSquareSum</span> :: <span class="type">Integer</span>  </span><br><span class="line"><span class="title">oddSquareSum</span> = sum (takeWhile (&lt;<span class="number">10000</span>) (filter odd (map (^<span class="number">2</span>) [<span class="number">1.</span>.])))    </span><br><span class="line"><span class="comment">-- 改为函数组合</span></span><br><span class="line"><span class="title">oddSquareSum</span> :: <span class="type">Integer</span>  </span><br><span class="line"><span class="title">oddSquareSum</span> = sum . takeWhile (&lt;<span class="number">10000</span>) . filter odd . map (^<span class="number">2</span>) $ [<span class="number">1.</span>.]</span><br></pre></td></tr></table></figure>
+<h2 id="Modules">Modules</h2><p>Haskell 的模块与其他语言的模块概念相似。</p>
+<p>导入模块 <code>import &lt;module name&gt;</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> Data.List  </span></span><br><span class="line"><span class="comment">-- nub 是其中的一个函数</span></span><br><span class="line"><span class="title">numUniques</span> :: (<span class="type">Eq</span> a) =&gt; [a] -&gt; <span class="type">Int</span>  </span><br><span class="line"><span class="title">numUniques</span> = length . nub</span><br></pre></td></tr></table></figure>
+<p>只引用模块中部分函数 </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> Data.List <span class="container">(<span class="title">nub</span>, <span class="title">sort</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>不用模块中的某些函数</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> Data.List <span class="keyword">hiding</span> <span class="container">(<span class="title">nub</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>取别名</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> <span class="keyword">qualified</span> Data.Map <span class="keyword">as</span> M</span></span><br></pre></td></tr></table></figure>
+<p>编写模块与编写普通的 Haskell 代码一样，只不过需要在文件头部加上需要导出的函数模块声明。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="module"><span class="keyword">module</span> Geometry  </span><br><span class="line"><span class="container">( <span class="title">sphereVolume</span>  </span><br><span class="line">, <span class="title">sphereArea</span>  </span><br><span class="line">, <span class="title">cubeVolume</span>  </span><br><span class="line">, <span class="title">cubeArea</span>  </span><br><span class="line">, <span class="title">cuboidArea</span>  </span><br><span class="line">, <span class="title">cuboidVolume</span>  </span><br><span class="line">)</span> <span class="keyword">where</span></span>  </span><br><span class="line">  </span><br><span class="line"><span class="title">sphereVolume</span> :: <span class="type">Float</span> -&gt; <span class="type">Float</span>  </span><br><span class="line"><span class="title">sphereVolume</span> radius = (<span class="number">4.0</span> / <span class="number">3.0</span>) * pi * (radius ^ <span class="number">3</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="title">sphereArea</span> :: <span class="type">Float</span> -&gt; <span class="type">Float</span>  </span><br><span class="line"><span class="title">sphereArea</span> radius = <span class="number">4</span> * pi * (radius ^ <span class="number">2</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="title">cubeVolume</span> :: <span class="type">Float</span> -&gt; <span class="type">Float</span>  </span><br><span class="line"><span class="title">cubeVolume</span> side = cuboidVolume side side side  </span><br><span class="line">  </span><br><span class="line"><span class="title">cubeArea</span> :: <span class="type">Float</span> -&gt; <span class="type">Float</span>  </span><br><span class="line"><span class="title">cubeArea</span> side = cuboidArea side side side  </span><br><span class="line">  </span><br><span class="line"><span class="title">cuboidVolume</span> :: <span class="type">Float</span> -&gt; <span class="type">Float</span> -&gt; <span class="type">Float</span> -&gt; <span class="type">Float</span>  </span><br><span class="line"><span class="title">cuboidVolume</span> a b c = rectangleArea a b * c  </span><br><span class="line">  </span><br><span class="line"><span class="title">cuboidArea</span> :: <span class="type">Float</span> -&gt; <span class="type">Float</span> -&gt; <span class="type">Float</span> -&gt; <span class="type">Float</span>  </span><br><span class="line"><span class="title">cuboidArea</span> a b c = rectangleArea a b * <span class="number">2</span> + rectangleArea a c * <span class="number">2</span> + rectangleArea c b * <span class="number">2</span>  </span><br><span class="line">  </span><br><span class="line"><span class="title">rectangleArea</span> :: <span class="type">Float</span> -&gt; <span class="type">Float</span> -&gt; <span class="type">Float</span>  </span><br><span class="line"><span class="title">rectangleArea</span> a b = a * b</span><br></pre></td></tr></table></figure>
+<h2 id="Making_Our_Own_Types_and_Typeclasses">Making Our Own Types and Typeclasses</h2><p>代数数据类型（Algebraic data types），是 Haskell 中的一种自定义数据类型。注意不要缩写成 ADT 。因为有好几个缩写都可以是 ADT 。</p>
+<p>纯数据类型</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">data</span> <span class="type">Bool</span> = <span class="type">False</span> | <span class="type">True</span></span></span><br></pre></td></tr></table></figure>
+<p>带构造器类型</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">data</span> <span class="type">Shape</span> = <span class="type">Circle</span> <span class="type">Float</span> <span class="type">Float</span> <span class="type">Float</span> | <span class="type">Rectangle</span> <span class="type">Float</span> <span class="type">Float</span> <span class="type">Float</span> <span class="type">Float</span></span></span><br></pre></td></tr></table></figure>
+<p>注意类型首字母大写，类型变量首字母小写的规定。</p>
+<p>为了能显示需要继承 <code>Show</code> 类型类，使用 <code>deriving</code> 关键字，多个类型类用 <code>,</code> 分隔。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">data</span> <span class="type">Shape</span> = <span class="type">Circle</span> <span class="type">Float</span> <span class="type">Float</span> <span class="type">Float</span> | <span class="type">Rectangle</span> <span class="type">Float</span> <span class="type">Float</span> <span class="type">Float</span> <span class="type">Float</span> <span class="keyword">deriving</span> <span class="container">(<span class="type">Show</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>实例化</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="type">Circle</span> <span class="number">10</span> <span class="number">20</span> <span class="number">5</span>  </span><br><span class="line"><span class="type">Circle</span> <span class="number">10.0</span> <span class="number">20.0</span> <span class="number">5.0</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="type">Rectangle</span> <span class="number">50</span> <span class="number">230</span> <span class="number">60</span> <span class="number">90</span>  </span><br><span class="line"><span class="type">Rectangle</span> <span class="number">50.0</span> <span class="number">230.0</span> <span class="number">60.0</span> <span class="number">90.0</span></span><br></pre></td></tr></table></figure>
+<p>定义了抽象数据类型后通常需要定义相应的 <code>Getter</code> 。Haskell 中有记录语法（Record Syntax）避免手写这些重复的代码。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data Person = Person &#123; firstName :: String  &#10;                     , lastName :: String  &#10;                     , age :: Int  &#10;                     , height :: Float  &#10;                     , phoneNumber :: String  &#10;                     , flavor :: String  &#10;                     &#125; deriving (Show)</span><br></pre></td></tr></table></figure>
+<p>定义完后，可以直接取值</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; :t flavor  </span><br><span class="line"><span class="title">flavor</span> :: <span class="type">Person</span> -&gt; <span class="type">String</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; :t firstName  </span><br><span class="line"><span class="title">firstName</span> :: <span class="type">Person</span> -&gt; <span class="type">String</span></span><br></pre></td></tr></table></figure>
+<p>代数数据类型中的类型构造函数可以接受类型参数，这点类似泛型中的参数变量</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">data</span> <span class="type">Maybe</span> a = <span class="type">Nothing</span> | <span class="type">Just</span> a  <span class="comment">-- a 为类型参数</span></span></span><br></pre></td></tr></table></figure>
+<p>接受不同的类型</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> <span class="string">"Haha"</span>  </span><br><span class="line"><span class="type">Just</span> <span class="string">"Haha"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> <span class="number">84</span>  </span><br><span class="line"><span class="type">Just</span> <span class="number">84</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; :t <span class="type">Just</span> <span class="string">"Haha"</span>  </span><br><span class="line"><span class="type">Just</span> <span class="string">"Haha"</span> :: <span class="type">Maybe</span> [<span class="type">Char</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; :t <span class="type">Just</span> <span class="number">84</span>  </span><br><span class="line"><span class="type">Just</span> <span class="number">84</span> :: (<span class="type">Num</span> t) =&gt; <span class="type">Maybe</span> t  </span><br><span class="line"><span class="title">ghci</span>&gt; :t <span class="type">Nothing</span>  </span><br><span class="line"><span class="type">Nothing</span> :: <span class="type">Maybe</span> a  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> <span class="number">10</span> :: <span class="type">Maybe</span> <span class="type">Double</span>  </span><br><span class="line"><span class="type">Just</span> <span class="number">10.0</span></span><br></pre></td></tr></table></figure>
+<p>既然有类型参数，那么类型参数也是可以有的</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">data</span> <span class="container">(<span class="type">Ord</span> <span class="title">k</span>)</span> =&gt; <span class="type">Map</span> k v = ...</span></span><br></pre></td></tr></table></figure>
+<p>有时候新的类型跟已有类型内容一样只是名字不同，可以使用类型别名（Type Synoyms）。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">type</span> <span class="type">String</span> = [<span class="type">Char</span>] </span></span><br><span class="line"></span><br><span class="line"><span class="typedef"><span class="keyword">type</span> <span class="type">PhoneNumber</span> = <span class="type">String</span>  </span></span><br><span class="line"><span class="typedef"><span class="keyword">type</span> <span class="type">Name</span> = <span class="type">String</span>  </span></span><br><span class="line"><span class="typedef"><span class="keyword">type</span> <span class="type">PhoneBook</span> = [<span class="container">(<span class="type">Name</span>,<span class="type">PhoneNumber</span>)</span>]</span></span><br></pre></td></tr></table></figure>
+<p>类型别名也可以带类型参数</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">type</span> <span class="type">AssocList</span> k v = [<span class="container">(<span class="title">k</span>,<span class="title">v</span>)</span>]  </span></span><br><span class="line"><span class="typedef"><span class="keyword">type</span> <span class="type">IntMap</span> v = <span class="type">Map</span> <span class="type">Int</span> v  </span></span><br><span class="line"><span class="typedef"><span class="keyword">type</span> <span class="type">IntMap</span> = <span class="type">Map</span> <span class="type">Int</span></span></span><br></pre></td></tr></table></figure>
+<p>代数数据类型还支持递归</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">data</span> <span class="type">List</span> a = <span class="type">Empty</span> | <span class="type">Cons</span> a <span class="container">(<span class="type">List</span> <span class="title">a</span>)</span> <span class="keyword">deriving</span> <span class="container">(<span class="type">Show</span>, <span class="type">Read</span>, <span class="type">Eq</span>, <span class="type">Ord</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>实例化</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="type">Empty</span>  </span><br><span class="line"><span class="type">Empty</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">5</span> `<span class="type">Cons</span>` <span class="type">Empty</span>  </span><br><span class="line"><span class="type">Cons</span> <span class="number">5</span> <span class="type">Empty</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">4</span> `<span class="type">Cons</span>` (<span class="number">5</span> `<span class="type">Cons</span>` <span class="type">Empty</span>)  </span><br><span class="line"><span class="type">Cons</span> <span class="number">4</span> (<span class="type">Cons</span> <span class="number">5</span> <span class="type">Empty</span>)  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">3</span> `<span class="type">Cons</span>` (<span class="number">4</span> `<span class="type">Cons</span>` (<span class="number">5</span> `<span class="type">Cons</span>` <span class="type">Empty</span>))  </span><br><span class="line"><span class="type">Cons</span> <span class="number">3</span> (<span class="type">Cons</span> <span class="number">4</span> (<span class="type">Cons</span> <span class="number">5</span> <span class="type">Empty</span>))</span><br></pre></td></tr></table></figure>
+<p>递归最典型的数据结构是树</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">data</span> <span class="type">Tree</span> a = <span class="type">EmptyTree</span> | <span class="type">Node</span> a <span class="container">(<span class="type">Tree</span> <span class="title">a</span>)</span> <span class="container">(<span class="type">Tree</span> <span class="title">a</span>)</span> <span class="keyword">deriving</span> <span class="container">(<span class="type">Show</span>, <span class="type">Read</span>, <span class="type">Eq</span>)</span>  </span></span><br><span class="line"></span><br><span class="line"><span class="title">singleton</span> :: a -&gt; <span class="type">Tree</span> a  </span><br><span class="line"><span class="title">singleton</span> x = <span class="type">Node</span> x <span class="type">EmptyTree</span> <span class="type">EmptyTree</span>  </span><br><span class="line">  </span><br><span class="line"><span class="title">treeInsert</span> :: (<span class="type">Ord</span> a) =&gt; a -&gt; <span class="type">Tree</span> a -&gt; <span class="type">Tree</span> a  </span><br><span class="line"><span class="title">treeInsert</span> x <span class="type">EmptyTree</span> = singleton x  </span><br><span class="line"><span class="title">treeInsert</span> x (<span class="type">Node</span> a left right)   </span><br><span class="line">    | x == a = <span class="type">Node</span> x left right  </span><br><span class="line">    | x &lt; a  = <span class="type">Node</span> a (treeInsert x left) right  </span><br><span class="line">    | x &gt; a  = <span class="type">Node</span> a left (treeInsert x right)</span><br></pre></td></tr></table></figure>
+<p>如果想自定义类型类的行为，可以实现相应的实例</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Show</span> <span class="type">TrafficLight</span> <span class="keyword">where</span></span>  </span><br><span class="line">    show <span class="type">Red</span> = <span class="string">"Red light"</span>  </span><br><span class="line">    show <span class="type">Yellow</span> = <span class="string">"Yellow light"</span>  </span><br><span class="line">    show <span class="type">Green</span> = <span class="string">"Green light"</span></span><br></pre></td></tr></table></figure>
+<p>实例中也可以有类型约束</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="container">(<span class="type">Eq</span> <span class="title">m</span>)</span> =&gt; <span class="type">Eq</span> <span class="container">(<span class="type">Maybe</span> <span class="title">m</span>)</span> <span class="keyword">where</span></span>  </span><br><span class="line">    <span class="type">Just</span> x == <span class="type">Just</span> y = x == y  </span><br><span class="line">    <span class="type">Nothing</span> == <span class="type">Nothing</span> = <span class="type">True</span>  </span><br><span class="line">    _ == _ = <span class="type">False</span></span><br></pre></td></tr></table></figure>
+<p>关于 data ，type 和 new type 的区别</p>
+<p>data 用于声明全新的类型</p>
+<p>type 用于声明已有的类型的别名</p>
+<p>new type 用于声明已有的类型的封装</p>
+<h2 id="Input_and_Output">Input and Output</h2><p>Haskell 是纯函数语言，而输入输出是有副作用的，也就不是纯粹的函数。先来看最应该写在文章开头的 <code>Hello World</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">main</span> = putStrLn <span class="string">"hello, world"</span></span><br></pre></td></tr></table></figure>
+<p>直接拼接输入是不可以的，因为类型不一致</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">nameTag</span> = <span class="string">"Hello, my name is "</span> ++ getLine  <span class="comment">-- getLine :: IO String</span></span><br></pre></td></tr></table></figure>
+<p>这样也是不行的，相当于给 <code>getLine</code> 取了一个 <code>name</code> 的别名</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">name</span> = getLine</span><br></pre></td></tr></table></figure>
+<p>需要使用 do 语法。这是因为使用了 <code>Monad</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">main</span> = <span class="keyword">do</span>  </span><br><span class="line">    putStrLn <span class="string">"Hello, what's your name?"</span>  </span><br><span class="line">    name &lt;- getLine  </span><br><span class="line">    putStrLn (<span class="string">"Hey "</span> ++ name ++ <span class="string">", you rock!"</span>)</span><br></pre></td></tr></table></figure>
+<p>do 语法中变量赋值需要使用 <code>let</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> Data.Char  </span></span><br><span class="line">  </span><br><span class="line"><span class="title">main</span> = <span class="keyword">do</span>  </span><br><span class="line">    putStrLn <span class="string">"What's your first name?"</span>  </span><br><span class="line">    firstName &lt;- getLine  </span><br><span class="line">    putStrLn <span class="string">"What's your last name?"</span>  </span><br><span class="line">    lastName &lt;- getLine  </span><br><span class="line">    <span class="keyword">let</span> bigFirstName = map toUpper firstName  </span><br><span class="line">        bigLastName = map toUpper lastName  </span><br><span class="line">    putStrLn $ <span class="string">"hey "</span> ++ bigFirstName ++ <span class="string">" "</span> ++ bigLastName ++ <span class="string">", how are you?"</span></span><br></pre></td></tr></table></figure>
+<p>打开文件有相应的函数。但是如果只是读写可以使用 <code>readFile</code> <code>writeFile</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> System.IO     </span></span><br><span class="line"><span class="import"><span class="keyword">import</span> Data.Char  </span></span><br><span class="line">    </span><br><span class="line"><span class="title">main</span> = <span class="keyword">do</span>     </span><br><span class="line">    contents &lt;- readFile <span class="string">"girlfriend.txt"</span>     </span><br><span class="line">    writeFile <span class="string">"girlfriendcaps.txt"</span> (map toUpper contents)</span><br></pre></td></tr></table></figure>
+<h2 id="Functors,_Applicative_Functors_and_Monoids">Functors, Applicative Functors and Monoids</h2><p>具体的定义参见<a href="/Functor-applicative-functor-and-monad-in-Haskell">之前写的文章</a></p>
+<p><code>functor</code> 的作用是能让普通函数应用到被 <code>functor</code> 包裹的值</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ghci&gt; fmap (replicate 3) <span class="comment">[1,2,3,4]</span>  </span><br><span class="line"><span class="comment">[<span class="comment">[1,1,1]</span>,<span class="comment">[2,2,2]</span>,<span class="comment">[3,3,3]</span>,<span class="comment">[4,4,4]</span>]</span></span><br></pre></td></tr></table></figure>
+<p><code>IO</code> 也是一个 <code>functor</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Functor</span> <span class="type">IO</span> <span class="keyword">where</span></span>  </span><br><span class="line">    fmap f action = <span class="keyword">do</span>  </span><br><span class="line">        result &lt;- action  </span><br><span class="line">        return (f result)</span><br></pre></td></tr></table></figure>
+<p>通常使用 <code>IO</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">main</span> = <span class="keyword">do</span> line &lt;- getLine   </span><br><span class="line">          <span class="keyword">let</span> line' = reverse line  </span><br><span class="line">          putStrLn $ <span class="string">"You said "</span> ++ line' ++ <span class="string">" backwards!"</span>  </span><br><span class="line">          putStrLn $ <span class="string">"Yes, you really said"</span> ++ line' ++ <span class="string">" backwards!"</span></span><br></pre></td></tr></table></figure>
+<p>也可以使用 <code>fmap</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">main</span> = <span class="keyword">do</span> line &lt;- fmap reverse getLine  </span><br><span class="line">          putStrLn $ <span class="string">"You said "</span> ++ line ++ <span class="string">" backwards!"</span>  </span><br><span class="line">          putStrLn $ <span class="string">"Yes, you really said"</span> ++ line ++ <span class="string">" backwards!"</span></span><br></pre></td></tr></table></figure>
+<p>列表的 <code>fmap</code> 是 <code>map</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; fmap (replicate <span class="number">3</span>) [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]  </span><br><span class="line">[[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>]]</span><br></pre></td></tr></table></figure>
+<p>还有一个 <code>functor</code> 说出来你可能不信。就是 <code>(-&gt;)</code> 对，就是函数签名里面的 <code>-&gt;</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Functor</span> <span class="container">((-&gt;)</span> r) <span class="keyword">where</span></span>  </span><br><span class="line">    fmap f g = (\x -&gt; f (g x))</span><br></pre></td></tr></table></figure>
+<p><code>functor</code> 能使正常的函数应用到 <code>functor</code> 里面的值。<code>applicative functor</code> 能使内部的值相互应用</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> (+<span class="number">3</span>) &lt;*&gt; <span class="type">Just</span> <span class="number">9</span>  </span><br><span class="line"><span class="type">Just</span> <span class="number">12</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> (++<span class="string">"hahah"</span>) &lt;*&gt; <span class="type">Nothing</span>  </span><br><span class="line"><span class="type">Nothing</span></span><br></pre></td></tr></table></figure>
+<p>遇到多个参数可以使用 <code>(&lt;$&gt;)</code> 应用函数提升为 <code>functor</code> 再使用 <code>&lt;*&gt;</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; ((+) $ <span class="number">2</span>) <span class="number">3</span> <span class="comment">-- 普通版</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="title">ghci</span>&gt; (+) &lt;$&gt; (<span class="type">Just</span> <span class="number">2</span>) &lt;*&gt; (<span class="type">Just</span> <span class="number">3</span>) <span class="comment">-- applicative functor 版</span></span><br><span class="line"><span class="type">Just</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="title">ghci</span>&gt; (++) &lt;$&gt; [<span class="string">"ha"</span>,<span class="string">"heh"</span>,<span class="string">"hmm"</span>] &lt;*&gt; [<span class="string">"?"</span>,<span class="string">"!"</span>,<span class="string">"."</span>]  </span><br><span class="line">[<span class="string">"ha?"</span>,<span class="string">"ha!"</span>,<span class="string">"ha."</span>,<span class="string">"heh?"</span>,<span class="string">"heh!"</span>,<span class="string">"heh."</span>,<span class="string">"hmm?"</span>,<span class="string">"hmm!"</span>,<span class="string">"hmm."</span>]</span><br></pre></td></tr></table></figure>
+<p>如果觉得麻烦，还有专门用于提升的函数。提升两个参数的函数为 <code>Control.Applicative.liftA2</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; liftA2 (+) [<span class="number">3</span>] [<span class="number">4</span>]</span><br><span class="line">[<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<p><code>IO</code> 使用 <code>&lt;*&gt;</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">myAction</span> :: <span class="type">IO</span> <span class="type">String</span>  </span><br><span class="line"><span class="title">myAction</span> = <span class="keyword">do</span>  </span><br><span class="line">    a &lt;- getLine  </span><br><span class="line">    b &lt;- getLine  </span><br><span class="line">    return $ a ++ b  </span><br><span class="line">    </span><br><span class="line"><span class="title">myAction</span> :: <span class="type">IO</span> <span class="type">String</span>  </span><br><span class="line"><span class="title">myAction</span> = (++) &lt;$&gt; getLine &lt;*&gt; getLine</span><br></pre></td></tr></table></figure>
+<p><code>(-&gt;)</code> 的 <code>&lt;*&gt;</code> 比较奇怪，看起来像 <strong> S 组合子 </strong></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Applicative</span> <span class="container">((-&gt;)</span> r) <span class="keyword">where</span></span>  </span><br><span class="line">    pure x = (\_ -&gt; x)  </span><br><span class="line">    f &lt;*&gt; g = \x -&gt; f x (g x)</span><br></pre></td></tr></table></figure>
+<p>应用</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; (+) &lt;$&gt; (+<span class="number">3</span>) &lt;*&gt; (*<span class="number">100</span>) $ <span class="number">5</span>  </span><br><span class="line"><span class="number">508</span></span><br></pre></td></tr></table></figure>
+<p><code>sequenceA</code> 是一个很有趣的函数，把可遍历的函子转为函子包裹的可遍历结构。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; :t sequenceA</span><br><span class="line"><span class="title">sequenceA</span> :: (<span class="type">Traversable</span> t, <span class="type">Applicative</span> f) =&gt; t (f a) -&gt; f (t a)</span><br><span class="line"><span class="comment">-- 或者更具体一点</span></span><br><span class="line"><span class="title">sequenceA</span> :: (<span class="type">Applicative</span> f) =&gt; [f a] -&gt; f [a]  </span><br><span class="line"><span class="title">sequenceA</span> = foldr (liftA2 (:)) (pure [])</span><br></pre></td></tr></table></figure>
+<p>应用</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; sequenceA [<span class="type">Just</span> <span class="number">3</span>, <span class="type">Just</span> <span class="number">2</span>, <span class="type">Just</span> <span class="number">1</span>]  </span><br><span class="line"><span class="type">Just</span> [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; sequenceA [(+<span class="number">3</span>),(+<span class="number">2</span>),(+<span class="number">1</span>)] <span class="number">3</span>  </span><br><span class="line">[<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="A_Fistful_of_Monads">A Fistful of Monads</h2><p>终于到了这个该死的单子了。</p>
+<p><code>monad</code> 的定义有好几种。比如有用 <code>return</code> 和 <code>&gt;&gt;=</code> （bind）定义的</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Monad m where  &#10;    return :: a -&#62; m a &#10;    (&#62;&#62;=) :: m a -&#62; (a -&#62; m b) -&#62; m b</span><br></pre></td></tr></table></figure>
+<p>我更偏向于用 <code>return</code> 和 <code>join</code> 定义</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">Monad</span> m <span class="keyword">where</span></span>  </span><br><span class="line">    return :: a -&gt; m a </span><br><span class="line">    join :: m (m a) -&gt; m a</span><br></pre></td></tr></table></figure>
+<p>Haskell 中有很多类型都是 Monad 。例如列表，元组，<code>Maybe</code> 和 <code>IO</code> 等。</p>
+<p>Monad 可以说是一种设计模式，用层次表达或者记录内容。</p>
+<p><code>Maybe</code> 表达了值可能不存在的情况</p>
+<p><code>[]</code> 表达了有多种可能的情况</p>
+<p><code>IO</code> 表达了与外界交互的情况</p>
+<p>应用</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; return <span class="string">"WHAT"</span> :: <span class="type">Maybe</span> <span class="type">String</span>  </span><br><span class="line"><span class="type">Just</span> <span class="string">"WHAT"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> <span class="number">9</span> &gt;&gt;= \x -&gt; return (x*<span class="number">10</span>)  </span><br><span class="line"><span class="type">Just</span> <span class="number">90</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="type">Nothing</span> &gt;&gt;= \x -&gt; return (x*<span class="number">10</span>)  </span><br><span class="line"><span class="type">Nothing</span></span><br></pre></td></tr></table></figure>
+<p>因为 Monad 的 <code>&gt;&gt;=</code> 太常用了。所以引入了 do 语法（糖）</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">main</span> = <span class="keyword">do</span></span><br><span class="line">    putStr <span class="string">"Please enter something dirty:"</span></span><br><span class="line">    line &lt;- getLine</span><br><span class="line">    <span class="keyword">let</span> line' = reverse line</span><br><span class="line">    putStrLn line'</span><br></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">putStr</span> <span class="string">"Please enter something dirty:"</span> &gt;&gt; getLine &gt;&gt;= \line -&gt; <span class="keyword">let</span> line' = reverse line <span class="keyword">in</span> putStrLn line'</span><br></pre></td></tr></table></figure>
+<p>所以 <code>&lt;-</code> 其实就是 <code>-&gt;</code> 绑定。</p>
+<h2 id="For_a_Few_Monads_More">For a Few Monads More</h2><p><code>Writer</code> 用于附着日志的 monad</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> Control.Monad.Writer  </span></span><br><span class="line">  </span><br><span class="line"><span class="title">gcd'</span> :: <span class="type">Int</span> -&gt; <span class="type">Int</span> -&gt; <span class="type">Writer</span> [<span class="type">String</span>] <span class="type">Int</span>  </span><br><span class="line"><span class="title">gcd'</span> a b  </span><br><span class="line">    | b == <span class="number">0</span> = <span class="keyword">do</span>  </span><br><span class="line">        tell [<span class="string">"Finished with "</span> ++ show a]  </span><br><span class="line">        return a  </span><br><span class="line">    | otherwise = <span class="keyword">do</span>  </span><br><span class="line">        tell [show a ++ <span class="string">" mod "</span> ++ show b ++ <span class="string">" = "</span> ++ show (a `mod` b)]  </span><br><span class="line">        gcd' b (a `mod` b)  </span><br><span class="line">        </span><br><span class="line"><span class="title">ghci</span>&gt; mapM_ putStrLn $ snd $ runWriter (gcd' <span class="number">8</span> <span class="number">3</span>)  </span><br><span class="line"><span class="number">8</span> mod <span class="number">3</span> = <span class="number">2</span>  </span><br><span class="line"><span class="number">3</span> mod <span class="number">2</span> = <span class="number">1</span>  </span><br><span class="line"><span class="number">2</span> mod <span class="number">1</span> = <span class="number">0</span>  </span><br><span class="line"><span class="type">Finished</span> with <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p><code>Reader</code> 用于处理函数的 monad 。也就是说函数也是一种 monad</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Monad</span> <span class="container">((-&gt;)</span> r) <span class="keyword">where</span></span>  </span><br><span class="line">    return x = \_ -&gt; x  </span><br><span class="line">    h &gt;&gt;= f = \w -&gt; f (h w) w</span><br></pre></td></tr></table></figure>
+<p><code>&gt;&gt;=</code> 的实现看起来很奇怪。先看例子</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; ((+<span class="number">2</span>) &gt;&gt;= (+)) <span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>从 <code>&gt;&gt;=</code> 的签名 <code>(&gt;&gt;=) :: Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b</code> 看出 </p>
+<p><code>h &gt;&gt;= f</code> 也就是 <code>h</code>  是 <code>m a</code> 即 <code>(-&gt; a)</code> ，是一个 monad 值，而这种 monad 是函数。</p>
+<p><code>f</code> 也就是 <code>(a -&gt; mb)</code> ，说明 <code>f</code> 是一个能够返回 monad 值的函数，这个返回的 monad 是一个函数。</p>
+<p>在 <code>(+2) &gt;&gt;= (+)</code> 中，<code>h</code> 是 <code>(+2)</code> ，<code>f</code> 是 <code>(+)</code> </p>
+<p>由 <code>h &gt;&gt;= f = \w -&gt; f (h w) w</code> 有</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(+<span class="number">2</span>) &gt;&gt;= (+)</span><br><span class="line">\w -&gt; f (h w) w</span><br><span class="line">\w -&gt; f ((+<span class="number">2</span>) w) w</span><br><span class="line">\w -&gt; f (w+<span class="number">2</span>) w</span><br><span class="line">\w -&gt; (+) (w+<span class="number">2</span>) w</span><br><span class="line">\w -&gt; ((w+<span class="number">2</span>) + ) w</span><br></pre></td></tr></table></figure>
+<p>最后的结果是一个 monad ，这种 monad 是函数 <code>\w -&gt; ((w+2) + ) w</code> </p>
+<p>有些常用的辅助函数</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; (+<span class="number">1</span>) $ <span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="title">ghci</span>&gt; (+<span class="number">1</span>) &lt;$&gt; [<span class="number">1.</span>.<span class="number">10</span>]</span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>]</span><br><span class="line"><span class="title">ghci</span>&gt; fmap (+<span class="number">1</span>) [<span class="number">1.</span>.<span class="number">10</span>]</span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>]</span><br><span class="line"><span class="title">ghci</span>&gt; liftM (+<span class="number">1</span>) [<span class="number">1.</span>.<span class="number">10</span>]</span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>]</span><br><span class="line"><span class="title">ghci</span>&gt; (+) <span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="title">ghci</span>&gt; liftM2 (+) [<span class="number">1</span>] [<span class="number">1.</span>.<span class="number">10</span>]</span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="最后">最后</h2><p>有些章节没好好看就跳过了所以没有笔记。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>《Haskell 趣学指南》是一本非常简洁明了的入门书。</p>]]>
+    
+    </summary>
+    
+      <category term="Haskell" scheme="http://en.ors-sro.com/tags/Haskell/"/>
+    
+      <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[阴阳谜题]]></title>
@@ -2720,65 +3226,6 @@
       <category term="JavaScript" scheme="http://en.ors-sro.com/tags/JavaScript/"/>
     
       <category term="翻译" scheme="http://en.ors-sro.com/categories/%E7%BF%BB%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[烦人的 null]]></title>
-    <link href="http://en.ors-sro.com/Anonying-null/"/>
-    <id>http://en.ors-sro.com/Anonying-null/</id>
-    <published>2016-06-10T06:31:38.000Z</published>
-    <updated>2016-07-29T08:26:41.556Z</updated>
-    <content type="html"><![CDATA[<p>经常写程序的童鞋一定会遇到 <code>null Exception</code> ，但是大部分情况下出现 <code>null Exception</code> 就意味着错误地使用了 <code>null</code></p>
-<a id="more"></a>
-<h2 id="null_是什么">null 是什么</h2><p>null 被设计为用于表达应用类型的缺失。可是不得不说这个设计是失败的。因为 null 用起来方便了所以很多地方都用 null 而不是<strong>异常 (Exception) </strong>。</p>
-<p>通常程序出错都是与 null 相关的 <code>null Exception</code> 。这是自然的，如果数据正常，也就是输入是正确的，自然就不会有问题。总不可能要求数据时时刻刻都是正确的吧？</p>
-<p>再谈到这个问题时，先看一下另一种类型—— <strong>值类型</strong> 是怎么解决这个问题的。</p>
-<p>值类型从来都不会出错。因为，很简单，值类型没有 null 的情况。 值类型拥有默认值。比如 <code>int</code> 的默认值是 0 ，所以程序上只会出逻辑问题，而不是运行时错误(异常)。值类型出错最常见的场景是，这个值怎么会是0啊？哦，原来是这个 <code>int</code> 类型没有初始化。值类型没有 null 所以不会去做空检查(null Check)。比如值类型 <code>bool</code> 只有 <code>true</code> 和 <code>false</code>，所以使用 <code>bool</code> 类型的时候通常是这样的。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> isFinish = IsDownloadFinish();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(isFinish)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Ding. X-art Download Finish</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Nope. Plz Go to bed.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>而不是</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> isFinish = IsDownloadFinish();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(isFinish != <span class="keyword">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(isFinish)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//Ding. X-art Download Finish</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//Nope. Plz Go to bed.</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Output X is null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种画蛇添足的做法。反之如果<strong>引用类型</strong>不做空检查就直接使用值，出问题程序很可能直接崩溃。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">int</span>&gt; studentNos = GetStudentNos();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="keyword">var</span> nos <span class="keyword">in</span> studentNos) <span class="comment">//No null check and Crash when null.</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Output Nos..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="null_is_nothing_but_everything">null is nothing but everything</h2><p>null 就像是病毒，能够躲过类型检查。一旦某个地方使用了 null 它就像病毒一样扩散开来。最后整个程序不得不充满空检查。</p>
-<p>null 是二义的。它即可表示变量没有初始化，也可以表示值不存在。</p>
-<p>null 什么都不是，它既不是 <code>List&lt;T&gt;</code> 类型，也不是 <code>String</code> 类型。甚至没有一个类型是 null。</p>
-<p>null 又什么都是，它可以充当 <code>List&lt;T&gt;</code> ，也可以充当 <code>String</code> 类型。比如从字符串数组中查找以特定的字符串结尾时。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">FindStudent</span>(<span class="params">String[] Students,<span class="keyword">char</span> c</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">foreach</span>(<span class="keyword">var</span> student <span class="keyword">in</span> Students)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(student.EndWith(c))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> student;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个函数定义的最后返回的 null 是最常见的一种误用 null 的情况。而这个函数可以编译通过，代表着编译器认可 null 是 <code>String</code> 类型。</p>
-<p>事实上并不是只有 <code>String</code> 类型会是这样，几乎所有的引用类型编译器都允许返回 null。 所以在使用数据的时候必须做空检查，因为不知道这个数据是否为空。这看起来是很正常的事情，毕竟输入有时候就是错的。但是问题的关键不在于不允许错误的输入，而在于使用了错误的方式来表达数据的异常。</p>
-<h2 id="没有_null_的日子">没有 null 的日子</h2><p>null 看起来是现代编程语言的标配。其实不然，有不少语言是没有 null 的。比如以纯函数式编程而著称 <code>Haskell</code> 是没有 null 的。那么 <code>Haskell</code> 是怎么应对数据异常，或者说怎么表达数据不存在这种情况的呢？</p>
-<p><strong>联合类型</strong> (Union Type)</p>
-<p>这个联合类型指的不是C语言里面的Union类型。而是由多种类型组成的类型。在传统的编程语言类型是互斥的。例如一个变量要么是 <code>String</code> 类型要么是 <code>int</code> 类型。绝对不会出现即使 <code>String</code> 类型又是 <code>int</code> 类型的情况。</p>
-<p>在 <code>Haskell</code> 中引入一种联合类型 <code>Maybe</code> 用于表达变量可能有值，也可能没有值。</p>
-<p>因为缺少对值缺失的表达方式，在使用 <code>int</code> 类型的时候通常使用 -1 来表示数据异常也就是值缺失的情况。在值不会取到 -1 情况下这是没问题的。万一值可以取到 -1 呢？无计可施。</p>
-<p>在 <code>Haskell</code> 中 <code>Maybe</code> 的 <code>Just</code> 类型用于表示有某种值类型， <code>None</code> 用于表示没有值类型。</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Maybe</span> a = get a</span><br><span class="line"><span class="title">case</span> a <span class="keyword">of</span></span><br><span class="line">  <span class="type">Just</span> value -&gt; dosomething a</span><br><span class="line">  <span class="type">Nothing</span>    -&gt; show error</span><br></pre></td></tr></table></figure>
-<p>看起来和使用 null 表示值缺失的情况并没有什么区别。实际上天差地别。 <code>Maybe</code> 中的 <code>None</code> 是有类型的，类型就是 <code>None</code>。而 null 却不是。null 是无类型的，它的类型不是 null。最重要的是，使用 <code>Maybe</code> 类型编译器会强制你去检查两种类型，迫使你去应对各种情况。换言之，使用 <code>Maybe</code> 检查和取值是原子操作，不可能取值而不检查。而 null 不是。编译器允许返回 null ，而且允许在使用的时候不检查即可取值。没错说了这么多，这就是 null 的万恶之源。理论上只要每次使用引用类型时做空检查就不会出现程序崩溃的问题。但是懒惰是人的天性，明明可以直接使用为什么还要做复杂的空检查。比如</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Class Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">string</span> Name,</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> No,</span><br><span class="line">	pubilc <span class="keyword">string</span>[] Lessons, 	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student s</span><br><span class="line"></span><br><span class="line"><span class="comment">//...Init...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(s != <span class="keyword">null</span> &amp;&amp; s.Lessons != <span class="keyword">null</span> &amp;&amp; s.Lessons[<span class="number">0</span>] != <span class="keyword">null</span>) <span class="comment">//WTF??</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//Output First Lesson is s.Lessons[0]	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>那么直接使用值不做空检查。等到有问题直接报异常就可以了。为什么不这么做呢。首先可能有 null 出现的地方直接使用，出现异常，而忽略是一种很被动的编程方式。相当于知道了问题的存在但是我不管，问题就是这样，爱咋咋地。其次在移动平台上异常如果没有被捕获(Catch)，整个应用很可能就直接崩溃了。就会上演经典的找Bug场景：找了半天的Bug，原来是这个地方为 null。如果一开始检查 null 然后做出应对，比如强制退出，或者界面提示错误码，又或者继续运行。都不会增加无意义的调试时间，用户的体验也更好。</p>
-<h2 id="解决方案">解决方案</h2><p>解决方案很简单：避免 null 或 合理地使用 null</p>
-<h3 id="避免_null">避免 null</h3><p>无论是 <code>Haskell</code> 的 <code>Maybe</code> 还是 <code>Java8</code> 的 <code>Optional</code> 在其他语言都有相应的实现。选择喜欢的即可。但是请一定要检查和取值一起操作</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Good</span></span><br><span class="line">Optional&lt;String&gt; upperName = name.map((value) -&gt; value.toUpperCase());</span><br><span class="line">System.out.println(upperName.orElse(<span class="string">"No value found"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Bad</span></span><br><span class="line">Optional&lt;String&gt; upperName = name.map((value) -&gt; value.toUpperCase());</span><br><span class="line"><span class="keyword">if</span>((name.isPresent())&#123;</span><br><span class="line">	System.out.println(upperName);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"No value found"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Code from http://www.importnew.com/6675.html</span></span><br></pre></td></tr></table></figure>
-<p>后者的做法跟直接空检查后再使用没有什么区别。</p>
-<h3 id="合理地使用_null">合理地使用 null</h3><p>合理地使用 null 从合理地返回 null 开始</p>
-<p>null 表达的是一种值缺失的情况而且值缺失是很正常的情况。 比如从列表中查找某些元素，找不到是很正常的情况，所以这可以返回 null。又比如获得人物的性别，如果文件读写出错了，应该抛出异常，而不是返回 null。因为出错了就不是一种正常的情况。 null 只应该承担正常的值缺失的情况，出错了就应该用异常去承担。</p>
-<p>合理地使用 null 还需合理地初始化引用类型。</p>
-<p>有些编程语言中引用类型的默认值是 null ，其实在业务逻辑中可以做的更好。比如 <code>String</code> 类型可以初始化为空字符串 <code>&quot;&quot;</code> ，<code>List&lt;T&gt;</code>类型可以初始化为空列表 <code>new List&lt;T&gt;()</code> 。在业务逻辑允许的情况下，函数出错时可以返回空字符串或者空列表。这样就不必做空检查了。搭配 <code>Foreach</code> 使用,如果是空列表，<code>foreach</code> 里面的逻辑不会运行，也就不会出错。初始化时没有引入 null ，调用函数时也没有引入 null ,自然就不会出现 null 的情况。</p>
-<p>尽可能消除 null 避免 null 的传播。</p>
-<p>比如查找一个人的地址，认为找不到是可接受的，就返回一个空字符串，如果认为找不到是不可接受的，请直接抛出异常。这个时候也不会返回 null。 自然不会产生 null 也不用做 <code>null Check</code> （但是要捕捉异常） 。</p>
-<p>除此之外还有些小技巧可以用上。</p>
-<p>如果你使用面向对象编程，可以引用某种类型相应的 null 类型。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Class Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> String Name,</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> No,</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Say</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		Console.WriteLine(<span class="string">"My name is "</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Class nullStudent : Student</span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Say</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		Console.WriteLine(<span class="string">""</span>);</span><br><span class="line">		<span class="comment">// or</span></span><br><span class="line">		<span class="comment">// Console.WriteLine("I don't have name");</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">List&lt;Student&gt; students = GetAllStudents();</span><br><span class="line"></span><br><span class="line"><span class="function">Student <span class="title">FindStudent</span>(<span class="params"><span class="keyword">string</span> name</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">foreach</span>(student <span class="keyword">in</span> students)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(student.name == name)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> student;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> nullStudent();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student s = <span class="keyword">new</span> nullStudent();</span><br><span class="line"></span><br><span class="line">s = FindStudent(<span class="string">"LeiFeng"</span>);</span><br><span class="line"></span><br><span class="line">s.Say(); <span class="comment">//No null check.</span></span><br></pre></td></tr></table></figure>
-<p>如果你有福能使用<code>C# 6.0</code>，你可以使用新的操作符 <code>?.</code> 。这个操作符只会在不是 null 的情况下执行。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Before C# 6.0</span></span><br><span class="line"><span class="keyword">if</span>(s != <span class="keyword">null</span> &amp;&amp; s.name != <span class="keyword">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">	Console.WriteLine(s.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//C# 6.0</span></span><br><span class="line">Console.WriteLine(s?.name);</span><br></pre></td></tr></table></figure>
-<p>但是请注意，在第一次使用某个值得时候最后手动做空检查，如果为 null 就报错(出现这种情况其实应该使用异常)。这样方便调试。之后第二次使用某个值时就直接使用 <code>?.</code>吧。</p>
-<h2 id="最后吐槽">最后吐槽</h2><p>null 真是一个烦人的小妖精。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>经常写程序的童鞋一定会遇到 <code>null Exception</code> ，但是大部分情况下出现 <code>null Exception</code> 就意味着错误地使用了 <code>null</code></p>]]>
-    
-    </summary>
     
   </entry>
   
