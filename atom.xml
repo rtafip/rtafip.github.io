@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2017-01-29T10:49:54.421Z</updated>
+  <updated>2017-02-05T09:41:21.241Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,262 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Whitespace]]></title>
+    <link href="http://en.ors-sro.com/Whitespace/"/>
+    <id>http://en.ors-sro.com/Whitespace/</id>
+    <published>2017-02-05T08:47:48.000Z</published>
+    <updated>2017-02-05T09:41:21.241Z</updated>
+    <content type="html"><![CDATA[<p>介绍一个很干净的语言。</p>
+<pre style="background: initial;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+<a id="more"></a>
+<h2 id="Hello_World">Hello World</h2><p>先看它的 Hello World 。</p>
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+<p>没看错。这个 <strong>Whitespace</strong> 语言的原语只有空格，制表符，还有换行。</p>
+<h2 id="语法">语法</h2><p>参考<a href="http://compsoc.dur.ac.uk/whitespace/tutorial.html" target="_blank" rel="external"> Whitespace 语言官方教程</a> 整理的 BNF 如下。</p>
+<figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">Program ::= &lt;Statement&gt;&#123;Statement&#125;</span><br><span class="line"></span><br><span class="line">Statement ::= &lt;IMP&gt;</span><br><span class="line"></span><br><span class="line">IMP :: = <span class="attribute">&lt;StackManipulation&gt;</span><span class="attribute">&lt;SMCommand&gt;</span> | <span class="attribute">&lt;Arithmetic&gt;</span><span class="attribute">&lt;AriCommand&gt;</span> | <span class="attribute">&lt;HeapAccess&gt;</span><span class="attribute">&lt;HACommand&gt;</span> | <span class="attribute">&lt;FlowControl&gt;</span><span class="attribute">&lt;FCCommand&gt;</span> | <span class="attribute">&lt;I/O&gt;</span><span class="attribute">&lt;IOCommand&gt;</span></span><br><span class="line"></span><br><span class="line">StackManipulation ::= &lt;Space&gt;</span><br><span class="line"></span><br><span class="line">SMCommand ::= &lt;Push&gt;&lt;Number&gt; | &lt;Duplicate&gt; | &lt;Swap&gt; | &lt;Discard&gt;</span><br><span class="line"></span><br><span class="line">Push ::= &lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Number ::= &lt;Sign&gt;&lt;Digit&gt;&lt;End&gt;</span><br><span class="line"></span><br><span class="line">Sign ::= &lt;Space&gt; | &lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Digit ::= &lt;Space&gt;&#123;Digit&#125;|&lt;Tab&gt;&#123;Digit&#125;</span><br><span class="line"></span><br><span class="line">End ::= &lt;LF&gt;</span><br><span class="line"></span><br><span class="line">Duplicate ::= &lt;LF&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Swap ::= &lt;LF&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Discard ::= &lt;LF&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">Duplicate ::= &lt;LF&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Arithmetic ::= &lt;Tab&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">AriCommand ::= &lt;Addition&gt; | &lt;Subtraction&gt; | &lt;Multiplication&gt; | &lt;IntegerDivision&gt; | &lt;Modulo&gt;</span><br><span class="line"></span><br><span class="line">Addition ::= &lt;Space&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Subtraction ::= &lt;Space&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Multiplication ::= &lt;Space&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">IntegerDivision ::= &lt;Tab&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Modulo ::= &lt;Tab&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">HeapAccess ::= &lt;Tab&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">HACommand ::= &lt;Store&gt;&lt;Retrieve&gt;</span><br><span class="line"></span><br><span class="line">Store ::= &lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Retrieve ::= &lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">FlowControl ::= &lt;LF&gt;</span><br><span class="line"></span><br><span class="line">FCCommand ::= &lt;Mark&gt;&lt;Label&gt; | &lt;Call&gt;&lt;Label&gt; | &lt;Jmp&gt;&lt;Label&gt; | &lt;Jz&gt;&lt;Label&gt; | &lt;Js&gt;&lt;Label&gt; | &lt;SubroutineEnd&gt; | &lt;ProgramEnd&gt;</span><br><span class="line"></span><br><span class="line">Mark ::= &lt;Space&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Label ::= &lt;LabelName&gt;&lt;End&gt;</span><br><span class="line"></span><br><span class="line">LabelName ::= &lt;Space&gt;&#123;LabelName&#125;|&lt;Tab&gt;&#123;LabelName&#125;</span><br><span class="line"></span><br><span class="line">Call ::= &lt;Space&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Jmp ::= &lt;Space&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">Jz ::= &lt;Tab&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Js ::= &lt;Tab&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">SubroutineEnd ::= &lt;Tab&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">ProgrameEnd ::= &lt;LF&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">I/O ::= &lt;Tab&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">IOCommand ::= &lt;OutputChar&gt; | &lt;OutputNumber&gt; | &lt;ReadChar&gt; | &lt;ReadNumber&gt;</span><br><span class="line"></span><br><span class="line">OutputChar ::= &lt;Space&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">OutputNumber ::= &lt;Space&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">ReadChar ::= &lt;Tab&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">ReadNumber ::= &lt;Tab&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Space ::= <span class="string">" "</span></span><br><span class="line"></span><br><span class="line">Tab ::= <span class="string">"\t"</span></span><br><span class="line"></span><br><span class="line">LF ::= <span class="string">"\n"</span></span><br></pre></td></tr></table></figure>
+<p>不熟悉 BNF 可以直接看下面的图表。</p>
+<table>
+<thead>
+<tr>
+<th>IMP</th>
+<th>Command</th>
+<th>Meaning</th>
+<th>IMP  Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Space]</td>
+<td>[Space][Number]</td>
+<td>Push the number onto the stack</td>
+<td>Stack Manipulation</td>
+</tr>
+<tr>
+<td>[Space]</td>
+<td>[LF][Space]</td>
+<td>Duplicate the top item on the stack</td>
+<td>Stack Manipulation</td>
+</tr>
+<tr>
+<td>[Space]</td>
+<td>[LF][Tab]</td>
+<td>Swap the top two items on the stack</td>
+<td>Stack Manipulation</td>
+</tr>
+<tr>
+<td>[Space]</td>
+<td>[LF][LF]</td>
+<td>Discard the top item on the stack</td>
+<td>Stack Manipulation</td>
+</tr>
+<tr>
+<td>[Tab][Space]</td>
+<td>[Space][Space]</td>
+<td>Addition</td>
+<td>Arithmetic</td>
+</tr>
+<tr>
+<td>[Tab][Space]</td>
+<td>[Space][Tab]</td>
+<td>Subtraction</td>
+<td>Arithmetic</td>
+</tr>
+<tr>
+<td>[Tab][Space]</td>
+<td>[Space][LF]</td>
+<td>Multiplication</td>
+<td>Arithmetic</td>
+</tr>
+<tr>
+<td>[Tab][Space]</td>
+<td>[Tab][Space]</td>
+<td>Integer Division</td>
+<td>Arithmetic</td>
+</tr>
+<tr>
+<td>[Tab][Space]</td>
+<td>[Tab][Tab]</td>
+<td>Modulo</td>
+<td>Arithmetic</td>
+</tr>
+<tr>
+<td>[Tab][Tab]</td>
+<td>[Space]</td>
+<td>Store</td>
+<td>Heap access</td>
+</tr>
+<tr>
+<td>[Tab][Tab]</td>
+<td>[Tab]</td>
+<td>Retrieve</td>
+<td>Heap access</td>
+</tr>
+<tr>
+<td>[LF]</td>
+<td>[Space][Space]<label></label></td>
+<td>Mark a location in    the program</td>
+<td>Flow Control</td>
+</tr>
+<tr>
+<td>[LF]</td>
+<td>[Space][Tab]<label></label></td>
+<td>Call a    subroutine</td>
+<td>Flow Control</td>
+</tr>
+<tr>
+<td>[LF]</td>
+<td>[Space][LF]<label></label></td>
+<td>Jump unconditionally to a label</td>
+<td>Flow Control</td>
+</tr>
+<tr>
+<td>[LF]</td>
+<td>[Tab][Space]<label></label></td>
+<td>Jump to a label if the top of the stack is zero</td>
+<td>Flow    Control</td>
+</tr>
+<tr>
+<td>[LF]</td>
+<td>[Tab][Tab]<label></label></td>
+<td>Jump to a label if the    top of the stack is negative</td>
+<td>Flow    Control</td>
+</tr>
+<tr>
+<td>[LF]</td>
+<td>[Tab][LF]</td>
+<td>End a subroutineand transfer control back to the caller</td>
+<td>Flow Control</td>
+</tr>
+<tr>
+<td>[LF]</td>
+<td>[LF][LF]</td>
+<td>End the program</td>
+<td>Flow Control</td>
+</tr>
+<tr>
+<td>[Tab][LF]</td>
+<td>[Space][Space]</td>
+<td>Output the character at the top of the stack</td>
+<td>I/O</td>
+</tr>
+<tr>
+<td>[Tab][LF]</td>
+<td>[Space][Tab]</td>
+<td>Output the number at the top of the stack</td>
+<td>I/O</td>
+</tr>
+<tr>
+<td>[Tab][LF]</td>
+<td>[Tab][Space]</td>
+<td>Read a character and place it in the location given by the top of the stack</td>
+<td>I/O</td>
+</tr>
+<tr>
+<td>[Tab][LF]</td>
+<td>[Tab][Tab]</td>
+<td>Read a number and place it in the location given by the top of the stack</td>
+<td>I/O</td>
+</tr>
+</tbody>
+</table>
+<p>所以这是一个将特定序列的空白符转成指令的语言。</p>
+<p>比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Tab][LF][Space][Space]</span><br></pre></td></tr></table></figure>
+<p>表示将栈顶数字以 ASCII 的形式输出。</p>
+<h2 id="解析_Hello_World">解析 Hello World</h2><p>空白符看起来比较不方便，将 Hello World 代码中空格替换为 [Space] ，制表符替换为 [Tab] ，换行替换为 [LF] 。</p>
+<p>整理后如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Space][Space][Space][Tab][Space][Space][Tab][Space][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 0100 1000 &#20063;&#23601;&#26159;&#25968;&#23383; 72 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 72 &#20063;&#23601;&#26159; H&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Space][Tab][Space][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 0101 &#20063;&#23601;&#26159;&#25968;&#23383; 101 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 101 &#20063;&#23601;&#26159; e&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1100 &#20063;&#23601;&#26159;&#25968;&#23383; 108 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 108 &#20063;&#23601;&#26159; l&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1100 &#20063;&#23601;&#26159;&#25968;&#23383; 108 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 108 &#20063;&#23601;&#26159; l&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Tab][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1111 &#20063;&#23601;&#26159;&#25968;&#23383; 111 &#21387;&#26632; &#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 111 &#20063;&#23601;&#26159; o&#10;&#10;[Space][Space][Space][Tab][Space][Tab][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 0 0010 1100 &#20063;&#23601;&#26159;&#25968;&#23383; 44 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 44 &#20063;&#23601;&#26159; &#65292;&#10;&#10;[Space][Space][Space][Tab][Space][Space][Space][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 0 0010 0000 &#20063;&#23601;&#26159;&#25968;&#23383; 32 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 32 &#20063;&#23601;&#26159; &#31354;&#26684;&#10;&#10;[Space][Space][Space][Tab][Tab][Tab][Space][Tab][Tab][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0111 0111 &#20063;&#23601;&#26159;&#25968;&#23383; 119 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 119 &#20063;&#23601;&#26159; w&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Tab][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1111 &#20063;&#23601;&#26159;&#25968;&#23383; 111 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 111 &#20063;&#23601;&#26159; o&#10;&#10;[Space][Space][Space][Tab][Tab][Tab][Space][Space][Tab][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0111 0010 &#20063;&#23601;&#26159;&#25968;&#23383; 114 &#36755;&#20986;&#23383;&#31526; r&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 114 &#20063;&#23601;&#26159; r&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1100 &#20063;&#23601;&#26159;&#25968;&#23383; 108 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 108 &#20063;&#23601;&#26159; l&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Space][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 0100 &#20063;&#23601;&#26159;&#25968;&#23383; 100 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 100 &#20063;&#23601;&#26159; d&#10;&#10;[Space][Space][Space][Tab][Space][Space][Space][Space][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 0 0010 0001 &#20063;&#23601;&#26159;&#25968;&#23383; 33 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 33 &#20063;&#23601;&#26159; &#65281;&#10;&#10;[LF][LF][LF]&#10;&#31243;&#24207;&#32467;&#26463;&#31526;&#21495;</span><br></pre></td></tr></table></figure>
+<p>这个 Hello World 代码很简单，只是简单的入栈出栈，没有用到跳转等复杂的功能。</p>
+<h2 id="最后">最后</h2><p>这个语言最大的作用是……</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>介绍一个很干净的语言。</p>
+<pre style="background: initial;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>]]>
+    
+    </summary>
+    
+      <category term="Whitespace" scheme="http://en.ors-sro.com/tags/Whitespace/"/>
+    
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[SICP 1.3 用更高阶的过程阐述抽象]]></title>
@@ -2542,56 +2798,6 @@
       <category term="设计模式" scheme="http://en.ors-sro.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[LeetCode -- Reverse String]]></title>
-    <link href="http://en.ors-sro.com/LeetCode-reverse-string/"/>
-    <id>http://en.ors-sro.com/LeetCode-reverse-string/</id>
-    <published>2016-07-18T07:09:14.000Z</published>
-    <updated>2016-07-29T07:57:25.130Z</updated>
-    <content type="html"><![CDATA[<p>找不到工作，刷刷 Leetcode 来保持一下写代码的手感。从最简单的开始，也就是 Acceptance 最高的开始。目前接受率最高的是<a href="https://leetcode.com/problems/reverse-string/" target="_blank" rel="external">逆序字符串</a></p>
-<a id="more"></a>
-<h2 id="题目">题目</h2><blockquote>
-<p>编写一个函数能够逆序输出字符串<br><strong> 例子 </strong><br>给定 <code>s = &quot;hello&quot;</code> 返回 <code>olleh</code></p>
-</blockquote>
-<p>总的来说是一个很简单的题目。<code>CS</code> 的学生估计都做过这道练手题。</p>
-<h2 id="In_Haskell_Way">In Haskell Way</h2><h3 id="思路">思路</h3><p>看到这个题目就很自然的想到使用<strong>分治</strong>的思想。如果是空字符串则不需要逆序，直接返回即可。如果是长度为1的字符串</p>
-<ol>
-<li>如果是空字符串，不需要逆序，直接返回即可</li>
-<li>如果不是空字符串，将除了第一个字符外的子字符串逆序，之后拼接上第一个字符串即可。</li>
-</ol>
-<h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.length() == <span class="number">0</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> reverseString(s.substr(<span class="number">1</span>, s.length())) + s[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="结果">结果</h3><p>在遇到超长字符时提示 <code>Memory Limit Exceeded</code> 。估计是因为递归的次数太多，调用次数太多而产生 <code>StackOverflow</code> （栈溢出）。所以下一步是要优化递归。通常的解决方案是将递归优化为<strong>尾递归</strong>。递归通常需要全部展开之后才能计算值。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"Hello"</span>)</span></span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"ello"</span>)</span></span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"llo"</span>)</span></span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">			<span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"lo"</span>)</span></span> + <span class="string">'l'</span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">				<span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">'o'</span>)</span></span> + <span class="string">'l'</span> + <span class="string">'l'</span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">				<span class="string">'o'</span> + <span class="string">'l'</span> + <span class="string">'l'</span> + <span class="string">'e'</span> + <span class="string">'H'</span> <span class="comment">// 完全展开 开始计算</span></span><br><span class="line"></span><br><span class="line">			<span class="string">"ol"</span> + <span class="string">'l'</span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">		<span class="string">"oll"</span> + <span class="string">'e'</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"olle"</span> + <span class="string">'H'</span></span><br><span class="line"></span><br><span class="line"><span class="string">"olleH"</span></span><br></pre></td></tr></table></figure>
-<p>尾递归是将计算结果传递到下一次递归中。因此之前的任何信息都不需要保存了，清理栈中的参数和返回地址等。这样就不会出现 <code>StackOverflow</code> 。当然这一步是编译器做的优化工作。</p>
-<h2 id="In_Tail_Recursion_Way">In Tail Recursion Way</h2><h3 id="思路-1">思路</h3><p>尾递归需要把计算结果传递到下一次递归中。纯函数的唯一输入只有参数。所以需要通过传递参数的方式将计算结果传递。</p>
-<h3 id="代码-1">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseStringTailRecursion</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> result = "")</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> result;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> reverseStringTailRecursion(s.substr(<span class="number">1</span>, s.length()), s[<span class="number">0</span>] + result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> reverseStringTailRecursion(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="结果-1">结果</h3><p>先来看一下尾递归版本的计算过程</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">reverseString</span><span class="params">(<span class="string">"Hello"</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">"Hello"</span>,<span class="string">""</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">"ello"</span>,<span class="string">'H'</span> + <span class="string">""</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">"llo"</span>,<span class="string">'e'</span> + <span class="string">'H'</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">"lo"</span>,<span class="string">'l'</span> + <span class="string">"eH"</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">'o'</span>,<span class="string">'l'</span> + <span class="string">"leH"</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reverseStringTailRecursion</span><span class="params">(<span class="string">""</span>,<span class="string">'o'</span> + <span class="string">"lleH"</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="string">"olleH"</span></span><br></pre></td></tr></table></figure>
-<p>可以发现每一次的计算都与之前的函数不再有关系，只与参数有关。从形状上来看，普通递归是一个箭头型 <code>&gt;</code> 。而尾递归是一个直筒型 <code>≡</code> 。信心满满的提交。最后报错，错误和上次一样 <code>StackOverflow</code> 。 看来编译环境没有开启尾递归优化。只好另行他法。既然不允许递归，那就想办法消除递归。通过观察普通递归的计算过程发现其分为<strong>展开</strong>和<strong>计算</strong>两个阶段。展开阶段会栈溢出。所以想办法去掉展开阶段，转为普通的循环即可。观察计算的过程，发现是从尾部开始拼接字符串。那么循环从尾部开始即可。</p>
-<h2 id="In_Loop_Way">In Loop Way</h2><h3 id="思路-2">思路</h3><p>从尾部开始去字符串，一直拼接，拼接到字符串第一个字符。</p>
-<h3 id="代码-2">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> result = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">	&#123;</span><br><span class="line">		result += s[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="结果-2">结果</h3><p>通过 476 个测试用例，用时 13ms 。超过 25.5% 的人（C++）。总算是通过了。不过似乎成绩不是很理想，居然连一半的人都没有超过。仔细想想还是有优化空间的。现在的时间复杂度是 <code>O(n)</code>, 空间复杂度是 <code>O(1)</code> 。看起来似乎是很优秀的数据。但是逆序的过程需要额外的一个字符串来承载结果。能否做成原地（In Place）的呢？答案是肯定的。</p>
-<h2 id="In_Place_Way">In Place Way</h2><h3 id="思路-3">思路</h3><p>交换首尾字符直至完成。</p>
-<h3 id="代码-3">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">string</span> s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> j = s.length() - <span class="number">1</span>; <span class="comment">//s.length() 位置是 '\0'</span></span><br><span class="line">	<span class="keyword">while</span> (i &lt; j)</span><br><span class="line">	&#123;</span><br><span class="line">		swap(s[i++], s[j--]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="结果-3">结果</h3><p>通过 476 个测试用例，用时 12ms 。超过 29% 的人（C++）。噗，只提升了 5% 。不知道前面的人是不是用了什么稀奇古怪的 <code>Hack</code> 。 尝试了传递参数时传递引用。发现时间没有变化。又尝试了其他方法，都没有什么效果。</p>
-<h2 id="总结">总结</h2><p>先是根据直觉写出递归的方式，然后优化为尾递归，发现编译环境没有做优化。于是改为循环，此时时间复杂度为 <code>O(n)</code> 。之后使用原地交换的方法将时间复杂度降为 <code>O(n/2)</code> 。最后还是没有找到更快的解决方案。如果有更快的方案，欢迎交流。</p>
-<h2 id="参考">参考</h2><ol>
-<li><a href="https://www.zhihu.com/question/20761771/answer/19996299" target="_blank" rel="external">什么是尾递归</a></li>
-<li><a href="http://stackoverflow.com/questions/33923/what-is-tail-recursion" target="_blank" rel="external">What is tail recursion</a></li>
-<li><a href="http://blog.csdn.net/luoweifu/article/details/51470998" target="_blank" rel="external">C++ 性能分析</a></li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>找不到工作，刷刷 Leetcode 来保持一下写代码的手感。从最简单的开始，也就是 Acceptance 最高的开始。目前接受率最高的是<a href="https://leetcode.com/problems/reverse-string/">逆序字符串</a></p>]]>
-    
-    </summary>
-    
-      <category term="C++" scheme="http://en.ors-sro.com/tags/C/"/>
-    
-      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
     
   </entry>
   
