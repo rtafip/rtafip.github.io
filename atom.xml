@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2017-02-19T09:04:58.014Z</updated>
+  <updated>2017-02-25T10:24:24.994Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,76 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[逆变和协变]]></title>
+    <link href="http://en.ors-sro.com/Covariant-and-Contravariant/"/>
+    <id>http://en.ors-sro.com/Covariant-and-Contravariant/</id>
+    <published>2017-02-25T09:00:51.000Z</published>
+    <updated>2017-02-25T10:24:24.994Z</updated>
+    <content type="html"><![CDATA[<p>$$<br>\dfrac{T_1 \leq S_1 \quad S_2 \leq T_2}{S_1 \rightarrow S_2 \leq T_1 \rightarrow T_2}<br>$$</p>
+<a id="more"></a>
+<h2 id="简单的代换">简单的代换</h2><p>假设有三个类，Animal ，Cat，Dog。其中 Cat 和 Dog 是 Animal 的子类。</p>
+<p>有一段这样的转换代码</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Animal a = <span class="keyword">new</span> Cat();</span><br><span class="line">Cat b = <span class="keyword">new</span> Animal();</span><br><span class="line">Dog c = <span class="keyword">new</span> Cat();</span><br></pre></td></tr></table></figure>
+<p>有哪些可以通过编译呢？</p>
+<p>显然对面向对象有基本了解到人都能很快答出只有第一行能编译通过。</p>
+<p>第二行因为不是所有 Animal 都是 Cat 。所以在赋值的时候转换失败。</p>
+<p>第三行因为 Dog 和 Cat 是不同的类，除非定义转换方式或者内存分布一致，否则通常是失败的。</p>
+<p>第一行是可以编译通过是因为面向对象的继承特性。</p>
+<p>继承允许子类拥有父类相同的行为，又可以有自己独特的行为。</p>
+<p>所以子类替换父类，也就是熟悉的里氏代换原则。</p>
+<h2 id="复合类型">复合类型</h2><p>除了基本的类型比如 int ，bool 等，还有一种复合类型比如 int[]，List&lt; int &gt; 等。</p>
+<p>复合类型通常由类型构造器和类型参数组合而成，类似与函数和参数的关系。</p>
+<p>比如 List&lt; int &gt; 的类型构造器是 List ，参数为 int</p>
+<p>简单类型的替换非常直观，子类能够替换父类，父类不能替换子类。</p>
+<p>复合类型的替换就不是那么直观了。</p>
+<p>比如对于类型 Animal[] Animal数组和Cat[] Cat数组，这两个类型。</p>
+<p>这个两个类型是什么关系？是否与 Animal 和 Cat 的关系有关？</p>
+<p>答案是这两个类型没有任何关系。</p>
+<p>仔细想想就能发现</p>
+<p>Cat[] 并不能替换所有 Animal[] 。因为 Animal[] 可以装入 Dog 的实例，而 Cat[] 不可以。</p>
+<p>Animal[] 也不能替换所有 Cat[] 。因为 Cat[] 中的 Cat 可以调用 Cat 类独有的方法，替换为 Animal 后，Animal 没有这个独有的方法，调用失败。</p>
+<p>所以 Animal[] 和 Cat[] 是没有关系的。</p>
+<p>是不是所有的 Animal 的复合类型和 Cat 的复合类型都没有关系呢？</p>
+<p>其实不是的。</p>
+<p>对于 Reader <code>(-&gt;)</code> 有</p>
+<p>(Animal -&gt; Cat) 是 (Animal -&gt; Animal) 的子类型</p>
+<p>(Animal -&gt; Animal) 是 (Cat -&gt; Animal) 的子类型</p>
+<p>先说比较直观的第一个</p>
+<p>要想说明 (Animal -&gt; Cat) 是 (Animal -&gt; Animal) 的子类型，需要子类能够替换父类。</p>
+<p>显然父类 (Animal -&gt; Animal) 的返回值是 Animal ，如果替换成子类 (Animal -&gt; Cat)</p>
+<p>输入类型 Animal 不变没问题，输出变成了Cat 。因为 Cat 能够替换 Animal 所以是没问题的。</p>
+<p>所以 (Animal -&gt; Cat) 可以替换 (Animal -&gt; Animal) </p>
+<p>所以 (Animal -&gt; Cat) 是 (Animal -&gt; Animal) 的子类型。</p>
+<p>再看第二个</p>
+<p>如果 (Animal -&gt; Animal) 替换 (Cat -&gt; Animal)。</p>
+<p>输出都是 Animal 没问题。</p>
+<p>输入变成了 Animal。看起来似乎是有问题的，因为 (Cat -&gt; Animal) 中有可能调用 Cat 的独有方法</p>
+<p>其实是没问题的，因为替换成 (Animal -&gt; Animal) 后，(Animal -&gt; Animal) 没有 Cat 的独有方法，所以不会报错。</p>
+<p>而且原本的输入 Cat 是可以转成现在的输入 Animal 的。</p>
+<p>所以 (Animal -&gt; Animal) 可以替换 (Cat -&gt; Animal) 。</p>
+<p>所以 (Animal -&gt; Animal) 是 (Cat -&gt; Animal) 的子类型。</p>
+<p>(Animal -&gt; Cat) 替换 (Animal -&gt; Animal) 中用 Cat 替换 Animal 与原本的继承关系 Cat 替换 Animal 一致，所以称为协变。</p>
+<p>(Animal -&gt; Animal) 替换 (Cat -&gt; Animal) 中用 Animal 替换 Cat 与原本的继承关系 Cat 替换 Animal 相反，所以称为逆变。</p>
+<h2 id="继承">继承</h2><p>C++ 和 Java 允许通过继承父类重载函数实现返回值的协变</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Animal &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Frog : Animal &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Parent </span><br><span class="line">&#123;</span><br><span class="line">    Animal a;</span><br><span class="line">    <span class="function">Animal <span class="title">GetAnAnimal</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Child : Parent</span><br><span class="line">&#123;</span><br><span class="line">    Frog f;</span><br><span class="line">    <span class="function">Frog <span class="title">GetAnAnimal</span><span class="params">()</span> <span class="comment">// 返回值协变</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="参数化多态">参数化多态</h2><p>C# 支持在参数化多态中使用 <code>in</code> 和 <code>out</code> 标记逆变和协变</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">OutExample</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Method</span>(<span class="params"><span class="keyword">out</span> <span class="keyword">int</span> i</span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        i = <span class="number">44</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">value</span>;</span><br><span class="line">        Method(<span class="keyword">out</span> <span class="keyword">value</span>);</span><br><span class="line">        <span class="comment">// value is now 44</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不对，走错片场了。是这个</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GrandParent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Parent</span> : <span class="title">GrandParent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Child</span> : <span class="title">Parent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApplication1</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">delegate</span> TResult Demo&lt;<span class="keyword">in</span> T, <span class="keyword">out</span> TResult&gt;(T argument);</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Child <span class="title">Sample</span>(<span class="params">GrandParent person</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Child();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="comment">// 参数逆变，返回值协变</span></span><br><span class="line">            Demo&lt;Parent, Parent&gt; d = Sample;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接">参考链接</h2><p><a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)" target="_blank" rel="external">逆变和协变的维基百科</a><br><a href="https://msdn.microsoft.com/zh-cn/library/t3c3bfhx.aspx" target="_blank" rel="external">C# Out</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>$$<br>\dfrac{T_1 \leq S_1 \quad S_2 \leq T_2}{S_1 \rightarrow S_2 \leq T_1 \rightarrow T_2}<br>$$</p>]]>
+    
+    </summary>
+    
+      <category term="逆变" scheme="http://en.ors-sro.com/tags/%E9%80%86%E5%8F%98/"/>
+    
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[SICP 2.1 数据抽象导论]]></title>
@@ -2839,110 +2909,6 @@
     </summary>
     
       <category term="Javascript" scheme="http://en.ors-sro.com/tags/Javascript/"/>
-    
-      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[ZeroNet]]></title>
-    <link href="http://en.ors-sro.com/Zeronet/"/>
-    <id>http://en.ors-sro.com/Zeronet/</id>
-    <published>2016-10-09T07:03:25.000Z</published>
-    <updated>2016-10-09T10:45:54.788Z</updated>
-    <content type="html"><![CDATA[<p>比特币中的一项特性是去中心化。这使得比特币拥有较为自由的能力，不会因为某些服务器故障而无法运行。这是因为使用了去中心化技术。如果互联网去中心化会是怎样的呢？</p>
-<a id="more"></a>
-<h2 id="安装_ZeroNet">安装 ZeroNet</h2><p><a href="https://github.com/HelloZeroNet/ZeroNet" target="_blank" rel="external">ZeroNet</a> 是一个使用了比特币加密技术和 BT 分布式技术的网络。它的主要目的是将互联网去中心化。</p>
-<p>使用起来很方便，首先<a href="https://github.com/HelloZeroNet/ZeroNet#how-to-join" target="_blank" rel="external">下载</a> 相应的客户端。</p>
-<p>解压。发现文件目录为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZeroBundle&#10;  &#9500;&#9472;Python&#10;  &#9492;&#9472;ZeroNet.cmd</span><br></pre></td></tr></table></figure>
-<p>有一个 <code>python2</code> 的环境和一个启动脚本。</p>
-<p>如果你是 Windows 用户直接运行 <strong>ZeroNet.cmd</strong> </p>
-<p>弹出黑框并开始下载主程序</p>
-<blockquote>
-<p>Downloading <a href="https://github.com/HelloZeroNet/ZeroNet/archive/master.zip" target="_blank" rel="external">https://github.com/HelloZeroNet/ZeroNet/archive/master.zip</a> to ZeroNet directory.</p>
-</blockquote>
-<p>大约一分钟后主程序下载完毕，你会发现任务栏里面出现一个 ZeroNet 的图标。</p>
-<p>这时候会弹出 Windows 防火墙，点允许免得出奇奇怪怪的问题。</p>
-<h2 id="初尝_ZeroNet">初尝 ZeroNet</h2><p>双击 ZeroNet 的图标或者直接在地址栏中输入 <a href="http://127.0.0.1:43110/" target="_blank" rel="external">http://127.0.0.1:43110/</a> 就会打开 ZeroNet 的初始欢迎界面。</p>
-<p><img src="/img/ZeroNet/Hello.png" alt="ZeroNet 欢迎页面"></p>
-<p>左边列出了 ZeroNet 中的部分网站。随便点一个进去</p>
-<p><img src="/img/ZeroNet/Loading.png" alt="ZeroNet 加载页面"></p>
-<p>等待一两秒的载入后，网页内容刷新出来了。</p>
-<p><img src="/img/ZeroNet/ZeroBoard.png" alt="ZeroNet ZeroBoard页面"></p>
-<p>从这个地址中我们发现它并没有直接访问任何现存互联网的资源。而是直接访问电脑地址 127.0.0.1 。</p>
-<p>这是官方的一个公告板网站，里面有很多刚来的人打招呼。</p>
-<p>这就是使用 ZeroNet 的基本流程。跟访问普通网站没有太大的区别。唯一要做的就是打开 ZeroNet 的客户端。这样才能访问 ZeroNet 中的网站。</p>
-<p>在使用者看来不连接现有互联网的情况下能够访问网页，感觉挺神奇的，像是打开了新世界。</p>
-<h2 id="探索_ZeroNet">探索 ZeroNet</h2><p>第一次打开 ZeroNet 你会发现欢迎页面中的网站很少。是不是 ZeroNet 上只有这些网站呢？</p>
-<p>其实不是。实际上 ZeroNet 拥有很多网站。只是没有看到而已。</p>
-<p>回想在普通的互联网上，想要访问一个网站应该怎么做？</p>
-<p>在地址栏中输入它的网址即可。</p>
-<p>那这个网址是怎么来的呢？有很多种渠道，不过最典型的渠道是搜索引擎。</p>
-<p>目前还没发现 ZeroNet 有相关的搜索引擎。不过作者也考虑到了这一点所以提供了一个 ZeroNet 网站的列表</p>
-<p>这个列表就在欢迎页面的左边 <a href="http://127.0.0.1:43110/0list.bit/" target="_blank" rel="external">more site @ 0list</a></p>
-<p><img src="/img/ZeroNet/0list.png" alt="ZeroNet 网站列表"></p>
-<p>随便点击一个<a href="http://127.0.0.1:43110/1BEJbnufyav7TK23ADTs2Qi2UJeKSGDzw6/" target="_blank" rel="external">网站</a></p>
-<p><img src="/img/ZeroNet/ResouceSite.png" alt="ZeroNet 一个资源站"></p>
-<p>这是一个视频资源网站，相应的资源通过磁力链接下载。</p>
-<p>如果有耐心可以发现很多好玩的网站。比如</p>
-<ul>
-<li><a href="http://127.0.0.1:43110/14Q1So3DH9qvHts5VuLDgqGp7yCXceujop" target="_blank" rel="external">吃豆人游戏</a></li>
-<li><a href="http://127.0.0.1:43110/1EGBRuaoUg5JFENpDwn4RPu2ZP99KQ2h9C/" target="_blank" rel="external">一个中文博客</a></li>
-<li><a href="http://127.0.0.1:43110/shadowsocksr.bit" target="_blank" rel="external">SSR</a></li>
-</ul>
-<p>也会发现一些奇奇怪怪的东西。毕竟 ZeroNet 不受监管。</p>
-<h2 id="安家_ZeroNet">安家 ZeroNet</h2><p>在 ZeroNet 上创建一个网站也很方便。无需审核。</p>
-<p>在创建之前先关闭 ZeroNet</p>
-<p>进入 ZeroNet 的目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZeroBundle&#10;  &#9500;&#9472;Python&#10;  &#9500;&#9472;ZeroNet&#10;  &#9474; &#9500;&#9472;data&#10;  &#9474; &#9500;&#9472;log&#10;  &#9474; &#9500;&#9472;plugins  &#9;&#10;  &#9474; &#9500;&#9472;...  &#9;&#10;  &#9474; &#9500;&#9472;zeronet.py  &#60;- &#20851;&#38190;&#33050;&#26412;&#10;  &#9474; &#9492;&#9472;... &#10;  &#9492;&#9472;ZeroNet.cmd</span><br></pre></td></tr></table></figure>
-<p>在文件夹地址栏中输入 <code>cmd</code> </p>
-<p>就会以当前路径运行黑框。</p>
-<p>输入以下命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\Python\python zeronet.py siteCreate</span><br></pre></td></tr></table></figure>
-<p>输出为</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Starting ZeroNet...&#10;- OpenSSL loaded, version: 01000201F&#10;- Version: 0.4.1 r1536, Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (Intel)], Gevent: 1.1.2&#10;- Generating new privatekey...&#10;- ----------------------------------------------------------------------&#10;- Site private key: 5KYXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#10;-                   !!! ^ Save it now, required to modify the site ^ !!!&#10;- Site address:     1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5&#10;- ----------------------------------------------------------------------&#10;? Have you secured your private key? (yes, no) &#62;</span><br></pre></td></tr></table></figure>
-<p>其中 <strong>Site private key</strong> 就是你的私钥。在修改自己的网站的时候会用到，请妥善保管</p>
-<p>地址为 <strong>Site address</strong> 后面的部分。比如我的就是 <strong>1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5</strong></p>
-<p>保存好私钥后输入 yes 。输出为</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Creating directory structure...&#10;- Creating content.json...&#10;Site:1BTG4L..eEQ5 Content.json not exist: data/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5/content.json&#10;Site:1BTG4L..eEQ5 File content.json not exist yet, loading default values...&#10;Site:1BTG4L..eEQ5 Opening site data directory: data/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5/...&#10;Site:1BTG4L..eEQ5 - index.html (SHA512: 20d3253a86e9e19d99c1e1c1ad7c8c272b0e1037ae1773aecc8ab6e09f2854e7)&#10;Site:1BTG4L..eEQ5 Adding timestamp and sha512sums to new content.json...&#10;Site:1BTG4L..eEQ5 Verifying private key...&#10;Site:1BTG4L..eEQ5 Correct 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5 in valid signers: [&#39;1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5&#39;]&#10;Site:1BTG4L..eEQ5 Signing content.json...&#10;Site:1BTG4L..eEQ5 Saving to content.json...&#10;Site:1BTG4L..eEQ5 File content.json signed!&#10;- Site created!</span><br></pre></td></tr></table></figure>
-<p>说明成功建立站点。地址为 <a href="http://127.0.0.1:43110/你的地址" target="_blank" rel="external">http://127.0.0.1:43110/你的地址</a> 。</p>
-<p>比如我的是 <a href="http://127.0.0.1:43110/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5" target="_blank" rel="external">http://127.0.0.1:43110/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5</a></p>
-<p>双击 <strong>ZeroNet.cmd</strong> 启动 ZeroNet</p>
-<p>在地址栏中输入刚建立站点的地址，会看到类似的页面</p>
-<p><img src="/img/ZeroNet/PersionalSite.png" alt="ZeroNet 常见站点"></p>
-<p>接下来修改个人网站。比如把 <strong>Hello</strong> 该成 <strong>Hi</strong>。这时候需要用到上面产生的私钥</p>
-<p>先找到自己的网站。位于 <strong>ZeroBundle\ZeroNet\data\你的地址</strong> 文件夹中。比如我的就是 <strong>ZeroBundle\ZeroNet\data\1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5</strong></p>
-<p>其中目录结构如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5&#10;  &#9500;&#9472;content.json&#10;  &#9492;&#9472;index.html</span><br></pre></td></tr></table></figure>
-<p>用文本编辑器打开 <strong>index.html</strong></p>
-<p>把</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5!</span><br></pre></td></tr></table></figure>
-<p>改成</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5!</span><br></pre></td></tr></table></figure>
-<p>保存。双击 <strong>index.html</strong> 打开后发现内容已经发生改变。</p>
-<p>这只是本地预览的效果。要想其他人也能看到就需要发布。</p>
-<p>首先运行命令登陆自己的网站</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\Python\python zeronet.py siteSign &#20320;&#30340;&#22320;&#22336;</span><br></pre></td></tr></table></figure>
-<p>出现输入私钥的提示</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Starting ZeroNet...&#10;- OpenSSL loaded, version: 01000201F&#10;- Version: 0.4.1 r1536, Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (Intel)], Gevent: 1.1.2&#10;- Signing site: 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5...&#10;Private key (input hidden):</span><br></pre></td></tr></table></figure>
-<p>密码验证正确后提示</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Site:1BTG4L..eEQ5 Opening site data directory: data/1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5/...&#10;Site:1BTG4L..eEQ5 - [SKIPPED] content.json&#10;Site:1BTG4L..eEQ5 - index.html (SHA512: d749c3e6ea1668e314fa3a32c5048313d2387a336abcd60b6ba1b50a0f4e0952)&#10;Site:1BTG4L..eEQ5 Adding timestamp and sha512sums to new content.json...&#10;Site:1BTG4L..eEQ5 Verifying private key...&#10;Site:1BTG4L..eEQ5 Correct 1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5 in valid signers: [&#39;1BTG4LYoSYQxNMaQfDCmZv56fQhitFeEQ5&#39;]&#10;Site:1BTG4L..eEQ5 Signing content.json...&#10;Site:1BTG4L..eEQ5 Saving to content.json...&#10;Site:1BTG4L..eEQ5 File content.json signed!</span><br></pre></td></tr></table></figure>
-<p>登陆成功后接着发布网站</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\Python\python zeronet.py sitePublish &#20320;&#30340;&#22320;&#22336;</span><br></pre></td></tr></table></figure>
-<p>发布成功后提示</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- Starting ZeroNet...&#10;- OpenSSL loaded, version: 01000201F&#10;- Version: 0.4.1 r1536, Python 2.7.12 (v2.7.12:d33e0cf91556, Jun 27 2016, 15:19:22) [MSC v.1500 32 bit (Intel)], Gevent: 1.1.2&#10;- Loading site...&#10;- Creating FileServer....&#10;- Sending siteReload&#10;- &#123;&#39;to&#39;: 1, &#39;cmd&#39;: &#39;response&#39;, &#39;ok&#39;: &#39;Reloaded&#39;&#125;&#10;- Sending sitePublish&#10;- &#123;&#39;to&#39;: 2, &#39;cmd&#39;: &#39;response&#39;, &#39;ok&#39;: &#39;Successfuly published to 0 peers&#39;&#125;&#10;- Done.</span><br></pre></td></tr></table></figure>
-<p>其中有提示 <strong>Successfuly published to 0 peers</strong> 每一个访问者都会保存你的网站，因为你的网站还没其他人访问过。所以没有推送给任何一个用户。</p>
-<p>如何检验是否更新成功呢？很简单让小伙伴访问一下你的网站就可以了。</p>
-<p>如果想要做更多的自定义修改请参考<a href="https://zeronet.readthedocs.io/en/latest/" target="_blank" rel="external">官方开发者文档</a></p>
-<h2 id="看待_ZeroNet">看待 ZeroNet</h2><p>ZeroNet 是一个很有意思的项目。目前处于发展阶段。就算不能成功也会启发后来的人。目前 ZeroNet 最大的缺点是用户量比较少，部分网页访问速度比较慢。还有部分内容不是去完全中心化的。要说清楚得从原理说起，这个坑就太大了。<ruby>改天有空<rt>永远没空</rt></ruby>介绍吧。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>比特币中的一项特性是去中心化。这使得比特币拥有较为自由的能力，不会因为某些服务器故障而无法运行。这是因为使用了去中心化技术。如果互联网去中心化会是怎样的呢？</p>]]>
-    
-    </summary>
-    
-      <category term="ZeroNet" scheme="http://en.ors-sro.com/tags/ZeroNet/"/>
     
       <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
     

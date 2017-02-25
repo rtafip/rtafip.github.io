@@ -1,0 +1,633 @@
+
+ <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  
+    <title>逆变和协变 | 拖鞋党的拖鞋摊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="rtafip">
+    
+
+    
+    <meta name="description" content="$$\dfrac{T_1 \leq S_1 \quad S_2 \leq T_2}{S_1 \rightarrow S_2 \leq T_1 \rightarrow T_2}$$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="逆变和协变">
+<meta property="og:url" content="http://en.ors-sro.com/Covariant-and-Contravariant/index.html">
+<meta property="og:site_name" content="拖鞋党的拖鞋摊">
+<meta property="og:description" content="$$\dfrac{T_1 \leq S_1 \quad S_2 \leq T_2}{S_1 \rightarrow S_2 \leq T_1 \rightarrow T_2}$$">
+<meta property="og:updated_time" content="2017-02-25T10:24:24.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="逆变和协变">
+<meta name="twitter:description" content="$$\dfrac{T_1 \leq S_1 \quad S_2 \leq T_2}{S_1 \rightarrow S_2 \leq T_1 \rightarrow T_2}$$">
+
+    
+    <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/me.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/me.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/logo.png" alt="拖鞋党的拖鞋摊" title="拖鞋党的拖鞋摊"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="拖鞋党的拖鞋摊">拖鞋党的拖鞋摊</a></h1>
+				<h2 class="blog-motto">写一些有的没的</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:en.ors-sro.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/Covariant-and-Contravariant/" title="逆变和协变" itemprop="url">逆变和协变</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="rtafip" target="_blank" itemprop="author">rtafip</a>
+		
+  <p class="article-time">
+    <time datetime="2017-02-25T09:00:51.000Z" itemprop="datePublished"> Published 2017-02-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单的代换"><span class="toc-number">1.</span> <span class="toc-text">简单的代换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合类型"><span class="toc-number">2.</span> <span class="toc-text">复合类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">3.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数化多态"><span class="toc-number">4.</span> <span class="toc-text">参数化多态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+		
+		</div>
+		
+		<p>$$<br>\dfrac{T_1 \leq S_1 \quad S_2 \leq T_2}{S_1 \rightarrow S_2 \leq T_1 \rightarrow T_2}<br>$$</p>
+<a id="more"></a>
+<h2 id="简单的代换">简单的代换</h2><p>假设有三个类，Animal ，Cat，Dog。其中 Cat 和 Dog 是 Animal 的子类。</p>
+<p>有一段这样的转换代码</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Animal a = <span class="keyword">new</span> Cat();</span><br><span class="line">Cat b = <span class="keyword">new</span> Animal();</span><br><span class="line">Dog c = <span class="keyword">new</span> Cat();</span><br></pre></td></tr></table></figure>
+<p>有哪些可以通过编译呢？</p>
+<p>显然对面向对象有基本了解到人都能很快答出只有第一行能编译通过。</p>
+<p>第二行因为不是所有 Animal 都是 Cat 。所以在赋值的时候转换失败。</p>
+<p>第三行因为 Dog 和 Cat 是不同的类，除非定义转换方式或者内存分布一致，否则通常是失败的。</p>
+<p>第一行是可以编译通过是因为面向对象的继承特性。</p>
+<p>继承允许子类拥有父类相同的行为，又可以有自己独特的行为。</p>
+<p>所以子类替换父类，也就是熟悉的里氏代换原则。</p>
+<h2 id="复合类型">复合类型</h2><p>除了基本的类型比如 int ，bool 等，还有一种复合类型比如 int[]，List&lt; int &gt; 等。</p>
+<p>复合类型通常由类型构造器和类型参数组合而成，类似与函数和参数的关系。</p>
+<p>比如 List&lt; int &gt; 的类型构造器是 List ，参数为 int</p>
+<p>简单类型的替换非常直观，子类能够替换父类，父类不能替换子类。</p>
+<p>复合类型的替换就不是那么直观了。</p>
+<p>比如对于类型 Animal[] Animal数组和Cat[] Cat数组，这两个类型。</p>
+<p>这个两个类型是什么关系？是否与 Animal 和 Cat 的关系有关？</p>
+<p>答案是这两个类型没有任何关系。</p>
+<p>仔细想想就能发现</p>
+<p>Cat[] 并不能替换所有 Animal[] 。因为 Animal[] 可以装入 Dog 的实例，而 Cat[] 不可以。</p>
+<p>Animal[] 也不能替换所有 Cat[] 。因为 Cat[] 中的 Cat 可以调用 Cat 类独有的方法，替换为 Animal 后，Animal 没有这个独有的方法，调用失败。</p>
+<p>所以 Animal[] 和 Cat[] 是没有关系的。</p>
+<p>是不是所有的 Animal 的复合类型和 Cat 的复合类型都没有关系呢？</p>
+<p>其实不是的。</p>
+<p>对于 Reader <code>(-&gt;)</code> 有</p>
+<p>(Animal -&gt; Cat) 是 (Animal -&gt; Animal) 的子类型</p>
+<p>(Animal -&gt; Animal) 是 (Cat -&gt; Animal) 的子类型</p>
+<p>先说比较直观的第一个</p>
+<p>要想说明 (Animal -&gt; Cat) 是 (Animal -&gt; Animal) 的子类型，需要子类能够替换父类。</p>
+<p>显然父类 (Animal -&gt; Animal) 的返回值是 Animal ，如果替换成子类 (Animal -&gt; Cat)</p>
+<p>输入类型 Animal 不变没问题，输出变成了Cat 。因为 Cat 能够替换 Animal 所以是没问题的。</p>
+<p>所以 (Animal -&gt; Cat) 可以替换 (Animal -&gt; Animal) </p>
+<p>所以 (Animal -&gt; Cat) 是 (Animal -&gt; Animal) 的子类型。</p>
+<p>再看第二个</p>
+<p>如果 (Animal -&gt; Animal) 替换 (Cat -&gt; Animal)。</p>
+<p>输出都是 Animal 没问题。</p>
+<p>输入变成了 Animal。看起来似乎是有问题的，因为 (Cat -&gt; Animal) 中有可能调用 Cat 的独有方法</p>
+<p>其实是没问题的，因为替换成 (Animal -&gt; Animal) 后，(Animal -&gt; Animal) 没有 Cat 的独有方法，所以不会报错。</p>
+<p>而且原本的输入 Cat 是可以转成现在的输入 Animal 的。</p>
+<p>所以 (Animal -&gt; Animal) 可以替换 (Cat -&gt; Animal) 。</p>
+<p>所以 (Animal -&gt; Animal) 是 (Cat -&gt; Animal) 的子类型。</p>
+<p>(Animal -&gt; Cat) 替换 (Animal -&gt; Animal) 中用 Cat 替换 Animal 与原本的继承关系 Cat 替换 Animal 一致，所以称为协变。</p>
+<p>(Animal -&gt; Animal) 替换 (Cat -&gt; Animal) 中用 Animal 替换 Cat 与原本的继承关系 Cat 替换 Animal 相反，所以称为逆变。</p>
+<h2 id="继承">继承</h2><p>C++ 和 Java 允许通过继承父类重载函数实现返回值的协变</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Animal &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Frog : Animal &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Parent </span><br><span class="line">&#123;</span><br><span class="line">    Animal a;</span><br><span class="line">    <span class="function">Animal <span class="title">GetAnAnimal</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Child : Parent</span><br><span class="line">&#123;</span><br><span class="line">    Frog f;</span><br><span class="line">    <span class="function">Frog <span class="title">GetAnAnimal</span><span class="params">()</span> <span class="comment">// 返回值协变</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="参数化多态">参数化多态</h2><p>C# 支持在参数化多态中使用 <code>in</code> 和 <code>out</code> 标记逆变和协变</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">OutExample</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Method</span>(<span class="params"><span class="keyword">out</span> <span class="keyword">int</span> i</span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        i = <span class="number">44</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">value</span>;</span><br><span class="line">        Method(<span class="keyword">out</span> <span class="keyword">value</span>);</span><br><span class="line">        <span class="comment">// value is now 44</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不对，走错片场了。是这个</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GrandParent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Parent</span> : <span class="title">GrandParent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Child</span> : <span class="title">Parent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApplication1</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">delegate</span> TResult Demo&lt;<span class="keyword">in</span> T, <span class="keyword">out</span> TResult&gt;(T argument);</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Child <span class="title">Sample</span>(<span class="params">GrandParent person</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Child();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="comment">// 参数逆变，返回值协变</span></span><br><span class="line">            Demo&lt;Parent, Parent&gt; d = Sample;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接">参考链接</h2><p><a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)" target="_blank" rel="external">逆变和协变的维基百科</a><br><a href="https://msdn.microsoft.com/zh-cn/library/t3c3bfhx.aspx" target="_blank" rel="external">C# Out</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/玩/">玩</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/逆变/">逆变</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://en.ors-sro.com/Covariant-and-Contravariant/" data-title="逆变和协变 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/SICP-2-1-Introduction-to-Data-Bbstraction/"  title="SICP 2.1 数据抽象导论">
+ <strong>下一篇：</strong><br/> 
+ <span>SICP 2.1 数据抽象导论
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="Covariant-and-Contravariant/" data-title="逆变和协变" data-url="http://en.ors-sro.com/Covariant-and-Contravariant/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单的代换"><span class="toc-number">1.</span> <span class="toc-text">简单的代换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复合类型"><span class="toc-number">2.</span> <span class="toc-text">复合类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">3.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数化多态"><span class="toc-number">4.</span> <span class="toc-text">参数化多态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/玩/" title="玩">玩<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/SICP/" title="SICP">SICP<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Haskell/" title="Haskell">Haskell<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yilia/" title="yilia">yilia<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Whitespace/" title="Whitespace">Whitespace<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lambda/" title="lambda">lambda<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Quine/" title="Quine">Quine<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Promise/" title="Promise">Promise<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/YAML/" title="YAML">YAML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多平台部署/" title="多平台部署">多平台部署<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/polyglot/" title="polyglot">polyglot<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ZeroNet/" title="ZeroNet">ZeroNet<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动动脑/" title="动动脑">动动脑<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/编程字体/" title="编程字体">编程字体<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FiraCode/" title="FiraCode">FiraCode<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://snatix.com" target="_blank" title="大喵的新窝">Snatic&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/miaomiaomiao.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 喜欢拖鞋，喜欢大海 <br/>
+			向拖延症低头 Orz</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="rtafip">rtafip</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="https://dn-hb0716.qbox.me/duoshuo.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="//widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="//service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"rtafip"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  </body>
+</html>
