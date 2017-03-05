@@ -1,0 +1,722 @@
+
+ <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  
+    <title>Haskell 代码片段 | 拖鞋党的拖鞋摊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="rtafip">
+    
+
+    
+    <meta name="description" content="一些零碎的代码,摘自 《 Haskell 趣学指南》，包含常用函数等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Haskell 代码片段">
+<meta property="og:url" content="http://en.ors-sro.com/Haskell-codes/index.html">
+<meta property="og:site_name" content="拖鞋党的拖鞋摊">
+<meta property="og:description" content="一些零碎的代码,摘自 《 Haskell 趣学指南》，包含常用函数等。">
+<meta property="og:updated_time" content="2017-03-05T08:27:14.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Haskell 代码片段">
+<meta name="twitter:description" content="一些零碎的代码,摘自 《 Haskell 趣学指南》，包含常用函数等。">
+
+    
+    <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/me.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/me.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/logo.png" alt="拖鞋党的拖鞋摊" title="拖鞋党的拖鞋摊"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="拖鞋党的拖鞋摊">拖鞋党的拖鞋摊</a></h1>
+				<h2 class="blog-motto">写一些有的没的</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:en.ors-sro.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/Haskell-codes/" title="Haskell 代码片段" itemprop="url">Haskell 代码片段</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="rtafip" target="_blank" itemprop="author">rtafip</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-05T08:22:01.000Z" itemprop="datePublished"> Published 2017-03-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#succ"><span class="toc-number">1.</span> <span class="toc-text">succ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#max"><span class="toc-number">2.</span> <span class="toc-text">max</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#min"><span class="toc-number">3.</span> <span class="toc-text">min</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#!!"><span class="toc-number">4.</span> <span class="toc-text">!!</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#head"><span class="toc-number">5.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tail"><span class="toc-number">6.</span> <span class="toc-text">tail</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#last"><span class="toc-number">7.</span> <span class="toc-text">last</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#init"><span class="toc-number">8.</span> <span class="toc-text">init</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inits"><span class="toc-number">9.</span> <span class="toc-text">inits</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tails"><span class="toc-number">10.</span> <span class="toc-text">tails</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#length"><span class="toc-number">11.</span> <span class="toc-text">length</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">12.</span> <span class="toc-text">null</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reverse"><span class="toc-number">13.</span> <span class="toc-text">reverse</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#take"><span class="toc-number">14.</span> <span class="toc-text">take</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#drop"><span class="toc-number">15.</span> <span class="toc-text">drop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#maximum"><span class="toc-number">16.</span> <span class="toc-text">maximum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#minimum"><span class="toc-number">17.</span> <span class="toc-text">minimum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sum"><span class="toc-number">18.</span> <span class="toc-text">sum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#product"><span class="toc-number">19.</span> <span class="toc-text">product</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#elem"><span class="toc-number">20.</span> <span class="toc-text">elem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#elemIndex"><span class="toc-number">21.</span> <span class="toc-text">elemIndex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#elemIndices"><span class="toc-number">22.</span> <span class="toc-text">elemIndices</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#find"><span class="toc-number">23.</span> <span class="toc-text">find</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#findIndex"><span class="toc-number">24.</span> <span class="toc-text">findIndex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cycle"><span class="toc-number">25.</span> <span class="toc-text">cycle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#repeat"><span class="toc-number">26.</span> <span class="toc-text">repeat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zip"><span class="toc-number">27.</span> <span class="toc-text">zip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zipWith"><span class="toc-number">28.</span> <span class="toc-text">zipWith</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zip3"><span class="toc-number">29.</span> <span class="toc-text">zip3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zipWith3"><span class="toc-number">30.</span> <span class="toc-text">zipWith3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#map"><span class="toc-number">31.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#filter"><span class="toc-number">32.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#takeWhile"><span class="toc-number">33.</span> <span class="toc-text">takeWhile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dropWhile"><span class="toc-number">34.</span> <span class="toc-text">dropWhile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#intersperse"><span class="toc-number">35.</span> <span class="toc-text">intersperse</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#intercalate"><span class="toc-number">36.</span> <span class="toc-text">intercalate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transpose"><span class="toc-number">37.</span> <span class="toc-text">transpose</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#concat"><span class="toc-number">38.</span> <span class="toc-text">concat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#concatMap"><span class="toc-number">39.</span> <span class="toc-text">concatMap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#and"><span class="toc-number">40.</span> <span class="toc-text">and</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#or"><span class="toc-number">41.</span> <span class="toc-text">or</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#any"><span class="toc-number">42.</span> <span class="toc-text">any</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#all"><span class="toc-number">43.</span> <span class="toc-text">all</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#iterate"><span class="toc-number">44.</span> <span class="toc-text">iterate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#splitAt"><span class="toc-number">45.</span> <span class="toc-text">splitAt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#span"><span class="toc-number">46.</span> <span class="toc-text">span</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#break"><span class="toc-number">47.</span> <span class="toc-text">break</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#partition"><span class="toc-number">48.</span> <span class="toc-text">partition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sort"><span class="toc-number">49.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#group"><span class="toc-number">50.</span> <span class="toc-text">group</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isPrefixOf"><span class="toc-number">51.</span> <span class="toc-text">isPrefixOf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isInfixOf"><span class="toc-number">52.</span> <span class="toc-text">isInfixOf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isSuffixOf"><span class="toc-number">53.</span> <span class="toc-text">isSuffixOf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lines"><span class="toc-number">54.</span> <span class="toc-text">lines</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unlines"><span class="toc-number">55.</span> <span class="toc-text">unlines</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#words"><span class="toc-number">56.</span> <span class="toc-text">words</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unwords"><span class="toc-number">57.</span> <span class="toc-text">unwords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nub"><span class="toc-number">58.</span> <span class="toc-text">nub</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#delete"><span class="toc-number">59.</span> <span class="toc-text">delete</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#\\"><span class="toc-number">60.</span> <span class="toc-text">\\</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#union"><span class="toc-number">61.</span> <span class="toc-text">union</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#intersect"><span class="toc-number">62.</span> <span class="toc-text">intersect</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fst"><span class="toc-number">63.</span> <span class="toc-text">fst</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#snd"><span class="toc-number">64.</span> <span class="toc-text">snd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flip"><span class="toc-number">65.</span> <span class="toc-text">flip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#when"><span class="toc-number">66.</span> <span class="toc-text">when</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sequence"><span class="toc-number">67.</span> <span class="toc-text">sequence</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapM"><span class="toc-number">68.</span> <span class="toc-text">mapM</span></a></li></ol>
+		
+		</div>
+		
+		<p>一些零碎的代码,摘自 《 Haskell 趣学指南》，包含常用函数等。</p>
+<a id="more"></a>
+<h4 id="succ">succ</h4><p><code>succ</code> 返回后继</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; succ <span class="number">8</span>  </span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<h4 id="max">max</h4><p><code>max</code> 返回最大值</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; max <span class="number">100</span> <span class="number">101</span>  </span><br><span class="line"><span class="number">101</span></span><br></pre></td></tr></table></figure>
+<h4 id="min">min</h4><p><code>min</code> 返回最小值</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; min <span class="number">9</span> <span class="number">10</span>  </span><br><span class="line"><span class="number">9</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; min <span class="number">3.4</span> <span class="number">3.2</span>  </span><br><span class="line"><span class="number">3.2</span></span><br></pre></td></tr></table></figure>
+<h4 id="!!">!!</h4><p><code>!!</code> 按索引获取元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="string">"Steve Buscemi"</span> !! <span class="number">6</span>  </span><br><span class="line">'<span class="type">B'</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; [<span class="number">9.4</span>,<span class="number">33.2</span>,<span class="number">96.2</span>,<span class="number">11.2</span>,<span class="number">23.25</span>] !! <span class="number">1</span>  </span><br><span class="line"><span class="number">33.2</span></span><br></pre></td></tr></table></figure>
+<h4 id="head">head</h4><p><code>head</code> 取列表的第一个元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; head [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h4 id="tail">tail</h4><p><code>tail</code> 取列表除了第一个元素的所有元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; tail [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line">[<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="last">last</h4><p><code>last</code> 取列表的最后一个元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; last [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h4 id="init">init</h4><p><code>init</code> 取列表除了最后一个元素的所有元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; init [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line">[<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="inits">inits</h4><p><code>inits</code> 重复取 <code>init</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; inits <span class="string">"w00t"</span>  </span><br><span class="line">[<span class="string">""</span>,<span class="string">"w"</span>,<span class="string">"w0"</span>,<span class="string">"w00"</span>,<span class="string">"w00t"</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="tails">tails</h4><p><code>tails</code> 重复取 <code>tail</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; tails <span class="string">"w00t"</span>  </span><br><span class="line">[<span class="string">"w00t"</span>,<span class="string">"00t"</span>,<span class="string">"0t"</span>,<span class="string">"t"</span>,<span class="string">""</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="keyword">let</span> w = <span class="string">"w00t"</span> <span class="keyword">in</span> zip (inits w) (tails w)  </span><br><span class="line">[(<span class="string">""</span>,<span class="string">"w00t"</span>),(<span class="string">"w"</span>,<span class="string">"00t"</span>),(<span class="string">"w0"</span>,<span class="string">"0t"</span>),(<span class="string">"w00"</span>,<span class="string">"t"</span>),(<span class="string">"w00t"</span>,<span class="string">""</span>)]</span><br></pre></td></tr></table></figure>
+<h4 id="length">length</h4><p><code>length</code> 获取列表的长度</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; length [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h4 id="null">null</h4><p><code>null</code> 判断列表是否为空</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; null [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line"><span class="type">False</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; null []  </span><br><span class="line"><span class="type">True</span></span><br></pre></td></tr></table></figure>
+<h4 id="reverse">reverse</h4><p><code>reverse</code> 反转一个列表</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; reverse [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="take">take</h4><p><code>take</code> 拿取一定数量的元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; take <span class="number">3</span> [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line">[<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; take <span class="number">1</span> [<span class="number">3</span>,<span class="number">9</span>,<span class="number">3</span>]  </span><br><span class="line">[<span class="number">3</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; take <span class="number">5</span> [<span class="number">1</span>,<span class="number">2</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; take <span class="number">0</span> [<span class="number">6</span>,<span class="number">6</span>,<span class="number">6</span>]  </span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+<h4 id="drop">drop</h4><p><code>drop</code> 抛弃一定数量的元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; drop <span class="number">3</span> [<span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; drop <span class="number">0</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; drop <span class="number">100</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]  </span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+<h4 id="maximum">maximum</h4><p><code>maximum</code> 返回列表最大值</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; maximum [<span class="number">1</span>,<span class="number">9</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]  </span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<h4 id="minimum">minimum</h4><p><code>minimum</code> 返回列表最小值</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; minimum [<span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h4 id="sum">sum</h4><p><code>sum</code> 列表求和</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; sum [<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">7</span>]  </span><br><span class="line"><span class="number">31</span></span><br></pre></td></tr></table></figure>
+<h4 id="product">product</h4><p><code>product</code> 列表求积</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; product [<span class="number">6</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>]  </span><br><span class="line"><span class="number">24</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; product [<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">2</span>,<span class="number">0</span>]  </span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h4 id="elem">elem</h4><p><code>elem</code> 判断元素是否存在</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="number">4</span> `elem` [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="type">True</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">10</span> `elem` [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="type">False</span></span><br></pre></td></tr></table></figure>
+<h4 id="elemIndex">elemIndex</h4><p><code>elemIndex</code> 返回第一个指定元素索引</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; :t elemIndex  </span><br><span class="line"><span class="title">elemIndex</span> :: (<span class="type">Eq</span> a) =&gt; a -&gt; [a] -&gt; <span class="type">Maybe</span> <span class="type">Int</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">4</span> `elemIndex` [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="type">Just</span> <span class="number">3</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="number">10</span> `elemIndex` [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="type">Nothing</span></span><br></pre></td></tr></table></figure>
+<h4 id="elemIndices">elemIndices</h4><p><code>elemIndices</code> 返回所有指定元素索引</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; ' ' `elemIndices` <span class="string">"Where are the spaces?"</span>  </span><br><span class="line">[<span class="number">5</span>,<span class="number">9</span>,<span class="number">13</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="find">find</h4><p><code>find</code> 查找符合条件的元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; find (&gt;<span class="number">4</span>) [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="type">Just</span> <span class="number">5</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; find (&gt;<span class="number">9</span>) [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line"><span class="type">Nothing</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; :t find  </span><br><span class="line"><span class="title">find</span> :: (a -&gt; <span class="type">Bool</span>) -&gt; [a] -&gt; <span class="type">Maybe</span> a</span><br></pre></td></tr></table></figure>
+<h4 id="findIndex">findIndex</h4><p><code>findIndex</code> 返回符合条件的元素索引</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; findIndex (==<span class="number">4</span>) [<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">4</span>]  </span><br><span class="line"><span class="type">Just</span> <span class="number">5</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; findIndex (==<span class="number">7</span>) [<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">4</span>]  </span><br><span class="line"><span class="type">Nothing</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; findIndices (`elem` ['<span class="type">A'</span>..'<span class="type">Z'</span>]) <span class="string">"Where Are The Caps?"</span>  </span><br><span class="line">[<span class="number">0</span>,<span class="number">6</span>,<span class="number">10</span>,<span class="number">14</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="cycle">cycle</h4><p><code>cycle</code> 循环拼接列表</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; take <span class="number">10</span> (cycle [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; take <span class="number">12</span> (cycle <span class="string">"LOL "</span>)  </span><br><span class="line"><span class="string">"LOL LOL LOL "</span></span><br></pre></td></tr></table></figure>
+<h4 id="repeat">repeat</h4><p><code>repeat</code> 重复指定元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; take <span class="number">10</span> (repeat <span class="number">5</span>)  </span><br><span class="line">[<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="zip">zip</h4><p><code>zip</code> 压缩函数，类似拉链</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; zip [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>] [<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>]  </span><br><span class="line">[(<span class="number">1</span>,<span class="number">5</span>),(<span class="number">2</span>,<span class="number">5</span>),(<span class="number">3</span>,<span class="number">5</span>),(<span class="number">4</span>,<span class="number">5</span>),(<span class="number">5</span>,<span class="number">5</span>)]  </span><br><span class="line"><span class="title">ghci</span>&gt; zip [<span class="number">1</span> .. <span class="number">5</span>] [<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>, <span class="string">"four"</span>, <span class="string">"five"</span>]  </span><br><span class="line">[(<span class="number">1</span>,<span class="string">"one"</span>),(<span class="number">2</span>,<span class="string">"two"</span>),(<span class="number">3</span>,<span class="string">"three"</span>),(<span class="number">4</span>,<span class="string">"four"</span>),(<span class="number">5</span>,<span class="string">"five"</span>)]  </span><br><span class="line"><span class="title">ghci</span>&gt; zip [<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">6</span>] [<span class="string">"im"</span>,<span class="string">"a"</span>,<span class="string">"turtle"</span>]  </span><br><span class="line">[(<span class="number">5</span>,<span class="string">"im"</span>),(<span class="number">3</span>,<span class="string">"a"</span>),(<span class="number">2</span>,<span class="string">"turtle"</span>)]  </span><br><span class="line"><span class="title">ghci</span>&gt; zip [<span class="number">1.</span>.] [<span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"cherry"</span>, <span class="string">"mango"</span>]  </span><br><span class="line">[(<span class="number">1</span>,<span class="string">"apple"</span>),(<span class="number">2</span>,<span class="string">"orange"</span>),(<span class="number">3</span>,<span class="string">"cherry"</span>),(<span class="number">4</span>,<span class="string">"mango"</span>)]</span><br></pre></td></tr></table></figure>
+<h4 id="zipWith">zipWith</h4><p><code>zipWith</code> 用指定的方式 <code>zip</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; zipWith (+) [<span class="number">4</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>] [<span class="number">2</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line">[<span class="number">6</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">9</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; zipWith max [<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>] [<span class="number">7</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>]  </span><br><span class="line">[<span class="number">7</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; zipWith (++) [<span class="string">"foo "</span>, <span class="string">"bar "</span>, <span class="string">"baz "</span>] [<span class="string">"fighters"</span>, <span class="string">"hoppers"</span>, <span class="string">"aldrin"</span>]  </span><br><span class="line">[<span class="string">"foo fighters"</span>,<span class="string">"bar hoppers"</span>,<span class="string">"baz aldrin"</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; zipWith (*) (replicate <span class="number">5</span> <span class="number">2</span>) [<span class="number">1.</span>.]  </span><br><span class="line">[<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; zipWith (zipWith (*)) [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]] [[<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>]]  </span><br><span class="line">[[<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>],[<span class="number">9</span>,<span class="number">20</span>,<span class="number">30</span>],[<span class="number">10</span>,<span class="number">12</span>,<span class="number">12</span>]]</span><br></pre></td></tr></table></figure>
+<h4 id="zip3">zip3</h4><p><code>zip3</code> 是 <code>zip</code> 的 3 个参数版本</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; zip3 [<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>] [<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>] [<span class="number">5</span>,<span class="number">5</span>,<span class="number">3</span>] </span><br><span class="line">[(<span class="number">2</span>,<span class="number">2</span>,<span class="number">5</span>),(<span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>),(<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>)]</span><br></pre></td></tr></table></figure>
+<h4 id="zipWith3">zipWith3</h4><p><code>zipWith3</code> 是 <code>zipWith</code> 的 3 个参数版本</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; zipWith3 (\x y z -&gt; x + y + z) [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] [<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>] [<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line">[<span class="number">7</span>,<span class="number">9</span>,<span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="map">map</h4><p><code>map</code> 对列表每个元素应用函数</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; map (+<span class="number">3</span>) [<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">6</span>]  </span><br><span class="line">[<span class="number">4</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">9</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; map (++ <span class="string">"!"</span>) [<span class="string">"BIFF"</span>, <span class="string">"BANG"</span>, <span class="string">"POW"</span>]  </span><br><span class="line">[<span class="string">"BIFF!"</span>,<span class="string">"BANG!"</span>,<span class="string">"POW!"</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; map (replicate <span class="number">3</span>) [<span class="number">3.</span>.<span class="number">6</span>]  </span><br><span class="line">[[<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">5</span>,<span class="number">5</span>],[<span class="number">6</span>,<span class="number">6</span>,<span class="number">6</span>]]  </span><br><span class="line"><span class="title">ghci</span>&gt; map (map (^<span class="number">2</span>)) [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>]]  </span><br><span class="line">[[<span class="number">1</span>,<span class="number">4</span>],[<span class="number">9</span>,<span class="number">16</span>,<span class="number">25</span>,<span class="number">36</span>],[<span class="number">49</span>,<span class="number">64</span>]]  </span><br><span class="line"><span class="title">ghci</span>&gt; map fst [(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">3</span>,<span class="number">5</span>),(<span class="number">6</span>,<span class="number">3</span>),(<span class="number">2</span>,<span class="number">6</span>),(<span class="number">2</span>,<span class="number">5</span>)]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="filter">filter</h4><p><code>filter</code> 过滤出列表中复合条件的元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; filter (&gt;<span class="number">3</span>) [<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line">[<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; filter (==<span class="number">3</span>) [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]  </span><br><span class="line">[<span class="number">3</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; filter even [<span class="number">1.</span>.<span class="number">10</span>]  </span><br><span class="line">[<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="keyword">let</span> notNull x = not (null x) <span class="keyword">in</span> filter notNull [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">2</span>],[],[],[]]  </span><br><span class="line">[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">2</span>]]  </span><br><span class="line"><span class="title">ghci</span>&gt; filter (`elem` ['a'..'z']) <span class="string">"u LaUgH aT mE BeCaUsE I aM diFfeRent"</span>  </span><br><span class="line"><span class="string">"uagameasadifeent"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; filter (`elem` ['<span class="type">A'</span>..'<span class="type">Z'</span>]) <span class="string">"i lauGh At You BecAuse u r aLL the Same"</span>  </span><br><span class="line"><span class="string">"GAYBALLS"</span></span><br></pre></td></tr></table></figure>
+<h4 id="takeWhile">takeWhile</h4><p><code>takeWhile</code> 一直 <code>take</code> 直到条件不满足</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; takeWhile (/=' ') <span class="string">"elephants know how to party"</span></span><br><span class="line"><span class="string">"elephants"</span></span><br><span class="line"><span class="title">ghci</span>&gt; sum (takeWhile (&lt;<span class="number">10000</span>) (filter odd (map (^<span class="number">2</span>) [<span class="number">1.</span>.])))  </span><br><span class="line"><span class="number">166650</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; sum (takeWhile (&lt;<span class="number">10000</span>) [n^<span class="number">2</span> | n &lt;- [<span class="number">1.</span>.], odd (n^<span class="number">2</span>)])  </span><br><span class="line"><span class="number">166650</span></span><br></pre></td></tr></table></figure>
+<h4 id="dropWhile">dropWhile</h4><p><code>dropWhile</code> 一直 <code>drop</code> 直到条件不满足</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; dropWhile (/=' ') <span class="string">"This is a sentence"</span>  </span><br><span class="line"><span class="string">" is a sentence"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; dropWhile (&lt;<span class="number">3</span>) [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line">[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="intersperse">intersperse</h4><p><code>intersperse</code> 在列表元素之间插入指定元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; intersperse '.' <span class="string">"MONKEY"</span>  </span><br><span class="line"><span class="string">"M.O.N.K.E.Y"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; intersperse <span class="number">0</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">0</span>,<span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="intercalate">intercalate</h4><p><code>intercalate</code> 将一个列表插入到另一个列表元素之间</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; intercalate <span class="string">" "</span> [<span class="string">"hey"</span>,<span class="string">"there"</span>,<span class="string">"guys"</span>]  </span><br><span class="line"><span class="string">"hey there guys"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; intercalate [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>] [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="transpose">transpose</h4><p><code>transpose</code> 转置矩阵</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; transpose [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]  </span><br><span class="line">[[<span class="number">1</span>,<span class="number">4</span>,<span class="number">7</span>],[<span class="number">2</span>,<span class="number">5</span>,<span class="number">8</span>],[<span class="number">3</span>,<span class="number">6</span>,<span class="number">9</span>]]  </span><br><span class="line"><span class="title">ghci</span>&gt; transpose [<span class="string">"hey"</span>,<span class="string">"there"</span>,<span class="string">"guys"</span>]  </span><br><span class="line">[<span class="string">"htg"</span>,<span class="string">"ehu"</span>,<span class="string">"yey"</span>,<span class="string">"rs"</span>,<span class="string">"e"</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="concat">concat</h4><p><code>concat</code> 拍扁列表</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; concat [<span class="string">"foo"</span>,<span class="string">"bar"</span>,<span class="string">"car"</span>]  </span><br><span class="line"><span class="string">"foobarcar"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; concat [[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>]]  </span><br><span class="line">[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="concatMap">concatMap</h4><p><code>concatMap</code> 先 <code>map</code> 后 <code>concat</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; concatMap (replicate <span class="number">4</span>) [<span class="number">1.</span>.<span class="number">3</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="and">and</h4><p><code>and</code> 返回列表是否全是 <code>true</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; and $ map (&gt;<span class="number">4</span>) [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]  </span><br><span class="line"><span class="type">True</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; and $ map (==<span class="number">4</span>) [<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">4</span>]  </span><br><span class="line"><span class="type">False</span></span><br></pre></td></tr></table></figure>
+<h4 id="or">or</h4><p><code>or</code> 返回列表是否存在 true</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; or $ map (==<span class="number">4</span>) [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>]  </span><br><span class="line"><span class="type">True</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; or $ map (&gt;<span class="number">4</span>) [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line"><span class="type">False</span></span><br></pre></td></tr></table></figure>
+<h4 id="any">any</h4><p><code>any</code> 返回列表是否存在元素满足条件</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; any (==<span class="number">4</span>) [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">4</span>]  </span><br><span class="line"><span class="type">True</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; any (`elem` ['<span class="type">A'</span>..'<span class="type">Z'</span>]) <span class="string">"HEYGUYSwhatsup"</span>  </span><br><span class="line"><span class="type">True</span></span><br></pre></td></tr></table></figure>
+<h4 id="all">all</h4><p><code>all</code> 返回列表是否全部元素满足条件</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ghci&#62; all (&#62;4) [6,9,10]  &#10;True  &#10;ghci&#62; all (`elem` [&#39;A&#39;..&#39;Z&#39;]) &#34;HEYGUYSwhatsup&#34;  &#10;False</span><br></pre></td></tr></table></figure>
+<h4 id="iterate">iterate</h4><p><code>iterate</code> 返回重复迭代的结果</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; take <span class="number">10</span> $ iterate (*<span class="number">2</span>) <span class="number">1</span>  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">16</span>,<span class="number">32</span>,<span class="number">64</span>,<span class="number">128</span>,<span class="number">256</span>,<span class="number">512</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; take <span class="number">3</span> $ iterate (++ <span class="string">"haha"</span>) <span class="string">"haha"</span>  </span><br><span class="line">[<span class="string">"haha"</span>,<span class="string">"hahahaha"</span>,<span class="string">"hahahahahaha"</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="splitAt">splitAt</h4><p><code>splitAt</code> 在指定位置分隔数组</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; splitAt <span class="number">3</span> <span class="string">"heyman"</span>  </span><br><span class="line">(<span class="string">"hey"</span>,<span class="string">"man"</span>)  </span><br><span class="line"><span class="title">ghci</span>&gt; splitAt <span class="number">100</span> <span class="string">"heyman"</span>  </span><br><span class="line">(<span class="string">"heyman"</span>,<span class="string">""</span>)  </span><br><span class="line"><span class="title">ghci</span>&gt; splitAt (-<span class="number">3</span>) <span class="string">"heyman"</span>  </span><br><span class="line">(<span class="string">""</span>,<span class="string">"heyman"</span>)  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="keyword">let</span> (a,b) = splitAt <span class="number">3</span> <span class="string">"foobar"</span> <span class="keyword">in</span> b ++ a  </span><br><span class="line"><span class="string">"barfoo"</span></span><br></pre></td></tr></table></figure>
+<h4 id="span">span</h4><p><code>span</code> 将列表分割为满足条件的列表和不满足条件的列表</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; span (/=<span class="number">4</span>) [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]  </span><br><span class="line">([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>])</span><br></pre></td></tr></table></figure>
+<h4 id="break">break</h4><p><code>break</code> 在满足条件时分割列表</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; break (==<span class="number">4</span>) [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]  </span><br><span class="line">([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>])</span><br></pre></td></tr></table></figure>
+<h4 id="partition">partition</h4><p><code>partition</code> 类似 <code>span</code> 和 <code>break</code> 不过会对整个列表进行过滤。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; partition (`elem` ['<span class="type">A'</span>..'<span class="type">Z'</span>]) <span class="string">"BOBsidneyMORGANeddy"</span>  </span><br><span class="line">(<span class="string">"BOBMORGAN"</span>,<span class="string">"sidneyeddy"</span>)  </span><br><span class="line"><span class="title">ghci</span>&gt; partition (&gt;<span class="number">3</span>) [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">7</span>]  </span><br><span class="line">([<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>],[<span class="number">1</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>])  </span><br><span class="line"><span class="title">ghci</span>&gt; span (`elem` ['<span class="type">A'</span>..'<span class="type">Z'</span>]) <span class="string">"BOBsidneyMORGANeddy"</span>  </span><br><span class="line">(<span class="string">"BOB"</span>,<span class="string">"sidneyMORGANeddy"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="sort">sort</h4><p><code>sort</code> 列表排序</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; sort [<span class="number">8</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">2</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; sort <span class="string">"This will be sorted soon"</span>  </span><br><span class="line"><span class="string">"    Tbdeehiillnooorssstw"</span></span><br></pre></td></tr></table></figure>
+<h4 id="group">group</h4><p><code>group</code> 列表分组</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; group [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]  </span><br><span class="line">[[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">3</span>],[<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>],[<span class="number">5</span>],[<span class="number">6</span>],[<span class="number">7</span>]]  </span><br><span class="line"><span class="title">ghci</span>&gt; map (\l@(x:xs) -&gt; (x,length l)) . group . sort $ [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]  </span><br><span class="line">[(<span class="number">1</span>,<span class="number">4</span>),(<span class="number">2</span>,<span class="number">7</span>),(<span class="number">3</span>,<span class="number">2</span>),(<span class="number">5</span>,<span class="number">1</span>),(<span class="number">6</span>,<span class="number">1</span>),(<span class="number">7</span>,<span class="number">1</span>)]</span><br></pre></td></tr></table></figure>
+<h4 id="isPrefixOf">isPrefixOf</h4><p><code>isPrefixOf</code> 判断是否为前缀</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="string">"hey"</span> `isPrefixOf` <span class="string">"hey there!"</span>  </span><br><span class="line"><span class="type">True</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="string">"hey"</span> `isPrefixOf` <span class="string">"oh hey there!"</span>  </span><br><span class="line"><span class="type">False</span></span><br></pre></td></tr></table></figure>
+<h4 id="isInfixOf">isInfixOf</h4><p><code>isInfixOf</code> 判断是否为中缀</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="string">"cat"</span> `isInfixOf` <span class="string">"im a cat burglar"</span>  </span><br><span class="line"><span class="type">True</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="string">"Cat"</span> `isInfixOf` <span class="string">"im a cat burglar"</span>  </span><br><span class="line"><span class="type">False</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="string">"cats"</span> `isInfixOf` <span class="string">"im a cat burglar"</span>  </span><br><span class="line"><span class="type">False</span></span><br></pre></td></tr></table></figure>
+<h4 id="isSuffixOf">isSuffixOf</h4><p><code>isSuffixOf</code> 判断是否为后缀</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="string">"there!"</span> `isSuffixOf` <span class="string">"oh hey there!"</span>  </span><br><span class="line"><span class="type">True</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="string">"there!"</span> `isSuffixOf` <span class="string">"oh hey there"</span>  </span><br><span class="line"><span class="type">False</span></span><br></pre></td></tr></table></figure>
+<h4 id="lines">lines</h4><p><code>lines</code> 将字符串拆为多行</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; lines <span class="string">"first line\nsecond line\nthird line"</span>  </span><br><span class="line">[<span class="string">"first line"</span>,<span class="string">"second line"</span>,<span class="string">"third line"</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="unlines">unlines</h4><p><code>unlines</code> 与 <code>lines</code> 相反</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; unlines [<span class="string">"first line"</span>, <span class="string">"second line"</span>, <span class="string">"third line"</span>]  </span><br><span class="line"><span class="string">"first line\nsecond line\nthird line\n"</span></span><br></pre></td></tr></table></figure>
+<h4 id="words">words</h4><p><code>words</code> 将字符串拆成多个词组</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; words <span class="string">"hey these are the words in this sentence"</span>  </span><br><span class="line">[<span class="string">"hey"</span>,<span class="string">"these"</span>,<span class="string">"are"</span>,<span class="string">"the"</span>,<span class="string">"words"</span>,<span class="string">"in"</span>,<span class="string">"this"</span>,<span class="string">"sentence"</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; words <span class="string">"hey these           are    the words in this\nsentence"</span>  </span><br><span class="line">[<span class="string">"hey"</span>,<span class="string">"these"</span>,<span class="string">"are"</span>,<span class="string">"the"</span>,<span class="string">"words"</span>,<span class="string">"in"</span>,<span class="string">"this"</span>,<span class="string">"sentence"</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="unwords">unwords</h4><p><code>unwords</code> 与 <code>words</code> 相反</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; unwords [<span class="string">"hey"</span>,<span class="string">"there"</span>,<span class="string">"mate"</span>]  </span><br><span class="line"><span class="string">"hey there mate"</span></span><br></pre></td></tr></table></figure>
+<h4 id="nub">nub</h4><p><code>nub</code> 移除重复元素，获得最小核心</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; nub [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; nub <span class="string">"Lots of words and stuff"</span>  </span><br><span class="line"><span class="string">"Lots fwrdanu"</span></span><br></pre></td></tr></table></figure>
+<h4 id="delete">delete</h4><p><code>delete</code> 移除第一个指定元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; delete 'h' <span class="string">"hey there ghang!"</span>  </span><br><span class="line"><span class="string">"ey there ghang!"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; delete 'h' . delete 'h' $ <span class="string">"hey there ghang!"</span>  </span><br><span class="line"><span class="string">"ey tere ghang!"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; delete 'h' . delete 'h' . delete 'h' $ <span class="string">"hey there ghang!"</span>  </span><br><span class="line"><span class="string">"ey tere gang!"</span></span><br></pre></td></tr></table></figure>
+<h4 id="\\">\\</h4><p><code>\\</code> 去除共同部分</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; [<span class="number">1.</span>.<span class="number">10</span>] \\ [<span class="number">2</span>,<span class="number">5</span>,<span class="number">9</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="string">"Im a big baby"</span> \\ <span class="string">"big"</span>  </span><br><span class="line"><span class="string">"Im a  baby"</span></span><br></pre></td></tr></table></figure>
+<h4 id="union">union</h4><p><code>union</code> 集合并</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="string">"hey man"</span> `union` <span class="string">"man what's up"</span>  </span><br><span class="line"><span class="string">"hey manwt'sup"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; [<span class="number">1.</span>.<span class="number">7</span>] `union` [<span class="number">5.</span>.<span class="number">10</span>]  </span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="intersect">intersect</h4><p><code>intersect</code> 集合交</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; [<span class="number">1.</span>.<span class="number">7</span>] `intersect` [<span class="number">5.</span>.<span class="number">10</span>]  </span><br><span class="line">[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="fst">fst</h4><p><code>fst</code> 获取二元组的第一个元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; fst (<span class="number">8</span>,<span class="number">11</span>)  </span><br><span class="line"><span class="number">8</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; fst (<span class="string">"Wow"</span>, <span class="type">False</span>)  </span><br><span class="line"><span class="string">"Wow"</span></span><br></pre></td></tr></table></figure>
+<h4 id="snd">snd</h4><p><code>snd</code> 获取二元组的第二个元素</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; snd (<span class="number">8</span>,<span class="number">11</span>)  </span><br><span class="line"><span class="number">11</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; snd (<span class="string">"Wow"</span>, <span class="type">False</span>)  </span><br><span class="line"><span class="type">False</span></span><br></pre></td></tr></table></figure>
+<h4 id="flip">flip</h4><p><code>flip</code> 返回函数的翻转版本</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; flip zip [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>] <span class="string">"hello"</span>  </span><br><span class="line">[('h',<span class="number">1</span>),('e',<span class="number">2</span>),('l',<span class="number">3</span>),('l',<span class="number">4</span>),('o',<span class="number">5</span>)]  </span><br><span class="line"><span class="title">ghci</span>&gt; zipWith (flip' div) [<span class="number">2</span>,<span class="number">2.</span>.] [<span class="number">10</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">2</span>]  </span><br><span class="line">[<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="when">when</h4><p><code>when</code> 相当于没有 <code>else</code> 的 <code>if</code> </p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> Control.Monad   </span></span><br><span class="line">  </span><br><span class="line"><span class="title">main</span> = <span class="keyword">do</span>  </span><br><span class="line">    c &lt;- getChar  </span><br><span class="line">    when (c /= ' ') $ <span class="keyword">do</span>  </span><br><span class="line">        putChar c  </span><br><span class="line">        main</span><br></pre></td></tr></table></figure>
+<h4 id="sequence">sequence</h4><p><code>sequence</code> 执行一系列的输入输出操作</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">main</span> = <span class="keyword">do</span>  </span><br><span class="line">    a &lt;- getLine  </span><br><span class="line">    b &lt;- getLine  </span><br><span class="line">    c &lt;- getLine  </span><br><span class="line">    print [a,b,c]  </span><br><span class="line"><span class="comment">-- 相当于</span></span><br><span class="line"><span class="title">main</span> = <span class="keyword">do</span>  </span><br><span class="line">    rs &lt;- sequence [getLine, getLine, getLine]  </span><br><span class="line">    print rs</span><br></pre></td></tr></table></figure>
+<h4 id="mapM">mapM</h4><p><code>mapM</code> 先进行 <code>map</code> 再遍历返回的 Monad</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; sequence (map print [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])  </span><br><span class="line"><span class="number">1</span>  </span><br><span class="line"><span class="number">2</span>  </span><br><span class="line"><span class="number">3</span>  </span><br><span class="line"><span class="number">4</span>  </span><br><span class="line"><span class="number">5</span>  </span><br><span class="line">[(),(),(),(),()]  </span><br><span class="line"><span class="comment">-- 相当于</span></span><br><span class="line"><span class="title">ghci</span>&gt; mapM print [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line"><span class="number">1</span>  </span><br><span class="line"><span class="number">2</span>  </span><br><span class="line"><span class="number">3</span>  </span><br><span class="line">[(),(),()]</span><br></pre></td></tr></table></figure>
+<p>mapM_</p>
+<p><code>mapM_</code> 类似 <code>mapM</code> 只是不关心返回的结果</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; mapM_ print [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line"><span class="number">1</span>  </span><br><span class="line"><span class="number">2</span>  </span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Haskell/">Haskell</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://en.ors-sro.com/Haskell-codes/" data-title="Haskell 代码片段 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/Covariant-and-Contravariant/"  title="逆变和协变">
+ <strong>下一篇：</strong><br/> 
+ <span>逆变和协变
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="Haskell-codes/" data-title="Haskell 代码片段" data-url="http://en.ors-sro.com/Haskell-codes/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#succ"><span class="toc-number">1.</span> <span class="toc-text">succ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#max"><span class="toc-number">2.</span> <span class="toc-text">max</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#min"><span class="toc-number">3.</span> <span class="toc-text">min</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#!!"><span class="toc-number">4.</span> <span class="toc-text">!!</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#head"><span class="toc-number">5.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tail"><span class="toc-number">6.</span> <span class="toc-text">tail</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#last"><span class="toc-number">7.</span> <span class="toc-text">last</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#init"><span class="toc-number">8.</span> <span class="toc-text">init</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inits"><span class="toc-number">9.</span> <span class="toc-text">inits</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tails"><span class="toc-number">10.</span> <span class="toc-text">tails</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#length"><span class="toc-number">11.</span> <span class="toc-text">length</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">12.</span> <span class="toc-text">null</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reverse"><span class="toc-number">13.</span> <span class="toc-text">reverse</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#take"><span class="toc-number">14.</span> <span class="toc-text">take</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#drop"><span class="toc-number">15.</span> <span class="toc-text">drop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#maximum"><span class="toc-number">16.</span> <span class="toc-text">maximum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#minimum"><span class="toc-number">17.</span> <span class="toc-text">minimum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sum"><span class="toc-number">18.</span> <span class="toc-text">sum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#product"><span class="toc-number">19.</span> <span class="toc-text">product</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#elem"><span class="toc-number">20.</span> <span class="toc-text">elem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#elemIndex"><span class="toc-number">21.</span> <span class="toc-text">elemIndex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#elemIndices"><span class="toc-number">22.</span> <span class="toc-text">elemIndices</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#find"><span class="toc-number">23.</span> <span class="toc-text">find</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#findIndex"><span class="toc-number">24.</span> <span class="toc-text">findIndex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cycle"><span class="toc-number">25.</span> <span class="toc-text">cycle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#repeat"><span class="toc-number">26.</span> <span class="toc-text">repeat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zip"><span class="toc-number">27.</span> <span class="toc-text">zip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zipWith"><span class="toc-number">28.</span> <span class="toc-text">zipWith</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zip3"><span class="toc-number">29.</span> <span class="toc-text">zip3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zipWith3"><span class="toc-number">30.</span> <span class="toc-text">zipWith3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#map"><span class="toc-number">31.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#filter"><span class="toc-number">32.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#takeWhile"><span class="toc-number">33.</span> <span class="toc-text">takeWhile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dropWhile"><span class="toc-number">34.</span> <span class="toc-text">dropWhile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#intersperse"><span class="toc-number">35.</span> <span class="toc-text">intersperse</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#intercalate"><span class="toc-number">36.</span> <span class="toc-text">intercalate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transpose"><span class="toc-number">37.</span> <span class="toc-text">transpose</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#concat"><span class="toc-number">38.</span> <span class="toc-text">concat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#concatMap"><span class="toc-number">39.</span> <span class="toc-text">concatMap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#and"><span class="toc-number">40.</span> <span class="toc-text">and</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#or"><span class="toc-number">41.</span> <span class="toc-text">or</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#any"><span class="toc-number">42.</span> <span class="toc-text">any</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#all"><span class="toc-number">43.</span> <span class="toc-text">all</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#iterate"><span class="toc-number">44.</span> <span class="toc-text">iterate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#splitAt"><span class="toc-number">45.</span> <span class="toc-text">splitAt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#span"><span class="toc-number">46.</span> <span class="toc-text">span</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#break"><span class="toc-number">47.</span> <span class="toc-text">break</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#partition"><span class="toc-number">48.</span> <span class="toc-text">partition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sort"><span class="toc-number">49.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#group"><span class="toc-number">50.</span> <span class="toc-text">group</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isPrefixOf"><span class="toc-number">51.</span> <span class="toc-text">isPrefixOf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isInfixOf"><span class="toc-number">52.</span> <span class="toc-text">isInfixOf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isSuffixOf"><span class="toc-number">53.</span> <span class="toc-text">isSuffixOf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lines"><span class="toc-number">54.</span> <span class="toc-text">lines</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unlines"><span class="toc-number">55.</span> <span class="toc-text">unlines</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#words"><span class="toc-number">56.</span> <span class="toc-text">words</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unwords"><span class="toc-number">57.</span> <span class="toc-text">unwords</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nub"><span class="toc-number">58.</span> <span class="toc-text">nub</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#delete"><span class="toc-number">59.</span> <span class="toc-text">delete</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#\\"><span class="toc-number">60.</span> <span class="toc-text">\\</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#union"><span class="toc-number">61.</span> <span class="toc-text">union</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#intersect"><span class="toc-number">62.</span> <span class="toc-text">intersect</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fst"><span class="toc-number">63.</span> <span class="toc-text">fst</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#snd"><span class="toc-number">64.</span> <span class="toc-text">snd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flip"><span class="toc-number">65.</span> <span class="toc-text">flip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#when"><span class="toc-number">66.</span> <span class="toc-text">when</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sequence"><span class="toc-number">67.</span> <span class="toc-text">sequence</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mapM"><span class="toc-number">68.</span> <span class="toc-text">mapM</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/玩/" title="玩">玩<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/SICP/" title="SICP">SICP<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Haskell/" title="Haskell">Haskell<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yilia/" title="yilia">yilia<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Whitespace/" title="Whitespace">Whitespace<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lambda/" title="lambda">lambda<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Quine/" title="Quine">Quine<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Promise/" title="Promise">Promise<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/YAML/" title="YAML">YAML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多平台部署/" title="多平台部署">多平台部署<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/polyglot/" title="polyglot">polyglot<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ZeroNet/" title="ZeroNet">ZeroNet<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动动脑/" title="动动脑">动动脑<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/编程字体/" title="编程字体">编程字体<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/FiraCode/" title="FiraCode">FiraCode<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://snatix.com" target="_blank" title="大喵的新窝">Snatic&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/miaomiaomiao.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 喜欢拖鞋，喜欢大海 <br/>
+			向拖延症低头 Orz</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="rtafip">rtafip</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="https://dn-hb0716.qbox.me/duoshuo.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="//widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="//service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"rtafip"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  </body>
+</html>
