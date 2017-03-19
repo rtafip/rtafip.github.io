@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2017-03-12T08:39:23.988Z</updated>
+  <updated>2017-03-19T10:46:01.827Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[ES6 Generator]]></title>
+    <link href="http://en.ors-sro.com/ES6-Generator/"/>
+    <id>http://en.ors-sro.com/ES6-Generator/</id>
+    <published>2017-03-19T10:09:15.000Z</published>
+    <updated>2017-03-19T10:46:01.827Z</updated>
+    <content type="html"><![CDATA[<p>类似 C# 的 IEmulator</p>
+<a id="more"></a>
+<h2 id="定义">定义</h2><p>ES6 新增了 Generator ，类似于 C# 的 IEmulator 。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params"></span>) </span>&#123;  <span class="comment">// 函数前面加 * 表示是 generator 函数</span></span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span> <span class="comment">// yield 返回一个值</span></span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span></span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> g = gen()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// undefine</span></span><br></pre></td></tr></table></figure>
+<p>Generator 可以是无限的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">Fibonacci</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="pi">  "use strict"</span></span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> b = <span class="number">1</span></span><br><span class="line">  <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">yield</span> a</span><br><span class="line">    <span class="keyword">let</span> sum = a + b</span><br><span class="line">    a = b</span><br><span class="line">    b = sum</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打印前十个斐波那契数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = Fibonacci();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(f.next().value)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0 1 1 2 3 5 8 13 21 54</span></span><br></pre></td></tr></table></figure>
+<p>Generator 可以嵌套</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">yield</span>* AnotherGen()</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span></span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">AnotherGen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="string">"a"</span></span><br><span class="line">  <span class="keyword">yield</span> <span class="string">"b"</span></span><br><span class="line">  <span class="keyword">yield</span> <span class="string">"c"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> g = gen()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// "a"</span></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// "b"</span></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// "c"</span></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(g.next().value) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>Generator 可以模拟线程调度实现携程的效果，因为 Generator 可以让出控制权，达到暂停的效果。</p>
+<h2 id="参考">参考</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator" target="_blank" rel="external">MDN</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>类似 C# 的 IEmulator</p>]]>
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://en.ors-sro.com/tags/JavaScript/"/>
+    
+      <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[迁移到 ES6+]]></title>
@@ -2726,205 +2756,6 @@
     </summary>
     
       <category term="Javascript" scheme="http://en.ors-sro.com/tags/Javascript/"/>
-    
-      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[FiraCode]]></title>
-    <link href="http://en.ors-sro.com/FiraCode/"/>
-    <id>http://en.ors-sro.com/FiraCode/</id>
-    <published>2016-10-30T04:42:35.000Z</published>
-    <updated>2016-10-30T07:10:20.520Z</updated>
-    <content type="html"><![CDATA[<p>表示大于等于关系通常使用大于等于符号 <code>≥</code> ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 <code>&gt;=</code> 。能不能在不改变现有语言的情况下使用 <code>≥</code> 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =<br><a id="more"></a></p>
-<h2 id="合字">合字</h2><p>先来看一段 C 语言代码。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;number);</span><br><span class="line">	<span class="keyword">if</span> (<span class="number">0</span> &lt;= number &amp;&amp; number &lt;= <span class="number">60</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"你挂了！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"还好没挂！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<style type="text/css">
-    @font-face { 
-    font-family: FiraCode; 
-    src: url('/font/FiraCode-Regular.woff2'); 
-    } 
-
-    .article-content pre { 
-        font-family: FiraCode !important; 
-    }
-</style>
-
-
-<p>很简单的程序，好像没什么特别的。但是注意看第七行也就是第一个 <code>if</code> 中的 <code>≥</code> 符号。有没有发现它居然不是 <code>&gt;=</code> ，并不是作弊使用了 <code>≥</code> 不信你选择大于等于符号试试。（浏览器版本太低会看不到效果。建议升级 Chrome 或者使用水果机上的 Safari 浏览本页）</p>
-<p>选择时会发现，这个 <code>≥</code> 居然占了两个字符。也就是可以选择前一半，再选择后一半。</p>
-<p>并不是只是在网页上可以有这种效果。编辑器里面也是可以的。</p>
-<p><img src="/img/FiraCode/VS2015.png" alt="Visual Studio 2015 ≤可以被部分选择"></p>
-<p>为什么可以输入的是 <code>&gt;=</code> ，显示的却是 <code>≥</code> ，而编辑器识别的是 <code>&gt;=</code> 呢？</p>
-<p>因为使用了特殊的字体。这个字体中用到了<strong>合字</strong>（<a href="https://en.wikipedia.org/wiki/Typographic_ligature" target="_blank" rel="external">ligature</a>）技术</p>
-<p>合字，顾名思义，就是将字合到一起。</p>
-<p>比如 a 和 e 对应的合字是 æ 。</p>
-<p>其实 &amp; 是一个合字，由 e 和 t 合成。</p>
-<p><img src="/img/FiraCode/et.png" alt="&amp; 由 e 和 t 合成"></p>
-<p>使用了合字技术后，编辑器会将字体中指定的两个字符渲染为它们的合字。</p>
-<p>所以 <code>&gt;</code> 和 <code>=</code> 会被渲染为它们的合字 <code>≥</code> 。</p>
-<h2 id="FiraCode">FiraCode</h2><p><strong>FiraCode</strong> 是为数不多的支持合字的编程字体。</p>
-<p>支持将 <code>&gt;=</code> 转为 <code>≥</code> ，<code>-&gt;</code> 转为 <code>→</code> 和 <code>!=</code> 转为 <code>≠</code> 等。</p>
-<p>全部字符如下</p>
-<p><img src="/img/FiraCode/AllLigatures.png" alt="FiraCode 合字列表"></p>
-<p>在 VS2015 中启用 FiraCode 也很简单</p>
-<p>首先下载 <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">FiraCode</a> 字体。</p>
-<p>解压，打开 <strong>TTF</strong> 文件夹，在 FiraCode-Regular.ttf 上右键安装。 这样字体就安装完成。</p>
-<p>接着在 VS 修改字体。</p>
-<p>工具→选项→环境→字体和颜色→FiraCode</p>
-<p>试着输入 <code>&gt;=</code> 和 <code>!=</code> 看看吧。</p>
-<p>是不是看到了 <code>!=</code> 输入后直接变成了 <code>≠</code></p>
-<p><a href="https://github.com/tonsky/FiraCode/issues/273" target="_blank" rel="external">FiraCode 支持</a> <code>-&gt;</code> 转为 <code>→</code> 但是 VS 不支持，所以看不到效果。（鬼知道为什么选择性地支持合字。）</p>
-<p>FiraCode 除了支持 VS 之外还支持以下编辑器</p>
-<table>
-<thead>
-<tr>
-<th>支持</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Anjuta (unless at the EOF)</td>
-</tr>
-<tr>
-<td>AppCode (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Atom 1.1 or newer (instructions)</td>
-</tr>
-<tr>
-<td>BBEdit (instructions)</td>
-</tr>
-<tr>
-<td>Brackets (with this plugin)</td>
-</tr>
-<tr>
-<td>Chocolat</td>
-</tr>
-<tr>
-<td>CLion (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Coda 2</td>
-</tr>
-<tr>
-<td>CodeLite</td>
-</tr>
-<tr>
-<td>Eclipse (Linux)</td>
-</tr>
-<tr>
-<td>Geany</td>
-</tr>
-<tr>
-<td>gEdit / Pluma</td>
-</tr>
-<tr>
-<td>GNOME Builder</td>
-</tr>
-<tr>
-<td>IntelliJ IDEA (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Kate, KWrite</td>
-</tr>
-<tr>
-<td>Komodo</td>
-</tr>
-<tr>
-<td>Leafpad</td>
-</tr>
-<tr>
-<td>LibreOffice</td>
-</tr>
-<tr>
-<td>LightTable (instructions)</td>
-</tr>
-<tr>
-<td>MacVim 7.4 or newer (instructions)</td>
-</tr>
-<tr>
-<td>Mancy</td>
-</tr>
-<tr>
-<td>Meld</td>
-</tr>
-<tr>
-<td>Mousepad</td>
-</tr>
-<tr>
-<td>NetBeans</td>
-</tr>
-<tr>
-<td>Notepad (Win)</td>
-</tr>
-<tr>
-<td>PhpStorm (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>PyCharm (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>QtCreator</td>
-</tr>
-<tr>
-<td>RStudio (instructions)</td>
-</tr>
-<tr>
-<td>RubyMine (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Scratch</td>
-</tr>
-<tr>
-<td>TextAdept (Linux, Mac)</td>
-</tr>
-<tr>
-<td>TextEdit</td>
-</tr>
-<tr>
-<td>TextMate 2</td>
-</tr>
-<tr>
-<td>Visual Studio 2015</td>
-</tr>
-<tr>
-<td>Visual Studio Code (instructions)</td>
-</tr>
-<tr>
-<td>WebStorm (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Xamarin Studio/Monodevelop</td>
-</tr>
-<tr>
-<td>Xcode (with this plugin)</td>
-</tr>
-<tr>
-<td>Probably work: Smultron, Vico</td>
-</tr>
-</tbody>
-</table>
-<p>除了 FiraCode 还有其他支持合字的编程字体</p>
-<ul>
-<li><a href="https://github.com/i-tu/Hasklig" target="_blank" rel="external">Hasklig (free)</a></li>
-<li><a href="http://www.fsd.it/fonts/pragmatapro.htm" target="_blank" rel="external">PragmataPro (€59)</a></li>
-<li><a href="http://larsenwork.com/monoid/" target="_blank" rel="external">Monoid (free)</a></li>
-<li><a href="https://github.com/kika/fixedsys" target="_blank" rel="external">Fixedsys Excelsior (free)</a></li>
-<li><a href="https://be5invis.github.io/Iosevka/" target="_blank" rel="external">Iosevka (free)</a></li>
-<li><a href="https://github.com/SSNikolaevich/DejaVuSansCode" target="_blank" rel="external">DejaVu Sans Code (free)</a></li>
-</ul>
-<h2 id="最后">最后</h2><p>支持合字的编程字体还很少。使用合字能够让代码看起来更易读，而且能一眼看出错误的字符输入。但是 FiraCode 感觉不是很好看。什么时候有大神能让 Consolas 支持合字技术啊。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>表示大于等于关系通常使用大于等于符号 <code>≥</code> ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 <code>&gt;=</code> 。能不能在不改变现有语言的情况下使用 <code>≥</code> 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =<br>]]>
-    
-    </summary>
-    
-      <category term="FiraCode" scheme="http://en.ors-sro.com/tags/FiraCode/"/>
-    
-      <category term="编程字体" scheme="http://en.ors-sro.com/tags/%E7%BC%96%E7%A8%8B%E5%AD%97%E4%BD%93/"/>
     
       <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
     
