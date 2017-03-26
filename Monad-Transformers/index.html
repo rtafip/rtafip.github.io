@@ -1,0 +1,621 @@
+
+ <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  
+    <title>Monad Transformers | 拖鞋党的拖鞋摊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="拖鞋党">
+    
+
+    
+    <meta name="description" content="组合两个 Monad 的 Monad">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Monad Transformers">
+<meta property="og:url" content="http://en.ors-sro.com/Monad-Transformers/index.html">
+<meta property="og:site_name" content="拖鞋党的拖鞋摊">
+<meta property="og:description" content="组合两个 Monad 的 Monad">
+<meta property="og:updated_time" content="2017-03-26T13:04:26.901Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Monad Transformers">
+<meta name="twitter:description" content="组合两个 Monad 的 Monad">
+
+    
+    <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/me.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/me.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/logo.png" alt="拖鞋党的拖鞋摊" title="拖鞋党的拖鞋摊"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="拖鞋党的拖鞋摊">拖鞋党的拖鞋摊</a></h1>
+				<h2 class="blog-motto">写一些有的没的</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:en.ors-sro.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/Monad-Transformers/" title="Monad Transformers" itemprop="url">Monad Transformers</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-26T11:22:50.000Z" itemprop="datePublished"> Published 2017-03-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#困境"><span class="toc-number">1.</span> <span class="toc-text">困境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">2.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改写"><span class="toc-number">3.</span> <span class="toc-text">改写</span></a></li></ol>
+		
+		</div>
+		
+		<p>组合两个 Monad 的 Monad</p>
+<a id="more"></a>
+<p>本文为 <a href="https://en.wikibooks.org/wiki/Haskell/Monad_transformers" target="_blank" rel="external">Monad Transformers</a> 的学习笔记。</p>
+<h2 id="困境">困境</h2><p>有时候需要校验输入内容。比如验证是否为符合要求的密码</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> Data.Char</span></span><br><span class="line"><span class="import"><span class="keyword">import</span> Data.Maybe</span></span><br><span class="line"></span><br><span class="line"><span class="title">isValid</span> :: <span class="type">String</span> -&gt; <span class="type">Bool</span></span><br><span class="line"><span class="title">isValid</span> s = length s &gt;= <span class="number">8</span></span><br><span class="line">            &amp;&amp; any isAlpha s</span><br><span class="line">            &amp;&amp; any isNumber s</span><br><span class="line">            &amp;&amp; any isPunctuation s</span><br></pre></td></tr></table></figure>
+<p>获取输入</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 因为需要携带值，所以这里使用 Maybe String 而不是 Bool</span></span><br><span class="line"><span class="title">getPassphrase</span> :: <span class="type">IO</span> (<span class="type">Maybe</span> <span class="type">String</span>)</span><br><span class="line"><span class="title">getPassphrase</span> = <span class="keyword">do</span> s &lt;- getLine</span><br><span class="line">                   <span class="keyword">if</span> isValid s <span class="keyword">then</span> return $ <span class="type">Just</span> s</span><br><span class="line">                                <span class="keyword">else</span> return <span class="type">Nothing</span></span><br></pre></td></tr></table></figure>
+<p>校验</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">askPassphrase</span> :: <span class="type">IO</span> ()</span><br><span class="line"><span class="title">askPassphrase</span> = <span class="keyword">do</span> putStrLn <span class="string">"请输入密码："</span></span><br><span class="line">                   maybe_value &lt;- getPassphrase</span><br><span class="line">                   <span class="keyword">if</span> isJust maybe_value <span class="comment">-- 这里手动判断是否合法</span></span><br><span class="line">                     <span class="keyword">then</span> <span class="keyword">do</span> putStrLn maybe_value ++ <span class="string">" 是个不错的密码"</span> </span><br><span class="line">                     <span class="keyword">else</span> return ()</span><br></pre></td></tr></table></figure>
+<p>代码中使用 <code>isJust</code> 判断是否合法。在数量比较少的情况下不是什么问题。通常使用 Maybe Monad 是不需要手动判断是否为 <code>Just</code> 。因为有 <code>&gt;&gt;=</code> 。</p>
+<p>所以这里是否能使用 Maybe Monad 来避免手动检查呢。</p>
+<p>假设去点 <code>isJust</code> 的三行判断代码。从新编写一个函数</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">askPassphrase</span> :: <span class="type">IO</span> ()</span><br><span class="line"><span class="title">askPassphrase</span> = <span class="keyword">do</span> putStrLn <span class="string">"请输入密码："</span></span><br><span class="line">                   maybe_value &lt;- getPassphrase</span><br><span class="line">                   maybe_value &gt;&gt;= f</span><br></pre></td></tr></table></figure>
+<p>这个 <code>f</code> 的类型是什么呢？</p>
+<p>首先 <code>askPassphrase</code> 的类型是 <code>IO ()</code> 。所以 <code>f</code> 需要返回 <code>IO ()</code></p>
+<p>而 <code>f</code> 又接受一个 <code>String</code> 类型的参数。</p>
+<p>所以 <code>f</code> 的类型应该是</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">f</span> :: <span class="type">String</span> -&gt; <span class="type">IO</span> ()</span><br></pre></td></tr></table></figure>
+<p>但是这样不能用于 <code>maybe_value &gt;&gt;= f</code> 因为 <code>&gt;&gt;=</code> 的类型是</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Prelude</span>&gt; :t (&gt;&gt;=)</span><br><span class="line">(&gt;&gt;=) :: <span class="type">Monad</span> m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b</span><br></pre></td></tr></table></figure>
+<p>所以要使用 <code>&gt;&gt;=</code> ，<code>f</code> 的类型必须是</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">f</span> :: <span class="type">String</span> -&gt; <span class="type">Maybe</span> <span class="type">String</span></span><br></pre></td></tr></table></figure>
+<p>显然两个类型冲突了，所以写不出来。</p>
+<p>所以需要一个能够组合 Maybe Monad 和 IO Monad 的类型。</p>
+<p>这个就是 Monad Transformers</p>
+<h2 id="定义">定义</h2><p>定义 Maybe Monad 的 Monad Transformer <code>MaybeT</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">newtype</span> <span class="type">MaybeT</span> m a = <span class="type">MaybeT</span> <span class="container">&#123; <span class="title">runMaybeT</span> :: <span class="title">m</span> (<span class="type">Maybe</span> <span class="title">a</span>) &#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>其中 m 可以为任意 Monad</p>
+<p>Monad Transformer 本身也是 Monad 。所以需要实现 <code>return</code> 和 <code>&gt;&gt;=</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Monad</span> m =&gt; <span class="type">Monad</span> <span class="container">(<span class="type">MaybeT</span> <span class="title">m</span>)</span> <span class="keyword">where</span></span></span><br><span class="line">    return  = <span class="type">MaybeT</span> . return . <span class="type">Just</span></span><br><span class="line">    <span class="comment">-- return a = MaybeT . return . Just a</span></span><br></pre></td></tr></table></figure>
+<p><code>Just</code> 将 a 转化为 <code>Maybe a</code> 类型</p>
+<p><code>return</code> 将 <code>Maybe a</code> 转化为 <code>m (Maybe a)</code> 类型</p>
+<p><code>MaybeT</code> 将 <code>m (Maybe a)</code> 转化为 <code>MaybeT m (Maybe a)</code> 类型。</p>
+<p>接着实现 <code>&gt;&gt;=</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- (&gt;&gt;=) 定义中的 m 为 MaybeT m</span></span><br><span class="line">(&gt;&gt;=) :: <span class="type">MaybeT</span> m a -&gt; (a -&gt; <span class="type">MaybeT</span> m b) -&gt; <span class="type">MaybeT</span> m b</span><br><span class="line"></span><br><span class="line"><span class="title">x</span> &gt;&gt;= f = <span class="type">MaybeT</span> $ <span class="keyword">do</span> maybe_value &lt;- runMaybeT x</span><br><span class="line">                      <span class="keyword">case</span> maybe_value <span class="keyword">of</span></span><br><span class="line">                           <span class="type">Nothing</span>    -&gt; return <span class="type">Nothing</span></span><br><span class="line">                           <span class="type">Just</span> value -&gt; runMaybeT $ f value</span><br></pre></td></tr></table></figure>
+<p>为了使用方便，顺便实现相应的 MonadPlus 和 MonadTrans</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Monad</span> m =&gt; <span class="type">MonadPlus</span> <span class="container">(<span class="type">MaybeT</span> <span class="title">m</span>)</span> <span class="keyword">where</span></span></span><br><span class="line">    mzero     = <span class="type">MaybeT</span> $ return <span class="type">Nothing</span></span><br><span class="line">    mplus x y = <span class="type">MaybeT</span> $ <span class="keyword">do</span> maybe_value &lt;- runMaybeT x</span><br><span class="line">                            <span class="keyword">case</span> maybe_value <span class="keyword">of</span></span><br><span class="line">                                 <span class="type">Nothing</span>    -&gt; runMaybeT y</span><br><span class="line">                                 <span class="type">Just</span> _     -&gt; return maybe_value</span><br><span class="line"><span class="class"></span><br><span class="line"><span class="keyword">instance</span> <span class="type">MonadTrans</span> <span class="type">MaybeT</span> <span class="keyword">where</span></span></span><br><span class="line">    lift = <span class="type">MaybeT</span> . (liftM <span class="type">Just</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="改写">改写</h2><p>有了 <code>MaybeT</code> 代码可以这么写</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">getValidPassphrase</span> :: <span class="type">MaybeT</span> <span class="type">IO</span> <span class="type">String</span></span><br><span class="line"><span class="title">getValidPassphrase</span> = <span class="keyword">do</span> s &lt;- lift getLine <span class="comment">-- 将 IO String 提升为 Maybe (IO String)</span></span><br><span class="line">                        guard (isValid s) <span class="comment">-- MonadPlus 类型类使我们能够使用 guard. 这里 s 为 String 类型</span></span><br><span class="line">                        return s</span><br><span class="line"></span><br><span class="line"><span class="title">askPassphrase</span> :: <span class="type">MaybeT</span> <span class="type">IO</span> ()</span><br><span class="line"><span class="title">askPassphrase</span> = <span class="keyword">do</span> lift $ putStrLn <span class="string">"输入新密码:"</span> <span class="comment">-- 将 IO () 提升为 Maybe (IO ())</span></span><br><span class="line">                   value &lt;- getValidPassphrase <span class="comment">-- value 为 String 类型</span></span><br><span class="line">                   lift $ putStrLn <span class="string">"储存中..."</span></span><br></pre></td></tr></table></figure>
+<p>没有了检查的过程，因为全都藏在 <code>MaybeT</code> 的 <code>&gt;&gt;=</code> 里面了。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Haskell/">Haskell</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://en.ors-sro.com/Monad-Transformers/" data-title="Monad Transformers | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/ES6-Generator/"  title="ES6 Generator">
+ <strong>下一篇：</strong><br/> 
+ <span>ES6 Generator
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="Monad-Transformers/" data-title="Monad Transformers" data-url="http://en.ors-sro.com/Monad-Transformers/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#困境"><span class="toc-number">1.</span> <span class="toc-text">困境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">2.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改写"><span class="toc-number">3.</span> <span class="toc-text">改写</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/玩/" title="玩">玩<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/SICP/" title="SICP">SICP<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Haskell/" title="Haskell">Haskell<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yilia/" title="yilia">yilia<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Whitespace/" title="Whitespace">Whitespace<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lambda/" title="lambda">lambda<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Quine/" title="Quine">Quine<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Promise/" title="Promise">Promise<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/YAML/" title="YAML">YAML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多平台部署/" title="多平台部署">多平台部署<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/polyglot/" title="polyglot">polyglot<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ZeroNet/" title="ZeroNet">ZeroNet<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动动脑/" title="动动脑">动动脑<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/编程字体/" title="编程字体">编程字体<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://snatix.com" target="_blank" title="大喵的新窝">Snatic&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/miaomiaomiao.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 喜欢拖鞋，喜欢大海 <br/>
+			向拖延症低头 Orz</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="拖鞋党">拖鞋党</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="https://dn-hb0716.qbox.me/duoshuo.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="//widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="//service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"rtafip"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  </body>
+</html>

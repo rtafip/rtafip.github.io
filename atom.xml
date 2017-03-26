@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2017-03-19T10:46:01.827Z</updated>
+  <updated>2017-03-26T13:04:26.901Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Monad Transformers]]></title>
+    <link href="http://en.ors-sro.com/Monad-Transformers/"/>
+    <id>http://en.ors-sro.com/Monad-Transformers/</id>
+    <published>2017-03-26T11:22:50.000Z</published>
+    <updated>2017-03-26T13:04:26.901Z</updated>
+    <content type="html"><![CDATA[<p>组合两个 Monad 的 Monad</p>
+<a id="more"></a>
+<p>本文为 <a href="https://en.wikibooks.org/wiki/Haskell/Monad_transformers" target="_blank" rel="external">Monad Transformers</a> 的学习笔记。</p>
+<h2 id="困境">困境</h2><p>有时候需要校验输入内容。比如验证是否为符合要求的密码</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="import"><span class="keyword">import</span> Data.Char</span></span><br><span class="line"><span class="import"><span class="keyword">import</span> Data.Maybe</span></span><br><span class="line"></span><br><span class="line"><span class="title">isValid</span> :: <span class="type">String</span> -&gt; <span class="type">Bool</span></span><br><span class="line"><span class="title">isValid</span> s = length s &gt;= <span class="number">8</span></span><br><span class="line">            &amp;&amp; any isAlpha s</span><br><span class="line">            &amp;&amp; any isNumber s</span><br><span class="line">            &amp;&amp; any isPunctuation s</span><br></pre></td></tr></table></figure>
+<p>获取输入</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 因为需要携带值，所以这里使用 Maybe String 而不是 Bool</span></span><br><span class="line"><span class="title">getPassphrase</span> :: <span class="type">IO</span> (<span class="type">Maybe</span> <span class="type">String</span>)</span><br><span class="line"><span class="title">getPassphrase</span> = <span class="keyword">do</span> s &lt;- getLine</span><br><span class="line">                   <span class="keyword">if</span> isValid s <span class="keyword">then</span> return $ <span class="type">Just</span> s</span><br><span class="line">                                <span class="keyword">else</span> return <span class="type">Nothing</span></span><br></pre></td></tr></table></figure>
+<p>校验</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">askPassphrase</span> :: <span class="type">IO</span> ()</span><br><span class="line"><span class="title">askPassphrase</span> = <span class="keyword">do</span> putStrLn <span class="string">"请输入密码："</span></span><br><span class="line">                   maybe_value &lt;- getPassphrase</span><br><span class="line">                   <span class="keyword">if</span> isJust maybe_value <span class="comment">-- 这里手动判断是否合法</span></span><br><span class="line">                     <span class="keyword">then</span> <span class="keyword">do</span> putStrLn maybe_value ++ <span class="string">" 是个不错的密码"</span> </span><br><span class="line">                     <span class="keyword">else</span> return ()</span><br></pre></td></tr></table></figure>
+<p>代码中使用 <code>isJust</code> 判断是否合法。在数量比较少的情况下不是什么问题。通常使用 Maybe Monad 是不需要手动判断是否为 <code>Just</code> 。因为有 <code>&gt;&gt;=</code> 。</p>
+<p>所以这里是否能使用 Maybe Monad 来避免手动检查呢。</p>
+<p>假设去点 <code>isJust</code> 的三行判断代码。从新编写一个函数</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">askPassphrase</span> :: <span class="type">IO</span> ()</span><br><span class="line"><span class="title">askPassphrase</span> = <span class="keyword">do</span> putStrLn <span class="string">"请输入密码："</span></span><br><span class="line">                   maybe_value &lt;- getPassphrase</span><br><span class="line">                   maybe_value &gt;&gt;= f</span><br></pre></td></tr></table></figure>
+<p>这个 <code>f</code> 的类型是什么呢？</p>
+<p>首先 <code>askPassphrase</code> 的类型是 <code>IO ()</code> 。所以 <code>f</code> 需要返回 <code>IO ()</code></p>
+<p>而 <code>f</code> 又接受一个 <code>String</code> 类型的参数。</p>
+<p>所以 <code>f</code> 的类型应该是</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">f</span> :: <span class="type">String</span> -&gt; <span class="type">IO</span> ()</span><br></pre></td></tr></table></figure>
+<p>但是这样不能用于 <code>maybe_value &gt;&gt;= f</code> 因为 <code>&gt;&gt;=</code> 的类型是</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Prelude</span>&gt; :t (&gt;&gt;=)</span><br><span class="line">(&gt;&gt;=) :: <span class="type">Monad</span> m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b</span><br></pre></td></tr></table></figure>
+<p>所以要使用 <code>&gt;&gt;=</code> ，<code>f</code> 的类型必须是</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">f</span> :: <span class="type">String</span> -&gt; <span class="type">Maybe</span> <span class="type">String</span></span><br></pre></td></tr></table></figure>
+<p>显然两个类型冲突了，所以写不出来。</p>
+<p>所以需要一个能够组合 Maybe Monad 和 IO Monad 的类型。</p>
+<p>这个就是 Monad Transformers</p>
+<h2 id="定义">定义</h2><p>定义 Maybe Monad 的 Monad Transformer <code>MaybeT</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">newtype</span> <span class="type">MaybeT</span> m a = <span class="type">MaybeT</span> <span class="container">&#123; <span class="title">runMaybeT</span> :: <span class="title">m</span> (<span class="type">Maybe</span> <span class="title">a</span>) &#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>其中 m 可以为任意 Monad</p>
+<p>Monad Transformer 本身也是 Monad 。所以需要实现 <code>return</code> 和 <code>&gt;&gt;=</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Monad</span> m =&gt; <span class="type">Monad</span> <span class="container">(<span class="type">MaybeT</span> <span class="title">m</span>)</span> <span class="keyword">where</span></span></span><br><span class="line">    return  = <span class="type">MaybeT</span> . return . <span class="type">Just</span></span><br><span class="line">    <span class="comment">-- return a = MaybeT . return . Just a</span></span><br></pre></td></tr></table></figure>
+<p><code>Just</code> 将 a 转化为 <code>Maybe a</code> 类型</p>
+<p><code>return</code> 将 <code>Maybe a</code> 转化为 <code>m (Maybe a)</code> 类型</p>
+<p><code>MaybeT</code> 将 <code>m (Maybe a)</code> 转化为 <code>MaybeT m (Maybe a)</code> 类型。</p>
+<p>接着实现 <code>&gt;&gt;=</code></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- (&gt;&gt;=) 定义中的 m 为 MaybeT m</span></span><br><span class="line">(&gt;&gt;=) :: <span class="type">MaybeT</span> m a -&gt; (a -&gt; <span class="type">MaybeT</span> m b) -&gt; <span class="type">MaybeT</span> m b</span><br><span class="line"></span><br><span class="line"><span class="title">x</span> &gt;&gt;= f = <span class="type">MaybeT</span> $ <span class="keyword">do</span> maybe_value &lt;- runMaybeT x</span><br><span class="line">                      <span class="keyword">case</span> maybe_value <span class="keyword">of</span></span><br><span class="line">                           <span class="type">Nothing</span>    -&gt; return <span class="type">Nothing</span></span><br><span class="line">                           <span class="type">Just</span> value -&gt; runMaybeT $ f value</span><br></pre></td></tr></table></figure>
+<p>为了使用方便，顺便实现相应的 MonadPlus 和 MonadTrans</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Monad</span> m =&gt; <span class="type">MonadPlus</span> <span class="container">(<span class="type">MaybeT</span> <span class="title">m</span>)</span> <span class="keyword">where</span></span></span><br><span class="line">    mzero     = <span class="type">MaybeT</span> $ return <span class="type">Nothing</span></span><br><span class="line">    mplus x y = <span class="type">MaybeT</span> $ <span class="keyword">do</span> maybe_value &lt;- runMaybeT x</span><br><span class="line">                            <span class="keyword">case</span> maybe_value <span class="keyword">of</span></span><br><span class="line">                                 <span class="type">Nothing</span>    -&gt; runMaybeT y</span><br><span class="line">                                 <span class="type">Just</span> _     -&gt; return maybe_value</span><br><span class="line"><span class="class"></span><br><span class="line"><span class="keyword">instance</span> <span class="type">MonadTrans</span> <span class="type">MaybeT</span> <span class="keyword">where</span></span></span><br><span class="line">    lift = <span class="type">MaybeT</span> . (liftM <span class="type">Just</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="改写">改写</h2><p>有了 <code>MaybeT</code> 代码可以这么写</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">getValidPassphrase</span> :: <span class="type">MaybeT</span> <span class="type">IO</span> <span class="type">String</span></span><br><span class="line"><span class="title">getValidPassphrase</span> = <span class="keyword">do</span> s &lt;- lift getLine <span class="comment">-- 将 IO String 提升为 Maybe (IO String)</span></span><br><span class="line">                        guard (isValid s) <span class="comment">-- MonadPlus 类型类使我们能够使用 guard. 这里 s 为 String 类型</span></span><br><span class="line">                        return s</span><br><span class="line"></span><br><span class="line"><span class="title">askPassphrase</span> :: <span class="type">MaybeT</span> <span class="type">IO</span> ()</span><br><span class="line"><span class="title">askPassphrase</span> = <span class="keyword">do</span> lift $ putStrLn <span class="string">"输入新密码:"</span> <span class="comment">-- 将 IO () 提升为 Maybe (IO ())</span></span><br><span class="line">                   value &lt;- getValidPassphrase <span class="comment">-- value 为 String 类型</span></span><br><span class="line">                   lift $ putStrLn <span class="string">"储存中..."</span></span><br></pre></td></tr></table></figure>
+<p>没有了检查的过程，因为全都藏在 <code>MaybeT</code> 的 <code>&gt;&gt;=</code> 里面了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>组合两个 Monad 的 Monad</p>]]>
+    
+    </summary>
+    
+      <category term="Haskell" scheme="http://en.ors-sro.com/tags/Haskell/"/>
+    
+      <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[ES6 Generator]]></title>
@@ -2620,144 +2678,6 @@
       <category term="SICP" scheme="http://en.ors-sro.com/tags/SICP/"/>
     
       <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Non-alpha Javascript]]></title>
-    <link href="http://en.ors-sro.com/Non-alpha-Javascript/"/>
-    <id>http://en.ors-sro.com/Non-alpha-Javascript/</id>
-    <published>2016-11-06T04:23:09.000Z</published>
-    <updated>2016-11-06T07:14:32.918Z</updated>
-    <content type="html"><![CDATA[<p><code>+[]</code> 也是一段 JS 代码。 运行的结果是什么呢？</p>
-<a id="more"></a>
-<h2 id="求值">求值</h2><p><code>+[]</code> 的运行结果是 <strong>0</strong> 。 如果不相信，按 F12 打开浏览器的控制台，按 ESC 调出控制台。输入 <code>+[]</code> ，回车就可以看到结果。</p>
-<p>结果为什么这么反直觉？</p>
-<p>想知道运算过程中发生了什么，一个最好不过的方式就是去看语言的规范。</p>
-<p>比如想看 <code>+</code> 操作符的运算过程，打开 <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.4.6" target="_blank" rel="external">JS 规范</a>。</p>
-<p>转到<strong>一元 + 操作符</strong> 这一节。</p>
-<blockquote>
-<p>The unary + operator converts its operand to Number type.</p>
-<p>The production UnaryExpression : + UnaryExpression is evaluated as follows:</p>
-<ol>
-<li>Let expr be the result of evaluating UnaryExpression.</li>
-<li>Return ToNumber(GetValue(expr)).</li>
-</ol>
-</blockquote>
-<p>也就是求 <code>ToNumber(GetValue([]))</code> 。可以简单地认为求的是 <code>ToNumber(false)</code> 。</p>
-<p><code>false</code> 转成数字自然是 0 。</p>
-<p>所以 <code>+[]</code> 的结果为 0 。</p>
-<h2 id="全家福">全家福</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+!![]+!![]+[])+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+!![]+[]))+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]</span><br></pre></td></tr></table></figure>
-<p>这段代码的输出结果是 “Hello” 。是不是有点不可思议？代码中没有包含任何 “Hello” 字母。</p>
-<p>JS 可以做到没有任何字母和数字就能编写代码。</p>
-<p>只需要用到 <code>!</code> ，<code>+</code>，<code>[]</code> ，<code>{}</code> 和 <code>()</code> 8个字符就可以编写大部分代码。这样没有数字字母的 JS 代码称为 <strong>non-alpha Javascript</strong> 。</p>
-<h2 id="数字">数字</h2><p>non-alpha Javascript 是怎么做到没有数字字母也能写代码的呢？</p>
-<p>其实本质是将数字字母转化为上述的八个字符。</p>
-<p>上面分析了 <code>+[]</code> 等于 0</p>
-<p>那么如果是 2 ，5 ，8 这种数字该怎么表达呢？</p>
-<p>光用 0 是没有办法得到其他数字的。</p>
-<p>1 + 1 = 2 。</p>
-<p>所以只需要再得到 1 即可得到其他所有数字。</p>
-<p>很容易联想到 false 对应的是 0 ，那么 true 对应的应该是 1 。</p>
-<p>怎么得到 true ？已有的条件是 false 。那只需要取反即可。</p>
-<p>也就是 <code>!false</code> 。在 JS 中，<code>[]</code> 被当作 <code>false</code> 。所以带入前式得 <code>![]</code> 。</p>
-<p>还要使用 <code>+</code> 将 <code>![]</code> 将结果转为数字。</p>
-<p>所以 <code>+![]</code> 就会得到 1 。</p>
-<p>要是这么想就大错特错了。JS 可不是凡人能够理解的。</p>
-<p><code>+![]</code> 的结果是 0 ，跟 <code>+[]</code> 一样。</p>
-<p>为什么是这样哪里出错了？</p>
-<p>看代码就清楚了</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[] == <span class="literal">false</span></span><br><span class="line"><span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line">![] == <span class="literal">false</span></span><br><span class="line"><span class="comment">// =&gt; true    WTF???</span></span><br><span class="line"></span><br><span class="line">!![] == []</span><br><span class="line"><span class="comment">// =&gt; false   WTFF???</span></span><br><span class="line"></span><br><span class="line">!![] == <span class="literal">true</span></span><br><span class="line"><span class="comment">// =&gt; true    WTFFF???</span></span><br></pre></td></tr></table></figure>
-<p>这里面是有深坑的（捂眼痛哭），我比较懒就暂时不深究了。</p>
-<p>从上面可以看到 <code>!![] == true</code> 。所以 <code>+true</code> 等于 <code>!![]</code></p>
-<p>使用 + 将结果强制转化为数字。</p>
-<p><code>+!![]</code> 的结果就是 1 。</p>
-<p>所以 2 = 1 + 1</p>
-<p>也就是 2 = <code>+!![]</code> + <code>+!![]</code></p>
-<p>利用进行 + 运算时只要一边是整数类型，就会把另一边也强制转化为整数类型，上式可以简化为</p>
-<p>2 = <code>!![]</code> + <code>!![]</code></p>
-<p>1 的表达式不是唯一的。</p>
-<p>注意到 <code>!0 == true</code>。</p>
-<p>所以 <code>+!0 == 1</code>。</p>
-<p>也就是 <code>+!+[]</code> 的值为 1</p>
-<p>所以 2 还可以表示为 <code>+!+[]</code> + <code>+!+[]</code></p>
-<p>简化一下得 <code>!+[]</code> + <code>!+[]</code></p>
-<p>现在知道 JS 有多<ruby>灵活<rt>凌乱</rt></ruby>了吧。</p>
-<p>类似的可以得到所有数字</p>
-<table>
-<thead>
-<tr>
-<th>数字</th>
-<th>JS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>+[]</td>
-</tr>
-<tr>
-<td>1</td>
-<td>!+[]</td>
-</tr>
-<tr>
-<td>2</td>
-<td>!+[] + !+[]</td>
-</tr>
-<tr>
-<td>3</td>
-<td>!+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>4</td>
-<td>!+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>5</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>6</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>7</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>8</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>9</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-</tbody>
-</table>
-<p>现在已经拥有所有数字了。假设想得到 12 。用 9 + 4 即可。</p>
-<h2 id="字母">字母</h2><p>如果说得到数字的过程还算正常的话，那么下面介绍得到字母的方法只能说是奇技淫巧。</p>
-<p>基本的思想是从 JS 内置的关键字中按索引得到单一的字母。</p>
-<p>比如 JS 有一个 <code>NaN</code> 表示非数字。</p>
-<p>从 <code>NaN</code> 中可以得到 <code>N</code> 和 <code>a</code></p>
-<p>想要得到 <code>a</code> 只需要 <code>&quot;NaN&quot;[1]</code> </p>
-<p><code>&quot;NaN&quot;</code> 等于 <code>+{}+[]</code></p>
-<p>所以 <code>&quot;NaN&quot;[1]</code> 等于 <code>(+{}+[])[1]</code></p>
-<p>因为 1 等于 <code>+!+[]</code></p>
-<p>所以最后结果是 <code>(+{}+[])[+!+[]]</code></p>
-<p>类似地，从 <code>true</code> 中可以得到 <code>t</code>,<code>r</code>,<code>u</code>,<code>e</code></p>
-<p>从 <code>undefine</code> 可以得到 <code>n</code>,<code>d</code>,<code>f</code>,<code>i</code></p>
-<p>还有一种获取字母的<a href="http://patriciopalladino.com/blog/2012/08/09/non-alphanumeric-javascript.html" target="_blank" rel="external">通用方法</a>。</p>
-<p>至此已经获得了所有的数字字母。可以<a href="http://patriciopalladino.com/files/hieroglyphy/" target="_blank" rel="external">愉快的编程</a>了。</p>
-<h2 id="后记">后记</h2><p>non-alpha javascript 也不知道是谁先想出来的。真的是太有才了。有的人用它绕过 XSS 的过滤。这种思路写过滤器的人估计也没考虑到吧。也从侧面证明了 JS 的类型转化太灵活了，存在太多种特例。平时写代码要避免这些奇怪的边角情况。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><code>+[]</code> 也是一段 JS 代码。 运行的结果是什么呢？</p>]]>
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://en.ors-sro.com/tags/Javascript/"/>
-    
-      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
     
   </entry>
   
