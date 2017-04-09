@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2017-04-02T06:14:38.549Z</updated>
+  <updated>2017-04-09T14:14:11.532Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -16,11 +16,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Halting problem]]></title>
+    <title><![CDATA[值类别]]></title>
+    <link href="http://en.ors-sro.com/Value-Category/"/>
+    <id>http://en.ors-sro.com/Value-Category/</id>
+    <published>2017-04-09T13:55:24.000Z</published>
+    <updated>2017-04-09T14:14:11.532Z</updated>
+    <content type="html"><![CDATA[<p>如何把一个简单的事情搞复杂。</p>
+<a id="more"></a>
+<h2 id="简单的开始">简单的开始</h2><p>左值和右值是 C 和 C++ 语言中表达式的一种值的分类。每个表达式都有类型和值类别。</p>
+<p>如 <code>1 + 1</code> 的类型为 <code>int</code> ，值类别为右值。</p>
+<p>在 C++ 03 左值和右值很容易区分。</p>
+<p>左值（left value, lvalue）为内存地址，可以出现在赋值等号的左边和右边。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// x 是左值</span></span><br><span class="line"><span class="keyword">int</span> y = x; <span class="comment">// x 可以出现在赋值等号的右边</span></span><br></pre></td></tr></table></figure>
+<p>右值（right value, rvalue）为<strong>只能</strong>出现在赋值等号右边的表达式。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// x 是右值</span></span><br><span class="line"><span class="number">1</span> = x; <span class="comment">// 出错， 1 是右值，只能出现在赋值等号的右边。</span></span><br></pre></td></tr></table></figure>
+<h2 id="复杂的延续">复杂的延续</h2><p>C++ 11 引入了移动语义。</p>
+<p>对于类型 T ，<code>T&amp;&amp;</code> 称为右值引用 （rvalue reference）。<code>T&amp;</code> 称为左值引用（lvalue reference）。</p>
+<p>如果类型 T 实现了移动构造函数，则称 T 为可移动的。</p>
+<p>引入了语义，问题随之而来。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>&amp;&amp; f() &#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>那么 <code>f()</code> 是左值还是右值？</p>
+<p><code>f()</code> 不是左值因为左值不可移动。</p>
+<p><code>f()</code> 不是右值因为可以出现在赋值等号的左边。</p>
+<p>所以引入一种新的值类别，称为<strong>亡值</strong>（eXpiring value, <strong>xvalue</strong>）。<code>f()</code> 为亡值。</p>
+<p>原先的左值变成了<strong>泛左值</strong>（generalized value, <strong>glvalue</strong>）。</p>
+<p>原先的右值变成了<strong>纯右值</strong>（pure value, <strong>prvalue</strong>）。</p>
+<p>定义新的<strong>左值</strong>为非亡值的泛左值。</p>
+<p>定义新的<strong>右值</strong>为纯右值或者亡值。</p>
+<p>用图表示就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;                                                                     +----------------+&#10;                                                                     |                |&#10;                                                          +---------&#62;+      &#24038; &#20540;     |&#10;                                                          |          |                |&#10;                                 +----------------+       |          +----------------+&#10;                                 |                |       |&#10;                         +------&#62;+    &#27867; &#24038; &#20540;    +-------+&#10;                         |       |                |       |&#10;+----------------+       |       +----------------+       |          +----------------+&#10;|                |       |                                |          |                |&#10;|    &#20540; &#31867; &#21035;     +-------+                                +---------&#62;+     &#20129; &#20540;      |&#10;|                |       |                                |          |                |&#10;+----------------+       |       +----------------+       |          +----------------+&#10;                         |       |                |       |&#10;                         +------&#62;+    &#32431; &#21491; &#20540;    +-------+&#10;                                 |                |       |&#10;                                 +----------------+       |          +----------------+&#10;                                                          |          |                |&#10;                                                          +---------&#62;+      &#21491; &#20540;     |&#10;                                                                     |                |&#10;                                                                     +----------------+</span><br></pre></td></tr></table></figure>
+<p>表达式一定是左值，亡值，右值中的一种。</p>
+<p>左值等具体代码可参考<a href="http://en.cppreference.com/w/cpp/language/value_category#Primary categories" target="_blank" rel="external">基础类别</a>。</p>
+<p>具体的定义可以参考<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3055.pdf" target="_blank" rel="external">n3055</a>。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>如何把一个简单的事情搞复杂。</p>]]>
+    
+    </summary>
+    
+      <category term="C++" scheme="http://en.ors-sro.com/tags/C/"/>
+    
+      <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[停机问题]]></title>
     <link href="http://en.ors-sro.com/Halting-problem/"/>
     <id>http://en.ors-sro.com/Halting-problem/</id>
     <published>2017-04-02T05:49:01.000Z</published>
-    <updated>2017-04-02T06:14:38.549Z</updated>
+    <updated>2017-04-09T10:26:08.513Z</updated>
     <content type="html"><![CDATA[<p>如果存在这样的算法就太完美了。</p>
 <a id="more"></a>
 <h2 id="定义">定义</h2><blockquote>
@@ -2451,42 +2496,6 @@
       <category term="Haskell" scheme="http://en.ors-sro.com/tags/Haskell/"/>
     
       <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[在匿名函数中递归]]></title>
-    <link href="http://en.ors-sro.com/Recursive-lambda/"/>
-    <id>http://en.ors-sro.com/Recursive-lambda/</id>
-    <published>2016-11-20T06:13:59.000Z</published>
-    <updated>2016-11-20T09:39:17.610Z</updated>
-    <content type="html"><![CDATA[<p>匿名函数也就是不需要取名的函数。函数递归指的是函数通过引用自己的名字调用自身。匿名函数没有名字怎样才能递归呢？<br><a id="more"></a></p>
-<h2 id="匿名函数">匿名函数</h2><p>匿名函数（lambda，$\lambda$），作为函数式编程的基本元素，已经被原来越多的语言支持。</p>
-<p>比如 <strong>C#</strong> 中是这样编写匿名函数的</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = x =&gt; x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p><strong>JavaScript</strong> 中是这样编写匿名函数的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="匿名递归">匿名递归</h2><p>最典型的递归函数是阶乘函数。<br>$$<br>f(n) =<br>\begin{cases}<br>1, &amp; n \le 1 \ n*f(n-1),&amp; n \gt 1<br>\end{cases}<br>$$<br>翻译成 JavaScript </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n &lt;= <span class="number">1</span> ? <span class="number">1</span> : n * f(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这是一个递归，但不是一个真正意义上的匿名递归函数。因为函数体中的 <code>f(n-1)</code> 引用了自身的名字。</p>
-<p>通常递归函数需要引用自身的名字来调用自身达到递归的效果。</p>
-<p>匿名函数没有名字，没办法这么做。</p>
-<p>这么想想递归匿名函数看似是不可能的。</p>
-<p>但是是可以做到的。</p>
-<p>看下面的这个函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="function"><span class="keyword">function</span>(<span class="params">g</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> g(g);</span><br><span class="line">	&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">h</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> f(h(h))(x);</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">self</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &lt;= <span class="number">1</span> ? <span class="number">1</span> : n * self(n - <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>测试调用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="function"><span class="keyword">function</span>(<span class="params">g</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> g(g);</span><br><span class="line">	&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">h</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> f(h(h))(x);</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">self</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &lt;= <span class="number">1</span> ? <span class="number">1</span> : n * self(n - <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// =&gt; 1</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="function"><span class="keyword">function</span>(<span class="params">g</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> g(g);</span><br><span class="line">	&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">h</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> f(h(h))(x);</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">self</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &lt;= <span class="number">1</span> ? <span class="number">1</span> : n * self(n - <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)(<span class="number">3</span>);</span><br><span class="line"><span class="comment">// =&gt; 6</span></span><br></pre></td></tr></table></figure>
-<p>这个函数就是阶乘函数的匿名递归版。里面用到了 <strong>Y 组合子</strong> 。</p>
-<h2 id="推导过程">推导过程</h2><h2 id="来龙去脉">来龙去脉</h2>]]></content>
-    <summary type="html">
-    <![CDATA[<p>匿名函数也就是不需要取名的函数。函数递归指的是函数通过引用自己的名字调用自身。匿名函数没有名字怎样才能递归呢？<br>]]>
-    
-    </summary>
-    
-      <category term="lambda" scheme="http://en.ors-sro.com/tags/lambda/"/>
-    
-      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
     
   </entry>
   
