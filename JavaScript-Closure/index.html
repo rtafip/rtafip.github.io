@@ -1,0 +1,648 @@
+
+ <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  
+    <title>JavaScript 闭包 | 拖鞋党的拖鞋摊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="拖鞋党">
+    
+
+    
+    <meta name="description" content="闭包是穷人的对象。对象是穷人的闭包。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 闭包">
+<meta property="og:url" content="http://en.ors-sro.com/JavaScript-Closure/index.html">
+<meta property="og:site_name" content="拖鞋党的拖鞋摊">
+<meta property="og:description" content="闭包是穷人的对象。对象是穷人的闭包。">
+<meta property="og:updated_time" content="2017-04-16T10:13:35.554Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 闭包">
+<meta name="twitter:description" content="闭包是穷人的对象。对象是穷人的闭包。">
+
+    
+    <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/me.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/me.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/logo.png" alt="拖鞋党的拖鞋摊" title="拖鞋党的拖鞋摊"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="拖鞋党的拖鞋摊">拖鞋党的拖鞋摊</a></h1>
+				<h2 class="blog-motto">写一些有的没的</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:en.ors-sro.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/JavaScript-Closure/" title="JavaScript 闭包" itemprop="url">JavaScript 闭包</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-16T10:07:07.000Z" itemprop="datePublished"> Published 2017-04-16</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#释疑"><span class="toc-number">2.</span> <span class="toc-text">释疑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">3.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+		
+		</div>
+		
+		<blockquote>
+<p>闭包是穷人的对象。对象是穷人的闭包。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="定义">定义</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetCounter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> c = <span class="number">0</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;<span class="keyword">return</span> ++c&#125;</span><br><span class="line">  <span class="keyword">return</span> count</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> counter = GetCounter()</span><br><span class="line">counter()</span><br></pre></td></tr></table></figure>
+<p>这段代码的返回值是 <code>undefined</code> 还是 1 ？</p>
+<p>答案是 1 。</p>
+<p>因为这是 JavaScript 的一个重要特性——闭包（Closure）。</p>
+<p>闭包是一个包含函数和其变量绑定的对象。</p>
+<p>例如上述代码中，<code>counter</code> 是一个闭包。</p>
+<p>其中函数为 <code>function count() {return ++c}</code> ，变量绑定为 <code>{c: GetCounter.c}</code>。</p>
+<h2 id="释疑">释疑</h2><p>如果你学习过 C 系列的语言，可能会感到疑惑。</p>
+<p>函数返回了怎么还能引用其中的局部变量。</p>
+<p>这是因为 JavaScript 有两个特性——词法作用域和一等公民函数。</p>
+<p>先说词法作用域，简单来说词法作用域是描述查找变量的值的一种规则——从定义处查找。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FunctionScope</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> scope</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> f = FunctionScope()</span><br><span class="line">f()</span><br></pre></td></tr></table></figure>
+<p>这段代码的返回值是什么？是 <code>ReferenceError</code> 吗？</p>
+<p>不一定。因为还不知道 <code>scope</code> 的定义。</p>
+<p>那从哪获取 <code>scope</code> 的定义呢。当然是从这段代码所处的地方获取。</p>
+<p>假设改成这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FunctionScope</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> scope</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> scope = <span class="string">"global scope"</span></span><br><span class="line"><span class="keyword">let</span> f = FunctionScope()</span><br><span class="line">f()</span><br></pre></td></tr></table></figure>
+<p>那么代码的返回值就是 <code>&quot;global scope&quot;</code>。因为所处的作用域有变量绑定<code>{scope: global.scope}</code> （这里使用 Javascript 的对象语法来表示变量绑定）</p>
+<p>如果改成这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FunctionScope</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> scope = <span class="string">"function scope"</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> scope</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> scope = <span class="string">"global scope"</span></span><br><span class="line"><span class="keyword">let</span> f = FunctionScope()</span><br><span class="line">f()</span><br></pre></td></tr></table></figure>
+<p>那么代码的返回值是<code>&quot;function scope&quot;</code> 。为什么不是 <code>&quot;global scope&quot;</code> 呢？</p>
+<p>因为定义函数同时会定义作用域。</p>
+<p>定义 <code>FunctionScope</code> 的时候也定义了 <code>{scope: FunctionScope.scope}</code></p>
+<p>将这个作用域插入到作用域链中，整个作用域链为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;scope: FunctionScope.scope&#125; -&gt; &#123;scope: global.scope&#125;</span><br></pre></td></tr></table></figure>
+<p>按照词法作用域的规则，变量的值从定义处查找。所以先从 <code>{scope: FunctionScope}</code> 中查找。</p>
+<p>发现有记录，通过引用 <code>FunctionScope.scope</code> 找到值 <code>&quot;function scope&quot;</code> 。所以返回 <code>&quot;function scope&quot;</code> 。如果找不到，就顺着作用域链查找直到找不到抛出 <code>ReferenceError</code></p>
+<p>如果仅仅有词法作用域是不够的。C 语言也是词法作用域，但是并没有听说过闭包。</p>
+<p>这是因为 Javascript 将函数视为一等公民。</p>
+<p>所以函数可以随意的创建，赋值到变量，传递为参数，作为返回值等。</p>
+<p>这里最重要的是可以在函数中定义函数。</p>
+<p>JavaScript 定义函数的时候会创建函数作用域，将当前环境中的变量通过引用的方式记录下来。</p>
+<p>在上述例子中，<code>f()</code> 定义的同时定义了函数作用域 <code>{scope: FunctionScope.scope}</code> </p>
+<p>返回 <code>f()</code> 也会连同函数作用域一同返回。</p>
+<p>如果一个变量没有引用，就会被垃圾收集器回收。比如函数中的局部变量，在函数执行完后没有引用就会被回收。</p>
+<p>但是如果返回了函数，比如说 <code>f()</code> 因为函数作用域 <code>{scope: FunctionScope.scope}</code> 引用了 <code>scope</code> 所以 <code>scope</code> 不会被回收。</p>
+<p>所以函数执行完后还可以使用局部变量。</p>
+<h2 id="注意">注意</h2><p>理论上所有函数都是闭包，但是因为有的函数没有访问内部变量，所以没有闭包的感觉。</p>
+<p>返回函数是定义闭包的一种方式，但不是唯一方式。</p>
+<p>比如还可以返回一个对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line">   count: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> n++; &#125;,</span><br><span class="line">   reset: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; n = <span class="number">0</span>; &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同一个闭包定义调用两次返回不同的闭包。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = counter(), d = counter(); <span class="comment">// 创造两个 counter</span></span><br><span class="line">c.count() <span class="comment">// =&gt; 0</span></span><br><span class="line">d.count() <span class="comment">// =&gt; 0: 独立计数</span></span><br><span class="line">c.reset() <span class="comment">// reset() 和 count() 方法共享状态</span></span><br><span class="line">c.count() <span class="comment">// =&gt; 0: 因为重置了 c</span></span><br><span class="line">d.count() <span class="comment">// =&gt; 1: d 没有重置</span></span><br></pre></td></tr></table></figure>
+<p>闭包中的变量绑定只记录引用，不记录具体的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Funcs</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> funcs = [];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">    funcs[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="keyword">return</span> i&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> funcs</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> functions = Funcs()</span><br><span class="line">functions[<span class="number">2</span>]()</span><br></pre></td></tr></table></figure>
+<p>所以这段代码返回的是 5 不是 2。因为循环结束后 <code>i</code> 的值为 5。</p>
+<p>还需要注意的一点是闭包中的 <code>this</code> 不是外层的 <code>this</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.a &#125;</span><br><span class="line">  <span class="keyword">return</span> g</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> h = f()</span><br><span class="line">h()</span><br></pre></td></tr></table></figure>
+<p>这段代码会返回 <code>undefined</code> 因为 <code>g</code> 中的 <code>this.a</code> 的 <code>this</code> 指的是 <code>g</code>。</p>
+<p>因为 <code>g</code> 中没有变量 <code>a</code> 的定义，所以返回 <code>undefined</code>。</p>
+<p>只要改成 <code>self.a</code> 就可以了。</p>
+<p>此外还可以使用 ES6 的箭头函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> g = () =&gt; a</span><br><span class="line">  <span class="keyword">return</span> g</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> h = f()</span><br><span class="line">h()</span><br></pre></td></tr></table></figure>
+<h2 id="最后">最后</h2><p>文章的内容参考了<a href="http://shop.oreilly.com/product/9780596805531.do" target="_blank" rel="external">犀牛书</a>。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JavsScript/">JavsScript</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://en.ors-sro.com/JavaScript-Closure/" data-title="JavaScript 闭包 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/Value-Category/"  title="值类别">
+ <strong>下一篇：</strong><br/> 
+ <span>值类别
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#释疑"><span class="toc-number">2.</span> <span class="toc-text">释疑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">3.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>14</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/玩/" title="玩">玩<sup>16</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/SICP/" title="SICP">SICP<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Haskell/" title="Haskell">Haskell<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yilia/" title="yilia">yilia<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ZeroNet/" title="ZeroNet">ZeroNet<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lambda/" title="lambda">lambda<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Quine/" title="Quine">Quine<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Promise/" title="Promise">Promise<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/YAML/" title="YAML">YAML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多平台部署/" title="多平台部署">多平台部署<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/polyglot/" title="polyglot">polyglot<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Whitespace/" title="Whitespace">Whitespace<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动动脑/" title="动动脑">动动脑<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavsScript/" title="JavsScript">JavsScript<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://snatix.com" target="_blank" title="大喵的新窝">大喵的新窝</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/miaomiaomiao.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 喜欢拖鞋，喜欢大海 <br/>
+			向拖延症低头 Orz</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="拖鞋党">拖鞋党</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="//widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="//service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'httporssrocom';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  </body>
+</html>
