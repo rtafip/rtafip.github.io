@@ -4,25 +4,23 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>CSS 绘制三角形 | 拖鞋党的拖鞋摊</title>
+    <title>词法作用域和动态作用域 | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="拖鞋党">
     
 
     
-    <meta name="description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
+    <meta name="description" content="不知道也可以好好写程序。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 绘制三角形">
-<meta property="og:url" content="http://en.ors-sro.com/Make-a-triangle-with-CSS/index.html">
+<meta property="og:title" content="词法作用域和动态作用域">
+<meta property="og:url" content="http://en.ors-sro.com/Lexical-scoppe-and-Dynamic-scoppe/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
-<meta property="og:image" content="http://en.ors-sro.com/img/CSSTriangle/MainPage.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/CSSTriangle/Item.png">
-<meta property="og:updated_time" content="2016-11-06T07:32:06.947Z">
+<meta property="og:description" content="不知道也可以好好写程序。">
+<meta property="og:updated_time" content="2017-04-23T08:48:02.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 绘制三角形">
-<meta name="twitter:description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
+<meta name="twitter:title" content="词法作用域和动态作用域">
+<meta name="twitter:description" content="不知道也可以好好写程序。">
 
     
     <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -84,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/Make-a-triangle-with-CSS/" title="CSS 绘制三角形" itemprop="url">CSS 绘制三角形</a>
+      <a href="/Lexical-scoppe-and-Dynamic-scoppe/" title="词法作用域和动态作用域" itemprop="url">词法作用域和动态作用域</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
 		
   <p class="article-time">
-    <time datetime="2016-10-23T05:17:11.000Z" itemprop="datePublished"> Published 2016-10-23</time>
+    <time datetime="2017-04-23T08:29:24.000Z" itemprop="datePublished"> Published 2017-04-23</time>
     
   </p>
 </header>
@@ -100,139 +98,57 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">1.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角形花招"><span class="toc-number">2.</span> <span class="toc-text">三角形花招</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-number">4.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">2.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#历史"><span class="toc-number">3.</span> <span class="toc-text">历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现存"><span class="toc-number">4.</span> <span class="toc-text">现存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
 		
 		</div>
 		
-		<p>CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？</p>
+		<p>不知道也可以好好写程序。</p>
 <a id="more"></a>
-<h2 id="矩形">矩形</h2><p>在绘制三角形之前，先来看看如何绘制矩形。</p>
-<p>绘制矩形比较简单，主要用到了 <code>border</code> 属性。也就是一个东西四边都是边框就是矩形了。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border:1px solid black"</span>&gt;</span>矩形<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><span style="border:1px solid black">矩形</span></p>
-<p>把中间的文字去掉就可以了。因为没有文字支撑。所以需要指定宽度或者使用空格（样式是样式，内容是内容，不要混淆，这里我偷懒就用空格来演示了）。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border:1px solid black"</span>&gt;</span>　　<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><span style="border:1px solid black">　　</span></p>
-<p>但是这跟绘制三角形有什么关系呢？</p>
-<p>这就不得不提一个 CSS 的花招。</p>
-<h2 id="三角形花招">三角形花招</h2><p>如果把矩形的四边涂上颜色。看起来是这样的。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border: 100px solid;border-left-color: #0066cc;</span><br><span class="line">             border-right-color: #0066cc;</span><br><span class="line">             border-top-color: white;</span><br><span class="line">             border-bottom-color: white;</span><br><span class="line">             display: inline-block;"</span>&gt;</span>囧<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;">囧</span></p>
-<p>把中间的文字去掉，就变成了这样。</p>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;"></span></p>
-<p>很明显出现了四个三角形。那怎么得到一个三角形呢？</p>
-<p>把其他三个三角形隐藏。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border: 100px solid;</span><br><span class="line">			 border-left-color: #0066cc;</span><br><span class="line">			 border-right-color: transparent;</span><br><span class="line">			 border-top-color: transparent;</span><br><span class="line">			 border-bottom-color: transparent;</span><br><span class="line">			 display: inline-block;"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: transparent;border-top-color: transparent;border-bottom-color: transparent;display: inline-block;"></span></p>
-<h2 id="原理">原理</h2><p>这究竟发生了什么？矩形的边是怎么变成三角形的？</p>
-<p>先从头看起。回到最开始的图形。</p>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;">囧</span></p>
-<p>注意看会发现，边其实不是一条线或者矩形，而是一个等腰梯形。</p>
-<p>当把文字去掉了之后就变成了三角形。</p>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;"></span></p>
-<p>这时候隐藏其他的三角形即可。</p>
-<p>也就是说原来边缘并不是我们想象中的一条线，而是一个梯形，当元素的宽度和高度都为0时，梯形就变成了三角形。</p>
-<p>动态过程是这样的。</p>
-<p style="width:300px;height:300px;"><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;width: 100px;height:100px;display: inline-block;animation: triangle 3s infinite ease;"></span></p>
-
-<style type="text/css">
-    @keyframes triangle{
-        from{width:100px;height:100px;}
-        to{width:0px;height:0px;}
-    }
-</style>
-
-<p>隐藏的过程是这样的</p>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;animation: one-triangle 3s infinite ease;"></span></p>
-<style type="text/css">
-    @keyframes one-triangle{
-        0% {border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;}
-        25% {border-top-color:transparent;}
-        50% {border-top-color:transparent;border-right-color:transparent;}
-        100% {border-top-color:transparent;border-right-color:transparent;border-bottom-color:transparent;}
-    }
-</style>
-
-<h2 id="扩展">扩展</h2><p>利用类似的技巧就可以画出很多很多有趣的图形。<a href="http://cssicon.space/" target="_blank" rel="external">CSSIcon</a> 上有很好的示例。</p>
-<p><img src="/img/CSSTriangle/MainPage.png" alt="纯 CSS 图标"></p>
-<p>点开其中一个，鼠标移到属性上，会有详细介绍怎么实现的。</p>
-<p><img src="/img/CSSTriangle/Item.png" alt="详细实现"></p>
-<p>当然还可以用 CSS 绘制微信微笑的表情（<del>我就偷懒不写了</del>）</p>
-<div class="smiley icon"><i></i></div>
-
-<style type="text/css">
-    .smiley.icon {
-      color: #000;
-      position: absolute;
-      margin-left: 2px;
-      margin-top: 2px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: solid 1px currentColor;
-    }
-
-    .smiley.icon:before {
-      content: '';
-      position: absolute;
-      left: 2px;
-      top: 3px;
-      width: 3px;
-      height: 4px;
-      border-radius: 3px;
-      border: solid 1px currentColor;
-    }
-
-    .smiley.icon:after {
-      content: '';
-      position: absolute;
-      right: 2px;
-      top: 3px;
-      width: 3px;
-      height: 4px;
-      border-radius: 3px;
-      border: solid 1px currentColor;
-    }
-
-    .smiley.icon i {
-      position: absolute;
-      left: 2px;
-      top: 7px;
-      width: 10px;
-      height: 5px;
-      border-radius: 0 0 6px 6px;
-      border-top: solid 1px transparent;
-      border-bottom: solid 1px currentColor;
-      border-left: solid 1px currentColor;
-      border-right: solid 1px currentColor;
-    }
-
-    .smiley.icon i:before {
-      content: '';
-      position: absolute;
-      left: 0px;
-      top: -3px;
-      width: 1px;
-      height: 1px;
-      border-radius: 50%;
-      border: solid 1px currentColor;
-      background-color: currentColor;
-    }
-
-    .smiley.icon i:after {
-      content: '';
-      position: absolute;
-      right: 0px;
-      top: -3px;
-      width: 1px;
-      height: 1px;
-      border-radius: 50%;
-      border: solid 1px currentColor;
-      background-color: currentColor;
-    }
-</style>
-
-<h2 id="后记">后记</h2><p>三个月前看到这个 CSS 花招，到现在终于把这个坑填了。在写的时候多次想放弃。最有意思的是将原理用动态的方式展现，顺便学了一点 CSS 动画的皮毛。其实绘制三角形最简单的方法是使用 ► 符号（逃</p>
+<h2 id="定义">定义</h2><p>写代码的时候，经常使用变量名来代替字面量和输入的内容。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String prefix = <span class="string">"Your name is "</span>;</span><br><span class="line">String name = Console.readLine();</span><br><span class="line">Console.WriteLine(prefix + name);</span><br></pre></td></tr></table></figure>
+<p><strong>定义变量</strong>是将值（字面量或者输入）绑定到变量名字的一个过程。</p>
+<p>那使用变量的时候，就要有一个相反的过程。</p>
+<p><strong>解析变量</strong>是将变量名字按照绑定解析为值的一个过程。</p>
+<p>在上述例子中 <code>String prefix = &quot;Your name is &quot;</code> 定义了一个绑定 <code>prefix -&gt; &quot;Your name is &quot;</code></p>
+<p>在 <code>Console.WriteLine(prefix + name)</code> 解析 <code>prefix</code> 时，</p>
+<p>按照绑定 <code>prefix -&gt; &quot;Your name is &quot;</code> 替换 <code>prefix</code> 为 <code>&quot;Your name is &quot;</code>。</p>
+<p>词法作用域和动态作用域描述的是变量解析时的规则。</p>
+<p><strong>词法作用域</strong>是解析变量时从词法环境查找变量值的规则。在实际应用中，词法环境通常是块级作用域，函数作用域等。也就是会跟源码有关，先从定义时的作用域查找，找不到再查找外层作用域。因为查找的路径跟源码有关，可以在编译时确定，所以又称为静态作用域。现代语言大多使用静态作用域。</p>
+<p><strong>动态作用域</strong>是解析变量时从执行环境查找变量值的规则。在实际应用中，执行环境通常是调用栈。也就是会跟运行状态有关。先从运行的函数中查找，找不到再顺着调用栈中的其他函数查找。因为查找的路径与调用顺序有关，只能在运行时确定，所以称为动态作用域。只有少数语言使用动态作用域。</p>
+<h2 id="例子">例子</h2><p>定义不是那么直观。看一个例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">1</span>; </span><br><span class="line">  <span class="keyword">return</span> f();</span><br><span class="line">&#125;</span><br><span class="line">g(); <span class="comment">// 返回 0 还是返回 1 ？</span></span><br></pre></td></tr></table></figure>
+<p>按照直觉，也就是现代语言的方式（静态作用域），执行 <code>f()</code>  ，<code>f</code> 中返回 <code>x</code> 。</p>
+<p><code>x</code> 没有在 <code>f</code> 中定义，所以就去外层（全局）中查找，找到定义为 <code>var x = 0</code> 。</p>
+<p>所以返回 0 。</p>
+<p>按照动态作用域的定义，执行 <code>f()</code> ，<code>f</code> 中返回 <code>x</code> 。</p>
+<p><code>x</code> 没有在 <code>f</code> 中定义，所以顺着调用栈查找，<code>f</code> 是被 <code>g</code> 调用的。</p>
+<p><code>g</code> 中定义 <code>var x = 1</code> 。</p>
+<p>所以返回 1 。</p>
+<p>因此词法作用域可以看源代码就能确定 <code>f()</code> 的返回值，而动态作用域得在运行时才能确定，取决于谁调用了 <code>f()</code>。</p>
+<h2 id="历史">历史</h2><p>静态作用域因为很符合直觉。所以一出现就纷纷被采用。所以现在大部分语言都是静态作用域。</p>
+<p>那为什么一开始语言没有采用静态作用域而是动态作用域呢？</p>
+<p>因为动态作用域太容易实现了。</p>
+<p>定义变量就把变量名和值的绑定推到栈上。</p>
+<p>解析变量就是顺着栈查找。</p>
+<p>相当于只有一个词法环境，也就是全局词法环境。</p>
+<p>而要实现词法作用域就不是那么简单了。首先要规定词法环境，最小的词法环境是块级作用域还是函数作用域。</p>
+<p>然后还要在词法分析的时候做相应的工作。</p>
+<p>词法作用域首先出现于 ALGOL ，后被 Scheme 和 Common Lisp 采用。</p>
+<p>现在大部分语言都使用词法作用域。</p>
+<h2 id="现存">现存</h2><p>即使是采用词法作用域的语言，也有使用动态作用域的地方。</p>
+<p>C 语言中，宏展开使用的是动态作用域。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> a (x + 1)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">b</span> <span class="params">()</span> </span>&#123; <span class="keyword">int</span> x = <span class="number">0</span>; <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a); &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">c</span> <span class="params">()</span> </span>&#123; <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a); &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span> <span class="params">()</span> </span>&#123; b(); c(); &#125;</span><br></pre></td></tr></table></figure>
+<p>按照词法作用域的原则，宏 <code>a</code> 中的 <code>x</code> 应该为 2 。与被谁调用无关。</p>
+<p>但实际是 <code>b()</code> 打印出 1 。<code>c()</code> 打印出 2 。</p>
+<p>所以宏展开是动态作用域。</p>
+<p>因此 《C ++ Primer 》推荐少用宏。当然除了这个原因还有一个宏卫生的原因。</p>
+<p>JavaScript 也用静态作用域，但可以使用 <code>eval()</code> 模拟动态作用域</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> print = x =&gt; <span class="built_in">console</span>.log(x);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    print(x);</span><br><span class="line">    x = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> g_ = <span class="built_in">eval</span>(<span class="string">"("</span> + <span class="built_in">String</span>(g) + <span class="string">")"</span>);</span><br><span class="line">    <span class="comment">/*  g_ = function g() &#123;</span><br><span class="line">      print(x);</span><br><span class="line">      x = 2;</span><br><span class="line">    &#125; */</span></span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">3</span>;</span><br><span class="line">    g_();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f();                         <span class="comment">// prints 3</span></span><br><span class="line"></span><br><span class="line">print(x);                    <span class="comment">// prints 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考">参考</h2><ul>
+<li><a href="1">维基</a></li>
+<li><a href="http://stackoverflow.com/questions/11533771/scope-rules-for-c-macros" target="_blank" rel="external">Scope rules for C macros</a></li>
+<li><a href="http://stackoverflow.com/questions/10060857/is-it-possible-to-achieve-dynamic-scoping-in-javascript-without-resorting-to-eva" target="_blank" rel="external">Is it possible to achieve dynamic scoping in JavaScript without resorting to eval?</a></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -246,7 +162,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CSS/">CSS</a>
+  <span></span> <a href="/tags/作用域/">作用域</a>
   </div>
 
 </div>
@@ -255,7 +171,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/Make-a-triangle-with-CSS/" data-title="CSS 绘制三角形 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/Lexical-scoppe-and-Dynamic-scoppe/" data-title="词法作用域和动态作用域 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -268,19 +184,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/FiraCode/" title="FiraCode">
-  <strong>上一篇：</strong><br/>
-  <span>
-  FiraCode</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/Learn-some-Javascript/"  title="学一些 Javascript">
+<a href="/JavaScript-Closure/"  title="JavaScript 闭包">
  <strong>下一篇：</strong><br/> 
- <span>学一些 Javascript
+ <span>JavaScript 闭包
 </span>
 </a>
 </div>
@@ -301,7 +209,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">1.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角形花招"><span class="toc-number">2.</span> <span class="toc-text">三角形花招</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-number">4.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">2.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#历史"><span class="toc-number">3.</span> <span class="toc-text">历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现存"><span class="toc-number">4.</span> <span class="toc-text">现存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
  
   </div>
 
