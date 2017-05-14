@@ -4,23 +4,23 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Non-alpha Javascript | 拖鞋党的拖鞋摊</title>
+    <title>非对称加密 | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="拖鞋党">
     
 
     
-    <meta name="description" content="+[] 也是一段 JS 代码。 运行的结果是什么呢？">
+    <meta name="description" content="非常有趣的思想。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Non-alpha Javascript">
-<meta property="og:url" content="http://en.ors-sro.com/Non-alpha-Javascript/index.html">
+<meta property="og:title" content="非对称加密">
+<meta property="og:url" content="http://en.ors-sro.com/asymmetric-cryptography/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="+[] 也是一段 JS 代码。 运行的结果是什么呢？">
-<meta property="og:updated_time" content="2016-11-06T07:14:32.918Z">
+<meta property="og:description" content="非常有趣的思想。">
+<meta property="og:updated_time" content="2017-05-14T10:31:00.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Non-alpha Javascript">
-<meta name="twitter:description" content="+[] 也是一段 JS 代码。 运行的结果是什么呢？">
+<meta name="twitter:title" content="非对称加密">
+<meta name="twitter:description" content="非常有趣的思想。">
 
     
     <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/Non-alpha-Javascript/" title="Non-alpha Javascript" itemprop="url">Non-alpha Javascript</a>
+      <a href="/asymmetric-cryptography/" title="非对称加密" itemprop="url">非对称加密</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-06T04:23:09.000Z" itemprop="datePublished"> Published 2016-11-06</time>
+    <time datetime="2017-05-14T10:23:50.000Z" itemprop="datePublished"> Published 2017-05-14</time>
     
   </p>
 </header>
@@ -98,130 +98,83 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求值"><span class="toc-number">1.</span> <span class="toc-text">求值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全家福"><span class="toc-number">2.</span> <span class="toc-text">全家福</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字"><span class="toc-number">3.</span> <span class="toc-text">数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字母"><span class="toc-number">4.</span> <span class="toc-text">字母</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对称加密"><span class="toc-number">1.</span> <span class="toc-text">对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非对称加密"><span class="toc-number">2.</span> <span class="toc-text">非对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中间人攻击"><span class="toc-number">3.</span> <span class="toc-text">中间人攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应对非对称加密"><span class="toc-number">4.</span> <span class="toc-text">应对非对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">5.</span> <span class="toc-text">最后</span></a></li></ol>
 		
 		</div>
 		
-		<p><code>+[]</code> 也是一段 JS 代码。 运行的结果是什么呢？</p>
+		<p>非常有趣的思想。</p>
 <a id="more"></a>
-<h2 id="求值">求值</h2><p><code>+[]</code> 的运行结果是 <strong>0</strong> 。 如果不相信，按 F12 打开浏览器的控制台，按 ESC 调出控制台。输入 <code>+[]</code> ，回车就可以看到结果。</p>
-<p>结果为什么这么反直觉？</p>
-<p>想知道运算过程中发生了什么，一个最好不过的方式就是去看语言的规范。</p>
-<p>比如想看 <code>+</code> 操作符的运算过程，打开 <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-11.4.6" target="_blank" rel="external">JS 规范</a>。</p>
-<p>转到<strong>一元 + 操作符</strong> 这一节。</p>
-<blockquote>
-<p>The unary + operator converts its operand to Number type.</p>
-<p>The production UnaryExpression : + UnaryExpression is evaluated as follows:</p>
+<h2 id="对称加密">对称加密</h2><p>为什么要加密呢？因为有些羞羞的东西不想让他人看到。</p>
+<p>比如甲给乙传小纸条，必须要经过捣蛋鬼的手中。如果不加密，捣蛋鬼就会知道其中的内容，然后发出嘿嘿嘿的猥琐笑声。BAD ENDING 1</p>
+<p>甲和乙都很无语。所以他们决定以后发消息的时候要加密。</p>
+<p>甲把信息加密后写在小纸条上，传给乙。</p>
+<p>捣蛋鬼即使在途中看到了也没有办法知道里面的内容。HAPPY ENDING (DREAMING)</p>
+<p>但是现实很残忍，甲和乙不能私下接触，所以只能通过传小纸条的方式来交换信息。</p>
+<p>那么加密的密钥，甲该怎么传给乙呢？</p>
+<p>假设甲把密钥加密后传给乙，乙不知道加密的密钥怎么解密。看不懂。BAD ENDING 2</p>
+<p>假设甲把没加密的密钥传给乙，捣蛋鬼也知道了密钥，甲再发羞羞的内容给乙时，捣蛋鬼用已知的密钥解密，再次发出嘿嘿嘿的萎缩笑声。BAD ENDING 3</p>
+<p>甲感到很绝望。不加密会被偷窥。加密了也会被偷窥。</p>
+<h2 id="非对称加密">非对称加密</h2><p>甲在想如果加密和解密用的不是同一个密钥，那么这样就不怕被偷窥了。那要怎么做呢？</p>
+<p>后来老师在密码学课上讲了方法。</p>
+<p>甲先生成两个密钥，这两个密钥有这样的特点，知道一个密钥不能推出另外一个密钥，但是两个密钥对于某些数学运算能得到相同的结果，也就是一个密钥加密的文本只能用另外一个密钥解密。</p>
+<p>甲随机选择一个密钥，不加密，写在小纸条上传给乙。捣蛋鬼和乙一看这乱七八糟的数字一定是密钥，这个密钥已经公开了。所以称为公钥。剩下那个没公开的称为私钥。</p>
+<p>乙心神领会后，也把公钥发给了甲。</p>
+<p>这样两轮信息交换后</p>
+<p>甲知道了乙的公钥、甲的公钥、甲的私钥。</p>
+<p>乙知道了甲的公钥、乙的公钥、乙的私钥。</p>
+<p>捣蛋鬼知道了甲的公钥和乙的公钥。</p>
+<p>甲用乙的公钥加密羞羞的东西，发给乙。</p>
+<p>捣蛋鬼看到莫名其妙的东西，知道是被加密了。但是乙的公钥不能解密，能解密的只有乙的私钥。捣蛋鬼并不知道乙的私钥。只好放行。传给乙。</p>
+<p>乙收到密文后，用乙的私钥解密，看到了羞羞的东西，决定回复甲。</p>
+<p>乙用甲的公钥加密回复，发给甲。</p>
+<p>捣蛋鬼再次看到莫名其妙的东西，知道肯定又是加密了。而且肯定使用甲的公钥加密了。因为如果用乙的公钥加密，甲没有乙的私钥没有办法解密。捣蛋鬼没有甲的私钥，不能解密，只好放行。</p>
+<p>甲收到密文后用甲的私钥解密。看到了回复。 HAPPY ENDING</p>
+<p>在上述两个例子中，有两种加密方式。</p>
+<p>加密和解密用的是同一个密钥，这叫对称加密。</p>
+<p>相应地，加密和解密用的不是同一个密钥，这叫非对称机密。</p>
+<p>对称加密很容易做到。那么非对称加密是怎么做到密钥不一样还能解密的呢？</p>
+<p>有好几种方法，比如有一种方法是这样的。</p>
+<p>在数学运算中，有些运算会产生信息丢失，也就是即便知道了运算结果也不一定能确定运算前的数。</p>
+<p>比如对于取膜 $\bmod$ </p>
+<p>$3 \bmod 2 = 1$  。如果只知道运算结果是 $1$ 是不能确定运算前是 $3$ 的，因为有可能是 $1, 3, 5, 7, 9\dots$ 中的任何一个。</p>
+<p>虽然不知道原来的数，但是只要知道数学关系就能得到相同的结果。比如只要奇数模 2 都会等于 1 。</p>
+<p>所以可以这么做。</p>
+<p>甲先公开生成密钥的两个常数 $g = 5$ 和 $p = 23$ 。</p>
+<p>甲随机选取一个数字 $a$ 比如 $a = 6$ ，算出公钥 $A = g^a \bmod p = 5^6 \bmod 23 = 8$</p>
+<p>甲把公钥 $A = 23$ 发给乙，把私钥 $a = 6$ 偷偷藏起来。</p>
+<p>捣蛋鬼知道了 $5^? \bmod 23 = 8$ ，但是推不出甲的私钥 $a$ 。</p>
+<p>乙随机选取一个数字 $b$ 比如 $b = 15$ ，算出公钥 $B = g^b \bmod p = 5^{15} \bmod 23 = 19$</p>
+<p>乙把公钥 $B = 19$ 发给甲，把私钥 $b = 15$ 偷偷藏起来。</p>
+<p>捣蛋鬼知道了 $5^? \bmod 23 = 19$ ，但是推不出乙的私钥 $b$ 。</p>
+<p>因为 $(g^a)b = (g^b)^a$ 所以 $(g^a)^b \bmod p = (g^b)^a \bmod p$ </p>
+<p>由于取模的性质有</p>
+<p> $(g^a)^b \bmod p = A^b \bmod p$</p>
+<p>$(g^b)^a \bmod p = B^a \bmod p$</p>
+<p>所以</p>
+<p>$A^b \bmod p = B^a \bmod p$</p>
+<p>也就是甲可以通过甲的私钥和乙的公钥组合来解密，不能只通过乙的公钥来解密。</p>
+<p>同样，乙可以通过乙的私钥和甲的公钥组合来解密，不能只通过甲的公钥来解密。</p>
+<p>在实际应用中通常选择比较大的数防止暴力穷举。</p>
+<p>因为非对称加密相比于对称加密较慢，所以通常使用非对称加密传递对称加密的密钥后使用对称加密通信。</p>
+<h2 id="中间人攻击">中间人攻击</h2><p>以上情况建立在捣蛋鬼没有好好听课的前提下。实际上捣蛋鬼刚好认真听了老师那节介绍非对称加密的课。</p>
+<p>于是甲传递甲的公钥时，捣蛋鬼替换为捣蛋鬼的公钥。</p>
+<p>乙收到捣蛋鬼的公钥后发出乙的公钥。</p>
+<p>捣蛋鬼收到乙的公钥后替换为捣蛋鬼的公钥。</p>
+<p>甲收到捣蛋鬼的公钥后，用捣蛋鬼的公钥加密羞羞的东西，发给乙。</p>
+<p>捣蛋鬼收到加密的内容后，用捣蛋鬼的私钥解密后看到羞羞的内容。发出嘿嘿嘿的萎缩笑声。BAD ENDING 4</p>
+<h2 id="应对非对称加密">应对非对称加密</h2><p>如果文件被非对称加密（如 RSA）加密了。有什么办法解密吗？</p>
+<p>目前能想到的有以下几种方法。</p>
 <ol>
-<li>Let expr be the result of evaluating UnaryExpression.</li>
-<li>Return ToNumber(GetValue(expr)).</li>
+<li>暴力穷举，假设你有银河超级计算器的话。</li>
+<li>获取私钥，假设你可以有资本色诱或威胁的话。</li>
+<li>找到快速的大质数分解方式，顺便拿个炸药奖。</li>
 </ol>
-</blockquote>
-<p>也就是求 <code>ToNumber(GetValue([]))</code> 。可以简单地认为求的是 <code>ToNumber(false)</code> 。</p>
-<p><code>false</code> 转成数字自然是 0 。</p>
-<p>所以 <code>+[]</code> 的结果为 0 。</p>
-<h2 id="全家福">全家福</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[+[]]+([][[]]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()([][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+([]+[][(![]+[])[!+[]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]+(!![]+[])[+[]]][([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]]+(![]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+[]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(!![]+[])[+[]]+([]+&#123;&#125;)[+!![]]+(!![]+[])[+!![]]]((!![]+[])[+!![]]+([][[]]+[])[!+[]+!![]+!![]]+(!![]+[])[+[]]+([][[]]+[])[+[]]+(!![]+[])[+!![]]+([][[]]+[])[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]+!![]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]+([]+&#123;&#125;)[!+[]+!![]+!![]+!![]+!![]]+(+&#123;&#125;+[])[+!![]]+(!![]+[])[+[]]+([][[]]+[])[!+[]+!![]+!![]+!![]+!![]]+([]+&#123;&#125;)[+!![]]+([][[]]+[])[+!![]])())[!+[]+!![]+!![]]+([][[]]+[])[!+[]+!![]+!![]])()(([]+&#123;&#125;)[+[]])[+[]]+(!+[]+!![]+!![]+!![]+[])+(!+[]+!![]+!![]+!![]+!![]+!![]+!![]+!![]+[]))+([][[]]+[])[!+[]+!![]+!![]]+(![]+[])[!+[]+!![]]+(![]+[])[!+[]+!![]]+([]+&#123;&#125;)[+!![]]</span><br></pre></td></tr></table></figure>
-<p>这段代码的输出结果是 “Hello” 。是不是有点不可思议？代码中没有包含任何 “Hello” 字母。</p>
-<p>JS 可以做到没有任何字母和数字就能编写代码。</p>
-<p>只需要用到 <code>!</code> ，<code>+</code>，<code>[]</code> ，<code>{}</code> 和 <code>()</code> 8个字符就可以编写大部分代码。这样没有数字字母的 JS 代码称为 <strong>non-alpha Javascript</strong> 。</p>
-<h2 id="数字">数字</h2><p>non-alpha Javascript 是怎么做到没有数字字母也能写代码的呢？</p>
-<p>其实本质是将数字字母转化为上述的八个字符。</p>
-<p>上面分析了 <code>+[]</code> 等于 0</p>
-<p>那么如果是 2 ，5 ，8 这种数字该怎么表达呢？</p>
-<p>光用 0 是没有办法得到其他数字的。</p>
-<p>1 + 1 = 2 。</p>
-<p>所以只需要再得到 1 即可得到其他所有数字。</p>
-<p>很容易联想到 false 对应的是 0 ，那么 true 对应的应该是 1 。</p>
-<p>怎么得到 true ？已有的条件是 false 。那只需要取反即可。</p>
-<p>也就是 <code>!false</code> 。在 JS 中，<code>[]</code> 被当作 <code>false</code> 。所以带入前式得 <code>![]</code> 。</p>
-<p>还要使用 <code>+</code> 将 <code>![]</code> 将结果转为数字。</p>
-<p>所以 <code>+![]</code> 就会得到 1 。</p>
-<p>要是这么想就大错特错了。JS 可不是凡人能够理解的。</p>
-<p><code>+![]</code> 的结果是 0 ，跟 <code>+[]</code> 一样。</p>
-<p>为什么是这样哪里出错了？</p>
-<p>看代码就清楚了</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[] == <span class="literal">false</span></span><br><span class="line"><span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line">![] == <span class="literal">false</span></span><br><span class="line"><span class="comment">// =&gt; true    WTF???</span></span><br><span class="line"></span><br><span class="line">!![] == []</span><br><span class="line"><span class="comment">// =&gt; false   WTFF???</span></span><br><span class="line"></span><br><span class="line">!![] == <span class="literal">true</span></span><br><span class="line"><span class="comment">// =&gt; true    WTFFF???</span></span><br></pre></td></tr></table></figure>
-<p>这里面是有深坑的（捂眼痛哭），我比较懒就暂时不深究了。</p>
-<p>从上面可以看到 <code>!![] == true</code> 。所以 <code>+true</code> 等于 <code>!![]</code></p>
-<p>使用 + 将结果强制转化为数字。</p>
-<p><code>+!![]</code> 的结果就是 1 。</p>
-<p>所以 2 = 1 + 1</p>
-<p>也就是 2 = <code>+!![]</code> + <code>+!![]</code></p>
-<p>利用进行 + 运算时只要一边是整数类型，就会把另一边也强制转化为整数类型，上式可以简化为</p>
-<p>2 = <code>!![]</code> + <code>!![]</code></p>
-<p>1 的表达式不是唯一的。</p>
-<p>注意到 <code>!0 == true</code>。</p>
-<p>所以 <code>+!0 == 1</code>。</p>
-<p>也就是 <code>+!+[]</code> 的值为 1</p>
-<p>所以 2 还可以表示为 <code>+!+[]</code> + <code>+!+[]</code></p>
-<p>简化一下得 <code>!+[]</code> + <code>!+[]</code></p>
-<p>现在知道 JS 有多<ruby>灵活<rt>凌乱</rt></ruby>了吧。</p>
-<p>类似的可以得到所有数字</p>
-<table>
-<thead>
-<tr>
-<th>数字</th>
-<th>JS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>+[]</td>
-</tr>
-<tr>
-<td>1</td>
-<td>!+[]</td>
-</tr>
-<tr>
-<td>2</td>
-<td>!+[] + !+[]</td>
-</tr>
-<tr>
-<td>3</td>
-<td>!+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>4</td>
-<td>!+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>5</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>6</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>7</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>8</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-<tr>
-<td>9</td>
-<td>!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]</td>
-</tr>
-</tbody>
-</table>
-<p>现在已经拥有所有数字了。假设想得到 12 。用 9 + 4 即可。</p>
-<h2 id="字母">字母</h2><p>如果说得到数字的过程还算正常的话，那么下面介绍得到字母的方法只能说是奇技淫巧。</p>
-<p>基本的思想是从 JS 内置的关键字中按索引得到单一的字母。</p>
-<p>比如 JS 有一个 <code>NaN</code> 表示非数字。</p>
-<p>从 <code>NaN</code> 中可以得到 <code>N</code> 和 <code>a</code></p>
-<p>想要得到 <code>a</code> 只需要 <code>&quot;NaN&quot;[1]</code> </p>
-<p><code>&quot;NaN&quot;</code> 等于 <code>+{}+[]</code></p>
-<p>所以 <code>&quot;NaN&quot;[1]</code> 等于 <code>(+{}+[])[1]</code></p>
-<p>因为 1 等于 <code>+!+[]</code></p>
-<p>所以最后结果是 <code>(+{}+[])[+!+[]]</code></p>
-<p>类似地，从 <code>true</code> 中可以得到 <code>t</code>,<code>r</code>,<code>u</code>,<code>e</code></p>
-<p>从 <code>undefine</code> 可以得到 <code>n</code>,<code>d</code>,<code>f</code>,<code>i</code></p>
-<p>还有一种获取字母的<a href="http://patriciopalladino.com/blog/2012/08/09/non-alphanumeric-javascript.html" target="_blank" rel="external">通用方法</a>。</p>
-<p>至此已经获得了所有的数字字母。可以<a href="http://patriciopalladino.com/files/hieroglyphy/" target="_blank" rel="external">愉快的编程</a>了。</p>
-<h2 id="后记">后记</h2><p>non-alpha javascript 也不知道是谁先想出来的。真的是太有才了。有的人用它绕过 XSS 的过滤。这种思路写过滤器的人估计也没考虑到吧。也从侧面证明了 JS 的类型转化太灵活了，存在太多种特例。平时写代码要避免这些奇怪的边角情况。</p>
+<h2 id="最后">最后</h2><p>在现实生活中，甲传纸条给乙，经过捣蛋鬼的手，捣蛋鬼噌地站起来指着甲说：“老师他上课传纸条！”。</p>
+<p>参考链接</p>
+<ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86" target="_blank" rel="external">公开密钥加密</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%BF%AA%E8%8F%B2-%E8%B5%AB%E7%88%BE%E6%9B%BC%E5%AF%86%E9%91%B0%E4%BA%A4%E6%8F%9B" target="_blank" rel="external">迪菲-赫爾曼密鑰交換</a></li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -235,7 +188,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Javascript/">Javascript</a>
+  <span></span> <a href="/tags/密码学/">密码学</a>
   </div>
 
 </div>
@@ -244,7 +197,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/Non-alpha-Javascript/" data-title="Non-alpha Javascript | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/asymmetric-cryptography/" data-title="非对称加密 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -257,19 +210,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/SICP-1-1-The-Elements-of-Programming-exercise/" title="SICP 1.1 编程的要素">
-  <strong>上一篇：</strong><br/>
-  <span>
-  SICP 1.1 编程的要素</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/FiraCode/"  title="FiraCode">
+<a href="/Prototype-base-object-oriented-programming/"  title="基于原型的面向对象">
  <strong>下一篇：</strong><br/> 
- <span>FiraCode
+ <span>基于原型的面向对象
 </span>
 </a>
 </div>
@@ -290,7 +235,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求值"><span class="toc-number">1.</span> <span class="toc-text">求值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全家福"><span class="toc-number">2.</span> <span class="toc-text">全家福</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字"><span class="toc-number">3.</span> <span class="toc-text">数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字母"><span class="toc-number">4.</span> <span class="toc-text">字母</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对称加密"><span class="toc-number">1.</span> <span class="toc-text">对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非对称加密"><span class="toc-number">2.</span> <span class="toc-text">非对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中间人攻击"><span class="toc-number">3.</span> <span class="toc-text">中间人攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应对非对称加密"><span class="toc-number">4.</span> <span class="toc-text">应对非对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">5.</span> <span class="toc-text">最后</span></a></li></ol>
  
   </div>
 
