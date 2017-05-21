@@ -5,7 +5,7 @@
   <subtitle><![CDATA[写一些有的没的]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://en.ors-sro.com//"/>
-  <updated>2017-05-14T10:31:00.960Z</updated>
+  <updated>2017-05-21T07:00:08.302Z</updated>
   <id>http://en.ors-sro.com//</id>
   
   <author>
@@ -14,6 +14,134 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[侃类型]]></title>
+    <link href="http://en.ors-sro.com/About-Type/"/>
+    <id>http://en.ors-sro.com/About-Type/</id>
+    <published>2017-05-21T06:34:24.000Z</published>
+    <updated>2017-05-21T07:00:08.302Z</updated>
+    <content type="html"><![CDATA[<p>随便说一说类型。</p>
+<a id="more"></a>
+<h2 id="类型的作用">类型的作用</h2><p>如果用记事本写一段程序，就会发现两个问题。</p>
+<p>一个是没有代码提示，一个变量点出来的变量也不知道存不存在。</p>
+<p>另一个是很容易编译失败，因为可能会发生一些不符合类型的问题。</p>
+<p>有了类型能够避免手误，编辑器会提示不存在相应的成员变量。从而更早的发现问题。</p>
+<p>使用类型可以显式地表达一种约束。比如加减乘除需要数字，如果传入了字符串就可以在编译期报错，而不是等到运行时才出错。</p>
+<p>许许多多的类型组成了类型系统。类型系统按不同的维度可以分为好几种。</p>
+<h2 id="强类型和弱类型">强类型和弱类型</h2><p>如果一个类型系统允许隐式类型转换，就是弱类型。否则为强类型。</p>
+<p>C 系列语言就是弱类型。它允许隐式类型转换，如整数类型转为浮点数类型。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printFloat</span><span class="params">(<span class="keyword">float</span> v)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%f\n"</span>, v);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	printFloat(i);        <span class="comment">// 隐式类型转换</span></span><br><span class="line">	printFloat((<span class="keyword">float</span>)i); <span class="comment">// 显式类型转换</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Haskell 不允许隐式类型转换。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">printFloat</span> :: <span class="type">Float</span> -&gt; <span class="type">IO</span> ()</span><br><span class="line"><span class="title">printFloat</span> v = putStrLn (show v)</span><br><span class="line"></span><br><span class="line"><span class="title">main</span> = <span class="keyword">do</span> printFloat (toInteger <span class="number">1</span>)</span><br><span class="line">          printFloat <span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<p>会编译失败。报错类型不匹配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Couldn&#39;t match expected type &#8216;Float&#8217; with actual type &#8216;Integer&#8217;&#10;In the first argument of &#8216;printFloat&#8217;, namely &#8216;(toInteger 1)&#8217;&#10;In a stmt of a &#39;do&#39; block: printFloat (toInteger 1)</span><br></pre></td></tr></table></figure>
+<p>强类型看起似乎麻烦一些，但是类型转换的工作总是要做的。类型转换的规则应该按照实际情况来，是向下取整还是四舍五入。强类型逼迫思考这部分的逻辑，避免错误被隐藏。</p>
+<h2 id="动态类型和静态类型">动态类型和静态类型</h2><p>如果类型能够在编译期确定，就是静态类型，否则为动态类型。</p>
+<p>C 系列语言都是静态类型。举一个 C# 的例子。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		Console.WriteLine(PlusSecond(<span class="number">1</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">PlusSecond</span>(<span class="params"><span class="keyword">int</span> donation</span>)</span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">int</span> life = <span class="keyword">int</span>.MaxValue;</span><br><span class="line">		<span class="keyword">return</span> life + donation; <span class="comment">// donation 一定是 int 类型</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>大部分的脚本语言都是动态类型，比如又爱又恨的 JavaScript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PlusSecond</span>(<span class="params">donation</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">var</span> life = <span class="literal">Infinity</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(donation)) <span class="comment">// 运行时才能确定 donation 的类型。</span></span><br><span class="line">  <span class="keyword">return</span> life + donation;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 甚至不能确定函数的返回类型</span></span><br><span class="line">PlusSecond(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// =&gt; number</span></span><br><span class="line"><span class="comment">// =&gt; Infinity</span></span><br><span class="line">PlusSecond(<span class="string">" life"</span>);</span><br><span class="line"><span class="comment">// =&gt; string</span></span><br><span class="line"><span class="comment">// =&gt; "Infinity life"</span></span><br></pre></td></tr></table></figure>
+<p>动态类型虽然不能确定类型但还是有类型的。</p>
+<p>动态类型虽然没有类型，容易出错，但是有 REPL 可以快速迭代代码啊，撸起袖子就是干。只可惜动态一时爽，重构火葬场。</p>
+<h2 id="无类型">无类型</h2><p>现在大部分的语言都是有类型的。毕竟有类型很方便啊。但还是存在一些无类型的语言，虽然可能算不上编程语言。</p>
+<p>入演算（滑稽），Lambda Calculus，就是一种无类型的，与图灵机等价的计算模型。</p>
+<p>语法为</p>
+<figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= &lt;var&gt;</span><br><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= (λ&lt;var&gt;.&lt;exp&gt;)</span><br><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= (&lt;exp&gt; &lt;exp&gt;)</span><br></pre></td></tr></table></figure>
+<p>规约规则有 α-变换（重命名），β-归约（应用）和 η-变换（外延性相等）。</p>
+<p>具体规则我懒病发作，就不贴了。可以去<a href="https://en.wikipedia.org/wiki/Lambda_calculus" target="_blank" rel="external">维基</a>看。</p>
+<p>从语法中没有看到半点关于类型的东西，甚至连循环都看不到。</p>
+<p>没有循环还能不能愉快的写代码了。</p>
+<p>循环可以用递归代替。那递归怎么实现呢？</p>
+<p>虽然定义中没有给出递归，但是可以通过不动点组合子实现。</p>
+<p>比如著名的 Y 组合子</p>
+<p> $Y=\lambda f.(\lambda x.f (x x)) (\lambda x.f (x x))$ </p>
+<p>利用不动点的性质就可以达到递归。</p>
+<p>$Y g=g (Y g)=g (g (Y g))=g (\ldots g (Y g)\ldots )$</p>
+<p>不过因为 Y 组合子是 Call by name。而传统的语言一般是立即求值，所以需要 Y 组合子的 Call by value 版 Z 组合子。</p>
+<p>$Z=\lambda f.(\lambda x.f(\lambda v.xxv))(\lambda x.f(\lambda v.xxv))$</p>
+<p>Z 组合子的用法很简单，比如在 ES6 中用递归的方式写阶乘</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Z = f =&gt; (x =&gt; f(v =&gt; x(x)(v)))</span><br><span class="line">               (x =&gt; f(v =&gt; x(x)(v)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fact = Z (f =&gt; n =&gt; n == <span class="number">1</span> ? <span class="number">1</span> : n * f(n - <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">fact(<span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; 6</span></span><br></pre></td></tr></table></figure>
+<p>那么问题来了，Z 的类型是？</p>
+<h2 id="函数类型">函数类型</h2><p>在无类型的入演算引入蕴含（$\to$）就会变成简单类型的入演算（$\lambda^\to$）。</p>
+<p>类型规则很简单</p>
+<p>$\displaystyle \frac{}{x:\sigma \vdash x : \sigma}$</p>
+<p>$\displaystyle \frac{\Gamma\vdash x:\sigma\quad x\not=y}{\Gamma,y:\tau \vdash x : \sigma}$</p>
+<p>$\displaystyle \frac{\Gamma,x:\sigma\vdash t:\tau} {\Gamma\vdash \lambda x : \sigma.t : \sigma \to \tau}$</p>
+<p>$\displaystyle \frac{\Gamma\vdash t:\sigma\to\tau\quad\Gamma\vdash u:\sigma}{\Gamma\vdash t\,u : \tau}$</p>
+<p>例如组合子 IKS 的类型为</p>
+<p>$\lambda x:\alpha.x : \alpha\to\alpha$ <strong>(I)</strong></p>
+<p>$\lambda x:\alpha.\lambda y:\beta.x:\alpha \to \beta \to \alpha$ (<strong>K</strong>)</p>
+<p>$\lambda x:\alpha\to\beta\to\gamma.\lambda y:\alpha\to\beta.\lambda z:\alpha.x z (y z) : (\alpha\to\beta\to\gamma)\to(\alpha\to\beta)\to\alpha\to\gamma$  (<strong>S</strong>)</p>
+<p>注意有不少类型是简单类型不能表达的。比如 <code>call/cc</code> 柯里-霍华德同构于皮尔士定律，这在直觉逻辑中是不成立的。所以 <code>call/cc</code> 不能居留。</p>
+<p>函数类型是一种值依赖值的例子。</p>
+<h2 id="和类型与积类型">和类型与积类型</h2><p>在简单类型的入演算（$\lambda^\to$）引入类型操作符就会变成带类型操作符的简单类型入演算（$\lambda\underline\omega$）</p>
+<p>普通的函数是一种操作值的操作符。</p>
+<p>类似的，接收类型为参数返回类型的函数成为类型操作符。</p>
+<p>有很多类型操作符，所以也会产生很多类型。这里主要提两种类型和类型与积类型。</p>
+<p>很多变成使用 null 或者类似的原语来表达缺少值的情况。</p>
+<p>但这会有两个问题。</p>
+<p>一个是 null 只适用于引用类型，如果是值类型比如 int ，那么该怎么表示缺少值的情况呢？</p>
+<p>有些人会取一个范围外的值比如对于输入一定是整数的情况的下可以取 -1 用于表达缺少值。</p>
+<p>在输入包含负数的情况下不能用，这就很尴尬了。</p>
+<p>值类型还好，错误的输入最多是得到错误的值，而引用类型就不一样了。</p>
+<p>如果使用了 null 就必须检查，否则可能会因为空引用而崩溃。</p>
+<p>而且使用了 null 相当于绕过了类型系统的检查，是不是 null 只能在运行时确定，做不到检查出 null 而编译失败。</p>
+<p>理论上只要做了空检查就不会有问题，但是在复杂的数据结构嵌套中很容易就忘了对某个成员的检查。</p>
+<p>这样的感觉像是写动态类型一样，觉得应该是没问题的，最后运行代码然后祈祷不要出错。</p>
+<p>Haskell 中使用 Maybe 类型操作符来表达缺少值的情况。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">data</span> <span class="type">Maybe</span> a = <span class="type">Nothing</span> | <span class="type">Just</span> a  <span class="comment">-- a 为类型参数</span></span></span><br></pre></td></tr></table></figure>
+<p>注意到 a 为类型变量，可以是 Int，String，Char 等。例如</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> <span class="string">"Haha"</span>  </span><br><span class="line"><span class="type">Just</span> <span class="string">"Haha"</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> <span class="number">84</span>  </span><br><span class="line"><span class="type">Just</span> <span class="number">84</span>  </span><br><span class="line"><span class="title">ghci</span>&gt; :t <span class="type">Just</span> <span class="string">"Haha"</span>  </span><br><span class="line"><span class="type">Just</span> <span class="string">"Haha"</span> :: <span class="type">Maybe</span> [<span class="type">Char</span>]  </span><br><span class="line"><span class="title">ghci</span>&gt; :t <span class="type">Just</span> <span class="number">84</span>  </span><br><span class="line"><span class="type">Just</span> <span class="number">84</span> :: (<span class="type">Num</span> t) =&gt; <span class="type">Maybe</span> t</span><br></pre></td></tr></table></figure>
+<p>使用 Maybe 必须检查是否为 Nothing 否则编译失败。不过检查的过程是自动的（多亏了 Monad 和 do-notation）。</p>
+<p>引入 null 不是错误，错误的是没有强制检查 null （C# 可以使用 <code>?.</code> 和 <code>??</code> 简化检查）。</p>
+<p>当 a 为 Int 时 Maybe 返回 Maybe Int 。</p>
+<p>Maybe Int 是什么类型呢。其实是一种和类型，是 Int + Nothing 。</p>
+<p>所以 Maybe 之所以能表达缺少值的情况是因为它可以容纳两种类型。</p>
+<p>类似的，积类型可以用 <code>(,)</code> 操作符或者 <code>std::pair</code> 生成。</p>
+<p>$(A, B)$ 的类型是 A 类型和 B 类型的笛卡儿积 $A \times B$ 。</p>
+<p>类型操作符是一种类型依赖类型的例子。 </p>
+<h2 id="多态类型">多态类型</h2><p>在简单类型的入演算（$\lambda^\to$）引入全称量词（$\forall$）就会变成二阶入演算（$\lambda2$），又称为系统 F 。</p>
+<p>引入 $\forall$ 后获得多态的能力。系统 F 的多态是参数化多态。</p>
+<p>参数化多态类似于泛型。比如对于 <code>List&lt;T&gt;</code> 有</p>
+<p>$length: \forall T.[T] \to int$ </p>
+<p>注意到 <code>length</code> 是 Rank-1 类型。但有的函数可能是 Rank-2 类型。</p>
+<p>比如 $(\forall a.a \to a) \to (\forall b.b \to b)$  就是 Rank-2 类型。</p>
+<p>但不是有 N 个全称量词就是 Rank-N 类型。</p>
+<p>$\forall a. a \to (\forall b.b \to a)$ 是 Rank-1 类型。</p>
+<p>因为可以规约为 $\forall a b . a \to b \to a$ 。</p>
+<p>通常的类型系统是 Rank-1 类型。系统 F 支持 Rank-N 类型。</p>
+<p>Haskell 的类型系统 Hindley–Milner 类型系统是一种带类型类的系统 F 。默认是 Rank-1 ，需要手动开启 Rank-N 。</p>
+<p>比如要使用代替 getter / setter 的光学棱镜组就要开启 Rank-N 。</p>
+<p>除了参数化多态，还有特设多态。</p>
+<p>特设多态是指一个多态函数有多种实现，依赖于参数的类型，调用相应的版本，类似于面向对象中的重载（overload）。</p>
+<p>所以特设多态只能支持有限数量的类型。而参数化多态更为通用。</p>
+<p>多态类型是一种值依赖类型的例子。</p>
+<h2 id="依赖类型">依赖类型</h2><p>容器类型除了元素类型还跟长度有关，不同长度的同元素类型构成了一个容器簇。</p>
+<p>如果把长度当作容器类型构造器的参数，那么就形成了依赖类型。</p>
+<p>依赖类型分为依赖乘积类型（Π-类型）和依赖总和类型（Σ-类型）。</p>
+<p>依赖乘积类型可以写作 $\displaystyle \Pi (x:A),B(x)$ ，当 $B$ 为常数时，即 $\displaystyle \Pi {(x:A)},B$ ，退化为函数类型 $A \to B$</p>
+<p>依赖总和类型可以写作 $\displaystyle \Sigma {(x:A)},B(x)$ ，当 $B$ 为常数时，即 $\displaystyle \Sigma {(x:A)},B$ ，退化为乘积类型 $A \times B$</p>
+<p>依赖类型使得容器类型长度变成了一种约束。</p>
+<p>例如对于元素类型为 T，长度为 n 的 <code>List</code> 类型 $List(T,n)$ ，它的 <code>append</code> 操作类型为</p>
+<p>$append : List(T,n) \to List(T,m) \to List(T,m + n)$ </p>
+<p>如果最后返回值长度不是 $m+n$ 就会被编译器踢屁股，编译失败。</p>
+<p>这样尽可能用类型表达更多的约束，将逻辑问题扑灭在编译期，就能写出更正确的程序。</p>
+<p>依赖类型是一种类型依赖值的例子。</p>
+<p>这样就集齐了值和类型的三种关系。</p>
+<p>以这三种关系为基底，就得到了入立方。</p>
+<p><img src="/img/AboutType/Lambda_cube.png" alt="入立方"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>随便说一说类型。</p>]]>
+    
+    </summary>
+    
+      <category term="类型" scheme="http://en.ors-sro.com/tags/%E7%B1%BB%E5%9E%8B/"/>
+    
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[非对称加密]]></title>
@@ -2467,49 +2595,6 @@
     </summary>
     
       <category term="call/cc" scheme="http://en.ors-sro.com/tags/call-cc/"/>
-    
-      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Continuation-passing style]]></title>
-    <link href="http://en.ors-sro.com/Continuation-passing-style/"/>
-    <id>http://en.ors-sro.com/Continuation-passing-style/</id>
-    <published>2017-01-01T09:19:32.000Z</published>
-    <updated>2017-01-01T13:30:12.327Z</updated>
-    <content type="html"><![CDATA[<p>我把未来抛给了你。</p>
-<a id="more"></a>
-<h2 id="有话好好说别乱来啊">有话好好说别乱来啊</h2><p>两个数相加，翻倍，输出结果。可以这么写</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutputDoubleSum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = a + b;</span><br><span class="line">  result = result * <span class="number">2</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>也可以这么写</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Double</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x*<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Output</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutputDoubleSum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  Output(Double(Sum(a,b)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还能这么写</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sum</span>(<span class="params">a,b,k</span>)</span>&#123;</span><br><span class="line">  k(a+b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Double</span>(<span class="params">x,k</span>)</span>&#123;</span><br><span class="line">  k(x*<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Output</span>(<span class="params">x,k</span>)</span>&#123;</span><br><span class="line">  k(<span class="built_in">console</span>.log(x));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">OutputDoubleSum</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  Sum(a,b,<span class="function"><span class="keyword">function</span> (<span class="params">sumxy</span>)</span>&#123;</span><br><span class="line">    Double(sumxy,<span class="function"><span class="keyword">function</span> (<span class="params">doublex</span>)</span>&#123;</span><br><span class="line">      Output(doublex,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第一种是顺序风格，第二种是函数组合风格，第三种是后继传递风格。</p>
-<p><strong>后继传递风格</strong>（<a href="https://en.wikipedia.org/wiki/Continuation-passing_style" target="_blank" rel="external">Continuation-passing style</a>）是一种控制流通过参数传递的风格。</p>
-<p>简单的说就是把后继，也就是下一步要运行的代码，封装成函数，通过参数传递的方式传给当前运行的函数。</p>
-<p>在例子中 <code>Output(x,k)</code> 的第二个参数接受一个后继，在 <code>Output</code> 执行完成后调用后继。 <code>Output</code> 的后继为</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>是一个空函数，表示后面什么事情都不做。</p>
-<p><code>Double</code> 的后继是</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">doublex</span>)</span>&#123;</span><br><span class="line">  Output(doublex,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>表示收到 <code>Double</code> 的计算结果后，执行 <code>Output</code> </p>
-<p><code>Sum</code> 的后继是</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">sumxy</span>)</span>&#123;</span><br><span class="line">  Double(sumxy,<span class="function"><span class="keyword">function</span> (<span class="params">doublex</span>)</span>&#123;</span><br><span class="line">    Output(doublex,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>表示收到 <code>Sum</code> 的计算结果后，执行 <code>Double</code> </p>
-<p>这样通过参数传递的方式将顺序风格改为了后继传递风格。</p>
-<h2 id="所以有什么用呢">所以有什么用呢</h2><p><del>没什么用</del>。当然是有用的啦，不然干嘛这么费力不讨好。</p>
-<p>一个最常见的用法是用在异步代码中，也就是<a href="/Promise">异步代码的回调</a>。</p>
-<p>搭配 <code>Call/cc</code> 能够实现控制流中的 <code>try/catch</code> 和 <code>yield</code> 等控制方式。</p>
-<h2 id="最后">最后</h2><p>「CPS 就是把用于经典逻辑和直觉逻辑间命题转换的 Gödel–Gentzen 转换，经 Curry–Howard correspondence 应用到证明过程表示的自然结果。」（逃</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>我把未来抛给了你。</p>]]>
-    
-    </summary>
-    
-      <category term="CPS" scheme="http://en.ors-sro.com/tags/CPS/"/>
     
       <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
     
