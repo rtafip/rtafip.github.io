@@ -4,25 +4,27 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>CSS 绘制三角形 | 拖鞋党的拖鞋摊</title>
+    <title>Windows 下安装 Emacs+Sbcl+Slime | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="拖鞋党">
     
 
     
-    <meta name="description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
+    <meta name="description" content="旧文重发，略作修改">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 绘制三角形">
-<meta property="og:url" content="http://en.ors-sro.com/Make-a-triangle-with-CSS/index.html">
+<meta property="og:title" content="Windows 下安装 Emacs+Sbcl+Slime">
+<meta property="og:url" content="http://en.ors-sro.com/Install-Emacs-Sbcl-and-Slime/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
-<meta property="og:image" content="http://en.ors-sro.com/img/CSSTriangle/MainPage.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/CSSTriangle/Item.png">
-<meta property="og:updated_time" content="2016-11-06T07:32:06.947Z">
+<meta property="og:description" content="旧文重发，略作修改">
+<meta property="og:image" content="http://en.ors-sro.com/img/InstallEmacsSbclandSlime/sbcl.png">
+<meta property="og:image" content="http://en.ors-sro.com/img/InstallEmacsSbclandSlime/emacs-setting.png">
+<meta property="og:image" content="http://en.ors-sro.com/img/InstallEmacsSbclandSlime/run-emacs.png">
+<meta property="og:image" content="http://en.ors-sro.com/img/InstallEmacsSbclandSlime/hello-world.png">
+<meta property="og:updated_time" content="2017-05-28T10:17:35.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 绘制三角形">
-<meta name="twitter:description" content="CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？">
+<meta name="twitter:title" content="Windows 下安装 Emacs+Sbcl+Slime">
+<meta name="twitter:description" content="旧文重发，略作修改">
 
     
     <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -84,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/Make-a-triangle-with-CSS/" title="CSS 绘制三角形" itemprop="url">CSS 绘制三角形</a>
+      <a href="/Install-Emacs-Sbcl-and-Slime/" title="Windows 下安装 Emacs+Sbcl+Slime" itemprop="url">Windows 下安装 Emacs+Sbcl+Slime</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
 		
   <p class="article-time">
-    <time datetime="2016-10-23T05:17:11.000Z" itemprop="datePublished"> Published 2016-10-23</time>
+    <time datetime="2017-05-28T10:04:02.000Z" itemprop="datePublished"> Published 2017-05-28</time>
     
   </p>
 </header>
@@ -100,139 +102,58 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">1.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角形花招"><span class="toc-number">2.</span> <span class="toc-text">三角形花招</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-number">4.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载和安装_Emacs"><span class="toc-number">2.1.</span> <span class="toc-text">下载和安装 Emacs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载_Sbcl"><span class="toc-number">2.2.</span> <span class="toc-text">下载 Sbcl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载_Slime"><span class="toc-number">2.3.</span> <span class="toc-text">下载 Slime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Sbcl"><span class="toc-number">2.4.</span> <span class="toc-text">安装Sbcl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置_Emacs"><span class="toc-number">2.5.</span> <span class="toc-text">配置 Emacs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">3.</span> <span class="toc-text">后记</span></a></li></ol>
 		
 		</div>
 		
-		<p>CSS (Cascading Style Sheets，层叠样式表)，用于指定 HTML 中元素的样式。由浏览器渲染。本质上一种图像绘制。既然是图像绘制，能否绘制常见的形状比如三角形呢？</p>
+		<p>旧文重发，略作修改</p>
 <a id="more"></a>
-<h2 id="矩形">矩形</h2><p>在绘制三角形之前，先来看看如何绘制矩形。</p>
-<p>绘制矩形比较简单，主要用到了 <code>border</code> 属性。也就是一个东西四边都是边框就是矩形了。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border:1px solid black"</span>&gt;</span>矩形<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><span style="border:1px solid black">矩形</span></p>
-<p>把中间的文字去掉就可以了。因为没有文字支撑。所以需要指定宽度或者使用空格（样式是样式，内容是内容，不要混淆，这里我偷懒就用空格来演示了）。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border:1px solid black"</span>&gt;</span>　　<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><span style="border:1px solid black">　　</span></p>
-<p>但是这跟绘制三角形有什么关系呢？</p>
-<p>这就不得不提一个 CSS 的花招。</p>
-<h2 id="三角形花招">三角形花招</h2><p>如果把矩形的四边涂上颜色。看起来是这样的。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border: 100px solid;border-left-color: #0066cc;</span><br><span class="line">             border-right-color: #0066cc;</span><br><span class="line">             border-top-color: white;</span><br><span class="line">             border-bottom-color: white;</span><br><span class="line">             display: inline-block;"</span>&gt;</span>囧<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;">囧</span></p>
-<p>把中间的文字去掉，就变成了这样。</p>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;"></span></p>
-<p>很明显出现了四个三角形。那怎么得到一个三角形呢？</p>
-<p>把其他三个三角形隐藏。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"border: 100px solid;</span><br><span class="line">			 border-left-color: #0066cc;</span><br><span class="line">			 border-right-color: transparent;</span><br><span class="line">			 border-top-color: transparent;</span><br><span class="line">			 border-bottom-color: transparent;</span><br><span class="line">			 display: inline-block;"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: transparent;border-top-color: transparent;border-bottom-color: transparent;display: inline-block;"></span></p>
-<h2 id="原理">原理</h2><p>这究竟发生了什么？矩形的边是怎么变成三角形的？</p>
-<p>先从头看起。回到最开始的图形。</p>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;">囧</span></p>
-<p>注意看会发现，边其实不是一条线或者矩形，而是一个等腰梯形。</p>
-<p>当把文字去掉了之后就变成了三角形。</p>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;"></span></p>
-<p>这时候隐藏其他的三角形即可。</p>
-<p>也就是说原来边缘并不是我们想象中的一条线，而是一个梯形，当元素的宽度和高度都为0时，梯形就变成了三角形。</p>
-<p>动态过程是这样的。</p>
-<p style="width:300px;height:300px;"><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;width: 100px;height:100px;display: inline-block;animation: triangle 3s infinite ease;"></span></p>
-
-<style type="text/css">
-    @keyframes triangle{
-        from{width:100px;height:100px;}
-        to{width:0px;height:0px;}
-    }
-</style>
-
-<p>隐藏的过程是这样的</p>
-<p><span style="border: 100px solid;border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;display: inline-block;animation: one-triangle 3s infinite ease;"></span></p>
-<style type="text/css">
-    @keyframes one-triangle{
-        0% {border-left-color: #0066cc;border-right-color: #0066cc;border-top-color: white;border-bottom-color: white;}
-        25% {border-top-color:transparent;}
-        50% {border-top-color:transparent;border-right-color:transparent;}
-        100% {border-top-color:transparent;border-right-color:transparent;border-bottom-color:transparent;}
-    }
-</style>
-
-<h2 id="扩展">扩展</h2><p>利用类似的技巧就可以画出很多很多有趣的图形。<a href="http://cssicon.space/" target="_blank" rel="external">CSSIcon</a> 上有很好的示例。</p>
-<p><img src="/img/CSSTriangle/MainPage.png" alt="纯 CSS 图标"></p>
-<p>点开其中一个，鼠标移到属性上，会有详细介绍怎么实现的。</p>
-<p><img src="/img/CSSTriangle/Item.png" alt="详细实现"></p>
-<p>当然还可以用 CSS 绘制微信微笑的表情（<del>我就偷懒不写了</del>）</p>
-<div class="smiley icon"><i></i></div>
-
-<style type="text/css">
-    .smiley.icon {
-      color: #000;
-      position: absolute;
-      margin-left: 2px;
-      margin-top: 2px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: solid 1px currentColor;
-    }
-
-    .smiley.icon:before {
-      content: '';
-      position: absolute;
-      left: 2px;
-      top: 3px;
-      width: 3px;
-      height: 4px;
-      border-radius: 3px;
-      border: solid 1px currentColor;
-    }
-
-    .smiley.icon:after {
-      content: '';
-      position: absolute;
-      right: 2px;
-      top: 3px;
-      width: 3px;
-      height: 4px;
-      border-radius: 3px;
-      border: solid 1px currentColor;
-    }
-
-    .smiley.icon i {
-      position: absolute;
-      left: 2px;
-      top: 7px;
-      width: 10px;
-      height: 5px;
-      border-radius: 0 0 6px 6px;
-      border-top: solid 1px transparent;
-      border-bottom: solid 1px currentColor;
-      border-left: solid 1px currentColor;
-      border-right: solid 1px currentColor;
-    }
-
-    .smiley.icon i:before {
-      content: '';
-      position: absolute;
-      left: 0px;
-      top: -3px;
-      width: 1px;
-      height: 1px;
-      border-radius: 50%;
-      border: solid 1px currentColor;
-      background-color: currentColor;
-    }
-
-    .smiley.icon i:after {
-      content: '';
-      position: absolute;
-      right: 0px;
-      top: -3px;
-      width: 1px;
-      height: 1px;
-      border-radius: 50%;
-      border: solid 1px currentColor;
-      background-color: currentColor;
-    }
-</style>
-
-<h2 id="后记">后记</h2><p>三个月前看到这个 CSS 花招，到现在终于把这个坑填了。在写的时候多次想放弃。最有意思的是将原理用动态的方式展现，顺便学了一点 CSS 动画的皮毛。其实绘制三角形最简单的方法是使用 ► 符号（逃</p>
+<h2 id="前言">前言</h2><p>其实网上已经有很多类似的文章了，我也是按照上面的来做。在做的过程中会遇到几个很坑的地方，我自己也是折腾了好久才弄好。所以现在写出来希望能对大家有所帮助。</p>
+<h2 id="正文">正文</h2><h3 id="下载和安装_Emacs">下载和安装 Emacs</h3><p><a href="http://ftp.gnu.org/gnu/emacs/windows/emacs-24.3-bin-i386.zip" target="_blank" rel="external">http://ftp.gnu.org/gnu/emacs/windows/emacs-24.3-bin-i386.zip</a> </p>
+<p>解压运行安装</p>
+<h3 id="下载_Sbcl">下载 Sbcl</h3><p><a href="http://www.sbcl.org/platform-table.html" target="_blank" rel="external">http://www.sbcl.org/platform-table.html</a></p>
+<p>选 Windows 和你的架构。如果不知道的话就选 X86 就行了。</p>
+<h3 id="下载_Slime">下载 Slime</h3><p><a href="https://github.com/slime/slime" target="_blank" rel="external">https://github.com/slime/slime</a></p>
+<p>如果你有 github 帐户就直接 git clone 吧。如果没有的话，点 download zip 然后解压。 </p>
+<h3 id="安装Sbcl">安装Sbcl</h3><p>双击安装包，改一下安装路径到你想安装的地方。但是这里有一个坑。</p>
+<p><strong>坑1：系统变量重启才会更新</strong></p>
+<p>这是因为在安装的过程中会给系统加一个 Sbcl 路径的变量。</p>
+<p>所以一定要安装完后重启，不然就会提示</p>
+<blockquote>
+<p>fatal error encountered in SBCL pid 10236(tid 9971200):<br>can’t find core file at XXXXX</p>
+</blockquote>
+<p>安装成功的标志是运行 sbcl.exe 会出现类似这样的界面：</p>
+<p><img src="/img/InstallEmacsSbclandSlime/sbcl.png" alt="运行 sbcl"></p>
+<h3 id="配置_Emacs">配置 Emacs</h3><p>本来在 Linux 下配置 Emacs 是一件简单的事，但在 Windows 下就不那么容易了。因为 Windows 文件名命名机制这里有一个坑。</p>
+<p><strong>坑2:找不到 Emacs 的配置文件 .emacs</strong></p>
+<p>这是因为 Windows 允许这样的命名规则，也是就不允许只有扩展名而没有文件名（在 Windows 看来是 .emacs 非法的，必须是 XXX.emacs 才是合法的。Linux 则是看成一个隐藏文件而已）</p>
+<p>所以要做的第一步是生成 .emacs 配置文件</p>
+<p>原理是通过修改选项之后点保存选项会生成 .emacs 配置文件</p>
+<p>方法很简单。在 Emacs 目录下双击 runemacs.exe 打开 emacs</p>
+<p>然后在菜单栏里点 Options——Show/Hide——tool-bar</p>
+<p>之后点 Options——Save options</p>
+<p>这样就会在 <code>C:\Users\你的用户名\AppData\Roaming</code> 下生成一个 .emacs</p>
+<p>打开 .emacs 输入以下内容以配置 Slime</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">setq</span> inferior-lisp-program <span class="string">"sbcl路径"</span>)</span><span class="comment">; 设置优先使用哪种 Common Lisp 实现</span></span><br><span class="line"><span class="list">(<span class="keyword">add-to-list</span> <span class="variable">'load-path</span> <span class="string">"slime路径"</span>)</span><span class="comment">; 设置 Slime 路径</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">require</span></span> <span class="variable">'slime</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">slime-setup</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">require</span></span> <span class="variable">'slime-autoloads</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">slime-setup</span> '<span class="list">(<span class="keyword">slime-fancy</span>)</span>)</span><span class="comment">; 让 slime 变得更好看，比如把 sbcl 的*变成 CL-USER&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中路径使用<code>/</code>或者<code>//</code>分隔</p>
+<p>这其中有一个坑需要小心</p>
+<p><strong>坑3：sbcl 的路径一定要写到 sbcl.exe 不然会提示</strong></p>
+<blockquote>
+<p>Specified program for new process is a directory</p>
+</blockquote>
+<p>这个真的是深坑啊。当时我花了不少时间才折腾好</p>
+<p>原理就是 slime 调用的时候不会从你填的路径找到 sbcl.exe 而是需要给出 sbcl.exe 的完整路径</p>
+<p>我的 .emacs 配置是这样的</p>
+<p><img src="/img/InstallEmacsSbclandSlime/emacs-setting.png" alt="Emacs 配置"></p>
+<p>打开 Emacs 按 M-x（window下就是Alt+x）输入 slime 之后会出现像这样的</p>
+<p><img src="/img/InstallEmacsSbclandSlime/run-emacs.png" alt="运行 Slime"></p>
+<p>输入<code>&quot;Hello Common Lisp!&quot;</code> 一声长叹</p>
+<p><img src="/img/InstallEmacsSbclandSlime/hello-world.png" alt="Hello World"></p>
+<h2 id="后记">后记</h2><p>一些常用的 Slime 快捷键</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-k 编译当前文件 （也就是Ctrl+c后再Ctrl+k） </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-c 增量编译（这是我自己的理解） </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-z 切换到Slime </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-l 加载文件</span><br></pre></td></tr></table></figure>
+<p>当然以上快捷键都可以再 .emacs 里面改。</p>
+<p>PS:我的配色是 solarized 字体是 Monaco</p>
+<p>PSS：以上 Vim 的配色。Emacs 的配色是自带的 dichromacy</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -240,13 +161,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+  <a class="article-category-link" href="/categories/玩/">玩</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CSS/">CSS</a>
+  <span></span> <a href="/tags/Emacs/">Emacs</a>
   </div>
 
 </div>
@@ -255,7 +176,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/Make-a-triangle-with-CSS/" data-title="CSS 绘制三角形 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/Install-Emacs-Sbcl-and-Slime/" data-title="Windows 下安装 Emacs+Sbcl+Slime | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -268,19 +189,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/FiraCode/" title="FiraCode">
-  <strong>上一篇：</strong><br/>
-  <span>
-  FiraCode</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/Learn-some-Javascript/"  title="学一些 Javascript">
+<a href="/About-Type/"  title="侃类型">
  <strong>下一篇：</strong><br/> 
- <span>学一些 Javascript
+ <span>侃类型
 </span>
 </a>
 </div>
@@ -301,7 +214,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#矩形"><span class="toc-number">1.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三角形花招"><span class="toc-number">2.</span> <span class="toc-text">三角形花招</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-number">4.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载和安装_Emacs"><span class="toc-number">2.1.</span> <span class="toc-text">下载和安装 Emacs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载_Sbcl"><span class="toc-number">2.2.</span> <span class="toc-text">下载 Sbcl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载_Slime"><span class="toc-number">2.3.</span> <span class="toc-text">下载 Slime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Sbcl"><span class="toc-number">2.4.</span> <span class="toc-text">安装Sbcl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置_Emacs"><span class="toc-number">2.5.</span> <span class="toc-text">配置 Emacs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">3.</span> <span class="toc-text">后记</span></a></li></ol>
  
   </div>
 
