@@ -4,26 +4,23 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>FiraCode | 拖鞋党的拖鞋摊</title>
+    <title>柯里-霍华德同构 | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="拖鞋党">
     
 
     
-    <meta name="description" content="表示大于等于关系通常使用大于等于符号 ≥ ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 &amp;gt;= 。能不能在不改变现有语言的情况下使用 ≥ 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =">
+    <meta name="description" content="这真的只是一种巧合吗？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FiraCode">
-<meta property="og:url" content="http://en.ors-sro.com/FiraCode/index.html">
+<meta property="og:title" content="柯里-霍华德同构">
+<meta property="og:url" content="http://en.ors-sro.com/Curry-Howard-correspondence/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="表示大于等于关系通常使用大于等于符号 ≥ ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 &amp;gt;= 。能不能在不改变现有语言的情况下使用 ≥ 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =">
-<meta property="og:image" content="http://en.ors-sro.com/img/FiraCode/VS2015.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/FiraCode/et.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/FiraCode/AllLigatures.png">
-<meta property="og:updated_time" content="2016-10-30T07:10:20.520Z">
+<meta property="og:description" content="这真的只是一种巧合吗？">
+<meta property="og:updated_time" content="2017-06-18T13:16:47.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FiraCode">
-<meta name="twitter:description" content="表示大于等于关系通常使用大于等于符号 ≥ ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 &amp;gt;= 。能不能在不改变现有语言的情况下使用 ≥ 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =">
+<meta name="twitter:title" content="柯里-霍华德同构">
+<meta name="twitter:description" content="这真的只是一种巧合吗？">
 
     
     <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -85,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/FiraCode/" title="FiraCode" itemprop="url">FiraCode</a>
+      <a href="/Curry-Howard-correspondence/" title="柯里-霍华德同构" itemprop="url">柯里-霍华德同构</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
 		
   <p class="article-time">
-    <time datetime="2016-10-30T04:42:35.000Z" itemprop="datePublished"> Published 2016-10-30</time>
+    <time datetime="2017-06-18T13:08:03.000Z" itemprop="datePublished"> Published 2017-06-18</time>
     
   </p>
 </header>
@@ -101,189 +98,43 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#合字"><span class="toc-number">1.</span> <span class="toc-text">合字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FiraCode"><span class="toc-number">2.</span> <span class="toc-text">FiraCode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#命题与类型"><span class="toc-number">1.</span> <span class="toc-text">命题与类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">2.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详述"><span class="toc-number">3.</span> <span class="toc-text">详述</span></a></li></ol>
 		
 		</div>
 		
-		<p>表示大于等于关系通常使用大于等于符号 <code>≥</code> ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 <code>&gt;=</code> 。能不能在不改变现有语言的情况下使用 <code>≥</code> 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =<br><a id="more"></a></p>
-<h2 id="合字">合字</h2><p>先来看一段 C 语言代码。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;number);</span><br><span class="line">	<span class="keyword">if</span> (<span class="number">0</span> &lt;= number &amp;&amp; number &lt;= <span class="number">60</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"你挂了！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"还好没挂！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<style type="text/css">
-    @font-face { 
-    font-family: FiraCode; 
-    src: url('/font/FiraCode-Regular.woff2'); 
-    } 
-
-    .article-content pre { 
-        font-family: FiraCode !important; 
-    }
-</style>
-
-
-<p>很简单的程序，好像没什么特别的。但是注意看第七行也就是第一个 <code>if</code> 中的 <code>≥</code> 符号。有没有发现它居然不是 <code>&gt;=</code> ，并不是作弊使用了 <code>≥</code> 不信你选择大于等于符号试试。（浏览器版本太低会看不到效果。建议升级 Chrome 或者使用水果机上的 Safari 浏览本页）</p>
-<p>选择时会发现，这个 <code>≥</code> 居然占了两个字符。也就是可以选择前一半，再选择后一半。</p>
-<p>并不是只是在网页上可以有这种效果。编辑器里面也是可以的。</p>
-<p><img src="/img/FiraCode/VS2015.png" alt="Visual Studio 2015 ≤可以被部分选择"></p>
-<p>为什么可以输入的是 <code>&gt;=</code> ，显示的却是 <code>≥</code> ，而编辑器识别的是 <code>&gt;=</code> 呢？</p>
-<p>因为使用了特殊的字体。这个字体中用到了<strong>合字</strong>（<a href="https://en.wikipedia.org/wiki/Typographic_ligature" target="_blank" rel="external">ligature</a>）技术</p>
-<p>合字，顾名思义，就是将字合到一起。</p>
-<p>比如 a 和 e 对应的合字是 æ 。</p>
-<p>其实 &amp; 是一个合字，由 e 和 t 合成。</p>
-<p><img src="/img/FiraCode/et.png" alt="&amp; 由 e 和 t 合成"></p>
-<p>使用了合字技术后，编辑器会将字体中指定的两个字符渲染为它们的合字。</p>
-<p>所以 <code>&gt;</code> 和 <code>=</code> 会被渲染为它们的合字 <code>≥</code> 。</p>
-<h2 id="FiraCode">FiraCode</h2><p><strong>FiraCode</strong> 是为数不多的支持合字的编程字体。</p>
-<p>支持将 <code>&gt;=</code> 转为 <code>≥</code> ，<code>-&gt;</code> 转为 <code>→</code> 和 <code>!=</code> 转为 <code>≠</code> 等。</p>
-<p>全部字符如下</p>
-<p><img src="/img/FiraCode/AllLigatures.png" alt="FiraCode 合字列表"></p>
-<p>在 VS2015 中启用 FiraCode 也很简单</p>
-<p>首先下载 <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">FiraCode</a> 字体。</p>
-<p>解压，打开 <strong>TTF</strong> 文件夹，在 FiraCode-Regular.ttf 上右键安装。 这样字体就安装完成。</p>
-<p>接着在 VS 修改字体。</p>
-<p>工具→选项→环境→字体和颜色→FiraCode</p>
-<p>试着输入 <code>&gt;=</code> 和 <code>!=</code> 看看吧。</p>
-<p>是不是看到了 <code>!=</code> 输入后直接变成了 <code>≠</code></p>
-<p><a href="https://github.com/tonsky/FiraCode/issues/273" target="_blank" rel="external">FiraCode 支持</a> <code>-&gt;</code> 转为 <code>→</code> 但是 VS 不支持，所以看不到效果。（鬼知道为什么选择性地支持合字。）</p>
-<p>FiraCode 除了支持 VS 之外还支持以下编辑器</p>
-<table>
-<thead>
-<tr>
-<th>支持</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Anjuta (unless at the EOF)</td>
-</tr>
-<tr>
-<td>AppCode (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Atom 1.1 or newer (instructions)</td>
-</tr>
-<tr>
-<td>BBEdit (instructions)</td>
-</tr>
-<tr>
-<td>Brackets (with this plugin)</td>
-</tr>
-<tr>
-<td>Chocolat</td>
-</tr>
-<tr>
-<td>CLion (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Coda 2</td>
-</tr>
-<tr>
-<td>CodeLite</td>
-</tr>
-<tr>
-<td>Eclipse (Linux)</td>
-</tr>
-<tr>
-<td>Geany</td>
-</tr>
-<tr>
-<td>gEdit / Pluma</td>
-</tr>
-<tr>
-<td>GNOME Builder</td>
-</tr>
-<tr>
-<td>IntelliJ IDEA (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Kate, KWrite</td>
-</tr>
-<tr>
-<td>Komodo</td>
-</tr>
-<tr>
-<td>Leafpad</td>
-</tr>
-<tr>
-<td>LibreOffice</td>
-</tr>
-<tr>
-<td>LightTable (instructions)</td>
-</tr>
-<tr>
-<td>MacVim 7.4 or newer (instructions)</td>
-</tr>
-<tr>
-<td>Mancy</td>
-</tr>
-<tr>
-<td>Meld</td>
-</tr>
-<tr>
-<td>Mousepad</td>
-</tr>
-<tr>
-<td>NetBeans</td>
-</tr>
-<tr>
-<td>Notepad (Win)</td>
-</tr>
-<tr>
-<td>PhpStorm (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>PyCharm (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>QtCreator</td>
-</tr>
-<tr>
-<td>RStudio (instructions)</td>
-</tr>
-<tr>
-<td>RubyMine (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Scratch</td>
-</tr>
-<tr>
-<td>TextAdept (Linux, Mac)</td>
-</tr>
-<tr>
-<td>TextEdit</td>
-</tr>
-<tr>
-<td>TextMate 2</td>
-</tr>
-<tr>
-<td>Visual Studio 2015</td>
-</tr>
-<tr>
-<td>Visual Studio Code (instructions)</td>
-</tr>
-<tr>
-<td>WebStorm (2016.2+, instructions)</td>
-</tr>
-<tr>
-<td>Xamarin Studio/Monodevelop</td>
-</tr>
-<tr>
-<td>Xcode (with this plugin)</td>
-</tr>
-<tr>
-<td>Probably work: Smultron, Vico</td>
-</tr>
-</tbody>
-</table>
-<p>除了 FiraCode 还有其他支持合字的编程字体</p>
+		<p>这真的只是一种巧合吗？</p>
+<a id="more"></a>
+<h2 id="命题与类型">命题与类型</h2><p>一个函数的类型可以是 <code>A -&gt; B -&gt; A</code> 。</p>
+<p>一个命题的类型可以是 $\alpha \to \beta \to \alpha$ 。</p>
+<p>可以发现，这两个类型是类似的。</p>
+<p>类型 <code>A</code> 类似于命题 $\alpha$ 。</p>
+<p>函数 <code>-&gt;</code> 类似于蕴含 $\to$ 。</p>
+<p>实际上这是柯里-霍华德同构。</p>
+<h2 id="定义">定义</h2><p><strong>柯里-霍华德同构</strong>揭示了计算机程序和数学证明之间的紧密联系。</p>
+<p>类型即命题，程序即证明。</p>
+<p>也就是函数的类型相当于命题，函数的实现相当于证明。这在 Coq 中体现得很明显。</p>
+<p>用 <a href="https://www.zhihu.com/people/be5invis/answers" target="_blank" rel="external">be5</a> 大大<a href="https://zhihu.com/question/22959608/answer/24770830" target="_blank" rel="external">一针见血的解释</a>来说就是</p>
+<blockquote>
+<p>Lambda 演算同构为 Gentzen 的自然演绎</p>
 <ul>
-<li><a href="https://github.com/i-tu/Hasklig" target="_blank" rel="external">Hasklig (free)</a></li>
-<li><a href="http://www.fsd.it/fonts/pragmatapro.htm" target="_blank" rel="external">PragmataPro (€59)</a></li>
-<li><a href="http://larsenwork.com/monoid/" target="_blank" rel="external">Monoid (free)</a></li>
-<li><a href="https://github.com/kika/fixedsys" target="_blank" rel="external">Fixedsys Excelsior (free)</a></li>
-<li><a href="https://be5invis.github.io/Iosevka/" target="_blank" rel="external">Iosevka (free)</a></li>
-<li><a href="https://github.com/SSNikolaevich/DejaVuSansCode" target="_blank" rel="external">DejaVu Sans Code (free)</a></li>
+<li>函数调用就是蕴含消除</li>
+<li>函数抽象就是蕴含介入</li>
+<li>参数多态就是全称量化</li>
+<li>模板类型就是谓词</li>
+<li>结构类型就是合取</li>
+<li>联合类型就是析取</li>
+<li>收参数但不返回就是否定</li>
+<li>高洋上的 call/cc 就是双重否定消除</li>
 </ul>
-<h2 id="最后">最后</h2><p>支持合字的编程字体还很少。使用合字能够让代码看起来更易读，而且能一眼看出错误的字符输入。但是 FiraCode 感觉不是很好看。什么时候有大神能让 Consolas 支持合字技术啊。</p>
+</blockquote>
+<h2 id="详述">详述</h2><p>函数调用的规则是<br>$$<br>{\Gamma\vdash t:\sigma\to\tau\quad\Gamma\vdash u:\sigma}\over{\Gamma\vdash t\,u : \tau}<br>$$<br>结果从 $\sigma\to\tau$ 变成 $\tau$ ，少了蕴含 $\to$ 所以称为蕴含消除。</p>
+<p>相应的函数调用的逆操作函数抽象的规则是<br>$$<br>{\Gamma,x:\sigma\vdash t:\tau}\over{\Gamma\vdash \lambda x : \sigma.t : \sigma \to \tau}<br>$$<br>结果从 $\tau$ 变成 $\sigma\to\tau$ ，多了蕴含 $\to$ 所以称为蕴含介入。</p>
+<p>参数多态实际上是对于某个参数不限制类型，相当于逻辑量词 $\forall$ ，也就是全称量化。</p>
+<p>联合类型，例如 <code>Maybe Int</code> ，表示可能是 <code>Int</code> 或者是 <code>Nothing</code> 。关系是<strong>或</strong>，也就是析取。</p>
+<p>相应地，结构类型表示可以同时是多个类型，关系是<strong>且</strong>，也就是合取。</p>
+<p>对于接受参数而不返回的函数，或者返回 Unit 的函数，实际上类似于 $A \to \bot$ ，返回一个底。 </p>
+<p>CPS 转换对应的是双重否定转换，也就是双重否定介入。</p>
+<p>相应地，<code>call/cc</code> 对应的是双重否定消除。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -291,13 +142,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/玩/">玩</a>
+  <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/FiraCode/">FiraCode</a><a href="/tags/编程字体/">编程字体</a>
+  <span></span> <a href="/tags/同构/">同构</a>
   </div>
 
 </div>
@@ -306,7 +157,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/FiraCode/" data-title="FiraCode | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/Curry-Howard-correspondence/" data-title="柯里-霍华德同构 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -319,19 +170,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/Non-alpha-Javascript/" title="Non-alpha Javascript">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Non-alpha Javascript</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/Make-a-triangle-with-CSS/"  title="CSS 绘制三角形">
+<a href="/Coq-Notes-1/"  title="Coq  入门学习笔记 （1）">
  <strong>下一篇：</strong><br/> 
- <span>CSS 绘制三角形
+ <span>Coq  入门学习笔记 （1）
 </span>
 </a>
 </div>
@@ -352,7 +195,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#合字"><span class="toc-number">1.</span> <span class="toc-text">合字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FiraCode"><span class="toc-number">2.</span> <span class="toc-text">FiraCode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#命题与类型"><span class="toc-number">1.</span> <span class="toc-text">命题与类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">2.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详述"><span class="toc-number">3.</span> <span class="toc-text">详述</span></a></li></ol>
  
   </div>
 

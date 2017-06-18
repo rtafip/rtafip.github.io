@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://en.ors-sro.com/Call-with-current-continuation/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
 <meta property="og:description" content="我接过你保存拯救的世界。">
-<meta property="og:updated_time" content="2017-01-15T07:27:54.636Z">
+<meta property="og:updated_time" content="2017-06-18T13:15:27.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Call with current continuation">
 <meta name="twitter:description" content="我接过你保存拯救的世界。">
@@ -119,7 +119,7 @@
 </blockquote>
 <p>call/cc 能够将当前后继（<a href="/Continuation-passing-style">Continuation</a>）打包，传给参数。当调用该后继时，call/cc 返回后继接收到的参数。</p>
 <p>这么说可能有点抽象，回到开头的例子。</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">call/cc</span> f)</span></span><br><span class="line"><span class="comment">;; call/cc 打包当前后继</span></span><br><span class="line"><span class="list">(<span class="keyword">f</span> current-continuation)</span></span><br><span class="line"><span class="comment">;; 按 Applicative-order 展开</span></span><br><span class="line"><span class="list">(<span class="list">(<span class="keyword">current-continuation</span> <span class="number">3</span>)</span> <span class="number">2</span>)</span></span><br><span class="line"><span class="comment">;; 当调用后继时，call/cc 返回后继接收到的参数。</span></span><br><span class="line"><span class="comment">;; 程序返回到 (call/cc f)</span></span><br><span class="line"><span class="comment">;; current-continuation 接收到的参数是 3</span></span><br><span class="line"><span class="comment">;; (call/cc f) 返回 3</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">call/cc</span> f)</span></span><br><span class="line"><span class="comment">;; call/cc 打包当前后继为 current-continuation</span></span><br><span class="line"><span class="list">(<span class="keyword">f</span> current-continuation)</span></span><br><span class="line"><span class="comment">;; 按 Applicative-order 展开</span></span><br><span class="line"><span class="comment">;;(define (f c)</span></span><br><span class="line"><span class="comment">;; (c 2)</span></span><br><span class="line"><span class="comment">;;  3)</span></span><br><span class="line"><span class="list">(<span class="list">(<span class="keyword">current-continuation</span> <span class="number">2</span>)</span> <span class="number">3</span>)</span></span><br><span class="line"><span class="comment">;; 当调用后继时，call/cc 完成，返回值为后继接收到的参数。</span></span><br><span class="line"><span class="comment">;; 程序返回到 (call/cc f)</span></span><br><span class="line"><span class="comment">;; current-continuation 接收到的参数是 2</span></span><br><span class="line"><span class="comment">;; (call/cc f) 执行完成返回 2</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>所以这是一种 <code>goto</code> 吗？</p>
 <p>是的，一种超级 <code>goto</code> ，或者说穷人的 <code>goto</code> 。</p>
 <p>区别是 call/cc 是一个函数，并不是特定的语法保留字。而且 call/cc 是更通用的控制结构，可以用于实现 generator / enumrator 等控制结构。</p>
@@ -232,7 +232,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>17</sup></a></li>
+			<li><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>18</sup></a></li>
 		  
 		
 		  
