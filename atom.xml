@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://en.ors-sro.com/"/>
-  <updated>2017-06-18T13:16:47.631Z</updated>
+  <updated>2017-06-25T08:49:29.555Z</updated>
   <id>http://en.ors-sro.com/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>λ 演算</title>
+    <link href="http://en.ors-sro.com/Lambda-calculus/"/>
+    <id>http://en.ors-sro.com/Lambda-calculus/</id>
+    <published>2017-06-25T08:43:56.000Z</published>
+    <updated>2017-06-25T08:49:29.555Z</updated>
+    
+    <content type="html"><![CDATA[<p>是 $\lambda$ 演算不是入演算[滑稽]</p>
+<a id="more"></a>
+<h2 id="简介">简介</h2><p>lambda 表达式可以简单理解为匿名函数。</p>
+<p>现在不少语言都加入了 lambda 表达式。就连名词王国 Java 也忍不住参与了。</p>
+<p>一个普通的送命函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Plus</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用 Java 中的 lambda 表达式是这样的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x -&gt; x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>用 JavaScript 中的 lambda 表达式是这样的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x =&gt; x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>用 Scheme 中的 lambda 表达式是这样的</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">lambda</span> <span class="list">(<span class="keyword">x</span>)</span> <span class="list">(<span class="keyword">+</span> x <span class="number">1</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>用 C++ 中的 lambda 表达式是这样的（没错就是要和别的妖艳贱货不一样）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[=](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x + <span class="number">1</span>;&#125;;</span><br></pre></td></tr></table></figure>
+<p>使用 lambda 表达式能够方便函数的创建，传递，返回等，大大方便了编程，就不说某不思进取语言之前只能传递匿名类的故事了。</p>
+<p>实际上 lambda 表达式源于 $\lambda$ 演算。</p>
+<p>对编程有基本了解的人都应该知道图灵机，图灵机是目前能实现的最强计算模型。图灵机的运算是读写头在纸带上运动，可以说是非常工程派了。相应地，学术派中用于研究计算的是 $\lambda$ 演算，它拥有图灵机一样的运算能力。</p>
+<h2 id="语法">语法</h2><p>$\lambda$ 演算的语法定义为</p>
+<figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= &lt;var&gt;</span><br><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= (λ&lt;var&gt;.&lt;exp&gt;)</span><br><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= (&lt;exp&gt; &lt;exp&gt;)</span><br></pre></td></tr></table></figure>
+<p>第一条是变量抽象，即一个 $\lambda$ 项可以是一个变量。</p>
+<p>第二条是函数抽象，即一个 $\lambda$ 项可以接收一个变量，返回一个 $\lambda$ 项。</p>
+<p>第三条是函数应用，即一个 $\lambda$ 项可以应用一个 $\lambda$ 项。</p>
+<p>比如对于 JavaScript 的 lambda 表达式 <code>x =&gt; x + 1</code> 可以表示为 $\lambda x. x + 1$ 。（假设 <code>+</code> 和 $1$ 都是良定的）。</p>
+<p>第二条函数抽象限制了函数只有一个参数，那么遇到多个参数怎么办呢？</p>
+<p>这里需要用到老生常谈的柯里化。</p>
+<p>简单的说是将多参函数转化成多个单参函数的组合。</p>
+<p>例如对于 <code>(x, y) =&gt; x + y</code> 相应的 $\lambda$ 项是 $\lambda x. (\lambda y. x + y)$ 。</p>
+<p>为了手写方便，可以省略括号 $\lambda x . \lambda y . x + y$ 。</p>
+<p>再次为了手写方便，可以省略为 $\lambda x y . x + y$ 。</p>
+<h2 id="规约">规约</h2><p>光有语法肯定是不够的。还需要规约规则。</p>
+<p>$\lambda$ 演算有三条规约规则。</p>
+<p>$\alpha$ 替换（重命名）：替换被绑定变量不改变结果。如 $\lambda x. x + 1$ 和 $\lambda t . t + 1$ 是一样的。类似于编程语言中的函数参数重命名。</p>
+<p>$\beta$ 规约（函数应用）：函数应用为函数形参替换为实参的过程。如 $((\lambda x. x + 1) 2)$ 的结果为 $2 + 1 = 3$ 。类似于编程语言中的函数应用。</p>
+<p>$\eta$ 转换（外延性相等）：两个函数对于所有的参数得到的结果都一致。之所以称为外延性相等是如果把两个函数当作黑盒，那么它们是一致的。如果查看黑盒中的内容就会发现内容可能不一样。如 $\lambda x . f x$ 与 $f$ 外延性相等。举一个 JavaScript 的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].forEach(x =&gt; <span class="built_in">console</span>.log(x))</span><br><span class="line"><span class="comment">// 外延性相等于</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].forEach(<span class="built_in">console</span>.log)</span><br></pre></td></tr></table></figure>
+<h2 id="例子">例子</h2><p>说了那么多可能只是知道一些概念，可以<a href="https://people.eecs.berkeley.edu/~gongliang13/lambda/" target="_blank" rel="external">在线运算</a>一些例子来加深理解。</p>
+<p>想要更加深入了解可以前往<a href="https://en.wikipedia.org/wiki/Lambda_calculus" target="_blank" rel="external">维基百科</a>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;是 $\lambda$ 演算不是入演算[滑稽]&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
+    
+    
+      <category term="lambda" scheme="http://en.ors-sro.com/tags/lambda/"/>
+    
+  </entry>
   
   <entry>
     <title>柯里-霍华德同构</title>
@@ -270,7 +329,7 @@
     <link href="http://en.ors-sro.com/About-Type/"/>
     <id>http://en.ors-sro.com/About-Type/</id>
     <published>2017-05-21T06:34:24.000Z</published>
-    <updated>2017-06-18T13:19:47.451Z</updated>
+    <updated>2017-06-25T09:05:15.767Z</updated>
     
     <content type="html"><![CDATA[<p>随便说一说类型。</p>
 <a id="more"></a>
@@ -300,7 +359,7 @@
 <p>语法为</p>
 <figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= &lt;var&gt;</span><br><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= (λ&lt;var&gt;.&lt;exp&gt;)</span><br><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= (&lt;exp&gt; &lt;exp&gt;)</span><br></pre></td></tr></table></figure>
 <p>规约规则有 α-变换（重命名），β-归约（应用）和 η-变换（外延性相等）。</p>
-<p>具体规则我懒病发作，就不贴了。可以去<a href="https://en.wikipedia.org/wiki/Lambda_calculus" target="_blank" rel="external">维基</a>看。</p>
+<p>具体规则可以参考未来的我写的<a href="/Lambda-calculus">λ 演算</a>。</p>
 <p>从语法中没有看到半点关于类型的东西，甚至连循环都看不到。</p>
 <p>没有循环还能不能愉快的写代码了。</p>
 <p>循环可以用递归代替。那递归怎么实现呢？</p>
@@ -316,10 +375,10 @@
 <p>那么问题来了，Z 的类型是？</p>
 <h2 id="函数类型">函数类型</h2><p>在无类型的入演算引入蕴含（$\to$）就会变成简单类型的入演算（$\lambda^\to$）。</p>
 <p>类型规则很简单</p>
-<p>$\displaystyle \frac{}{x:\sigma \vdash x : \sigma}$</p>
-<p>$\displaystyle \frac{\Gamma\vdash x:\sigma\quad x\not=y}{\Gamma,y:\tau \vdash x : \sigma}$</p>
-<p>$\displaystyle \frac{\Gamma,x:\sigma\vdash t:\tau} {\Gamma\vdash \lambda x : \sigma.t : \sigma \to \tau}$</p>
-<p>$\displaystyle \frac{\Gamma\vdash t:\sigma\to\tau\quad\Gamma\vdash u:\sigma}{\Gamma\vdash t\,u : \tau}$</p>
+<p>$\dfrac{}{x:\sigma \vdash x : \sigma}$</p>
+<p>$\dfrac{\Gamma\vdash x:\sigma\quad x\not=y}{\Gamma,y:\tau \vdash x : \sigma}$</p>
+<p>$\dfrac{\Gamma,x:\sigma\vdash t:\tau} {\Gamma\vdash \lambda x : \sigma.t : \sigma \to \tau}$</p>
+<p>$\dfrac{\Gamma\vdash t:\sigma\to\tau\quad\Gamma\vdash u:\sigma}{\Gamma\vdash t\,u : \tau}$</p>
 <p>例如组合子 IKS 的类型为</p>
 <p>$\lambda x:\alpha.x : \alpha\to\alpha$ <strong>(I)</strong></p>
 <p>$\lambda x:\alpha.\lambda y:\beta.x:\alpha \to \beta \to \alpha$ (<strong>K</strong>)</p>
@@ -380,8 +439,12 @@
 <p>这样尽可能用类型表达更多的约束，将逻辑问题扑灭在编译期，就能写出更正确的程序。</p>
 <p>毕竟业务逻辑应该写在函数类型里，你之所以要写函数实现是因为编译器还没有聪明到自动做 $\beta$ 规约啊科科。</p>
 <p>依赖类型是一种类型依赖值的例子。</p>
-<p>这样就集齐了值和类型的三种关系。</p>
-<p>以这三种关系为基底，就得到了入立方。</p>
+<p>这样就集齐了值和类型的四种关系。</p>
+<p>简单类型($\lambda^\to$)是<strong>值</strong>依赖<strong>值</strong>的关系。</p>
+<p>带类型操作符的简单类型($\lambda\underline\omega$)是<strong>类型</strong>依赖<strong>类型</strong>的关系。</p>
+<p>二阶入演算（$\lambda2$）是<strong>值</strong>依赖<strong>类型</strong>的关系。</p>
+<p>依赖类型（$\lambda P$）是<strong>类型</strong>依赖<strong>值</strong>的关系。</p>
+<p>以 $\lambda^\to$ 为原点，其他三种关系为基底，就得到了常见类型系统的入立方。</p>
 <p><img src="/img/AboutType/Lambda_cube.png" alt="入立方"></p>
 ]]></content>
     
@@ -1809,266 +1872,6 @@
     
     
       <category term="polyglot" scheme="http://en.ors-sro.com/tags/polyglot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Whitespace</title>
-    <link href="http://en.ors-sro.com/Whitespace/"/>
-    <id>http://en.ors-sro.com/Whitespace/</id>
-    <published>2017-02-05T08:47:48.000Z</published>
-    <updated>2017-02-05T09:41:21.241Z</updated>
-    
-    <content type="html"><![CDATA[<p>介绍一个很干净的语言。</p>
-<pre style="background: initial;">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</pre>
-
-<a id="more"></a>
-<h2 id="Hello_World">Hello World</h2><p>先看它的 Hello World 。</p>
-<pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</pre>
-
-<p>没看错。这个 <strong>Whitespace</strong> 语言的原语只有空格，制表符，还有换行。</p>
-<h2 id="语法">语法</h2><p>参考<a href="http://compsoc.dur.ac.uk/whitespace/tutorial.html" target="_blank" rel="external"> Whitespace 语言官方教程</a> 整理的 BNF 如下。</p>
-<figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">Program ::= &lt;Statement&gt;&#123;Statement&#125;</span><br><span class="line"></span><br><span class="line">Statement ::= &lt;IMP&gt;</span><br><span class="line"></span><br><span class="line">IMP :: = <span class="attribute">&lt;StackManipulation&gt;</span><span class="attribute">&lt;SMCommand&gt;</span> | <span class="attribute">&lt;Arithmetic&gt;</span><span class="attribute">&lt;AriCommand&gt;</span> | <span class="attribute">&lt;HeapAccess&gt;</span><span class="attribute">&lt;HACommand&gt;</span> | <span class="attribute">&lt;FlowControl&gt;</span><span class="attribute">&lt;FCCommand&gt;</span> | <span class="attribute">&lt;I/O&gt;</span><span class="attribute">&lt;IOCommand&gt;</span></span><br><span class="line"></span><br><span class="line">StackManipulation ::= &lt;Space&gt;</span><br><span class="line"></span><br><span class="line">SMCommand ::= &lt;Push&gt;&lt;Number&gt; | &lt;Duplicate&gt; | &lt;Swap&gt; | &lt;Discard&gt;</span><br><span class="line"></span><br><span class="line">Push ::= &lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Number ::= &lt;Sign&gt;&lt;Digit&gt;&lt;End&gt;</span><br><span class="line"></span><br><span class="line">Sign ::= &lt;Space&gt; | &lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Digit ::= &lt;Space&gt;&#123;Digit&#125;|&lt;Tab&gt;&#123;Digit&#125;</span><br><span class="line"></span><br><span class="line">End ::= &lt;LF&gt;</span><br><span class="line"></span><br><span class="line">Duplicate ::= &lt;LF&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Swap ::= &lt;LF&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Discard ::= &lt;LF&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">Duplicate ::= &lt;LF&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Arithmetic ::= &lt;Tab&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">AriCommand ::= &lt;Addition&gt; | &lt;Subtraction&gt; | &lt;Multiplication&gt; | &lt;IntegerDivision&gt; | &lt;Modulo&gt;</span><br><span class="line"></span><br><span class="line">Addition ::= &lt;Space&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Subtraction ::= &lt;Space&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Multiplication ::= &lt;Space&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">IntegerDivision ::= &lt;Tab&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Modulo ::= &lt;Tab&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">HeapAccess ::= &lt;Tab&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">HACommand ::= &lt;Store&gt;&lt;Retrieve&gt;</span><br><span class="line"></span><br><span class="line">Store ::= &lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Retrieve ::= &lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">FlowControl ::= &lt;LF&gt;</span><br><span class="line"></span><br><span class="line">FCCommand ::= &lt;Mark&gt;&lt;Label&gt; | &lt;Call&gt;&lt;Label&gt; | &lt;Jmp&gt;&lt;Label&gt; | &lt;Jz&gt;&lt;Label&gt; | &lt;Js&gt;&lt;Label&gt; | &lt;SubroutineEnd&gt; | &lt;ProgramEnd&gt;</span><br><span class="line"></span><br><span class="line">Mark ::= &lt;Space&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Label ::= &lt;LabelName&gt;&lt;End&gt;</span><br><span class="line"></span><br><span class="line">LabelName ::= &lt;Space&gt;&#123;LabelName&#125;|&lt;Tab&gt;&#123;LabelName&#125;</span><br><span class="line"></span><br><span class="line">Call ::= &lt;Space&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Jmp ::= &lt;Space&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">Jz ::= &lt;Tab&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">Js ::= &lt;Tab&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">SubroutineEnd ::= &lt;Tab&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">ProgrameEnd ::= &lt;LF&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">I/O ::= &lt;Tab&gt;&lt;LF&gt;</span><br><span class="line"></span><br><span class="line">IOCommand ::= &lt;OutputChar&gt; | &lt;OutputNumber&gt; | &lt;ReadChar&gt; | &lt;ReadNumber&gt;</span><br><span class="line"></span><br><span class="line">OutputChar ::= &lt;Space&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">OutputNumber ::= &lt;Space&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">ReadChar ::= &lt;Tab&gt;&lt;Space&gt;</span><br><span class="line"></span><br><span class="line">ReadNumber ::= &lt;Tab&gt;&lt;Tab&gt;</span><br><span class="line"></span><br><span class="line">Space ::= <span class="string">" "</span></span><br><span class="line"></span><br><span class="line">Tab ::= <span class="string">"\t"</span></span><br><span class="line"></span><br><span class="line">LF ::= <span class="string">"\n"</span></span><br></pre></td></tr></table></figure>
-<p>不熟悉 BNF 可以直接看下面的图表。</p>
-<table>
-<thead>
-<tr>
-<th>IMP</th>
-<th>Command</th>
-<th>Meaning</th>
-<th>IMP  Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[Space]</td>
-<td>[Space][Number]</td>
-<td>Push the number onto the stack</td>
-<td>Stack Manipulation</td>
-</tr>
-<tr>
-<td>[Space]</td>
-<td>[LF][Space]</td>
-<td>Duplicate the top item on the stack</td>
-<td>Stack Manipulation</td>
-</tr>
-<tr>
-<td>[Space]</td>
-<td>[LF][Tab]</td>
-<td>Swap the top two items on the stack</td>
-<td>Stack Manipulation</td>
-</tr>
-<tr>
-<td>[Space]</td>
-<td>[LF][LF]</td>
-<td>Discard the top item on the stack</td>
-<td>Stack Manipulation</td>
-</tr>
-<tr>
-<td>[Tab][Space]</td>
-<td>[Space][Space]</td>
-<td>Addition</td>
-<td>Arithmetic</td>
-</tr>
-<tr>
-<td>[Tab][Space]</td>
-<td>[Space][Tab]</td>
-<td>Subtraction</td>
-<td>Arithmetic</td>
-</tr>
-<tr>
-<td>[Tab][Space]</td>
-<td>[Space][LF]</td>
-<td>Multiplication</td>
-<td>Arithmetic</td>
-</tr>
-<tr>
-<td>[Tab][Space]</td>
-<td>[Tab][Space]</td>
-<td>Integer Division</td>
-<td>Arithmetic</td>
-</tr>
-<tr>
-<td>[Tab][Space]</td>
-<td>[Tab][Tab]</td>
-<td>Modulo</td>
-<td>Arithmetic</td>
-</tr>
-<tr>
-<td>[Tab][Tab]</td>
-<td>[Space]</td>
-<td>Store</td>
-<td>Heap access</td>
-</tr>
-<tr>
-<td>[Tab][Tab]</td>
-<td>[Tab]</td>
-<td>Retrieve</td>
-<td>Heap access</td>
-</tr>
-<tr>
-<td>[LF]</td>
-<td>[Space][Space]<label></label></td>
-<td>Mark a location in    the program</td>
-<td>Flow Control</td>
-</tr>
-<tr>
-<td>[LF]</td>
-<td>[Space][Tab]<label></label></td>
-<td>Call a    subroutine</td>
-<td>Flow Control</td>
-</tr>
-<tr>
-<td>[LF]</td>
-<td>[Space][LF]<label></label></td>
-<td>Jump unconditionally to a label</td>
-<td>Flow Control</td>
-</tr>
-<tr>
-<td>[LF]</td>
-<td>[Tab][Space]<label></label></td>
-<td>Jump to a label if the top of the stack is zero</td>
-<td>Flow    Control</td>
-</tr>
-<tr>
-<td>[LF]</td>
-<td>[Tab][Tab]<label></label></td>
-<td>Jump to a label if the    top of the stack is negative</td>
-<td>Flow    Control</td>
-</tr>
-<tr>
-<td>[LF]</td>
-<td>[Tab][LF]</td>
-<td>End a subroutineand transfer control back to the caller</td>
-<td>Flow Control</td>
-</tr>
-<tr>
-<td>[LF]</td>
-<td>[LF][LF]</td>
-<td>End the program</td>
-<td>Flow Control</td>
-</tr>
-<tr>
-<td>[Tab][LF]</td>
-<td>[Space][Space]</td>
-<td>Output the character at the top of the stack</td>
-<td>I/O</td>
-</tr>
-<tr>
-<td>[Tab][LF]</td>
-<td>[Space][Tab]</td>
-<td>Output the number at the top of the stack</td>
-<td>I/O</td>
-</tr>
-<tr>
-<td>[Tab][LF]</td>
-<td>[Tab][Space]</td>
-<td>Read a character and place it in the location given by the top of the stack</td>
-<td>I/O</td>
-</tr>
-<tr>
-<td>[Tab][LF]</td>
-<td>[Tab][Tab]</td>
-<td>Read a number and place it in the location given by the top of the stack</td>
-<td>I/O</td>
-</tr>
-</tbody>
-</table>
-<p>所以这是一个将特定序列的空白符转成指令的语言。</p>
-<p>比如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Tab][LF][Space][Space]</span><br></pre></td></tr></table></figure>
-<p>表示将栈顶数字以 ASCII 的形式输出。</p>
-<h2 id="解析_Hello_World">解析 Hello World</h2><p>空白符看起来比较不方便，将 Hello World 代码中空格替换为 [Space] ，制表符替换为 [Tab] ，换行替换为 [LF] 。</p>
-<p>整理后如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Space][Space][Space][Tab][Space][Space][Tab][Space][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 0100 1000 &#20063;&#23601;&#26159;&#25968;&#23383; 72 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 72 &#20063;&#23601;&#26159; H&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Space][Tab][Space][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 0101 &#20063;&#23601;&#26159;&#25968;&#23383; 101 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 101 &#20063;&#23601;&#26159; e&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1100 &#20063;&#23601;&#26159;&#25968;&#23383; 108 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 108 &#20063;&#23601;&#26159; l&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1100 &#20063;&#23601;&#26159;&#25968;&#23383; 108 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 108 &#20063;&#23601;&#26159; l&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Tab][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1111 &#20063;&#23601;&#26159;&#25968;&#23383; 111 &#21387;&#26632; &#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 111 &#20063;&#23601;&#26159; o&#10;&#10;[Space][Space][Space][Tab][Space][Tab][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 0 0010 1100 &#20063;&#23601;&#26159;&#25968;&#23383; 44 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 44 &#20063;&#23601;&#26159; &#65292;&#10;&#10;[Space][Space][Space][Tab][Space][Space][Space][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 0 0010 0000 &#20063;&#23601;&#26159;&#25968;&#23383; 32 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 32 &#20063;&#23601;&#26159; &#31354;&#26684;&#10;&#10;[Space][Space][Space][Tab][Tab][Tab][Space][Tab][Tab][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0111 0111 &#20063;&#23601;&#26159;&#25968;&#23383; 119 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 119 &#20063;&#23601;&#26159; w&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Tab][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1111 &#20063;&#23601;&#26159;&#25968;&#23383; 111 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 111 &#20063;&#23601;&#26159; o&#10;&#10;[Space][Space][Space][Tab][Tab][Tab][Space][Space][Tab][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0111 0010 &#20063;&#23601;&#26159;&#25968;&#23383; 114 &#36755;&#20986;&#23383;&#31526; r&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 114 &#20063;&#23601;&#26159; r&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Tab][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 1100 &#20063;&#23601;&#26159;&#25968;&#23383; 108 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 108 &#20063;&#23601;&#26159; l&#10;&#10;[Space][Space][Space][Tab][Tab][Space][Space][Tab][Space][Space][LF]&#10;&#25968;&#23383;&#21387;&#26632; 00 0110 0100 &#20063;&#23601;&#26159;&#25968;&#23383; 100 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 100 &#20063;&#23601;&#26159; d&#10;&#10;[Space][Space][Space][Tab][Space][Space][Space][Space][Tab][LF]&#10;&#25968;&#23383;&#21387;&#26632; 0 0010 0001 &#20063;&#23601;&#26159;&#25968;&#23383; 33 &#21387;&#26632;&#10;[Tab][LF][Space][Space]&#10;&#36755;&#20986;&#26632;&#39030;&#23383;&#31526; ASCII 33 &#20063;&#23601;&#26159; &#65281;&#10;&#10;[LF][LF][LF]&#10;&#31243;&#24207;&#32467;&#26463;&#31526;&#21495;</span><br></pre></td></tr></table></figure>
-<p>这个 Hello World 代码很简单，只是简单的入栈出栈，没有用到跳转等复杂的功能。</p>
-<h2 id="最后">最后</h2><p>这个语言最大的作用是……</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介绍一个很干净的语言。&lt;/p&gt;
-&lt;pre style=&quot;background: initial;&quot;&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
-    
-    
-      <category term="Whitespace" scheme="http://en.ors-sro.com/tags/Whitespace/"/>
     
   </entry>
   

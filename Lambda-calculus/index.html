@@ -4,27 +4,23 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Windows 下安装 Emacs+Sbcl+Slime | 拖鞋党的拖鞋摊</title>
+    <title>λ 演算 | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="拖鞋党">
     
 
     
-    <meta name="description" content="旧文重发，略作修改">
+    <meta name="description" content="是 $\lambda$ 演算不是入演算[滑稽]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows 下安装 Emacs+Sbcl+Slime">
-<meta property="og:url" content="http://en.ors-sro.com/Install-Emacs-Sbcl-and-Slime/index.html">
+<meta property="og:title" content="λ 演算">
+<meta property="og:url" content="http://en.ors-sro.com/Lambda-calculus/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="旧文重发，略作修改">
-<meta property="og:image" content="http://en.ors-sro.com/img/InstallEmacsSbclandSlime/sbcl.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/InstallEmacsSbclandSlime/emacs-setting.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/InstallEmacsSbclandSlime/run-emacs.png">
-<meta property="og:image" content="http://en.ors-sro.com/img/InstallEmacsSbclandSlime/hello-world.png">
-<meta property="og:updated_time" content="2017-05-28T10:17:35.379Z">
+<meta property="og:description" content="是 $\lambda$ 演算不是入演算[滑稽]">
+<meta property="og:updated_time" content="2017-06-25T08:49:29.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Windows 下安装 Emacs+Sbcl+Slime">
-<meta name="twitter:description" content="旧文重发，略作修改">
+<meta name="twitter:title" content="λ 演算">
+<meta name="twitter:description" content="是 $\lambda$ 演算不是入演算[滑稽]">
 
     
     <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -86,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/Install-Emacs-Sbcl-and-Slime/" title="Windows 下安装 Emacs+Sbcl+Slime" itemprop="url">Windows 下安装 Emacs+Sbcl+Slime</a>
+      <a href="/Lambda-calculus/" title="λ 演算" itemprop="url">λ 演算</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
 		
   <p class="article-time">
-    <time datetime="2017-05-28T10:04:02.000Z" itemprop="datePublished"> Published 2017-05-28</time>
+    <time datetime="2017-06-25T08:43:56.000Z" itemprop="datePublished"> Published 2017-06-25</time>
     
   </p>
 </header>
@@ -102,58 +98,47 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载和安装_Emacs"><span class="toc-number">2.1.</span> <span class="toc-text">下载和安装 Emacs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载_Sbcl"><span class="toc-number">2.2.</span> <span class="toc-text">下载 Sbcl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载_Slime"><span class="toc-number">2.3.</span> <span class="toc-text">下载 Slime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Sbcl"><span class="toc-number">2.4.</span> <span class="toc-text">安装Sbcl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置_Emacs"><span class="toc-number">2.5.</span> <span class="toc-text">配置 Emacs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">3.</span> <span class="toc-text">后记</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#规约"><span class="toc-number">3.</span> <span class="toc-text">规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">4.</span> <span class="toc-text">例子</span></a></li></ol>
 		
 		</div>
 		
-		<p>旧文重发，略作修改</p>
+		<p>是 $\lambda$ 演算不是入演算[滑稽]</p>
 <a id="more"></a>
-<h2 id="前言">前言</h2><p>其实网上已经有很多类似的文章了，我也是按照上面的来做。在做的过程中会遇到几个很坑的地方，我自己也是折腾了好久才弄好。所以现在写出来希望能对大家有所帮助。</p>
-<h2 id="正文">正文</h2><h3 id="下载和安装_Emacs">下载和安装 Emacs</h3><p><a href="http://ftp.gnu.org/gnu/emacs/windows/emacs-24.3-bin-i386.zip" target="_blank" rel="external">http://ftp.gnu.org/gnu/emacs/windows/emacs-24.3-bin-i386.zip</a> </p>
-<p>解压运行安装</p>
-<h3 id="下载_Sbcl">下载 Sbcl</h3><p><a href="http://www.sbcl.org/platform-table.html" target="_blank" rel="external">http://www.sbcl.org/platform-table.html</a></p>
-<p>选 Windows 和你的架构。如果不知道的话就选 X86 就行了。</p>
-<h3 id="下载_Slime">下载 Slime</h3><p><a href="https://github.com/slime/slime" target="_blank" rel="external">https://github.com/slime/slime</a></p>
-<p>如果你有 github 帐户就直接 git clone 吧。如果没有的话，点 download zip 然后解压。 </p>
-<h3 id="安装Sbcl">安装Sbcl</h3><p>双击安装包，改一下安装路径到你想安装的地方。但是这里有一个坑。</p>
-<p><strong>坑1：系统变量重启才会更新</strong></p>
-<p>这是因为在安装的过程中会给系统加一个 Sbcl 路径的变量。</p>
-<p>所以一定要安装完后重启，不然就会提示</p>
-<blockquote>
-<p>fatal error encountered in SBCL pid 10236(tid 9971200):<br>can’t find core file at XXXXX</p>
-</blockquote>
-<p>安装成功的标志是运行 sbcl.exe 会出现类似这样的界面：</p>
-<p><img src="/img/InstallEmacsSbclandSlime/sbcl.png" alt="运行 sbcl"></p>
-<h3 id="配置_Emacs">配置 Emacs</h3><p>本来在 Linux 下配置 Emacs 是一件简单的事，但在 Windows 下就不那么容易了。因为 Windows 文件名命名机制这里有一个坑。</p>
-<p><strong>坑2:找不到 Emacs 的配置文件 .emacs</strong></p>
-<p>这是因为 Windows 允许这样的命名规则，也是就不允许只有扩展名而没有文件名（在 Windows 看来是 .emacs 非法的，必须是 XXX.emacs 才是合法的。Linux 则是看成一个隐藏文件而已）</p>
-<p>所以要做的第一步是生成 .emacs 配置文件</p>
-<p>原理是通过修改选项之后点保存选项会生成 .emacs 配置文件</p>
-<p>方法很简单。在 Emacs 目录下双击 runemacs.exe 打开 emacs</p>
-<p>然后在菜单栏里点 Options——Show/Hide——tool-bar</p>
-<p>之后点 Options——Save options</p>
-<p>这样就会在 <code>C:\Users\你的用户名\AppData\Roaming</code> 下生成一个 .emacs</p>
-<p>打开 .emacs 输入以下内容以配置 Slime</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">setq</span> inferior-lisp-program <span class="string">"sbcl路径"</span>)</span><span class="comment">; 设置优先使用哪种 Common Lisp 实现</span></span><br><span class="line"><span class="list">(<span class="keyword">add-to-list</span> <span class="variable">'load-path</span> <span class="string">"slime路径"</span>)</span><span class="comment">; 设置 Slime 路径</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">require</span></span> <span class="variable">'slime</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">slime-setup</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword"><span class="built_in">require</span></span> <span class="variable">'slime-autoloads</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">slime-setup</span> '<span class="list">(<span class="keyword">slime-fancy</span>)</span>)</span><span class="comment">; 让 slime 变得更好看，比如把 sbcl 的*变成 CL-USER&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中路径使用<code>/</code>或者<code>//</code>分隔</p>
-<p>这其中有一个坑需要小心</p>
-<p><strong>坑3：sbcl 的路径一定要写到 sbcl.exe 不然会提示</strong></p>
-<blockquote>
-<p>Specified program for new process is a directory</p>
-</blockquote>
-<p>这个真的是深坑啊。当时我花了不少时间才折腾好</p>
-<p>原理就是 slime 调用的时候不会从你填的路径找到 sbcl.exe 而是需要给出 sbcl.exe 的完整路径</p>
-<p>我的 .emacs 配置是这样的</p>
-<p><img src="/img/InstallEmacsSbclandSlime/emacs-setting.png" alt="Emacs 配置"></p>
-<p>打开 Emacs 按 M-x（window下就是Alt+x）输入 slime 之后会出现像这样的</p>
-<p><img src="/img/InstallEmacsSbclandSlime/run-emacs.png" alt="运行 Slime"></p>
-<p>输入<code>&quot;Hello Common Lisp!&quot;</code> 一声长叹</p>
-<p><img src="/img/InstallEmacsSbclandSlime/hello-world.png" alt="Hello World"></p>
-<h2 id="后记">后记</h2><p>一些常用的 Slime 快捷键</p>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-k 编译当前文件 （也就是Ctrl+c后再Ctrl+k） </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-c 增量编译（这是我自己的理解） </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-z 切换到Slime </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-l 加载文件</span><br></pre></td></tr></table></figure>
-<p>当然以上快捷键都可以再 .emacs 里面改。</p>
-<p>PS:我的配色是 solarized 字体是 Monaco</p>
-<p>PSS：以上 Vim 的配色。Emacs 的配色是自带的 dichromacy</p>
+<h2 id="简介">简介</h2><p>lambda 表达式可以简单理解为匿名函数。</p>
+<p>现在不少语言都加入了 lambda 表达式。就连名词王国 Java 也忍不住参与了。</p>
+<p>一个普通的送命函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Plus</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用 Java 中的 lambda 表达式是这样的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x -&gt; x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>用 JavaScript 中的 lambda 表达式是这样的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x =&gt; x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>用 Scheme 中的 lambda 表达式是这样的</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">lambda</span> <span class="list">(<span class="keyword">x</span>)</span> <span class="list">(<span class="keyword">+</span> x <span class="number">1</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>用 C++ 中的 lambda 表达式是这样的（没错就是要和别的妖艳贱货不一样）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[=](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x + <span class="number">1</span>;&#125;;</span><br></pre></td></tr></table></figure>
+<p>使用 lambda 表达式能够方便函数的创建，传递，返回等，大大方便了编程，就不说某不思进取语言之前只能传递匿名类的故事了。</p>
+<p>实际上 lambda 表达式源于 $\lambda$ 演算。</p>
+<p>对编程有基本了解的人都应该知道图灵机，图灵机是目前能实现的最强计算模型。图灵机的运算是读写头在纸带上运动，可以说是非常工程派了。相应地，学术派中用于研究计算的是 $\lambda$ 演算，它拥有图灵机一样的运算能力。</p>
+<h2 id="语法">语法</h2><p>$\lambda$ 演算的语法定义为</p>
+<figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= &lt;var&gt;</span><br><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= (λ&lt;var&gt;.&lt;exp&gt;)</span><br><span class="line"><span class="attribute">&lt;exp&gt;</span> ::= (&lt;exp&gt; &lt;exp&gt;)</span><br></pre></td></tr></table></figure>
+<p>第一条是变量抽象，即一个 $\lambda$ 项可以是一个变量。</p>
+<p>第二条是函数抽象，即一个 $\lambda$ 项可以接收一个变量，返回一个 $\lambda$ 项。</p>
+<p>第三条是函数应用，即一个 $\lambda$ 项可以应用一个 $\lambda$ 项。</p>
+<p>比如对于 JavaScript 的 lambda 表达式 <code>x =&gt; x + 1</code> 可以表示为 $\lambda x. x + 1$ 。（假设 <code>+</code> 和 $1$ 都是良定的）。</p>
+<p>第二条函数抽象限制了函数只有一个参数，那么遇到多个参数怎么办呢？</p>
+<p>这里需要用到老生常谈的柯里化。</p>
+<p>简单的说是将多参函数转化成多个单参函数的组合。</p>
+<p>例如对于 <code>(x, y) =&gt; x + y</code> 相应的 $\lambda$ 项是 $\lambda x. (\lambda y. x + y)$ 。</p>
+<p>为了手写方便，可以省略括号 $\lambda x . \lambda y . x + y$ 。</p>
+<p>再次为了手写方便，可以省略为 $\lambda x y . x + y$ 。</p>
+<h2 id="规约">规约</h2><p>光有语法肯定是不够的。还需要规约规则。</p>
+<p>$\lambda$ 演算有三条规约规则。</p>
+<p>$\alpha$ 替换（重命名）：替换被绑定变量不改变结果。如 $\lambda x. x + 1$ 和 $\lambda t . t + 1$ 是一样的。类似于编程语言中的函数参数重命名。</p>
+<p>$\beta$ 规约（函数应用）：函数应用为函数形参替换为实参的过程。如 $((\lambda x. x + 1) 2)$ 的结果为 $2 + 1 = 3$ 。类似于编程语言中的函数应用。</p>
+<p>$\eta$ 转换（外延性相等）：两个函数对于所有的参数得到的结果都一致。之所以称为外延性相等是如果把两个函数当作黑盒，那么它们是一致的。如果查看黑盒中的内容就会发现内容可能不一样。如 $\lambda x . f x$ 与 $f$ 外延性相等。举一个 JavaScript 的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].forEach(x =&gt; <span class="built_in">console</span>.log(x))</span><br><span class="line"><span class="comment">// 外延性相等于</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].forEach(<span class="built_in">console</span>.log)</span><br></pre></td></tr></table></figure>
+<h2 id="例子">例子</h2><p>说了那么多可能只是知道一些概念，可以<a href="https://people.eecs.berkeley.edu/~gongliang13/lambda/" target="_blank" rel="external">在线运算</a>一些例子来加深理解。</p>
+<p>想要更加深入了解可以前往<a href="https://en.wikipedia.org/wiki/Lambda_calculus" target="_blank" rel="external">维基百科</a>。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -167,7 +152,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Emacs/">Emacs</a>
+  <span></span> <a href="/tags/lambda/">lambda</a>
   </div>
 
 </div>
@@ -176,7 +161,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/Install-Emacs-Sbcl-and-Slime/" data-title="Windows 下安装 Emacs+Sbcl+Slime | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/Lambda-calculus/" data-title="λ 演算 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -189,19 +174,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/Debug-As-in-Flashdevelop/" title="用 Flashdevelop 调试 ActionScript">
-  <strong>上一篇：</strong><br/>
-  <span>
-  用 Flashdevelop 调试 ActionScript</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/About-Type/"  title="侃类型">
+<a href="/Curry-Howard-correspondence/"  title="柯里-霍华德同构">
  <strong>下一篇：</strong><br/> 
- <span>侃类型
+ <span>柯里-霍华德同构
 </span>
 </a>
 </div>
@@ -216,7 +193,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载和安装_Emacs"><span class="toc-number">2.1.</span> <span class="toc-text">下载和安装 Emacs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载_Sbcl"><span class="toc-number">2.2.</span> <span class="toc-text">下载 Sbcl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载_Slime"><span class="toc-number">2.3.</span> <span class="toc-text">下载 Slime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Sbcl"><span class="toc-number">2.4.</span> <span class="toc-text">安装Sbcl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置_Emacs"><span class="toc-number">2.5.</span> <span class="toc-text">配置 Emacs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">3.</span> <span class="toc-text">后记</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#规约"><span class="toc-number">3.</span> <span class="toc-text">规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">4.</span> <span class="toc-text">例子</span></a></li></ol>
  
   </div>
 
