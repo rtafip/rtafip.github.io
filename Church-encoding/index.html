@@ -4,23 +4,23 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>在匿名函数中递归 | 拖鞋党的拖鞋摊</title>
+    <title>邱奇数 | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="拖鞋党">
     
 
     
-    <meta name="description" content="匿名函数也就是不需要取名的函数。函数递归指的是函数通过引用自己的名字调用自身。匿名函数没有名字怎样才能递归呢？">
+    <meta name="description" content="万物皆为 lambda">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在匿名函数中递归">
-<meta property="og:url" content="http://en.ors-sro.com/Recursive-lambda/index.html">
+<meta property="og:title" content="邱奇数">
+<meta property="og:url" content="http://en.ors-sro.com/Church-encoding/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="匿名函数也就是不需要取名的函数。函数递归指的是函数通过引用自己的名字调用自身。匿名函数没有名字怎样才能递归呢？">
-<meta property="og:updated_time" content="2016-11-20T09:39:17.610Z">
+<meta property="og:description" content="万物皆为 lambda">
+<meta property="og:updated_time" content="2017-07-02T08:28:52.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在匿名函数中递归">
-<meta name="twitter:description" content="匿名函数也就是不需要取名的函数。函数递归指的是函数通过引用自己的名字调用自身。匿名函数没有名字怎样才能递归呢？">
+<meta name="twitter:title" content="邱奇数">
+<meta name="twitter:description" content="万物皆为 lambda">
 
     
     <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/Recursive-lambda/" title="在匿名函数中递归" itemprop="url">在匿名函数中递归</a>
+      <a href="/Church-encoding/" title="邱奇数" itemprop="url">邱奇数</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-20T06:13:59.000Z" itemprop="datePublished"> Published 2016-11-20</time>
+    <time datetime="2017-07-02T08:19:24.000Z" itemprop="datePublished"> Published 2017-07-02</time>
     
   </p>
 </header>
@@ -98,36 +98,62 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名函数"><span class="toc-number">1.</span> <span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名递归"><span class="toc-number">2.</span> <span class="toc-text">匿名递归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推导过程"><span class="toc-number">3.</span> <span class="toc-text">推导过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#来龙去脉"><span class="toc-number">4.</span> <span class="toc-text">来龙去脉</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运算"><span class="toc-number">2.</span> <span class="toc-text">运算</span></a></li></ol>
 		
 		</div>
 		
-		<p>匿名函数也就是不需要取名的函数。函数递归指的是函数通过引用自己的名字调用自身。匿名函数没有名字怎样才能递归呢？<br><a id="more"></a></p>
-<h2 id="匿名函数">匿名函数</h2><p>匿名函数（lambda，$\lambda$），作为函数式编程的基本元素，已经被原来越多的语言支持。</p>
-<p>比如 <strong>C#</strong> 中是这样编写匿名函数的</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = x =&gt; x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p><strong>JavaScript</strong> 中是这样编写匿名函数的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="匿名递归">匿名递归</h2><p>最典型的递归函数是阶乘函数。<br>$$<br>f(n) =<br>\begin{cases}<br>1, &amp; n \le 1 \ n*f(n-1),&amp; n \gt 1<br>\end{cases}<br>$$<br>翻译成 JavaScript </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n &lt;= <span class="number">1</span> ? <span class="number">1</span> : n * f(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这是一个递归，但不是一个真正意义上的匿名递归函数。因为函数体中的 <code>f(n-1)</code> 引用了自身的名字。</p>
-<p>通常递归函数需要引用自身的名字来调用自身达到递归的效果。</p>
-<p>匿名函数没有名字，没办法这么做。</p>
-<p>这么想想递归匿名函数看似是不可能的。</p>
-<p>但是是可以做到的。</p>
-<p>看下面的这个函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="function"><span class="keyword">function</span>(<span class="params">g</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> g(g);</span><br><span class="line">	&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">h</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> f(h(h))(x);</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">self</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &lt;= <span class="number">1</span> ? <span class="number">1</span> : n * self(n - <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>测试调用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="function"><span class="keyword">function</span>(<span class="params">g</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> g(g);</span><br><span class="line">	&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">h</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> f(h(h))(x);</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">self</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &lt;= <span class="number">1</span> ? <span class="number">1</span> : n * self(n - <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// =&gt; 1</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">f</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="function"><span class="keyword">function</span>(<span class="params">g</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> g(g);</span><br><span class="line">	&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">h</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> f(h(h))(x);</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">self</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &lt;= <span class="number">1</span> ? <span class="number">1</span> : n * self(n - <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)(<span class="number">3</span>);</span><br><span class="line"><span class="comment">// =&gt; 6</span></span><br></pre></td></tr></table></figure>
-<p>这个函数就是阶乘函数的匿名递归版。里面用到了 <strong>Y 组合子</strong> 。</p>
-<h2 id="推导过程">推导过程</h2><h2 id="来龙去脉">来龙去脉</h2>  
+		<p>万物皆为 lambda</p>
+<a id="more"></a>
+<h2 id="定义">定义</h2><p>lambda 的语法和规约定义中都没有定义数字类型。</p>
+<p>为了保持 lambda 的简洁性，数字类型的定义不是必须的，可以由定义导出。</p>
+<p>根据皮亚诺公理，算数系统的构成由一个起点（1 或者 0），和一个后继函数。</p>
+<p>0，1，2，3，4，5，6……只是一种符号，一种自然数的编码。自然数的编码不是唯一的。</p>
+<p>如果你愿意你也可以使用零一二三四五六来编码。</p>
+<p>邱奇数是一种 lambda 形式的自然数编码。</p>
+<p>其中起点为 $ 0 = \lambda f . \lambda x . x$</p>
+<p>后继函数为 $succ = \lambda n . \lambda f. \lambda x. f (n f x)$</p>
+<p>根据定义 $0$ 的后继为 $1$ 。所以将 $0$ 带入后记函数 $succ$ 中得到</p>
+<p>$ (\lambda n . \lambda f . \lambda x. f(n f x) 0)$</p>
+<p>将 $0$ 代入得到。</p>
+<p>$(\lambda n. \lambda f. \lambda x. f(n f x) (\lambda f . \lambda x . x))$</p>
+<p>为了避免混淆，对 $0$ 使用 $\alpha$ 变换。</p>
+<p>$(\lambda n. \lambda f. \lambda x .f(n f x) (\lambda a . \lambda b . b))$</p>
+<p>应用 $n = \lambda a . \lambda b . b$</p>
+<p>$\lambda f. \lambda x. f((\lambda a . \lambda b . b) (f x))$</p>
+<p>继续规约 $ a = f $</p>
+<p>$\lambda f . \lambda x. f((\lambda b. b)x)$</p>
+<p>继续规约 $  b = x $</p>
+<p>$\lambda f . \lambda x .f x$</p>
+<p>类似的方法可以得到 1 到 n 的定义</p>
+<p>$0 = \lambda f . \lambda x . x $</p>
+<p>$1 = \lambda f . \lambda x . f x$</p>
+<p>$2 = \lambda f . \lambda x . f (f x)$</p>
+<p>$3 = \lambda f . \lambda x . f (f (f x))$</p>
+<p>$4 = \lambda f . \lambda x . f (f (f (f x)))$</p>
+<p>$5 = \lambda f . \lambda x . f (f (f (f (f x))))$</p>
+<p>$6 = \lambda f . \lambda x . f (f (f (f (f (f x)))))$</p>
+<p>$7 = \lambda f . \lambda x . f (f (f (f (f (f (f x))))))$</p>
+<p>$8 = \lambda f . \lambda x . f (f (f (f (f (f (f (f x)))))))$</p>
+<p>$9 = \lambda f . \lambda x . f (f (f (f (f (f (f (f (f x))))))))$</p>
+<p>$n = \lambda f . \lambda x . f^n x$</p>
+<p>邱奇数的编码是将自然数 n 转化为 n 的次方，也就是 n 次函数复合。</p>
+<h2 id="运算">运算</h2><p>自然数运算最常见的是加减乘除。</p>
+<p>先来定义最简单的加法。</p>
+<p>$plus(m,n) = m + n$</p>
+<p>因为邱奇数的编码是次方，所以 $f^{m+n}(x) = f^m(x) + f^n (x)$ 。</p>
+<p>因此定义加法为 </p>
+<p>$ plus = \lambda m . \lambda n. \lambda f. \lambda x . m f (n f x)$</p>
+<p>类似的乘法定义为</p>
+<p>$mult = \lambda m . \lambda n . \lambda f . n (m f)$</p>
+<p>因为减法和除法会产生出界的情况，这里就不展开定义了。有兴趣的烦请移步<a href="https://en.wikipedia.org/wiki/Church_encoding" target="_blank" rel="external">维基百科</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/玩/">玩</a>
+  <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
 </div>
 
 
@@ -142,7 +168,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/Recursive-lambda/" data-title="在匿名函数中递归 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/Church-encoding/" data-title="邱奇数 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -155,19 +181,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/Functor-applicative-functor-and-monad-in-Haskell/" title="Haskell 中的 Functor Applicative Functor 和 Monad">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Haskell 中的 Functor Applicative Functor 和 Monad</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/SICP-1-1-The-Elements-of-Programming-exercise/"  title="SICP 1.1 编程的要素">
+<a href="/Lambda-calculus/"  title="λ 演算">
  <strong>下一篇：</strong><br/> 
- <span>SICP 1.1 编程的要素
+ <span>λ 演算
 </span>
 </a>
 </div>
@@ -182,7 +200,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名函数"><span class="toc-number">1.</span> <span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名递归"><span class="toc-number">2.</span> <span class="toc-text">匿名递归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推导过程"><span class="toc-number">3.</span> <span class="toc-text">推导过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#来龙去脉"><span class="toc-number">4.</span> <span class="toc-text">来龙去脉</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运算"><span class="toc-number">2.</span> <span class="toc-text">运算</span></a></li></ol>
  
   </div>
 
