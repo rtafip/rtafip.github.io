@@ -1,0 +1,590 @@
+
+ <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  
+    <title>async 和 await | 拖鞋党的拖鞋摊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="拖鞋党">
+    
+
+    
+    <meta name="description" content="你离异步只有一个语法糖的距离。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="async 和 await">
+<meta property="og:url" content="http://en.ors-sro.com/async-and-await/index.html">
+<meta property="og:site_name" content="拖鞋党的拖鞋摊">
+<meta property="og:description" content="你离异步只有一个语法糖的距离。">
+<meta property="og:updated_time" content="2017-07-09T10:17:23.881Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="async 和 await">
+<meta name="twitter:description" content="你离异步只有一个语法糖的距离。">
+
+    
+    <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/me.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/me.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/logo.png" alt="拖鞋党的拖鞋摊" title="拖鞋党的拖鞋摊"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="拖鞋党的拖鞋摊">拖鞋党的拖鞋摊</a></h1>
+				<h2 class="blog-motto">写一些有的没的</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:en.ors-sro.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/async-and-await/" title="async 和 await" itemprop="url">async 和 await</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
+		
+  <p class="article-time">
+    <time datetime="2017-07-09T10:11:19.000Z" itemprop="datePublished"> Published 2017-07-09</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#syntax_sugar"><span class="toc-number">1.</span> <span class="toc-text">syntax sugar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async"><span class="toc-number">2.</span> <span class="toc-text">async</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#await"><span class="toc-number">3.</span> <span class="toc-text">await</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new_era"><span class="toc-number">4.</span> <span class="toc-text">new era</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#polyfill"><span class="toc-number">5.</span> <span class="toc-text">polyfill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#by_the_way"><span class="toc-number">6.</span> <span class="toc-text">by the way</span></a></li></ol>
+		
+		</div>
+		
+		<p>你离异步只有一个语法糖的距离。</p>
+<a id="more"></a>
+<h2 id="syntax_sugar">syntax sugar</h2><p>使用 Promise 编写 JavaScript 异步代码已经司空见惯。</p>
+<p>但是 Promise 写多了还是觉得有些繁琐。</p>
+<p>对此，有了一个新的语法糖提案。</p>
+<p>那就是 async 和 await</p>
+<h2 id="async">async</h2><p>async 用于标识一个函数为异步函数。被标识的函数返回一个 Promise 。</p>
+<p>也就是 async 其实只是一个语法糖。</p>
+<p>内部的实现还是 Promise 。</p>
+<p>相当于返回 Promise 的同步函数。</p>
+<h2 id="await">await</h2><p>await 用于等待一个异步函数。</p>
+<p>也就是用于取出 Promise 的值。</p>
+<p>举一个简单的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">sample</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> data = <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="number">1</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>只有标识了 async 的函数才能在函数体中使用 await 。不然会报错。</p>
+<p>await 后面的代码会在 Promise resolve 后才执行。但是并不会造成程序阻塞。</p>
+<p>因为底层还是用 Promise 实现的。</p>
+<h2 id="new_era">new era</h2><p>用 async 和 await 改写<a href="/Promise">Promise 异步编程</a>的例子</p>
+<p>Promise 的例子代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> data = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"数据拉取成功"</span>);</span><br><span class="line">		callback(data);</span><br><span class="line">	&#125;,<span class="number">1000</span>);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"拉取中……"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleData</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"处理中……"</span>);</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			data += <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"处理数据完成"</span>);</span><br><span class="line">			resolve(data);</span><br><span class="line">		&#125;,<span class="number">2000</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendData</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"发送中……"</span>);	</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"数据发送成功"</span>);</span><br><span class="line">			resolve(data);</span><br><span class="line">		&#125;,<span class="number">3000</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showSucess</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"恭喜充值成功游戏时间 +"</span> + data + <span class="string">"s!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">async</span> = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>)</span>&#123;</span><br><span class="line">	getData(resolve)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span>.then(handleData).then(sendData).then(showSucess);</span><br></pre></td></tr></table></figure>
+<p>用 async 和 await 改写。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TakeSeveralSeconds</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> ms = <span class="built_in">Math</span>.random() * <span class="number">1000</span> + <span class="number">1000</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(resolve =&gt; setTimeout(() =&gt; &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"耗时 "</span> + ms + <span class="string">" 毫秒"</span>)</span><br><span class="line">      resolve(ms)</span><br><span class="line">  &#125;, ms))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"拉取中……"</span>)</span><br><span class="line">  <span class="keyword">await</span> TakeSeveralSeconds()</span><br><span class="line">  <span class="keyword">var</span> data = <span class="number">0</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"数据拉取成功"</span>)</span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">handleData</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"处理中……"</span>)</span><br><span class="line">  <span class="keyword">await</span> TakeSeveralSeconds()</span><br><span class="line">  data += <span class="number">1</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"处理数据完成"</span>)</span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">sendData</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"发送中……"</span>)</span><br><span class="line">  <span class="keyword">await</span> TakeSeveralSeconds()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"数据发送成功"</span>)</span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showSucess</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"恭喜充值成功游戏时间 +"</span> + data + <span class="string">"s!"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> data = <span class="keyword">await</span> getData()</span><br><span class="line">  <span class="keyword">let</span> handledData = <span class="keyword">await</span> handleData(data)</span><br><span class="line">  <span class="keyword">let</span> sendedData = <span class="keyword">await</span> sendData(handledData)</span><br><span class="line">  showSucess(sendedData)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行 <code>main()</code> 得到以下输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">main()&#10;&#25289;&#21462;&#20013;&#8230;&#8230;&#10;Promise &#123;[[PromiseStatus]]: &#34;pending&#34;, [[PromiseValue]]: undefined&#125;&#10;&#32791;&#26102; 1438.6931921290636 &#27627;&#31186;&#10;&#25968;&#25454;&#25289;&#21462;&#25104;&#21151;&#10;&#22788;&#29702;&#20013;&#8230;&#8230;&#10;&#32791;&#26102; 1511.1830960750424 &#27627;&#31186;&#10;&#22788;&#29702;&#25968;&#25454;&#23436;&#25104;&#10;&#21457;&#36865;&#20013;&#8230;&#8230;&#10;&#32791;&#26102; 1644.7195288709415 &#27627;&#31186;&#10;&#25968;&#25454;&#21457;&#36865;&#25104;&#21151;&#10;&#24685;&#21916;&#20805;&#20540;&#25104;&#21151;&#28216;&#25103;&#26102;&#38388; +1s!</span><br></pre></td></tr></table></figure>
+<h2 id="polyfill">polyfill</h2><p>从 Chrome 55 开始，Chrome 默认启用 async 和 await 。其他情况可以使用 babel 转译。</p>
+<h2 id="by_the_way">by the way</h2><p>async 和 await 的本质是编译器做了 CPS 变换，新加的两个 Monad 的语法糖。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/玩/">玩</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/异步/">异步</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://en.ors-sro.com/async-and-await/" data-title="async 和 await | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/Church-encoding/"  title="邱奇数">
+ <strong>下一篇：</strong><br/> 
+ <span>邱奇数
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#syntax_sugar"><span class="toc-number">1.</span> <span class="toc-text">syntax sugar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async"><span class="toc-number">2.</span> <span class="toc-text">async</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#await"><span class="toc-number">3.</span> <span class="toc-text">await</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new_era"><span class="toc-number">4.</span> <span class="toc-text">new era</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#polyfill"><span class="toc-number">5.</span> <span class="toc-text">polyfill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#by_the_way"><span class="toc-number">6.</span> <span class="toc-text">by the way</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/玩/" title="玩">玩<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/SICP/" title="SICP">SICP<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Haskell/" title="Haskell">Haskell<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lambda/" title="lambda">lambda<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/作用域/" title="作用域">作用域<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yilia/" title="yilia">yilia<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动动脑/" title="动动脑">动动脑<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Whitespace/" title="Whitespace">Whitespace<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Quine/" title="Quine">Quine<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/异步/" title="异步">异步<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Promise/" title="Promise">Promise<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/YAML/" title="YAML">YAML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多平台部署/" title="多平台部署">多平台部署<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/polyglot/" title="polyglot">polyglot<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ZeroNet/" title="ZeroNet">ZeroNet<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://snatix.com" target="_blank" title="大喵的新窝">大喵的新窝</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/miaomiaomiao.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 喜欢拖鞋，喜欢大海 <br/>
+			向拖延症低头 Orz</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="拖鞋党">拖鞋党</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="//widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="//service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  </body>
+</html>
