@@ -1,0 +1,614 @@
+
+ <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  
+    <title>常见的 option type 评测 | 拖鞋党的拖鞋摊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="拖鞋党">
+    
+
+    
+    <meta name="description" content="才不是什么手机评测的格式呢。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的 option type 评测">
+<meta property="og:url" content="http://en.ors-sro.com/About-some-option-type-implementation/index.html">
+<meta property="og:site_name" content="拖鞋党的拖鞋摊">
+<meta property="og:description" content="才不是什么手机评测的格式呢。">
+<meta property="og:updated_time" content="2017-07-16T09:24:08.344Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见的 option type 评测">
+<meta name="twitter:description" content="才不是什么手机评测的格式呢。">
+
+    
+    <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/me.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/me.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/logo.png" alt="拖鞋党的拖鞋摊" title="拖鞋党的拖鞋摊"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="拖鞋党的拖鞋摊">拖鞋党的拖鞋摊</a></h1>
+				<h2 class="blog-motto">写一些有的没的</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:en.ors-sro.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/About-some-option-type-implementation/" title="常见的 option type 评测" itemprop="url">常见的 option type 评测</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
+		
+  <p class="article-time">
+    <time datetime="2017-07-16T09:08:33.000Z" itemprop="datePublished"> Published 2017-07-16</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C++_的_option"><span class="toc-number">2.</span> <span class="toc-text">C++ 的 option</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java_的_option"><span class="toc-number">3.</span> <span class="toc-text">Java 的 option</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#没有空指针的未来"><span class="toc-number">4.</span> <span class="toc-text">没有空指针的未来</span></a></li></ol>
+		
+		</div>
+		
+		<p>才不是什么手机评测的格式呢。</p>
+<a id="more"></a>
+<h2 id="简介">简介</h2><p>option type 是一种用于消灭空指针（null pointer）的和类型（sum type）。</p>
+<p>option 类型用于表达可能不存在值的语义，在很多语言中都有<a href="https://en.wikipedia.org/wiki/Option_type" target="_blank" rel="external">相应的实现</a>。</p>
+<p>评测选取官方支持的 option ，而不是第三方实现库。</p>
+<p>主要从是否杜绝空指针和是否方便做空检查（null check）这两点评测。</p>
+<h2 id="C++_的_option">C++ 的 option</h2><p>C++ 17 开始有了 option 的官方实现 <code>std::optional</code></p>
+<p>引用 <a href="http://en.cppreference.com/w/cpp/utility/optional" target="_blank" rel="external">cppreference</a> 的一个例子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;optional&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// optional can be used as the return type of a factory that may fail</span></span><br><span class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; create(<span class="keyword">bool</span> b) &#123;</span><br><span class="line">    <span class="keyword">if</span> (b)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Godzilla"</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"create(false) returned "</span></span><br><span class="line">              &lt;&lt; create(<span class="keyword">false</span>).value_or(<span class="string">"empty"</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// optional-returning factory functions are usable as conditions of while and if</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">auto</span> str = create(<span class="keyword">true</span>)) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"create(true) returned "</span> &lt;&lt; *str &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>天啊！居然是手动做空检查！吓得我赶紧看了一下这个类的方法和辅助函数，居然没有 <code>map</code> 或者 <code>flatmap</code>。</p>
+<p>这就是那种送到面前抄都抄错的教科书级例子。</p>
+<p>为什么说手动做空检查是不受推荐的呢。</p>
+<p>先忘掉 <code>std::optional</code> 的存在，回想以前的代码是怎么确保不会因为值不存在而崩溃的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span>* pData = GetSomeThingMayReturnNull();</span><br><span class="line"><span class="keyword">if</span> (!pData) &#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"value is "</span> &lt;&lt; *pData &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对比上面使用 <code>std::optional</code> 的代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">auto</span> str = create(<span class="keyword">true</span>)) &#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"create(true) returned "</span> &lt;&lt; *str &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是做法完全一样？都是先空检查再使用值。没毛病。</p>
+<p>但是如果做法都一样为什么还要引入 <code>std::optional</code> 类型？</p>
+<p>而且引入 <code>std::optional</code> 对于空指针问题没有明显的改善。</p>
+<p>程序员是人，人是会犯错误的。忘记做空检查是最常见的错误。所以才会有因为忘了做空检查导致空指针问题。</p>
+<p>使用 <code>std::optional</code> 还是得手动做空检查，那跟直接使用 <code>nullptr</code> 表达空值有什么区别？</p>
+<p>也就是使用 <code>std::optional</code> 没有办法杜绝空指针，有出错的可能，除非能证明所有对 <code>std::optional</code> 的使用前都做了空检查。</p>
+<p>那是不是没有办法杜绝空指针？</p>
+<p>答案是否定的。在强类型语言如 Haskell 中会强迫用户检测，否则编译失败。从而杜绝了运行时空指针。</p>
+<p>所以 <code>std::optional</code> 错在没有强制做空检查，没有强制做空检查的原因是编译器没有给予支持而空检查和取值操作是分开的两步操作，而不是一步原子操作。</p>
+<p>评测结果：不推荐使用</p>
+<h2 id="Java_的_option">Java 的 option</h2><p>Java 8 也引入了 option type ，类名也是 <code>Optional</code></p>
+<p>引用<a href="http://www.importnew.com/6675.html" target="_blank" rel="external">介绍 optional </a>的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OptionalDemo</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建Optional实例，也可以通过方法返回值得到。</span></span><br><span class="line">    Optional&lt;String&gt; name = Optional.of(<span class="string">"Sanaulla"</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//创建没有值的Optional实例，例如值为'null'</span></span><br><span class="line">    Optional empty = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//isPresent方法用来检查Optional实例是否有值。</span></span><br><span class="line">    <span class="keyword">if</span> (name.isPresent()) &#123;</span><br><span class="line">      <span class="comment">//调用get()返回Optional值。</span></span><br><span class="line">      System.out.println(name.get());</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">//在Optional实例上调用get()抛出NoSuchElementException。</span></span><br><span class="line">      System.out.println(empty.get());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchElementException ex) &#123;</span><br><span class="line">      System.out.println(ex.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//ifPresent方法接受lambda表达式参数。</span></span><br><span class="line">    <span class="comment">//如果Optional值不为空，lambda表达式会处理并在其上执行操作。</span></span><br><span class="line">    name.ifPresent((value) -&gt; &#123;</span><br><span class="line">      System.out.println(<span class="string">"The length of the value is: "</span> + value.length());</span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//如果有值orElse方法会返回Optional实例，否则返回传入的错误信息。</span></span><br><span class="line">    System.out.println(empty.orElse(<span class="string">"There is no value present!"</span>));</span><br><span class="line">    System.out.println(name.orElse(<span class="string">"There is some value!"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//orElseGet与orElse类似，区别在于传入的默认值。</span></span><br><span class="line">    <span class="comment">//orElseGet接受lambda表达式生成默认值。</span></span><br><span class="line">    System.out.println(empty.orElseGet(() -&gt; <span class="string">"Default Value"</span>));</span><br><span class="line">    System.out.println(name.orElseGet(() -&gt; <span class="string">"Default Value"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">//orElseThrow与orElse方法类似，区别在于返回值。</span></span><br><span class="line">      <span class="comment">//orElseThrow抛出由传入的lambda表达式/方法生成异常。</span></span><br><span class="line">      empty.orElseThrow(ValueAbsentException::<span class="keyword">new</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">      System.out.println(ex.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//map方法通过传入的lambda表达式修改Optonal实例默认值。 </span></span><br><span class="line">    <span class="comment">//lambda表达式返回值会包装为Optional实例。</span></span><br><span class="line">    Optional&lt;String&gt; upperName = name.map((value) -&gt; value.toUpperCase());</span><br><span class="line">    System.out.println(upperName.orElse(<span class="string">"No value found"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//flatMap与map（Funtion）非常相似，区别在于lambda表达式的返回值。</span></span><br><span class="line">    <span class="comment">//map方法的lambda表达式返回值可以是任何类型，但是返回值会包装成Optional实例。</span></span><br><span class="line">    <span class="comment">//但是flatMap方法的lambda返回值总是Optional类型。</span></span><br><span class="line">    upperName = name.flatMap((value) -&gt; Optional.of(value.toUpperCase()));</span><br><span class="line">    System.out.println(upperName.orElse(<span class="string">"No value found"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//filter方法检查Optiona值是否满足给定条件。</span></span><br><span class="line">    <span class="comment">//如果满足返回Optional实例值，否则返回空Optional。</span></span><br><span class="line">    Optional&lt;String&gt; longName = name.filter((value) -&gt; value.length() &gt; <span class="number">6</span>);</span><br><span class="line">    System.out.println(longName.orElse(<span class="string">"The name is less than 6 characters"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//另一个示例，Optional值不满足给定条件。</span></span><br><span class="line">    Optional&lt;String&gt; anotherName = Optional.of(<span class="string">"Sana"</span>);</span><br><span class="line">    Optional&lt;String&gt; shortName = anotherName.filter((value) -&gt; value.length() &gt; <span class="number">6</span>);</span><br><span class="line">    System.out.println(shortName.orElse(<span class="string">"The name is less than 6 characters"</span>));</span><br><span class="line"> </span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Java 8 的 <code>Optional</code> 有 <code>map</code> 和 <code>flatmap</code> 。很好。</p>
+<p>最大的败笔在于提供了 <code>get()</code> 方法。</p>
+<p>在没有提供之前可以保证代码不会有空指针。</p>
+<p>提供 <code>get()</code> 后，就必须要手动做空检查。</p>
+<p>这就跟 C++ 的 <code>std::optional</code> 一样。</p>
+<p>根据墨菲定律，可能出错的终将会出错。所以很可能出现直接使用 <code>get()</code> 而忘了做空检查。</p>
+<p>如果 <code>get()</code> 抛出的异常是编译时异常还好，这样不做空检查就会编译失败。</p>
+<p>但是 <code>get()</code> 抛出的异常 <code>NoSuchElementException</code> 是运行时异常，简直就是变相的 <code>null</code>。</p>
+<p>听说 <code>Optional</code> 还<a href="https://zhuanlan.zhihu.com/p/22492722" target="_blank" rel="external">可以是空指针</a>。</p>
+<blockquote>
+<p>讲个笑话。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Customer&gt; customer = customerService.retriveCustomerById(<span class="number">22492722</span>);</span><br><span class="line"></span><br><span class="line">customer.map(Customer::getName).orElse(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure>
+<p>「retriveCustomerById返回null没有编译错误」</p>
+</blockquote>
+<p>哇！这就意味着你要先检查 <code>Optional</code> 是不是空，在检查里面有没有值。</p>
+<p>简直是帮倒忙，不解决原有的问题还引入了新的问题。</p>
+<p>评测结果：可以使用，不要使用 <code>get()</code> ，更不要使用 <code>orElse(null)</code> 。</p>
+<h2 id="没有空指针的未来">没有空指针的未来</h2><p>在有了正确的 option type 后，你离没有空指针的代码只有一个语法糖的距离。</p>
+<p>终有一天我们会跨入无空指针的时代。</p>
+<p>到时回看这时的代码。</p>
+<p>那一天，人类终于回想起了，曾经一度被空指针所支配的恐怖，还有被囚禁于空检查大括号中的那份屈辱。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/玩/">玩</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/option/">option</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://en.ors-sro.com/About-some-option-type-implementation/" data-title="常见的 option type 评测 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/async-and-await/"  title="async 和 await">
+ <strong>下一篇：</strong><br/> 
+ <span>async 和 await
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C++_的_option"><span class="toc-number">2.</span> <span class="toc-text">C++ 的 option</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java_的_option"><span class="toc-number">3.</span> <span class="toc-text">Java 的 option</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#没有空指针的未来"><span class="toc-number">4.</span> <span class="toc-text">没有空指针的未来</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/学习笔记/" title="学习笔记">学习笔记<sup>19</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/玩/" title="玩">玩<sup>24</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/翻译/" title="翻译">翻译<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/SICP/" title="SICP">SICP<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Haskell/" title="Haskell">Haskell<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/lambda/" title="lambda">lambda<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/作用域/" title="作用域">作用域<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/yilia/" title="yilia">yilia<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动动脑/" title="动动脑">动动脑<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Whitespace/" title="Whitespace">Whitespace<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Quine/" title="Quine">Quine<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/异步/" title="异步">异步<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Promise/" title="Promise">Promise<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/YAML/" title="YAML">YAML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多平台部署/" title="多平台部署">多平台部署<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/polyglot/" title="polyglot">polyglot<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ZeroNet/" title="ZeroNet">ZeroNet<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://snatix.com" target="_blank" title="大喵的新窝">大喵的新窝</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/miaomiaomiao.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 喜欢拖鞋，喜欢大海 <br/>
+			向拖延症低头 Orz</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="拖鞋党">拖鞋党</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="//widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="//service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  </body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://en.ors-sro.com/"/>
-  <updated>2017-07-09T10:17:23.881Z</updated>
+  <updated>2017-07-16T09:24:08.344Z</updated>
   <id>http://en.ors-sro.com/</id>
   
   <author>
@@ -16,18 +16,90 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>常见的 option type 评测</title>
+    <link href="http://en.ors-sro.com/About-some-option-type-implementation/"/>
+    <id>http://en.ors-sro.com/About-some-option-type-implementation/</id>
+    <published>2017-07-16T09:08:33.000Z</published>
+    <updated>2017-07-16T09:24:08.344Z</updated>
+    
+    <content type="html"><![CDATA[<p>才不是什么手机评测的格式呢。</p>
+<a id="more"></a>
+<h2 id="简介">简介</h2><p>option type 是一种用于消灭空指针（null pointer）的和类型（sum type）。</p>
+<p>option 类型用于表达可能不存在值的语义，在很多语言中都有<a href="https://en.wikipedia.org/wiki/Option_type" target="_blank" rel="external">相应的实现</a>。</p>
+<p>评测选取官方支持的 option ，而不是第三方实现库。</p>
+<p>主要从是否杜绝空指针和是否方便做空检查（null check）这两点评测。</p>
+<h2 id="C++_的_option">C++ 的 option</h2><p>C++ 17 开始有了 option 的官方实现 <code>std::optional</code></p>
+<p>引用 <a href="http://en.cppreference.com/w/cpp/utility/optional" target="_blank" rel="external">cppreference</a> 的一个例子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;optional&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// optional can be used as the return type of a factory that may fail</span></span><br><span class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; create(<span class="keyword">bool</span> b) &#123;</span><br><span class="line">    <span class="keyword">if</span> (b)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Godzilla"</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"create(false) returned "</span></span><br><span class="line">              &lt;&lt; create(<span class="keyword">false</span>).value_or(<span class="string">"empty"</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// optional-returning factory functions are usable as conditions of while and if</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">auto</span> str = create(<span class="keyword">true</span>)) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"create(true) returned "</span> &lt;&lt; *str &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>天啊！居然是手动做空检查！吓得我赶紧看了一下这个类的方法和辅助函数，居然没有 <code>map</code> 或者 <code>flatmap</code>。</p>
+<p>这就是那种送到面前抄都抄错的教科书级例子。</p>
+<p>为什么说手动做空检查是不受推荐的呢。</p>
+<p>先忘掉 <code>std::optional</code> 的存在，回想以前的代码是怎么确保不会因为值不存在而崩溃的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span>* pData = GetSomeThingMayReturnNull();</span><br><span class="line"><span class="keyword">if</span> (!pData) &#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"value is "</span> &lt;&lt; *pData &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对比上面使用 <code>std::optional</code> 的代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">auto</span> str = create(<span class="keyword">true</span>)) &#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"create(true) returned "</span> &lt;&lt; *str &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是做法完全一样？都是先空检查再使用值。没毛病。</p>
+<p>但是如果做法都一样为什么还要引入 <code>std::optional</code> 类型？</p>
+<p>而且引入 <code>std::optional</code> 对于空指针问题没有明显的改善。</p>
+<p>程序员是人，人是会犯错误的。忘记做空检查是最常见的错误。所以才会有因为忘了做空检查导致空指针问题。</p>
+<p>使用 <code>std::optional</code> 还是得手动做空检查，那跟直接使用 <code>nullptr</code> 表达空值有什么区别？</p>
+<p>也就是使用 <code>std::optional</code> 没有办法杜绝空指针，有出错的可能，除非能证明所有对 <code>std::optional</code> 的使用前都做了空检查。</p>
+<p>那是不是没有办法杜绝空指针？</p>
+<p>答案是否定的。在强类型语言如 Haskell 中会强迫用户检测，否则编译失败。从而杜绝了运行时空指针。</p>
+<p>所以 <code>std::optional</code> 错在没有强制做空检查，没有强制做空检查的原因是编译器没有给予支持而空检查和取值操作是分开的两步操作，而不是一步原子操作。</p>
+<p>评测结果：不推荐使用</p>
+<h2 id="Java_的_option">Java 的 option</h2><p>Java 8 也引入了 option type ，类名也是 <code>Optional</code></p>
+<p>引用<a href="http://www.importnew.com/6675.html" target="_blank" rel="external">介绍 optional </a>的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OptionalDemo</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建Optional实例，也可以通过方法返回值得到。</span></span><br><span class="line">    Optional&lt;String&gt; name = Optional.of(<span class="string">"Sanaulla"</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//创建没有值的Optional实例，例如值为'null'</span></span><br><span class="line">    Optional empty = Optional.ofNullable(<span class="keyword">null</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//isPresent方法用来检查Optional实例是否有值。</span></span><br><span class="line">    <span class="keyword">if</span> (name.isPresent()) &#123;</span><br><span class="line">      <span class="comment">//调用get()返回Optional值。</span></span><br><span class="line">      System.out.println(name.get());</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">//在Optional实例上调用get()抛出NoSuchElementException。</span></span><br><span class="line">      System.out.println(empty.get());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchElementException ex) &#123;</span><br><span class="line">      System.out.println(ex.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//ifPresent方法接受lambda表达式参数。</span></span><br><span class="line">    <span class="comment">//如果Optional值不为空，lambda表达式会处理并在其上执行操作。</span></span><br><span class="line">    name.ifPresent((value) -&gt; &#123;</span><br><span class="line">      System.out.println(<span class="string">"The length of the value is: "</span> + value.length());</span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//如果有值orElse方法会返回Optional实例，否则返回传入的错误信息。</span></span><br><span class="line">    System.out.println(empty.orElse(<span class="string">"There is no value present!"</span>));</span><br><span class="line">    System.out.println(name.orElse(<span class="string">"There is some value!"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//orElseGet与orElse类似，区别在于传入的默认值。</span></span><br><span class="line">    <span class="comment">//orElseGet接受lambda表达式生成默认值。</span></span><br><span class="line">    System.out.println(empty.orElseGet(() -&gt; <span class="string">"Default Value"</span>));</span><br><span class="line">    System.out.println(name.orElseGet(() -&gt; <span class="string">"Default Value"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">//orElseThrow与orElse方法类似，区别在于返回值。</span></span><br><span class="line">      <span class="comment">//orElseThrow抛出由传入的lambda表达式/方法生成异常。</span></span><br><span class="line">      empty.orElseThrow(ValueAbsentException::<span class="keyword">new</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">      System.out.println(ex.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//map方法通过传入的lambda表达式修改Optonal实例默认值。 </span></span><br><span class="line">    <span class="comment">//lambda表达式返回值会包装为Optional实例。</span></span><br><span class="line">    Optional&lt;String&gt; upperName = name.map((value) -&gt; value.toUpperCase());</span><br><span class="line">    System.out.println(upperName.orElse(<span class="string">"No value found"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//flatMap与map（Funtion）非常相似，区别在于lambda表达式的返回值。</span></span><br><span class="line">    <span class="comment">//map方法的lambda表达式返回值可以是任何类型，但是返回值会包装成Optional实例。</span></span><br><span class="line">    <span class="comment">//但是flatMap方法的lambda返回值总是Optional类型。</span></span><br><span class="line">    upperName = name.flatMap((value) -&gt; Optional.of(value.toUpperCase()));</span><br><span class="line">    System.out.println(upperName.orElse(<span class="string">"No value found"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//filter方法检查Optiona值是否满足给定条件。</span></span><br><span class="line">    <span class="comment">//如果满足返回Optional实例值，否则返回空Optional。</span></span><br><span class="line">    Optional&lt;String&gt; longName = name.filter((value) -&gt; value.length() &gt; <span class="number">6</span>);</span><br><span class="line">    System.out.println(longName.orElse(<span class="string">"The name is less than 6 characters"</span>));</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//另一个示例，Optional值不满足给定条件。</span></span><br><span class="line">    Optional&lt;String&gt; anotherName = Optional.of(<span class="string">"Sana"</span>);</span><br><span class="line">    Optional&lt;String&gt; shortName = anotherName.filter((value) -&gt; value.length() &gt; <span class="number">6</span>);</span><br><span class="line">    System.out.println(shortName.orElse(<span class="string">"The name is less than 6 characters"</span>));</span><br><span class="line"> </span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Java 8 的 <code>Optional</code> 有 <code>map</code> 和 <code>flatmap</code> 。很好。</p>
+<p>最大的败笔在于提供了 <code>get()</code> 方法。</p>
+<p>在没有提供之前可以保证代码不会有空指针。</p>
+<p>提供 <code>get()</code> 后，就必须要手动做空检查。</p>
+<p>这就跟 C++ 的 <code>std::optional</code> 一样。</p>
+<p>根据墨菲定律，可能出错的终将会出错。所以很可能出现直接使用 <code>get()</code> 而忘了做空检查。</p>
+<p>如果 <code>get()</code> 抛出的异常是编译时异常还好，这样不做空检查就会编译失败。</p>
+<p>但是 <code>get()</code> 抛出的异常 <code>NoSuchElementException</code> 是运行时异常，简直就是变相的 <code>null</code>。</p>
+<p>听说 <code>Optional</code> 还<a href="https://zhuanlan.zhihu.com/p/22492722" target="_blank" rel="external">可以是空指针</a>。</p>
+<blockquote>
+<p>讲个笑话。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Customer&gt; customer = customerService.retriveCustomerById(<span class="number">22492722</span>);</span><br><span class="line"></span><br><span class="line">customer.map(Customer::getName).orElse(<span class="string">"Hello world!"</span>);</span><br></pre></td></tr></table></figure>
+<p>「retriveCustomerById返回null没有编译错误」</p>
+</blockquote>
+<p>哇！这就意味着你要先检查 <code>Optional</code> 是不是空，在检查里面有没有值。</p>
+<p>简直是帮倒忙，不解决原有的问题还引入了新的问题。</p>
+<p>评测结果：可以使用，不要使用 <code>get()</code> ，更不要使用 <code>orElse(null)</code> 。</p>
+<h2 id="没有空指针的未来">没有空指针的未来</h2><p>在有了正确的 option type 后，你离没有空指针的代码只有一个语法糖的距离。</p>
+<p>终有一天我们会跨入无空指针的时代。</p>
+<p>到时回看这时的代码。</p>
+<p>那一天，人类终于回想起了，曾经一度被空指针所支配的恐怖，还有被囚禁于空检查大括号中的那份屈辱。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;才不是什么手机评测的格式呢。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
+    
+    
+      <category term="option" scheme="http://en.ors-sro.com/tags/option/"/>
+    
+  </entry>
+  
+  <entry>
     <title>async 和 await</title>
     <link href="http://en.ors-sro.com/async-and-await/"/>
     <id>http://en.ors-sro.com/async-and-await/</id>
     <published>2017-07-09T10:11:19.000Z</published>
-    <updated>2017-07-09T10:17:23.881Z</updated>
+    <updated>2017-07-16T09:04:51.753Z</updated>
     
     <content type="html"><![CDATA[<p>你离异步只有一个语法糖的距离。</p>
 <a id="more"></a>
 <h2 id="syntax_sugar">syntax sugar</h2><p>使用 Promise 编写 JavaScript 异步代码已经司空见惯。</p>
 <p>但是 Promise 写多了还是觉得有些繁琐。</p>
 <p>对此，有了一个新的语法糖提案。</p>
-<p>那就是 async 和 await</p>
+<p>那就是 async 和 await 。</p>
 <h2 id="async">async</h2><p>async 用于标识一个函数为异步函数。被标识的函数返回一个 Promise 。</p>
 <p>也就是 async 其实只是一个语法糖。</p>
 <p>内部的实现还是 Promise 。</p>
@@ -1646,80 +1718,6 @@
     
     
       <category term="Haskell" scheme="http://en.ors-sro.com/tags/Haskell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>逆变和协变</title>
-    <link href="http://en.ors-sro.com/Covariant-and-Contravariant/"/>
-    <id>http://en.ors-sro.com/Covariant-and-Contravariant/</id>
-    <published>2017-02-25T09:00:51.000Z</published>
-    <updated>2017-02-25T10:24:24.994Z</updated>
-    
-    <content type="html"><![CDATA[<p>$$<br>\dfrac{T_1 \leq S_1 \quad S_2 \leq T_2}{S_1 \rightarrow S_2 \leq T_1 \rightarrow T_2}<br>$$</p>
-<a id="more"></a>
-<h2 id="简单的代换">简单的代换</h2><p>假设有三个类，Animal ，Cat，Dog。其中 Cat 和 Dog 是 Animal 的子类。</p>
-<p>有一段这样的转换代码</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Animal a = <span class="keyword">new</span> Cat();</span><br><span class="line">Cat b = <span class="keyword">new</span> Animal();</span><br><span class="line">Dog c = <span class="keyword">new</span> Cat();</span><br></pre></td></tr></table></figure>
-<p>有哪些可以通过编译呢？</p>
-<p>显然对面向对象有基本了解到人都能很快答出只有第一行能编译通过。</p>
-<p>第二行因为不是所有 Animal 都是 Cat 。所以在赋值的时候转换失败。</p>
-<p>第三行因为 Dog 和 Cat 是不同的类，除非定义转换方式或者内存分布一致，否则通常是失败的。</p>
-<p>第一行是可以编译通过是因为面向对象的继承特性。</p>
-<p>继承允许子类拥有父类相同的行为，又可以有自己独特的行为。</p>
-<p>所以子类替换父类，也就是熟悉的里氏代换原则。</p>
-<h2 id="复合类型">复合类型</h2><p>除了基本的类型比如 int ，bool 等，还有一种复合类型比如 int[]，List&lt; int &gt; 等。</p>
-<p>复合类型通常由类型构造器和类型参数组合而成，类似与函数和参数的关系。</p>
-<p>比如 List&lt; int &gt; 的类型构造器是 List ，参数为 int</p>
-<p>简单类型的替换非常直观，子类能够替换父类，父类不能替换子类。</p>
-<p>复合类型的替换就不是那么直观了。</p>
-<p>比如对于类型 Animal[] Animal数组和Cat[] Cat数组，这两个类型。</p>
-<p>这个两个类型是什么关系？是否与 Animal 和 Cat 的关系有关？</p>
-<p>答案是这两个类型没有任何关系。</p>
-<p>仔细想想就能发现</p>
-<p>Cat[] 并不能替换所有 Animal[] 。因为 Animal[] 可以装入 Dog 的实例，而 Cat[] 不可以。</p>
-<p>Animal[] 也不能替换所有 Cat[] 。因为 Cat[] 中的 Cat 可以调用 Cat 类独有的方法，替换为 Animal 后，Animal 没有这个独有的方法，调用失败。</p>
-<p>所以 Animal[] 和 Cat[] 是没有关系的。</p>
-<p>是不是所有的 Animal 的复合类型和 Cat 的复合类型都没有关系呢？</p>
-<p>其实不是的。</p>
-<p>对于 Reader <code>(-&gt;)</code> 有</p>
-<p>(Animal -&gt; Cat) 是 (Animal -&gt; Animal) 的子类型</p>
-<p>(Animal -&gt; Animal) 是 (Cat -&gt; Animal) 的子类型</p>
-<p>先说比较直观的第一个</p>
-<p>要想说明 (Animal -&gt; Cat) 是 (Animal -&gt; Animal) 的子类型，需要子类能够替换父类。</p>
-<p>显然父类 (Animal -&gt; Animal) 的返回值是 Animal ，如果替换成子类 (Animal -&gt; Cat)</p>
-<p>输入类型 Animal 不变没问题，输出变成了Cat 。因为 Cat 能够替换 Animal 所以是没问题的。</p>
-<p>所以 (Animal -&gt; Cat) 可以替换 (Animal -&gt; Animal) </p>
-<p>所以 (Animal -&gt; Cat) 是 (Animal -&gt; Animal) 的子类型。</p>
-<p>再看第二个</p>
-<p>如果 (Animal -&gt; Animal) 替换 (Cat -&gt; Animal)。</p>
-<p>输出都是 Animal 没问题。</p>
-<p>输入变成了 Animal。看起来似乎是有问题的，因为 (Cat -&gt; Animal) 中有可能调用 Cat 的独有方法</p>
-<p>其实是没问题的，因为替换成 (Animal -&gt; Animal) 后，(Animal -&gt; Animal) 没有 Cat 的独有方法，所以不会报错。</p>
-<p>而且原本的输入 Cat 是可以转成现在的输入 Animal 的。</p>
-<p>所以 (Animal -&gt; Animal) 可以替换 (Cat -&gt; Animal) 。</p>
-<p>所以 (Animal -&gt; Animal) 是 (Cat -&gt; Animal) 的子类型。</p>
-<p>(Animal -&gt; Cat) 替换 (Animal -&gt; Animal) 中用 Cat 替换 Animal 与原本的继承关系 Cat 替换 Animal 一致，所以称为协变。</p>
-<p>(Animal -&gt; Animal) 替换 (Cat -&gt; Animal) 中用 Animal 替换 Cat 与原本的继承关系 Cat 替换 Animal 相反，所以称为逆变。</p>
-<h2 id="继承">继承</h2><p>C++ 和 Java 允许通过继承父类重载函数实现返回值的协变</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Animal &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Frog : Animal &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Parent </span><br><span class="line">&#123;</span><br><span class="line">    Animal a;</span><br><span class="line">    <span class="function">Animal <span class="title">GetAnAnimal</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Child : Parent</span><br><span class="line">&#123;</span><br><span class="line">    Frog f;</span><br><span class="line">    <span class="function">Frog <span class="title">GetAnAnimal</span><span class="params">()</span> <span class="comment">// 返回值协变</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="参数化多态">参数化多态</h2><p>C# 支持在参数化多态中使用 <code>in</code> 和 <code>out</code> 标记逆变和协变</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">OutExample</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Method</span>(<span class="params"><span class="keyword">out</span> <span class="keyword">int</span> i</span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        i = <span class="number">44</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">value</span>;</span><br><span class="line">        Method(<span class="keyword">out</span> <span class="keyword">value</span>);</span><br><span class="line">        <span class="comment">// value is now 44</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不对，走错片场了。是这个</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GrandParent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Parent</span> : <span class="title">GrandParent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Child</span> : <span class="title">Parent</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApplication1</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">delegate</span> TResult Demo&lt;<span class="keyword">in</span> T, <span class="keyword">out</span> TResult&gt;(T argument);</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Child <span class="title">Sample</span>(<span class="params">GrandParent person</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Child();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="comment">// 参数逆变，返回值协变</span></span><br><span class="line">            Demo&lt;Parent, Parent&gt; d = Sample;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接">参考链接</h2><p><a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)" target="_blank" rel="external">逆变和协变的维基百科</a><br><a href="https://msdn.microsoft.com/zh-cn/library/t3c3bfhx.aspx" target="_blank" rel="external">C# Out</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;$$&lt;br&gt;\dfrac{T_1 \leq S_1 \quad S_2 \leq T_2}{S_1 \rightarrow S_2 \leq T_1 \rightarrow T_2}&lt;br&gt;$$&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="玩" scheme="http://en.ors-sro.com/categories/%E7%8E%A9/"/>
-    
-    
-      <category term="逆变" scheme="http://en.ors-sro.com/tags/%E9%80%86%E5%8F%98/"/>
     
   </entry>
   
