@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Flash-JavaScript-API/</loc>
+    
+    <lastmod>2017-07-30T09:06:37.443Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Ownership-and-Borrow-in-Rust/</loc>
     
     <lastmod>2017-07-23T07:01:40.613Z</lastmod>
