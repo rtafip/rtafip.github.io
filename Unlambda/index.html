@@ -4,23 +4,23 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Flash 脚本 | 拖鞋党的拖鞋摊</title>
+    <title>Unlambda | 拖鞋党的拖鞋摊</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="拖鞋党">
     
 
     
-    <meta name="description" content="此 Flash 脚本非 ActionScript">
+    <meta name="description" content="非 lambda">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flash 脚本">
-<meta property="og:url" content="http://en.ors-sro.com/Flash-JavaScript-API/index.html">
+<meta property="og:title" content="Unlambda">
+<meta property="og:url" content="http://en.ors-sro.com/Unlambda/index.html">
 <meta property="og:site_name" content="拖鞋党的拖鞋摊">
-<meta property="og:description" content="此 Flash 脚本非 ActionScript">
-<meta property="og:updated_time" content="2017-07-30T09:06:37.443Z">
+<meta property="og:description" content="非 lambda">
+<meta property="og:updated_time" content="2017-08-06T11:40:48.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flash 脚本">
-<meta name="twitter:description" content="此 Flash 脚本非 ActionScript">
+<meta name="twitter:title" content="Unlambda">
+<meta name="twitter:description" content="非 lambda">
 
     
     <link rel="alternative" href="/miaomiaomiao.xml" title="拖鞋党的拖鞋摊" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/Flash-JavaScript-API/" title="Flash 脚本" itemprop="url">Flash 脚本</a>
+      <a href="/Unlambda/" title="Unlambda" itemprop="url">Unlambda</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="拖鞋党" target="_blank" itemprop="author">拖鞋党</a>
 		
   <p class="article-time">
-    <time datetime="2017-07-30T08:58:44.000Z" itemprop="datePublished"> Published 2017-07-30</time>
+    <time datetime="2017-08-06T11:39:46.000Z" itemprop="datePublished"> Published 2017-08-06</time>
     
   </p>
 </header>
@@ -98,53 +98,52 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello_World"><span class="toc-number">2.</span> <span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Show_In_Stage"><span class="toc-number">3.</span> <span class="toc-text">Show In Stage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#百足之虫"><span class="toc-number">4.</span> <span class="toc-text">百足之虫</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello_world"><span class="toc-number">2.</span> <span class="toc-text">Hello world</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">3.</span> <span class="toc-text">解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ"><span class="toc-number">4.</span> <span class="toc-text">FAQ</span></a></li></ol>
 		
 		</div>
 		
-		<p>此 Flash 脚本非 ActionScript</p>
+		<p>非 lambda</p>
 <a id="more"></a>
-<h2 id="简介">简介</h2><p>除了跑在 Flash Player 中的脚本 ActionScript ， Flash 还有一个跑在 Adobe Flash CC 的 JavaScript 。</p>
-<p>Flash JavaScript 提供了大量的接口，方便执行制作 flash 的某些操作，比如机械重复的导出等。</p>
-<h2 id="Hello_World">Hello World</h2><p>选择文件，新建，Flash JavaScript File 。</p>
-<p>输入</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="number">1</span>) <span class="comment">//干，又不是 XSS</span></span><br></pre></td></tr></table></figure>
-<p>保存。</p>
-<p>双击保存的文件运行，或者选择菜单<strong>命令</strong>，运行命令，选择保存的文件。</p>
-<p>成功的话就能看到在 flash 的一个弹框。</p>
-<h2 id="Show_In_Stage">Show In Stage</h2><p>来一个复杂的例子。首先需要寻找借口，可以从<a href="http://help.adobe.com/en_US/flash/cs/extend/flash_cs5_extending.pdf" target="_blank" rel="external">官方的 API 手册</a>中查找。</p>
-<p>官方手册非常详细，提供的 API 基本覆盖所有能够手动在 Adobe Flash CC 的操作。</p>
-<p>比如其中的一页目录是这样的。</p>
-<blockquote>
-<p>Chapter 11: Document object<br>document.accName . . .  62<br>document.addDataToDocument() . . . 62<br>document.addDataToSelection() . . .  63<br>document.addFilter() . . .  64<br>document.addItem() . . .  64<br>document.addNewLine() . . . 65<br>document.addNewOval() . . .  66<br>document.addNewPrimitiveOval() . . .  66<br>document.addNewPrimitiveRectangle() . . .  67<br>document.addNewPublishProfile() . . .  68<br>document.addNewRectangle() . . .  69<br>document.addNewScene() . . . 70<br>document.addNewText() . . . 71</p>
-</blockquote>
-<p>例如做一个查找库中某个元件在哪里使用了，手册中就有类似的例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将装有所有图层的数组赋值给 theLayers </span></span><br><span class="line"><span class="keyword">var</span> theLayers = fl.getDocumentDOM().getTimeline().layers;</span><br><span class="line"><span class="comment">// 创建一个用于装载所有 "myMovieClip" 实例的数组</span></span><br><span class="line"><span class="keyword">var</span> myArray = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="comment">// 计数器</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 循环所有图层</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; theLayers.length; i++) &#123;</span><br><span class="line">  <span class="comment">// 取第一个图层</span></span><br><span class="line">  <span class="comment">// 赋值给 "theElems"</span></span><br><span class="line">  <span class="keyword">var</span> theElems = theLayers[i].frames[<span class="number">0</span>].elements;</span><br><span class="line">  <span class="comment">// 循环所有图层上的元素</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> c = <span class="number">0</span>; c &lt; theElems.length; c++) &#123;</span><br><span class="line">    <span class="comment">// 检查是否为实例 （instance）</span></span><br><span class="line">    <span class="keyword">if</span> (theElems[c].elementType == <span class="string">"instance"</span>) &#123;</span><br><span class="line">      <span class="comment">// 检查是否为 "myMovieClip" 的实例</span></span><br><span class="line">      <span class="keyword">if</span> (theElems[c].libraryItem.name == <span class="string">"myMovieClip"</span>) &#123;</span><br><span class="line">        <span class="comment">// 装入数组</span></span><br><span class="line">        myArray[x] = theElems[c];</span><br><span class="line">        <span class="comment">// 递增计数器</span></span><br><span class="line">        x++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 选择所有 "myMovieClip" 的实例</span></span><br><span class="line">fl.getDocumentDOM().selection = myArray;</span><br></pre></td></tr></table></figure>
-<p>这个例子只能检测当前元件的所有图层，如果要检测元件的子元件还需要调用 <code>document.enterEditMode()</code>，再递归一下就完成了。</p>
-<h2 id="百足之虫">百足之虫</h2><p>Flash 自从<a href="https://www.apple.com/hotnews/thoughts-on-flash/" target="_blank" rel="external">乔帮主一战</a>后就萎靡不振，尤其是近几年在前端逐渐式微。</p>
-<p>直到最近 <a href="http://www.tmtpost.com/2708187.html" target="_blank" rel="external">Adobe 宣判了 Flash 的死刑</a>， 在 2020 年正式停止开发。</p>
-<p>即便如此，国内依然是 Flash 使用的重灾之地。各种令人作呕的页游，不思进取的视频网站还用着 Flash 播放器。</p>
-<p>可以想象在很长的一段时间内 Flash 还会在国内苟延残喘。</p>
-<p>但是现在确实可以不用学习 Flash 相关的技术了。ActionScript 什么的。</p>
-<p>Flash 让制作动画变得很容易，大大丰富了当年前端的表现。</p>
-<p>相比于 2008 年，现在离 2020 年更近。</p>
-<p>它就像青春，只剩下美好的回忆。请让它静静消失而不是榨干最后一点力气，这样回想起那段闪客时代还能欣慰一笑。</p>
-<p>Flash 你好， Flash  再见。</p>
+<h2 id="简介">简介</h2><p><a href="http://www.madore.org/~david/programs/unlambda/" target="_blank" rel="external">Unlambda</a> 是一个无变量、基于组合子逻辑、图灵完备的编程语言。</p>
+<h2 id="Hello_world">Hello world</h2><p>Unlambda 的 <a href="https://repl.it/JyeM/0" target="_blank" rel="external">Hello world</a> 是这样的</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`r```````````.H.e.l.l.o. .w.o.r.l.di</span><br></pre></td></tr></table></figure>
+<h2 id="解析">解析</h2><p>这个 Hello world 还是比较简单的。只涉及到 <code>r</code> ，<code>.</code> 和 <code>i</code> 三种元素。</p>
+<p>“`” 是函数调用操作符，相当于 C 语言函数后面的 () 。</p>
+<p><code>.x</code> 是一系列的函数，如 <code>.a</code> ，<code>.b</code> , <code>.c</code> 等。</p>
+<p>这一系列的函数都是接收一个参数，并返回这个参数，同时打印对应的 “x”，如 “a”，”b”，”c” 等。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`.H</span><br></pre></td></tr></table></figure>
+<p>这样调用时错误的。因为 <code>.x</code> 系列的函数需要接收一个参数。</p>
+<p>这样调用相当于 C 语言</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H() <span class="comment">// 错误 H 函数需要接收一个函数。</span></span><br></pre></td></tr></table></figure>
+<p><code>r</code> 函数是 <code>.x</code> 函数中，x 为换行符的函数的语法糖。作用就是输出换行，返回接收的参数。</p>
+<p><code>i</code> 函数就是 $identity$ 函数，原封不动的返回接收到的函数。用 JavaScript 表示就是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">i</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>假设需要输出字符 “H” ，要怎么写呢。</p>
+<p>首先需要 <code>.H</code> 函数。然后使用 “`” 操作符应用函数。</p>
+<p>函数要求有一个参数，这个参数如果没有用到那么可以随便传。</p>
+<p>所以答案出炉了</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`.H.i&#10;`.H.a&#10;`.H.b&#10;`.H.c&#10;...</span><br></pre></td></tr></table></figure>
+<p>以上的任意一种都可以。</p>
+<p>为什么 “`.H.a” 没有打印出 “Ha” 呢？</p>
+<p>因为只使用了一个 “`” 函数调用操作符。</p>
+<p>相当于</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">i</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">H</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"H"</span>)</span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"a"</span>)</span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// "`.H.a" 相当于</span></span><br><span class="line">H(a)</span><br><span class="line"><span class="comment">// 如梭想要打印出 "Ha"，要这样</span></span><br><span class="line"><span class="comment">// "``.H.a.a" 或者 "``.H.a.H" 或者 "``.H.a.i" 反正返回值不使用</span></span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line">H(a)(i)</span><br></pre></td></tr></table></figure>
+<p>回到 Hello world</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`r```````````.H.e.l.l.o. .w.o.r.l.di</span><br></pre></td></tr></table></figure>
+<p>翻译成 JavaScript 就是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r(H(e)(l)(l)(o)( )(w)(o)(r)(l)(d)(i))</span><br></pre></td></tr></table></figure>
+<h2 id="FAQ">FAQ</h2><p>Unlambda 中只有函数，没有类似循环的结构，那么怎么循环呢？</p>
+<p>如果对 lambda 比较熟悉就会清楚应该使用递归。</p>
+<p>Unlambda 中没有数字，要怎么表达数字呢？</p>
+<p>类似地，使用丘奇数。</p>
+<p>Unlambda 中没有列表等数据结构。</p>
+<p>参考 Lisp，先构建 <code>cons</code> 、<code>car</code> 和 <code>cdr</code> 剩下的就是想象力的问题了。</p>
+<p>详情参考 <a href="http://www.madore.org/~david/programs/unlambda/" target="_blank" rel="external">Unlambda 官方入门教程</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/玩/">玩</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Flash/">Flash</a>
-  </div>
 
 </div>
 
@@ -152,7 +151,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://en.ors-sro.com/Flash-JavaScript-API/" data-title="Flash 脚本 | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
+	  <div data-url="http://en.ors-sro.com/Unlambda/" data-title="Unlambda | 拖鞋党的拖鞋摊" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -165,19 +164,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/Unlambda/" title="Unlambda">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Unlambda</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/Ownership-and-Borrow-in-Rust/"  title="Rust 所有权借用机制">
+<a href="/Flash-JavaScript-API/"  title="Flash 脚本">
  <strong>下一篇：</strong><br/> 
- <span>Rust 所有权借用机制
+ <span>Flash 脚本
 </span>
 </a>
 </div>
@@ -192,7 +183,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello_World"><span class="toc-number">2.</span> <span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Show_In_Stage"><span class="toc-number">3.</span> <span class="toc-text">Show In Stage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#百足之虫"><span class="toc-number">4.</span> <span class="toc-text">百足之虫</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello_world"><span class="toc-number">2.</span> <span class="toc-text">Hello world</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">3.</span> <span class="toc-text">解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ"><span class="toc-number">4.</span> <span class="toc-text">FAQ</span></a></li></ol>
  
   </div>
 
