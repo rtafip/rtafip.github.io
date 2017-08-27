@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> APL · 拖鞋党的拖鞋摊</title><meta name="description" content="APL - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">APL</h1><div class="post-info">Aug 27, 2017</div><div class="post-content"><p>不撸兔子</p>
+<a id="more"></a>
+<h2 id="简介">简介</h2><p>APL （A Programming Language 或者 APL Programming Language）是 Kenneth E. Iverson 于 1960 左右发明的一门基于数组的编程语言。紧凑而特殊的数学符号是它最鲜明的特点。</p>
+<h2 id="简单的程序">简单的程序</h2><p>APL 的 Hello world</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;Hello, world&#39;</span><br></pre></td></tr></table></figure>
+<p>诶看起来好简单。因为 APL 是一个解释型语言。所以不用打印函数也是可以得。</p>
+<p>那么再看一下比较简单的 APL 程序。下面是一个选择六个随机数的程序。</p>
+<p>$x[⍋x←6?40]$</p>
+<p>等会怎么变成数学公式了。因为 APL 大部分符号都是数学符号，所以用数学公式的方式显示比较自然。</p>
+<p>如果熟悉了其中符号的含义，就能很轻松的理解了。</p>
+<p>从右到左</p>
+<p>$]$ 搭配左边的 $[$ 相当于数组下表访问符。</p>
+<p>$?$ 是随机函数。$6?40$ 表示使用不放回的方式从 $[1,40] $ 抽取 6 次。</p>
+<p>$←$ 赋值符号</p>
+<p>$x$ 变量，可以是 $a$ , $b$ , $suibian$ 等。</p>
+<p>$⍋$ 递增排序，返回下标。$⍋$ 7 5 6 8  的结果是 2 3 1 4 。最小的数是 5 ，对应的下标是 2 （下标从 1 开始不是 0 ）</p>
+<p>所以程序是这样运行的。</p>
+<p>$6?40$ 随机结果为 34 3 6 36 26 20</p>
+<p>$x←6?40$ ，x 为 34 3 6 36 26 20</p>
+<p>$⍋x$  递增排序，返回下标 2 3 6 5 1 4</p>
+<p>x[2 3 6 5 1 4] 结果为 3 6 20 26 34 36</p>
+<p>果然是很简单的程序呢。</p>
+<h2 id="Primitive">Primitive</h2><p>APL 一共有 79 个基本函数。</p>
+<h3 id="数学类">数学类</h3><p>$+$ 一元形式，求得共轭形式。$+ 3j¯2$  结果为 $3j2$ 。</p>
+<p>$+$ 二元形式，加法。$1 + 2 + 3$ 结果为 $6$ 。</p>
+<p>$-$ 一元形式，取负。$- 3$ 结果为 $¯3$ 。</p>
+<p>$-$ 二元形式，减法。$1 - 2$ 结果为 $¯1$ 。注意 $-1-3 = - (1 - 3)$ 结果为 $2$ 。而 $¯1-3 = (-1) - 3 $ 结果为 $¯4$ 。</p>
+<p>$÷$ 一元形式，倒数。$ ÷ $ 1 2 3 4 5 结果为 1 0.5 0.333333 0.25 0.2 。</p>
+<p>$÷$ 二元形式，除法。$ 1 ÷ 2 $ 结果为 0.5 。</p>
+<p>$×$ 一元形式，判断符号，负数返回 -1， 正数返回 1，0 返回 0 。$×$ 1 ¯2 3 ¯4 0 结果为 1 ¯1 1 ¯1 0 。</p>
+<p>$×$ 二元形式，乘法，$3 × 4$ 结果为 12 。</p>
+<p>$⌈$ 一元形式，向上取整，$⌈$  3.5 1.1 ¯1.6 结果为 4 2 ¯1 。</p>
+<p>$⌈$ 二元形式，取最大值，4 3 1 2 $⌈$ 5 2 7 6 结果为 5 3 7 6 。</p>
+<p>$⌊$ 一元形式，向下取整，$⌊$ 3.5 1.1  ¯1.6 结果为 3 1 ¯2 。</p>
+<p>$⌊$ 二元形式，取最小值， 4 3 1 2 $⌊$ 5 2 7 6 结果为 4 2 1 2 。</p>
+<p>$<em>$ 一元形式，$e^x$ 。$</em>$  1 2 3 4 结果为 2.71828 7.38906 20.0855 54.5982 。</p>
+<p>$<em>$ 二元形式，次幂。2 3 $</em>$ 3 4 结果为 8 81 。即 $2^3$ 和 $3^4$ 。</p>
+<p>$⍟$ 一元形式，$\ln x$ 。$⍟$ 1 2 3 4 结果为 0 0.693147 1.09861 1.38629 。</p>
+<p>$⍟$ 二元形式，$\log_a{x}$ 。10 $⍟$ 1 10 100 1000 结果为 0 1 2 3 。</p>
+<p>$!$ 一元形式，阶乘。 $!$ 1 2 3 0.1 结果为 1 2 6 0.951351 。</p>
+<p>$!$ 二元形式，二项式 $C^{a}_{b}$。 2 1 3 $!$ 7 6  ¯0.1 结果为 21 6 ¯0.0385 。</p>
+<p>$|$ 一元形式，取模。$|$ 2 -3 结果为 2 3 。即 $|2|$ 和 $|-3|$ 。</p>
+<p>$|$ 二元形式，<a href="https://zh.wikipedia.org/wiki/%E7%95%99%E6%95%B0" target="_blank" rel="external">留数</a>。4 $|$ 0 4.5 ¯6   结果为 0 0.5 2 。</p>
+<p>$○$ 一元形式，$\pi$ 倍 。$○$  1 2 3 4 结果为 3.14159 6.28319 9.42478 12.5664 。</p>
+<p>$○$ 二元形式，于圆有关的函数。</p>
+<p>$⌹$ 一元形式，矩阵取逆。$⌹$ 1 2 3 4 结果为 0.0333333 0.0666667 0.1 0.133333 。</p>
+<p>$⌹$ 二元形式，矩阵除法。5 6 $⌹$ 3 4 结果为 1.56 。</p>
+<p>$⊥$ 二元形式，解码。</p>
+<p>$⊤$ 二元形式，编码。</p>
+<p>$?$ 一元形式， 从 [1, n] 中随机。 $?$ 5 的结果可能为 1 2 3 4 5 中的任意一个。</p>
+<p>$?$ 二元形式，多次不放回随机。 $?$ 10 的结果可能为 10 6 4 7 5 8 2 1 9 3 。</p>
+<p>更多例子参考 <a href="http://tryapl.org/" target="_blank" rel="external">tryapl</a> 的 cheatsheet 。</p>
+<h2 id="实例">实例</h2><p>生命游戏</p>
+<p>$life←{↑1 ⍵∨.∧3 4=+/,¯1 0 1∘.⊖¯1 0 1∘.⌽⊂⍵}$</p>
+<p>字数排序</p>
+<p>$X[⍋X+.≠’ ‘;]$</p>
+<p>移除 HTML 标签</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">txt&#8592;&#39;&#60;html&#62;&#60;body&#62;&#60;p&#62;This is &#60;em&#62;emphasized&#60;/em&#62; text.&#60;/p&#62;&#60;/body&#62;&#60;/html&#62;&#39;&#10;&#9109;&#8592;&#123;&#9077;/&#9064;~&#123;&#9077;&#8744;&#8800;\&#9077;&#125;&#9077;&#8714;&#39;&#60;&#62;&#39;&#125;txt</span><br></pre></td></tr></table></figure>
+<h2 id="最后">最后</h2><p>APL 的奇怪符号可以通过专用键盘输入。如果你不喜欢这种奇怪的符号，那么……</p>
+</div></article></div></main><footer><div class="paginator"><a href="/C-header-issues/" class="next">下一篇</a></div><div class="copyright"><p>© 2014 - 2017 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [ ['$','$'], ["\\\(","\\)"] ],
+    processEscapes: true
+    }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+</script></body></html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://en.ors-sro.com/"/>
-  <updated>2017-08-20T08:40:15.930Z</updated>
+  <updated>2017-08-27T09:12:14.300Z</updated>
   <id>http://en.ors-sro.com/</id>
   
   <author>
@@ -14,6 +14,87 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>APL</title>
+    <link href="http://en.ors-sro.com/APL/"/>
+    <id>http://en.ors-sro.com/APL/</id>
+    <published>2017-08-27T09:00:48.000Z</published>
+    <updated>2017-08-27T09:12:14.300Z</updated>
+    
+    <content type="html"><![CDATA[<p>不撸兔子</p>
+<a id="more"></a>
+<h2 id="简介">简介</h2><p>APL （A Programming Language 或者 APL Programming Language）是 Kenneth E. Iverson 于 1960 左右发明的一门基于数组的编程语言。紧凑而特殊的数学符号是它最鲜明的特点。</p>
+<h2 id="简单的程序">简单的程序</h2><p>APL 的 Hello world</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;Hello, world&#39;</span><br></pre></td></tr></table></figure>
+<p>诶看起来好简单。因为 APL 是一个解释型语言。所以不用打印函数也是可以得。</p>
+<p>那么再看一下比较简单的 APL 程序。下面是一个选择六个随机数的程序。</p>
+<p>$x[⍋x←6?40]$</p>
+<p>等会怎么变成数学公式了。因为 APL 大部分符号都是数学符号，所以用数学公式的方式显示比较自然。</p>
+<p>如果熟悉了其中符号的含义，就能很轻松的理解了。</p>
+<p>从右到左</p>
+<p>$]$ 搭配左边的 $[$ 相当于数组下表访问符。</p>
+<p>$?$ 是随机函数。$6?40$ 表示使用不放回的方式从 $[1,40] $ 抽取 6 次。</p>
+<p>$←$ 赋值符号</p>
+<p>$x$ 变量，可以是 $a$ , $b$ , $suibian$ 等。</p>
+<p>$⍋$ 递增排序，返回下标。$⍋$ 7 5 6 8  的结果是 2 3 1 4 。最小的数是 5 ，对应的下标是 2 （下标从 1 开始不是 0 ）</p>
+<p>所以程序是这样运行的。</p>
+<p>$6?40$ 随机结果为 34 3 6 36 26 20</p>
+<p>$x←6?40$ ，x 为 34 3 6 36 26 20</p>
+<p>$⍋x$  递增排序，返回下标 2 3 6 5 1 4</p>
+<p>x[2 3 6 5 1 4] 结果为 3 6 20 26 34 36</p>
+<p>果然是很简单的程序呢。</p>
+<h2 id="Primitive">Primitive</h2><p>APL 一共有 79 个基本函数。</p>
+<h3 id="数学类">数学类</h3><p>$+$ 一元形式，求得共轭形式。$+ 3j¯2$  结果为 $3j2$ 。</p>
+<p>$+$ 二元形式，加法。$1 + 2 + 3$ 结果为 $6$ 。</p>
+<p>$-$ 一元形式，取负。$- 3$ 结果为 $¯3$ 。</p>
+<p>$-$ 二元形式，减法。$1 - 2$ 结果为 $¯1$ 。注意 $-1-3 = - (1 - 3)$ 结果为 $2$ 。而 $¯1-3 = (-1) - 3 $ 结果为 $¯4$ 。</p>
+<p>$÷$ 一元形式，倒数。$ ÷ $ 1 2 3 4 5 结果为 1 0.5 0.333333 0.25 0.2 。</p>
+<p>$÷$ 二元形式，除法。$ 1 ÷ 2 $ 结果为 0.5 。</p>
+<p>$×$ 一元形式，判断符号，负数返回 -1， 正数返回 1，0 返回 0 。$×$ 1 ¯2 3 ¯4 0 结果为 1 ¯1 1 ¯1 0 。</p>
+<p>$×$ 二元形式，乘法，$3 × 4$ 结果为 12 。</p>
+<p>$⌈$ 一元形式，向上取整，$⌈$  3.5 1.1 ¯1.6 结果为 4 2 ¯1 。</p>
+<p>$⌈$ 二元形式，取最大值，4 3 1 2 $⌈$ 5 2 7 6 结果为 5 3 7 6 。</p>
+<p>$⌊$ 一元形式，向下取整，$⌊$ 3.5 1.1  ¯1.6 结果为 3 1 ¯2 。</p>
+<p>$⌊$ 二元形式，取最小值， 4 3 1 2 $⌊$ 5 2 7 6 结果为 4 2 1 2 。</p>
+<p>$<em>$ 一元形式，$e^x$ 。$</em>$  1 2 3 4 结果为 2.71828 7.38906 20.0855 54.5982 。</p>
+<p>$<em>$ 二元形式，次幂。2 3 $</em>$ 3 4 结果为 8 81 。即 $2^3$ 和 $3^4$ 。</p>
+<p>$⍟$ 一元形式，$\ln x$ 。$⍟$ 1 2 3 4 结果为 0 0.693147 1.09861 1.38629 。</p>
+<p>$⍟$ 二元形式，$\log_a{x}$ 。10 $⍟$ 1 10 100 1000 结果为 0 1 2 3 。</p>
+<p>$!$ 一元形式，阶乘。 $!$ 1 2 3 0.1 结果为 1 2 6 0.951351 。</p>
+<p>$!$ 二元形式，二项式 $C^{a}_{b}$。 2 1 3 $!$ 7 6  ¯0.1 结果为 21 6 ¯0.0385 。</p>
+<p>$|$ 一元形式，取模。$|$ 2 -3 结果为 2 3 。即 $|2|$ 和 $|-3|$ 。</p>
+<p>$|$ 二元形式，<a href="https://zh.wikipedia.org/wiki/%E7%95%99%E6%95%B0" target="_blank" rel="external">留数</a>。4 $|$ 0 4.5 ¯6   结果为 0 0.5 2 。</p>
+<p>$○$ 一元形式，$\pi$ 倍 。$○$  1 2 3 4 结果为 3.14159 6.28319 9.42478 12.5664 。</p>
+<p>$○$ 二元形式，于圆有关的函数。</p>
+<p>$⌹$ 一元形式，矩阵取逆。$⌹$ 1 2 3 4 结果为 0.0333333 0.0666667 0.1 0.133333 。</p>
+<p>$⌹$ 二元形式，矩阵除法。5 6 $⌹$ 3 4 结果为 1.56 。</p>
+<p>$⊥$ 二元形式，解码。</p>
+<p>$⊤$ 二元形式，编码。</p>
+<p>$?$ 一元形式， 从 [1, n] 中随机。 $?$ 5 的结果可能为 1 2 3 4 5 中的任意一个。</p>
+<p>$?$ 二元形式，多次不放回随机。 $?$ 10 的结果可能为 10 6 4 7 5 8 2 1 9 3 。</p>
+<p>更多例子参考 <a href="http://tryapl.org/" target="_blank" rel="external">tryapl</a> 的 cheatsheet 。</p>
+<h2 id="实例">实例</h2><p>生命游戏</p>
+<p>$life←{↑1 ⍵∨.∧3 4=+/,¯1 0 1∘.⊖¯1 0 1∘.⌽⊂⍵}$</p>
+<p>字数排序</p>
+<p>$X[⍋X+.≠’ ‘;]$</p>
+<p>移除 HTML 标签</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">txt&#8592;&#39;&#60;html&#62;&#60;body&#62;&#60;p&#62;This is &#60;em&#62;emphasized&#60;/em&#62; text.&#60;/p&#62;&#60;/body&#62;&#60;/html&#62;&#39;&#10;&#9109;&#8592;&#123;&#9077;/&#9064;~&#123;&#9077;&#8744;&#8800;\&#9077;&#125;&#9077;&#8714;&#39;&#60;&#62;&#39;&#125;txt</span><br></pre></td></tr></table></figure>
+<h2 id="最后">最后</h2><p>APL 的奇怪符号可以通过专用键盘输入。如果你不喜欢这种奇怪的符号，那么……</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不撸兔子&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="APL" scheme="http://en.ors-sro.com/tags/APL/"/>
+    
+  </entry>
   
   <entry>
     <title>C++ 头文件组织</title>
@@ -1691,55 +1772,6 @@
     
     
       <category term="JavsScript" scheme="http://en.ors-sro.com/tags/JavsScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>值类别</title>
-    <link href="http://en.ors-sro.com/Value-Category/"/>
-    <id>http://en.ors-sro.com/Value-Category/</id>
-    <published>2017-04-09T13:55:24.000Z</published>
-    <updated>2017-04-09T14:14:11.532Z</updated>
-    
-    <content type="html"><![CDATA[<p>如何把一个简单的事情搞复杂。</p>
-<a id="more"></a>
-<h2 id="简单的开始">简单的开始</h2><p>左值和右值是 C 和 C++ 语言中表达式的一种值的分类。每个表达式都有类型和值类别。</p>
-<p>如 <code>1 + 1</code> 的类型为 <code>int</code> ，值类别为右值。</p>
-<p>在 C++ 03 左值和右值很容易区分。</p>
-<p>左值（left value, lvalue）为内存地址，可以出现在赋值等号的左边和右边。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// x 是左值</span></span><br><span class="line"><span class="keyword">int</span> y = x; <span class="comment">// x 可以出现在赋值等号的右边</span></span><br></pre></td></tr></table></figure>
-<p>右值（right value, rvalue）为<strong>只能</strong>出现在赋值等号右边的表达式。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// x 是右值</span></span><br><span class="line"><span class="number">1</span> = x; <span class="comment">// 出错， 1 是右值，只能出现在赋值等号的右边。</span></span><br></pre></td></tr></table></figure>
-<h2 id="复杂的延续">复杂的延续</h2><p>C++ 11 引入了移动语义。</p>
-<p>对于类型 T ，<code>T&amp;&amp;</code> 称为右值引用 （rvalue reference）。<code>T&amp;</code> 称为左值引用（lvalue reference）。</p>
-<p>如果类型 T 实现了移动构造函数，则称 T 为可移动的。</p>
-<p>引入了语义，问题随之而来。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>&amp;&amp; f() &#123;...&#125;</span><br></pre></td></tr></table></figure>
-<p>那么 <code>f()</code> 是左值还是右值？</p>
-<p><code>f()</code> 不是左值因为左值不可移动。</p>
-<p><code>f()</code> 不是右值因为可以出现在赋值等号的左边。</p>
-<p>所以引入一种新的值类别，称为<strong>亡值</strong>（eXpiring value, <strong>xvalue</strong>）。<code>f()</code> 为亡值。</p>
-<p>原先的左值变成了<strong>泛左值</strong>（generalized value, <strong>glvalue</strong>）。</p>
-<p>原先的右值变成了<strong>纯右值</strong>（pure value, <strong>prvalue</strong>）。</p>
-<p>定义新的<strong>左值</strong>为非亡值的泛左值。</p>
-<p>定义新的<strong>右值</strong>为纯右值或者亡值。</p>
-<p>用图表示就是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;                                                                     +----------------+&#10;                                                                     |                |&#10;                                                          +---------&#62;+      &#24038; &#20540;     |&#10;                                                          |          |                |&#10;                                 +----------------+       |          +----------------+&#10;                                 |                |       |&#10;                         +------&#62;+    &#27867; &#24038; &#20540;    +-------+&#10;                         |       |                |       |&#10;+----------------+       |       +----------------+       |          +----------------+&#10;|                |       |                                |          |                |&#10;|    &#20540; &#31867; &#21035;     +-------+                                +---------&#62;+     &#20129; &#20540;      |&#10;|                |       |                                |          |                |&#10;+----------------+       |       +----------------+       |          +----------------+&#10;                         |       |                |       |&#10;                         +------&#62;+    &#32431; &#21491; &#20540;    +-------+&#10;                                 |                |       |&#10;                                 +----------------+       |          +----------------+&#10;                                                          |          |                |&#10;                                                          +---------&#62;+      &#21491; &#20540;     |&#10;                                                                     |                |&#10;                                                                     +----------------+</span><br></pre></td></tr></table></figure>
-<p>表达式一定是左值，亡值，右值中的一种。</p>
-<p>左值等具体代码可参考<a href="http://en.cppreference.com/w/cpp/language/value_category#Primary categories" target="_blank" rel="external">基础类别</a>。</p>
-<p>具体的定义可以参考<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3055.pdf" target="_blank" rel="external">n3055</a>。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如何把一个简单的事情搞复杂。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://en.ors-sro.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="C++" scheme="http://en.ors-sro.com/tags/C/"/>
     
   </entry>
   
