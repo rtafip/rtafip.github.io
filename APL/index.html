@@ -20,36 +20,403 @@
 <p>$⍋x$  递增排序，返回下标 2 3 6 5 1 4</p>
 <p>x[2 3 6 5 1 4] 结果为 3 6 20 26 34 36</p>
 <p>果然是很简单的程序呢。</p>
-<h2 id="Primitive">Primitive</h2><p>APL 一共有 79 个基本函数。</p>
-<h3 id="数学类">数学类</h3><p>$+$ 一元形式，求得共轭形式。$+ 3j¯2$  结果为 $3j2$ 。</p>
-<p>$+$ 二元形式，加法。$1 + 2 + 3$ 结果为 $6$ 。</p>
-<p>$-$ 一元形式，取负。$- 3$ 结果为 $¯3$ 。</p>
-<p>$-$ 二元形式，减法。$1 - 2$ 结果为 $¯1$ 。注意 $-1-3 = - (1 - 3)$ 结果为 $2$ 。而 $¯1-3 = (-1) - 3 $ 结果为 $¯4$ 。</p>
-<p>$÷$ 一元形式，倒数。$ ÷ $ 1 2 3 4 5 结果为 1 0.5 0.333333 0.25 0.2 。</p>
-<p>$÷$ 二元形式，除法。$ 1 ÷ 2 $ 结果为 0.5 。</p>
-<p>$×$ 一元形式，判断符号，负数返回 -1， 正数返回 1，0 返回 0 。$×$ 1 ¯2 3 ¯4 0 结果为 1 ¯1 1 ¯1 0 。</p>
-<p>$×$ 二元形式，乘法，$3 × 4$ 结果为 12 。</p>
-<p>$⌈$ 一元形式，向上取整，$⌈$  3.5 1.1 ¯1.6 结果为 4 2 ¯1 。</p>
-<p>$⌈$ 二元形式，取最大值，4 3 1 2 $⌈$ 5 2 7 6 结果为 5 3 7 6 。</p>
-<p>$⌊$ 一元形式，向下取整，$⌊$ 3.5 1.1  ¯1.6 结果为 3 1 ¯2 。</p>
-<p>$⌊$ 二元形式，取最小值， 4 3 1 2 $⌊$ 5 2 7 6 结果为 4 2 1 2 。</p>
-<p>$<em>$ 一元形式，$e^x$ 。$</em>$  1 2 3 4 结果为 2.71828 7.38906 20.0855 54.5982 。</p>
-<p>$<em>$ 二元形式，次幂。2 3 $</em>$ 3 4 结果为 8 81 。即 $2^3$ 和 $3^4$ 。</p>
-<p>$⍟$ 一元形式，$\ln x$ 。$⍟$ 1 2 3 4 结果为 0 0.693147 1.09861 1.38629 。</p>
-<p>$⍟$ 二元形式，$\log_a{x}$ 。10 $⍟$ 1 10 100 1000 结果为 0 1 2 3 。</p>
-<p>$!$ 一元形式，阶乘。 $!$ 1 2 3 0.1 结果为 1 2 6 0.951351 。</p>
-<p>$!$ 二元形式，二项式 $C^{a}_{b}$。 2 1 3 $!$ 7 6  ¯0.1 结果为 21 6 ¯0.0385 。</p>
-<p>$|$ 一元形式，取模。$|$ 2 -3 结果为 2 3 。即 $|2|$ 和 $|-3|$ 。</p>
-<p>$|$ 二元形式，<a href="https://zh.wikipedia.org/wiki/%E7%95%99%E6%95%B0" target="_blank" rel="external">留数</a>。4 $|$ 0 4.5 ¯6   结果为 0 0.5 2 。</p>
-<p>$○$ 一元形式，$\pi$ 倍 。$○$  1 2 3 4 结果为 3.14159 6.28319 9.42478 12.5664 。</p>
-<p>$○$ 二元形式，于圆有关的函数。</p>
-<p>$⌹$ 一元形式，矩阵取逆。$⌹$ 1 2 3 4 结果为 0.0333333 0.0666667 0.1 0.133333 。</p>
-<p>$⌹$ 二元形式，矩阵除法。5 6 $⌹$ 3 4 结果为 1.56 。</p>
-<p>$⊥$ 二元形式，解码。</p>
-<p>$⊤$ 二元形式，编码。</p>
-<p>$?$ 一元形式， 从 [1, n] 中随机。 $?$ 5 的结果可能为 1 2 3 4 5 中的任意一个。</p>
-<p>$?$ 二元形式，多次不放回随机。 $?$ 10 的结果可能为 10 6 4 7 5 8 2 1 9 3 。</p>
-<p>更多例子参考 <a href="http://tryapl.org/" target="_blank" rel="external">tryapl</a> 的 cheatsheet 。</p>
+<h2 id="Primitive">Primitive</h2><h3 id="一元形式">一元形式</h3><table>
+<thead>
+<tr>
+<th>Name(s)</th>
+<th>Notation</th>
+<th>Meaning</th>
+<th>Unicode codepoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roll</td>
+<td><code>?B</code></td>
+<td>从 $[1,B]$ 中随机一个数</td>
+<td>U+003F ?</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions" target="_blank" rel="external">Ceiling</a></td>
+<td><code>⌈B</code></td>
+<td>大于等于 B 的最小整数</td>
+<td>U+2308 ⌈</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions" target="_blank" rel="external">Floor</a></td>
+<td><code>⌊B</code></td>
+<td>小于等于 B 的最大整数</td>
+<td>U+230A ⌊</td>
+</tr>
+<tr>
+<td>Shape, <a href="https://en.wikipedia.org/wiki/Rho" target="_blank" rel="external">Rho</a></td>
+<td><code>⍴B</code></td>
+<td>B 的组件每个维度的数量</td>
+<td>U+2374 ⍴</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Negation" target="_blank" rel="external">Not</a>, <a href="https://en.wikipedia.org/wiki/Tilde" target="_blank" rel="external">Tilde</a></td>
+<td><code>∼B</code></td>
+<td>∼1 为 0, ∼0 为 1</td>
+<td>U+223C ∼</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Absolute_value" target="_blank" rel="external">Absolute value</a></td>
+<td><code>∣B</code></td>
+<td>B 的模</td>
+<td>U+2223 ∣</td>
+</tr>
+<tr>
+<td>Index generator, <a href="https://en.wikipedia.org/wiki/Iota" target="_blank" rel="external">Iota</a></td>
+<td><code>⍳B</code></td>
+<td>产生从1 到 B 的序列</td>
+<td>U+2373 ⍳</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Exponentiation" target="_blank" rel="external">Exponential</a></td>
+<td><code>⋆B</code></td>
+<td>$e^B$</td>
+<td>U+22C6 ⋆</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Negation" target="_blank" rel="external">Negation</a></td>
+<td><code>−B</code></td>
+<td>B 的相反数</td>
+<td>U+2212 −</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Identity_function" target="_blank" rel="external">Identity</a></td>
+<td><code>+B</code></td>
+<td>返回 B</td>
+<td>U+002B +</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Sign_function" target="_blank" rel="external">Signum</a></td>
+<td><code>×B</code></td>
+<td>返回 B 的符号。小于 0 返回¯1， 等于 0 返回 0 ，大于0 返回 1</td>
+<td>U+00D7 ×</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Multiplicative_inverse" target="_blank" rel="external">Reciprocal</a></td>
+<td><code>÷B</code></td>
+<td>$1/B$</td>
+<td>U+00F7 ÷</td>
+</tr>
+<tr>
+<td>Ravel, Catenate, Laminate</td>
+<td><code>,B</code></td>
+<td>重塑 B 为向量</td>
+<td>U+002C ,</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Matrix_inverse" target="_blank" rel="external">Matrix inverse</a>, Monadic Quad Divide</td>
+<td><code>⌹B</code></td>
+<td>矩阵 B 的逆</td>
+<td>U+2339 ⌹</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Pi" target="_blank" rel="external">Pi</a> times</td>
+<td><code>○B</code></td>
+<td>$B \times \pi$</td>
+<td>U+25CB ○</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Logarithm" target="_blank" rel="external">Logarithm</a></td>
+<td><code>⍟B</code></td>
+<td>$\ln B$</td>
+<td>U+235F ⍟</td>
+</tr>
+<tr>
+<td>Reversal</td>
+<td><code>⌽B</code></td>
+<td>沿着最后一个数轴反转 B 的元素</td>
+<td>U+233D ⌽</td>
+</tr>
+<tr>
+<td>Reversal</td>
+<td><code>⊖B</code></td>
+<td>沿着第一个数轴反转 B 的元素</td>
+<td>U+2296 ⊖</td>
+</tr>
+<tr>
+<td>Grade up</td>
+<td><code>⍋B</code></td>
+<td>返回升序排序 B 后元素下标</td>
+<td>U+234B ⍋</td>
+</tr>
+<tr>
+<td>Grade down</td>
+<td><code>⍒B</code></td>
+<td>返回降序排序 B 后元素下表</td>
+<td>U+2352 ⍒</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Eval" target="_blank" rel="external">Execute</a></td>
+<td><code>⍎B</code></td>
+<td>执行一个 APL 表达式</td>
+<td>U+234E ⍎</td>
+</tr>
+<tr>
+<td>Monadic format</td>
+<td><code>⍕B</code></td>
+<td>最简化 B</td>
+<td>U+2355 ⍕</td>
+</tr>
+<tr>
+<td>Monadic <a href="https://en.wikipedia.org/wiki/Transpose" target="_blank" rel="external">transpose</a></td>
+<td><code>⍉B</code></td>
+<td>转置矩阵 B</td>
+<td>U+2349 ⍉</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Factorial" target="_blank" rel="external">Factorial</a></td>
+<td><code>!B</code></td>
+<td>B! 从 1 乘到 B</td>
+<td>U+0021 !</td>
+</tr>
+</tbody>
+</table>
+<h3 id="二元形式">二元形式</h3><table>
+<thead>
+<tr>
+<th>Name(s)</th>
+<th>Notation</th>
+<th>Meaning</th>
+<th>Unicodecodepoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Addition" target="_blank" rel="external">Add</a></td>
+<td><code>A+B</code></td>
+<td>A 加 B</td>
+<td>U+002B +</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Subtraction" target="_blank" rel="external">Subtract</a></td>
+<td><code>A−B</code></td>
+<td>A 减 B</td>
+<td>U+2212 −</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Multiply" target="_blank" rel="external">Multiply</a></td>
+<td><code>A×B</code></td>
+<td>A 乘以 B</td>
+<td>U+00D7 ×</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Division_(mathematics" target="_blank" rel="external">Divide</a>)</td>
+<td><code>A÷B</code></td>
+<td>A 除以 B</td>
+<td>U+00F7 ÷</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Exponentiation" target="_blank" rel="external">Exponentiation</a></td>
+<td><code>A⋆B</code></td>
+<td>A 的 B 次方</td>
+<td>U+22C6 ⋆</td>
+</tr>
+<tr>
+<td>Circle</td>
+<td><code>A○B</code></td>
+<td>A = 1: $\sin(B)$  A = 2: $\cos(B)$ A = 3: $\tan(B)$ A=5: $\sinh(B)$ A = 6: $\cosh(B)$ A = 7: $\tanh(B)$</td>
+<td>U+25CB ○</td>
+</tr>
+<tr>
+<td>Deal</td>
+<td><code>A?B</code></td>
+<td>不放回从 $[1,B]$ 抽取 A 次</td>
+<td>U+003F ?</td>
+</tr>
+<tr>
+<td>Membership, Epsilon</td>
+<td><code>A∈B</code></td>
+<td>返回 1 ，如果 A 在 B 中，否则返回 0</td>
+<td>U+2208 ∈</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Sample_maximum_and_minimum" target="_blank" rel="external">Maximum</a>, Ceiling</td>
+<td><code>A⌈B</code></td>
+<td>返回 A 和 B 中最大的一个</td>
+<td>U+2308 ⌈</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Sample_maximum_and_minimum" target="_blank" rel="external">Minimum</a>, Floor</td>
+<td><code>A⌊B</code></td>
+<td>返回 A 和 B 中最小的一个</td>
+<td>U+230A ⌊</td>
+</tr>
+<tr>
+<td>Reshape, Dyadic <a href="https://en.wikipedia.org/wiki/Rho" target="_blank" rel="external">Rho</a></td>
+<td><code>A⍴B</code></td>
+<td>A 型数组，B 为数据。</td>
+<td>U+2374 ⍴</td>
+</tr>
+<tr>
+<td>Take</td>
+<td><code>A↑B</code></td>
+<td>根据 ×A 选择 B 中前（或后）A 个元素</td>
+<td>U+2191 ↑</td>
+</tr>
+<tr>
+<td>Drop</td>
+<td><code>A↓B</code></td>
+<td>根据 ×A 丢弃 B 中前（或后）A 个元素</td>
+<td>U+2193 ↓</td>
+</tr>
+<tr>
+<td>Decode</td>
+<td><code>A⊥B</code></td>
+<td>Value of a polynomial whose coefficients are <em>B</em> at <em>A</em></td>
+<td>U+22A5 ⊥</td>
+</tr>
+<tr>
+<td>Encode</td>
+<td><code>A⊤B</code></td>
+<td>Base-<em>A</em> representation of the value of <em>B</em></td>
+<td>U+22A4 ⊤</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Modulo_operation" target="_blank" rel="external">Residue</a></td>
+<td><code>A∣B</code></td>
+<td>B 模 A</td>
+<td>U+2223 ∣</td>
+</tr>
+<tr>
+<td>Catenation</td>
+<td><code>A,B</code></td>
+<td>B 拼接 A</td>
+<td>U+002C ,</td>
+</tr>
+<tr>
+<td>Expansion, Dyadic Backslash</td>
+<td><code>A\B</code></td>
+<td>根据 A 中 0 的位置在 B 中插入 0 （或空格）</td>
+<td>U+005C \</td>
+</tr>
+<tr>
+<td>Compression, Dyadic Slash</td>
+<td><code>A/B</code></td>
+<td>根据 A 中 1 的位置在 B 中选择元素</td>
+<td>U+002F /</td>
+</tr>
+<tr>
+<td>Index of, Dyadic <a href="https://en.wikipedia.org/wiki/Iota" target="_blank" rel="external">Iota</a></td>
+<td><code>A⍳B</code></td>
+<td>A 在 B 中的下标。如果不在返回 <code>1+⍴A</code></td>
+<td>U+2373 ⍳</td>
+</tr>
+<tr>
+<td>Matrix divide, Dyadic Quad Divide</td>
+<td><code>A⌹B</code></td>
+<td>矩阵除法</td>
+<td>U+2339 ⌹</td>
+</tr>
+<tr>
+<td>Rotation</td>
+<td><code>A⌽B</code></td>
+<td>The elements of <em>B</em> are rotated <em>A</em> positions</td>
+<td>U+233D ⌽</td>
+</tr>
+<tr>
+<td>Rotation</td>
+<td><code>A⊖B</code></td>
+<td>The elements of <em>B</em> are rotated <em>A</em> positions along the first axis</td>
+<td>U+2296 ⊖</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Logarithm" target="_blank" rel="external">Logarithm</a></td>
+<td><code>A⍟B</code></td>
+<td>$\log_{A}{B}$</td>
+<td>U+235F ⍟</td>
+</tr>
+<tr>
+<td>Dyadic format</td>
+<td><code>A⍕B</code></td>
+<td>Format <em>B</em> into a character matrix according to <em>A</em></td>
+<td>U+2355 ⍕</td>
+</tr>
+<tr>
+<td>General transpose</td>
+<td><code>A⍉B</code></td>
+<td>The axes of <em>B</em> are ordered by <em>A</em></td>
+<td>U+2349 ⍉</td>
+</tr>
+<tr>
+<td>Combinations</td>
+<td><code>A!B</code></td>
+<td>二项式$C^{a}_{b}$</td>
+<td>U+0021 !</td>
+</tr>
+<tr>
+<td>Diaeresis, Dieresis, Double-Dot</td>
+<td><code>A¨B</code></td>
+<td>Over each, or perform each separately; <em>B</em> = on these; <em>A</em> = operation to perform or using(e.g. iota)</td>
+<td>U+00A8 ¨</td>
+</tr>
+<tr>
+<td>Less than</td>
+<td><code>A&lt;B</code></td>
+<td>小于返回 1 ，否则返回 0</td>
+<td>U+003C &lt;</td>
+</tr>
+<tr>
+<td>Less than or equal</td>
+<td><code>A≤B</code></td>
+<td>小于等于返回 1，否则返回 0</td>
+<td>U+2264 ≤</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Equality_(mathematics" target="_blank" rel="external">Equal</a>)</td>
+<td><code>A=B</code></td>
+<td>等于返回 1 ，否则返回 0</td>
+<td>U+003D =</td>
+</tr>
+<tr>
+<td>Greater than or equal</td>
+<td><code>A≥B</code></td>
+<td>大于等于返回 1，否则返回 0</td>
+<td>U+2265 ≥</td>
+</tr>
+<tr>
+<td>Greater than</td>
+<td><code>A&gt;B</code></td>
+<td>大于返回 1 ，否则返回 0</td>
+<td>U+003E &gt;</td>
+</tr>
+<tr>
+<td>Not equal</td>
+<td><code>A≠B</code></td>
+<td>不等于返回 1 ，否则返回 0</td>
+<td>U+2260 ≠</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Logical_disjunction" target="_blank" rel="external">Or</a></td>
+<td><code>A∨B</code></td>
+<td>二进制或，A 和 B 都为 0 时返回 0 。否则返回 1</td>
+<td>U+2228 ∨</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Logical_conjunction" target="_blank" rel="external">And</a></td>
+<td><code>A∧B</code></td>
+<td>二进制与，A 和 B 都为 1 时返回 1 。否则返回 0</td>
+<td>U+2227 ∧</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Logical_NOR" target="_blank" rel="external">Nor</a></td>
+<td><code>A⍱B</code></td>
+<td>二进制或非。</td>
+<td>U+2371 ⍱</td>
+</tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Sheffer_stroke" target="_blank" rel="external">Nand</a></td>
+<td><code>A⍲B</code></td>
+<td>二进制与非</td>
+<td>U+2372 ⍲</td>
+</tr>
+</tbody>
+</table>
+<p>更多例子参考<a href="https://en.wikipedia.org/wiki/APL_syntax_and_symbols" target="_blank" rel="external">维基</a>。</p>
 <h2 id="实例">实例</h2><p>生命游戏</p>
 <p>$life←{↑1 ⍵∨.∧3 4=+/,¯1 0 1∘.⊖¯1 0 1∘.⌽⊂⍵}$</p>
 <p>字数排序</p>
