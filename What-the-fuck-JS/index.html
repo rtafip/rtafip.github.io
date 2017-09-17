@@ -159,7 +159,11 @@
 <p>— <a href="https://stackoverflow.com/questions/1565164/1573715#1573715" target="_blank" rel="external">“What is the rationale for all comparisons returning false for IEEE754 NaN values?”</a> at StackOverflow </p>
 </blockquote>
 <h2 id="NaN_是_number">NaN 是 number</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>            <span class="comment">// -&gt; 'number'</span></span><br></pre></td></tr></table></figure>
-<p>这个需要看 typeof 运算符<a href="https://www.ecma-international.org/ecma-262/#sec-typeof-operator" target="_blank" rel="external">规范</a></p>
+<p>这样看似不合理。实际上，稍微思考一下就觉得是非常自然的。</p>
+<p>比如有一个除法函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">div</span>(<span class="params">x, y</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x / y <span class="comment">// 返回的类型是什么？</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>div</code> 的返回类型当然是 <code>number</code> 。所以当 <code>div(0, 0)</code> 产生结果为 <code>NaN</code> 时，如果 <code>NaN</code> 不是 <code>number</code> 类型就比较难办了。</p>
+<p>参考 typeof 运算符<a href="https://www.ecma-international.org/ecma-262/#sec-typeof-operator" target="_blank" rel="external">规范</a></p>
 <h2 id="最小值大于零">最小值大于零</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.MIN_VALUE &gt; <span class="number">0</span> <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
 <p>因为 <code>Number.MIN_VALUE</code> 的值为 5e-324，也就是 $5 \times 10^{-324}$ ，所以当然是大于 0 的啊。</p>
 <p>这里的最小值想要表达的是浮点数的最小精度。</p>
