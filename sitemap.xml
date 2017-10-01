@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Unlambda/</loc>
+    
+    <lastmod>2017-09-30T06:18:49.021Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Right-value-reference-and-Universal-reference/</loc>
     
     <lastmod>2017-09-24T09:33:16.523Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://en.ors-sro.com/APL/</loc>
     
     <lastmod>2017-09-03T07:58:50.331Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Unlambda/</loc>
-    
-    <lastmod>2017-08-13T09:59:30.386Z</lastmod>
     
   </url>
   

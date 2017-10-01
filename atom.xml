@@ -769,7 +769,7 @@
     <link href="http://en.ors-sro.com/Unlambda/"/>
     <id>http://en.ors-sro.com/Unlambda/</id>
     <published>2017-08-06T11:39:46.000Z</published>
-    <updated>2017-08-13T09:59:30.386Z</updated>
+    <updated>2017-09-30T06:18:49.021Z</updated>
     
     <content type="html"><![CDATA[<p>非 lambda</p>
 <a id="more"></a>
@@ -777,9 +777,10 @@
 <h2 id="Hello_world">Hello world</h2><p>Unlambda 的 <a href="https://repl.it/JyeM/0" target="_blank" rel="external">Hello world</a> 是这样的</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`r```````````.H.e.l.l.o. .w.o.r.l.di</span><br></pre></td></tr></table></figure>
 <h2 id="解析">解析</h2><p>这个 Hello world 还是比较简单的。只涉及到 <code>r</code> ，<code>.</code> 和 <code>i</code> 三种元素。</p>
-<p>“`” 是函数调用操作符，相当于 C 语言函数后面的 () 。</p>
+<p>“`” 是函数调用操作符。</p>
+<p>相当于 C 语言函数后面的 <code>()</code> 。</p>
 <p><code>.x</code> 是一系列的函数，如 <code>.a</code> ，<code>.b</code> , <code>.c</code> 等。</p>
-<p>这一系列的函数都是接收一个参数，并返回这个参数，同时打印对应的 “x”，如 “a”，”b”，”c” 等。</p>
+<p>这一系列的函数都是接收一个参数，打印对应的 “x”，如 “a”，”b”，”c” 等， 并返回这个参数。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`.H</span><br></pre></td></tr></table></figure>
 <p>这样调用时错误的。因为 <code>.x</code> 系列的函数需要接收一个参数。</p>
 <p>这样调用相当于 C 语言</p>
