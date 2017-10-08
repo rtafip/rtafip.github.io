@@ -829,7 +829,7 @@
     <link href="http://en.ors-sro.com/Flash-JavaScript-API/"/>
     <id>http://en.ors-sro.com/Flash-JavaScript-API/</id>
     <published>2017-07-30T08:58:44.000Z</published>
-    <updated>2017-07-30T09:06:37.443Z</updated>
+    <updated>2017-10-08T07:29:50.141Z</updated>
     
     <content type="html"><![CDATA[<p>此 Flash 脚本非 ActionScript</p>
 <a id="more"></a>
@@ -851,14 +851,14 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将装有所有图层的数组赋值给 theLayers </span></span><br><span class="line"><span class="keyword">var</span> theLayers = fl.getDocumentDOM().getTimeline().layers;</span><br><span class="line"><span class="comment">// 创建一个用于装载所有 "myMovieClip" 实例的数组</span></span><br><span class="line"><span class="keyword">var</span> myArray = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="comment">// 计数器</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 循环所有图层</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; theLayers.length; i++) &#123;</span><br><span class="line">  <span class="comment">// 取第一个图层</span></span><br><span class="line">  <span class="comment">// 赋值给 "theElems"</span></span><br><span class="line">  <span class="keyword">var</span> theElems = theLayers[i].frames[<span class="number">0</span>].elements;</span><br><span class="line">  <span class="comment">// 循环所有图层上的元素</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> c = <span class="number">0</span>; c &lt; theElems.length; c++) &#123;</span><br><span class="line">    <span class="comment">// 检查是否为实例 （instance）</span></span><br><span class="line">    <span class="keyword">if</span> (theElems[c].elementType == <span class="string">"instance"</span>) &#123;</span><br><span class="line">      <span class="comment">// 检查是否为 "myMovieClip" 的实例</span></span><br><span class="line">      <span class="keyword">if</span> (theElems[c].libraryItem.name == <span class="string">"myMovieClip"</span>) &#123;</span><br><span class="line">        <span class="comment">// 装入数组</span></span><br><span class="line">        myArray[x] = theElems[c];</span><br><span class="line">        <span class="comment">// 递增计数器</span></span><br><span class="line">        x++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 选择所有 "myMovieClip" 的实例</span></span><br><span class="line">fl.getDocumentDOM().selection = myArray;</span><br></pre></td></tr></table></figure>
 <p>这个例子只能检测当前元件的所有图层，如果要检测元件的子元件还需要调用 <code>document.enterEditMode()</code>，再递归一下就完成了。</p>
 <h2 id="百足之虫">百足之虫</h2><p>Flash 自从<a href="https://www.apple.com/hotnews/thoughts-on-flash/" target="_blank" rel="external">乔帮主一战</a>后就萎靡不振，尤其是近几年在前端逐渐式微。</p>
-<p>直到最近 <a href="http://www.tmtpost.com/2708187.html" target="_blank" rel="external">Adobe 宣判了 Flash 的死刑</a>， 在 2020 年正式停止开发。</p>
+<p>直到最近 <a href="http://www.tmtpost.com/2708187.html" target="_blank" rel="external">Adobe 宣判了 Flash 的死刑</a>， 在 2020 年正式停止支持。</p>
 <p>即便如此，国内依然是 Flash 使用的重灾之地。各种令人作呕的页游，不思进取的视频网站还用着 Flash 播放器。</p>
 <p>可以想象在很长的一段时间内 Flash 还会在国内苟延残喘。</p>
 <p>但是现在确实可以不用学习 Flash 相关的技术了。ActionScript 什么的。</p>
 <p>Flash 让制作动画变得很容易，大大丰富了当年前端的表现。</p>
-<p>相比于 2008 年，现在离 2020 年更近。</p>
-<p>它就像青春，只剩下美好的回忆。请让它静静消失而不是榨干最后一点力气，这样回想起那段闪客时代还能欣慰一笑。</p>
-<p>Flash 你好， Flash  再见。</p>
+<p>但是十年前已经不是 1997 了，相比于 2008 年，现在离 2020 年更近。</p>
+<p>它就像青春，留下了美好的回忆。请让它静静消失而不是吸干最后一点精力，这样回想起那段闪客时代还能欣慰一笑。</p>
+<p>Flash 你好， Flash 再见。</p>
 ]]></content>
     
     <summary type="html">

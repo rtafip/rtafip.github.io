@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Flash-JavaScript-API/</loc>
+    
+    <lastmod>2017-10-08T07:29:50.141Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Unlambda/</loc>
     
     <lastmod>2017-09-30T06:18:49.021Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://en.ors-sro.com/APL/</loc>
     
     <lastmod>2017-09-03T07:58:50.331Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Flash-JavaScript-API/</loc>
-    
-    <lastmod>2017-07-30T09:06:37.443Z</lastmod>
     
   </url>
   
