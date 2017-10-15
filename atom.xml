@@ -959,13 +959,13 @@
     <link href="http://en.ors-sro.com/About-some-option-type-implementation/"/>
     <id>http://en.ors-sro.com/About-some-option-type-implementation/</id>
     <published>2017-07-16T09:08:33.000Z</published>
-    <updated>2017-07-16T09:24:08.344Z</updated>
+    <updated>2017-10-15T08:24:35.333Z</updated>
     
     <content type="html"><![CDATA[<p>才不是什么手机评测的格式呢。</p>
 <a id="more"></a>
 <h2 id="简介">简介</h2><p>option type 是一种用于消灭空指针（null pointer）的和类型（sum type）。</p>
-<p>option 类型用于表达可能不存在值的语义，在很多语言中都有<a href="https://en.wikipedia.org/wiki/Option_type" target="_blank" rel="external">相应的实现</a>。</p>
-<p>评测选取官方支持的 option ，而不是第三方实现库。</p>
+<p>option type 用于表达可能不存在值的语义，在很多语言中都有<a href="https://en.wikipedia.org/wiki/Option_type" target="_blank" rel="external">相应的实现</a>。</p>
+<p>评测对象为官方实现的 option type，而非第三方库。</p>
 <p>主要从是否杜绝空指针和是否方便做空检查（null check）这两点评测。</p>
 <h2 id="C++_的_option">C++ 的 option</h2><p>C++ 17 开始有了 option 的官方实现 <code>std::optional</code></p>
 <p>引用 <a href="http://en.cppreference.com/w/cpp/utility/optional" target="_blank" rel="external">cppreference</a> 的一个例子</p>
@@ -1006,7 +1006,7 @@
 </blockquote>
 <p>哇！这就意味着你要先检查 <code>Optional</code> 是不是空，在检查里面有没有值。</p>
 <p>简直是帮倒忙，不解决原有的问题还引入了新的问题。</p>
-<p>评测结果：可以使用，不要使用 <code>get()</code> ，更不要使用 <code>orElse(null)</code> 。</p>
+<p>评测结果：凑合使用，不要使用 <code>get()</code> ，更不要使用 <code>orElse(null)</code> 。</p>
 <h2 id="没有空指针的未来">没有空指针的未来</h2><p>在有了正确的 option type 后，你离没有空指针的代码只有一个语法糖的距离。</p>
 <p>终有一天我们会跨入无空指针的时代。</p>
 <p>到时回看这时的代码。</p>
