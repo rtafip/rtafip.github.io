@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/async-and-await/</loc>
+    
+    <lastmod>2017-10-22T07:51:25.029Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/About-some-option-type-implementation/</loc>
     
     <lastmod>2017-10-15T08:24:35.333Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>http://en.ors-sro.com/Ownership-and-Borrow-in-Rust/</loc>
     
     <lastmod>2017-07-23T07:01:40.613Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/async-and-await/</loc>
-    
-    <lastmod>2017-07-16T09:04:51.753Z</lastmod>
     
   </url>
   

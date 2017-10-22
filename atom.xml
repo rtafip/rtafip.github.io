@@ -1031,13 +1031,13 @@
     <link href="http://en.ors-sro.com/async-and-await/"/>
     <id>http://en.ors-sro.com/async-and-await/</id>
     <published>2017-07-09T10:11:19.000Z</published>
-    <updated>2017-07-16T09:04:51.753Z</updated>
+    <updated>2017-10-22T07:51:25.029Z</updated>
     
     <content type="html"><![CDATA[<p>你离异步只有一个语法糖的距离。</p>
 <a id="more"></a>
 <h2 id="syntax_sugar">syntax sugar</h2><p>使用 Promise 编写 JavaScript 异步代码已经司空见惯。</p>
 <p>但是 Promise 写多了还是觉得有些繁琐。</p>
-<p>对此，有了一个新的语法糖提案。</p>
+<p>对此，一个新的语法糖提案被提出。</p>
 <p>那就是 async 和 await 。</p>
 <h2 id="async">async</h2><p>async 用于标识一个函数为异步函数。被标识的函数返回一个 Promise 。</p>
 <p>也就是 async 其实只是一个语法糖。</p>
@@ -1058,7 +1058,7 @@
 <p>运行 <code>main()</code> 得到以下输出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">main()&#10;&#25289;&#21462;&#20013;&#8230;&#8230;&#10;Promise &#123;[[PromiseStatus]]: &#34;pending&#34;, [[PromiseValue]]: undefined&#125;&#10;&#32791;&#26102; 1438.6931921290636 &#27627;&#31186;&#10;&#25968;&#25454;&#25289;&#21462;&#25104;&#21151;&#10;&#22788;&#29702;&#20013;&#8230;&#8230;&#10;&#32791;&#26102; 1511.1830960750424 &#27627;&#31186;&#10;&#22788;&#29702;&#25968;&#25454;&#23436;&#25104;&#10;&#21457;&#36865;&#20013;&#8230;&#8230;&#10;&#32791;&#26102; 1644.7195288709415 &#27627;&#31186;&#10;&#25968;&#25454;&#21457;&#36865;&#25104;&#21151;&#10;&#24685;&#21916;&#20805;&#20540;&#25104;&#21151;&#28216;&#25103;&#26102;&#38388; +1s!</span><br></pre></td></tr></table></figure>
 <h2 id="polyfill">polyfill</h2><p>从 Chrome 55 开始，Chrome 默认启用 async 和 await 。其他情况可以使用 babel 转译。</p>
-<h2 id="by_the_way">by the way</h2><p>async 和 await 的本质是编译器做了 CPS 变换，新加的两个 Monad 的语法糖。</p>
+<h2 id="by_the_way">by the way</h2><p>async 和 await 的本质是编译器做了 CPS 变换，新加的两个 Monad 的语法糖。有什么难的（逃</p>
 ]]></content>
     
     <summary type="html">
