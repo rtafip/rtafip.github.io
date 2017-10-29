@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Church-encoding/</loc>
+    
+    <lastmod>2017-10-29T04:25:44.582Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/async-and-await/</loc>
     
     <lastmod>2017-10-22T07:51:25.029Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://en.ors-sro.com/Ownership-and-Borrow-in-Rust/</loc>
     
     <lastmod>2017-07-23T07:01:40.613Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Church-encoding/</loc>
-    
-    <lastmod>2017-07-02T08:28:52.672Z</lastmod>
     
   </url>
   

@@ -1,12 +1,12 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 邱奇数 · 拖鞋党的拖鞋摊</title><meta name="description" content="邱奇数 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">邱奇数</h1><div class="post-info">Jul 2, 2017</div><div class="post-content"><p>万物皆为 lambda</p>
 <a id="more"></a>
 <h2 id="定义">定义</h2><p>lambda 的语法和规约定义中都没有定义数字类型。</p>
-<p>为了保持 lambda 的简洁性，数字类型的定义不是必须的，可以由定义导出。</p>
-<p>根据皮亚诺公理，算数系统的构成由一个起点（1 或者 0），和一个后继函数。</p>
+<p>这是为了保持 lambda 的简洁性。数字类型的定义不是必须的，可以用特定的 lambda 表示。</p>
+<p>根据皮亚诺公理，算数系统由一个起点（1 或者 0），和一个后继函数构成。</p>
 <p>0，1，2，3，4，5，6……只是一种符号，一种自然数的编码。自然数的编码不是唯一的。</p>
 <p>如果你愿意你也可以使用零一二三四五六来编码。</p>
 <p>邱奇数是一种 lambda 形式的自然数编码。</p>
-<p>其中起点为 $ 0 = \lambda f . \lambda x . x$</p>
+<p>定义起点为 $ 0 = \lambda f . \lambda x . x$</p>
 <p>后继函数为 $succ = \lambda n . \lambda f. \lambda x. f (n f x)$</p>
 <p>根据定义 $0$ 的后继为 $1$ 。所以将 $0$ 带入后记函数 $succ$ 中得到</p>
 <p>$ (\lambda n . \lambda f . \lambda x. f(n f x) 0)$</p>
