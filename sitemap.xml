@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Curry-Howard-correspondence/</loc>
+    
+    <lastmod>2017-11-05T07:13:39.576Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Church-encoding/</loc>
     
     <lastmod>2017-10-29T04:25:44.582Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>http://en.ors-sro.com/Lambda-calculus/</loc>
     
     <lastmod>2017-06-25T08:49:29.555Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Curry-Howard-correspondence/</loc>
-    
-    <lastmod>2017-06-18T13:16:47.631Z</lastmod>
     
   </url>
   

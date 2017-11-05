@@ -1204,7 +1204,7 @@
     <link href="http://en.ors-sro.com/Curry-Howard-correspondence/"/>
     <id>http://en.ors-sro.com/Curry-Howard-correspondence/</id>
     <published>2017-06-18T13:08:03.000Z</published>
-    <updated>2017-06-18T13:16:47.631Z</updated>
+    <updated>2017-11-05T07:13:39.576Z</updated>
     
     <content type="html"><![CDATA[<p>这真的只是一种巧合吗？</p>
 <a id="more"></a>
@@ -1231,7 +1231,7 @@
 <li>高洋上的 call/cc 就是双重否定消除</li>
 </ul>
 </blockquote>
-<h2 id="详述">详述</h2><p>函数调用的规则是<br>$$<br>{\Gamma\vdash t:\sigma\to\tau\quad\Gamma\vdash u:\sigma}\over{\Gamma\vdash t\,u : \tau}<br>$$<br>结果从 $\sigma\to\tau$ 变成 $\tau$ ，少了蕴含 $\to$ 所以称为蕴含消除。</p>
+<h2 id="简述">简述</h2><p>函数调用的规则是<br>$$<br>{\Gamma\vdash t:\sigma\to\tau\quad\Gamma\vdash u:\sigma}\over{\Gamma\vdash t\,u : \tau}<br>$$<br>结果从 $\sigma\to\tau$ 变成 $\tau$ ，少了蕴含 $\to$ 所以称为蕴含消除。</p>
 <p>相应的函数调用的逆操作函数抽象的规则是<br>$$<br>{\Gamma,x:\sigma\vdash t:\tau}\over{\Gamma\vdash \lambda x : \sigma.t : \sigma \to \tau}<br>$$<br>结果从 $\tau$ 变成 $\sigma\to\tau$ ，多了蕴含 $\to$ 所以称为蕴含介入。</p>
 <p>参数多态实际上是对于某个参数不限制类型，相当于逻辑量词 $\forall$ ，也就是全称量化。</p>
 <p>联合类型，例如 <code>Maybe Int</code> ，表示可能是 <code>Int</code> 或者是 <code>Nothing</code> 。关系是<strong>或</strong>，也就是析取。</p>
