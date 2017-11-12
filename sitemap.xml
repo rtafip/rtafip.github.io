@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Coq-Notes-1/</loc>
+    
+    <lastmod>2017-11-12T06:28:45.090Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Curry-Howard-correspondence/</loc>
     
     <lastmod>2017-11-05T07:13:39.576Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://en.ors-sro.com/Call-with-current-continuation/</loc>
     
     <lastmod>2017-06-18T13:15:27.877Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Coq-Notes-1/</loc>
-    
-    <lastmod>2017-06-11T08:20:58.300Z</lastmod>
     
   </url>
   
