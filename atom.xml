@@ -1331,15 +1331,17 @@
     <link href="http://en.ors-sro.com/Debug-As-in-Flashdevelop/"/>
     <id>http://en.ors-sro.com/Debug-As-in-Flashdevelop/</id>
     <published>2017-06-04T07:20:42.000Z</published>
-    <updated>2017-06-10T12:52:32.384Z</updated>
+    <updated>2017-11-19T07:12:33.908Z</updated>
     
     <content type="html"><![CDATA[<p>就算是过气的语言也有使用场景啊（页游）。</p>
 <a id="more"></a>
-<p>FlashDevelop 调试还要装杂七杂八的东西。</p>
+<p>FlashDevelop 是编写 ActionScript 的常用 IDE 。FlashDevelop 支持调试 ActionScript 。</p>
+<p>不过 FlashDevelop 调试还要装杂七杂八的东西。</p>
 <p>配置过程如下</p>
 <h2 id="安装_Java">安装 Java</h2><p>因为大多数人的 FlashDevelop 用的是 32 位版，所以需要下载 32 位版的 Java</p>
 <p><a href="https://www.java.com/zh_CN/download/manual.jsp" target="_blank" rel="external">https://www.java.com/zh_CN/download/manual.jsp</a></p>
 <p><img src="/img/DebugAsInFlashdevelop/SelectJava.png" alt="SelectJava"></p>
+<p>选择第二个，Windows 脱机。</p>
 <p>安装完成后打开命令行输入 <code>java</code> 应该返回类似画面</p>
 <p><img src="/img/DebugAsInFlashdevelop/Java.png" alt="Java"></p>
 <p>如果不是这样，需要<a href="https://jingyan.baidu.com/article/925f8cb836b26ac0dde0569e.html" target="_blank" rel="external">配置 Java_Home 环境变量</a></p>
@@ -1349,7 +1351,7 @@
 <p><img src="/img/DebugAsInFlashdevelop/InstallSDK.png" alt="InstallSDK"></p>
 <p>点击 <strong>Install 1 items</strong> 安装</p>
 <p>安装完成后<strong>重启 FlashDevelop</strong></p>
-<p>如果提示找不到 SDK 描述文件，则需要从刚装好的 SDK 目录下复制 <strong>flex-sdk-description.xml</strong> （可以用 everything 查找）到提示的路径中。</p>
+<p>如果提示找不到 SDK 描述文件，则需要从刚装好的 SDK 目录下复制 <strong>flex-sdk-description.xml</strong> （可以用 <a href="http://www.voidtools.com/" target="_blank" rel="external">everything</a> 查找）到提示的路径中。</p>
 <p><img src="/img/DebugAsInFlashdevelop/Warning.png" alt="Warning"></p>
 <p>复制后<strong>重启 FlashDevelop</strong></p>
 <h2 id="配置工程">配置工程</h2><p>打开 FlashDevelop -&gt; Project -&gt; Propperties</p>
@@ -1362,7 +1364,7 @@
 <p>设置 <strong>External Player Path</strong> 为 <code>C:\Program Files (x86)\Adobe\Adobe Flash CS6\Players\Debug\FlashPlayerDebugger.exe</code></p>
 <p><img src="/img/DebugAsInFlashdevelop/SetExternalPlayer.png" alt="SetExternalPlayer"></p>
 <h2 id="开始调试">开始调试</h2><p>打开想要调试的 <strong>FLA</strong> ，在 FlashDevelop 中打开相应的 as 文件，下个能运行到的断点。</p>
-<p>点击运行（F5），Happy Debugging！</p>
+<p>红框右边选择为 Debug ，点击运行（F5），Happy Debugging！</p>
 <p><img src="/img/DebugAsInFlashdevelop/Play.png" alt="Play"></p>
 ]]></content>
     
