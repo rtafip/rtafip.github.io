@@ -1386,7 +1386,7 @@
     <link href="http://en.ors-sro.com/Install-Emacs-Sbcl-and-Slime/"/>
     <id>http://en.ors-sro.com/Install-Emacs-Sbcl-and-Slime/</id>
     <published>2017-05-28T10:04:02.000Z</published>
-    <updated>2017-05-28T10:17:35.379Z</updated>
+    <updated>2017-11-24T13:07:09.858Z</updated>
     
     <content type="html"><![CDATA[<p>旧文重发，略作修改</p>
 <a id="more"></a>
@@ -1408,7 +1408,7 @@
 <p><img src="/img/InstallEmacsSbclandSlime/sbcl.png" alt="运行 sbcl"></p>
 <h3 id="配置_Emacs">配置 Emacs</h3><p>本来在 Linux 下配置 Emacs 是一件简单的事，但在 Windows 下就不那么容易了。因为 Windows 文件名命名机制这里有一个坑。</p>
 <p><strong>坑2:找不到 Emacs 的配置文件 .emacs</strong></p>
-<p>这是因为 Windows 允许这样的命名规则，也是就不允许只有扩展名而没有文件名（在 Windows 看来是 .emacs 非法的，必须是 XXX.emacs 才是合法的。Linux 则是看成一个隐藏文件而已）</p>
+<p>这是因为 Windows 不允许只有扩展名而没有文件名（在 Windows 看来是 .emacs 非法的，必须是 XXX.emacs 才是合法的。Linux 则是看成一个隐藏文件而已）</p>
 <p>所以要做的第一步是生成 .emacs 配置文件</p>
 <p>原理是通过修改选项之后点保存选项会生成 .emacs 配置文件</p>
 <p>方法很简单。在 Emacs 目录下双击 runemacs.exe 打开 emacs</p>
@@ -1435,7 +1435,7 @@
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-k 编译当前文件 （也就是Ctrl+c后再Ctrl+k） </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-c 增量编译（这是我自己的理解） </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-z 切换到Slime </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-l 加载文件</span><br></pre></td></tr></table></figure>
 <p>当然以上快捷键都可以再 .emacs 里面改。</p>
 <p>PS:我的配色是 solarized 字体是 Monaco</p>
-<p>PSS：以上 Vim 的配色。Emacs 的配色是自带的 dichromacy</p>
+<p>PSS：以上是 Vim 的配色。Emacs 的配色是自带的 dichromacy</p>
 ]]></content>
     
     <summary type="html">
