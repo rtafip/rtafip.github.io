@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 侃类型 · 拖鞋党的拖鞋摊</title><meta name="description" content="侃类型 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">侃类型</h1><div class="post-info">May 21, 2017</div><div class="post-content"><p>随便说一说类型。</p>
 <a id="more"></a>
 <h2 id="类型的作用">类型的作用</h2><p>如果用记事本写一段程序，就会发现两个问题。</p>
-<p>一个是没有代码提示，一个变量点出来的变量也不知道存不存在。</p>
-<p>另一个是很容易编译失败，因为可能会发生一些不符合类型的问题。</p>
-<p>有了类型能够避免手误，编辑器会提示不存在相应的成员变量。从而更早的发现问题。</p>
+<p>一个是没有代码提示，一个变量点另一个变量也不知道有没有拼写对。</p>
+<p>另一个是很容易编译失败，因为可能会发生一些类型出错的问题。</p>
+<p>有了类型能够避免手误，编辑器会提示不存在相应的成员变量，从而更早的发现问题。</p>
 <p>使用类型可以显式地表达一种约束。比如加减乘除需要数字，如果传入了字符串就可以在编译期报错，而不是等到运行时才出错。</p>
 <p>许许多多的类型组成了类型系统。类型系统按不同的维度可以分为好几种。</p>
 <h2 id="强类型和弱类型">强类型和弱类型</h2><p>如果一个类型系统允许隐式类型转换，就是弱类型。否则为强类型。</p>
@@ -56,7 +56,7 @@
 <p>普通的函数是一种操作值的操作符。</p>
 <p>类似的，接收类型为参数返回类型的函数成为类型操作符。</p>
 <p>有很多类型操作符，所以也会产生很多类型。这里主要提两种类型和类型与积类型。</p>
-<p>很多变成使用 null 或者类似的原语来表达缺少值的情况。</p>
+<p>很多编程语言使用 null 或者类似的原语来表达缺少值的情况。</p>
 <p>但这会有两个问题。</p>
 <p>一个是 null 只适用于引用类型，如果是值类型比如 int ，那么该怎么表示缺少值的情况呢？</p>
 <p>有些人会取一个范围外的值比如对于输入一定是整数的情况的下可以取 -1 用于表达缺少值。</p>

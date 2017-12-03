@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/About-Type/</loc>
+    
+    <lastmod>2017-12-03T07:19:08.303Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Install-Emacs-Sbcl-and-Slime/</loc>
     
-    <lastmod>2017-11-24T13:07:09.858Z</lastmod>
+    <lastmod>2017-11-24T13:07:23.189Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>http://en.ors-sro.com/Ownership-and-Borrow-in-Rust/</loc>
     
     <lastmod>2017-07-23T07:01:40.613Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/About-Type/</loc>
-    
-    <lastmod>2017-06-25T09:06:24.282Z</lastmod>
     
   </url>
   
