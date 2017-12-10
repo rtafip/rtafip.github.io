@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/asymmetric-cryptography/</loc>
+    
+    <lastmod>2017-12-10T04:02:54.768Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/About-Type/</loc>
     
     <lastmod>2017-12-03T07:19:08.303Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>http://en.ors-sro.com/Call-with-current-continuation/</loc>
     
     <lastmod>2017-06-18T13:15:27.877Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/asymmetric-cryptography/</loc>
-    
-    <lastmod>2017-05-14T10:31:00.960Z</lastmod>
     
   </url>
   
