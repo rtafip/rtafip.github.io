@@ -1688,25 +1688,25 @@
     <link href="http://en.ors-sro.com/Prototype-base-object-oriented-programming/"/>
     <id>http://en.ors-sro.com/Prototype-base-object-oriented-programming/</id>
     <published>2017-05-07T11:50:45.000Z</published>
-    <updated>2017-05-07T11:52:10.222Z</updated>
+    <updated>2017-12-17T04:54:11.227Z</updated>
     
-    <content type="html"><![CDATA[<p>实现面向对象不一定是基于类的方式。</p>
+    <content type="html"><![CDATA[<p>面向对象不必基于类。</p>
 <a id="more"></a>
 <h2 id="现在">现在</h2><p>ES6 引入基于类的对象声明方式。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">  constructor(x, y) &#123;</span><br><span class="line">    <span class="keyword">this</span>.x = x;</span><br><span class="line">    <span class="keyword">this</span>.y = y;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'('</span> + <span class="keyword">this</span>.x + <span class="string">', '</span> + <span class="keyword">this</span>.y + <span class="string">')'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line"><span class="keyword">let</span> p = <span class="keyword">new</span> Point(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(p.toString());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreeDPoint</span> <span class="keyword">extends</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">  constructor(x, y, z)&#123;</span><br><span class="line">    <span class="keyword">super</span>(x, y);</span><br><span class="line">    <span class="keyword">this</span>.z = z;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  toString()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'('</span> + <span class="keyword">this</span>.x + <span class="string">', '</span> + <span class="keyword">this</span>.y + <span class="string">', '</span> + <span class="keyword">this</span>.z + <span class="string">')'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但这只是为了照顾 Java 和 C++ 程序员而引入的语法糖。底层的实现还是没有变的。</p>
+<p>但这只是为了照顾 Java 和 C++ 程序员而引入的语法糖。底层面向对象的实现没有改变。</p>
 <h2 id="过去">过去</h2><p>ES5 之前的对象声明是这样的</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Point.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'('</span> + <span class="keyword">this</span>.x + <span class="string">', '</span> + <span class="keyword">this</span>.y + <span class="string">')'</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-<p>为什么没有写继承呢？因为继承了灵活，有很多中方法，取决于你的目的。</p>
+<p>继承的方式很灵活，根据不同的目的有不同的写法。</p>
 <p>参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="external">JavaScript 继承</a></p>
 <h2 id="区别">区别</h2><p>面向对象强调的是对象，而不是类。所以没有叫面向类编程。</p>
 <p>面向对象的实现方式除了基于类的方式，还有基于原型的方式。</p>
 <p>基于原型的方式能够实现基于类的方式，如 ES6 引入的语法糖。</p>
 <p>而基于类的实现方式大部分不能实现基于原型的方式。因为大部分的语言类型层级是静态的。</p>
-<p>也就是说在编译的时候类型继承是已经确定的，运行的时候不能更改继承关系。</p>
+<p>也就是说在编译的时候类型继承树是已经确定的，运行的时候不能更改继承关系。</p>
 <p>而基于原型的方式在运行的时候可以更改继承关系。更改 <code>prototype</code> 即可。</p>
 <p>基于类的面向对象编程经常有基本类型难以更改的问题。这是因为类型继承树是定死的，后期改起来影响很大。</p>
-<p>比如你有一个列表的基本组件 <code>ListBase</code> 。所有列表集成于它。</p>
+<p>比如你有一个列表的基本组件 <code>ListBase</code> 。所有列表继承它。</p>
 <p>如果你想来一个新的列表跟 <code>ListBase</code> 表现不一致，那么就要重载其中不一致的部分。</p>
 <p>如果被重载的函数太长，或者里面引用了私有变量，就很难实现。</p>
 <p>这时候要么改 <code>ListBase</code> 要么把 <code>ListBase</code> 的代码复制一遍，重新做一个 <code>NewListBase</code>。</p>
@@ -1716,12 +1716,12 @@
 <p>相当于复制了代码，但是这段复制的代码是在运行的时候复制出来的。所以 <code>ListBase</code> 的改动都会同步。</p>
 <p>基于原型的继承最大的缺点是接受了基于类继承的先入为主后很难理解。</p>
 <p>基于原型的继承在代码中没有类的概念，所有类的概念都是人为为了模拟基于类的面向对象而产生的。</p>
-<p>基于原型的集成只有对象的复制和修改。</p>
+<p>基于原型的继承只有对象的复制和修改。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;实现面向对象不一定是基于类的方式。&lt;/p&gt;
+      &lt;p&gt;面向对象不必基于类。&lt;/p&gt;
     
     </summary>
     
