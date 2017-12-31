@@ -8,7 +8,8 @@
 <p>在上述例子中 <code>String prefix = &quot;Your name is &quot;</code> 定义了一个绑定 <code>prefix -&gt; &quot;Your name is &quot;</code></p>
 <p>在 <code>Console.WriteLine(prefix + name)</code> 解析 <code>prefix</code> 时，</p>
 <p>按照绑定 <code>prefix -&gt; &quot;Your name is &quot;</code> 替换 <code>prefix</code> 为 <code>&quot;Your name is &quot;</code>。</p>
-<p>词法作用域和动态作用域描述的是变量解析时的规则。</p>
+<p>变量的有效作用区域称为作用域。</p>
+<p>按变量解析的规则，作用域分为词法作用域和动态作用域。</p>
 <p><strong>词法作用域</strong>是解析变量时从词法环境查找变量值的规则。在实际应用中，词法环境通常是块级作用域，函数作用域等。也就是会跟源码有关，先从定义时的作用域查找，找不到再查找外层作用域。因为查找的路径跟源码有关，可以在编译时确定，所以又称为静态作用域。现代语言大多使用静态作用域。</p>
 <p><strong>动态作用域</strong>是解析变量时从执行环境查找变量值的规则。在实际应用中，执行环境通常是调用栈。也就是会跟运行状态有关。先从运行的函数中查找，找不到再顺着调用栈中的其他函数查找。因为查找的路径与调用顺序有关，只能在运行时确定，所以称为动态作用域。只有少数语言使用动态作用域。</p>
 <h2 id="例子">例子</h2><p>定义不是那么直观。看一个例子</p>

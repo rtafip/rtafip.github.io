@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Lexical-scope-and-Dynamic-scope/</loc>
+    
+    <lastmod>2017-12-31T09:27:29.659Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/SICP-2-2-Hierarchical-Data-and-the-Closure-Property/</loc>
     
     <lastmod>2017-12-24T06:38:12.776Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>http://en.ors-sro.com/Call-with-current-continuation/</loc>
     
     <lastmod>2017-06-18T13:15:27.877Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Lexical-scoppe-and-Dynamic-scoppe/</loc>
-    
-    <lastmod>2017-04-23T08:48:02.363Z</lastmod>
     
   </url>
   
