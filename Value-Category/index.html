@@ -1,16 +1,16 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 值类别 · 拖鞋党的拖鞋摊</title><meta name="description" content="值类别 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">值类别</h1><div class="post-info">Apr 9, 2017</div><div class="post-content"><p>如何把一个简单的事情搞复杂。</p>
 <a id="more"></a>
-<h2 id="简单的开始">简单的开始</h2><p>左值和右值是 C 和 C++ 语言中表达式的一种值的分类。每个表达式都有类型和值类别。</p>
+<h2 id="简单的开始">简单的开始</h2><p>左值和右值是 C 和 C++ 语言中表达式值的一种分类。每个表达式都有类型和值类别。</p>
 <p>如 <code>1 + 1</code> 的类型为 <code>int</code> ，值类别为右值。</p>
 <p>在 C++ 03 左值和右值很容易区分。</p>
-<p>左值（left value, lvalue）为内存地址，可以出现在赋值等号的左边和右边。</p>
+<p><strong>左值</strong>（left value, lvalue）为内存地址，可以出现在赋值等号的左边和右边。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// x 是左值</span></span><br><span class="line"><span class="keyword">int</span> y = x; <span class="comment">// x 可以出现在赋值等号的右边</span></span><br></pre></td></tr></table></figure>
-<p>右值（right value, rvalue）为<strong>只能</strong>出现在赋值等号右边的表达式。</p>
+<p><strong>右值</strong>（right value, rvalue）为<strong>只能</strong>出现在赋值等号右边的表达式。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// x 是右值</span></span><br><span class="line"><span class="number">1</span> = x; <span class="comment">// 出错， 1 是右值，只能出现在赋值等号的右边。</span></span><br></pre></td></tr></table></figure>
 <h2 id="复杂的延续">复杂的延续</h2><p>C++ 11 引入了移动语义。</p>
-<p>对于类型 T ，<code>T&amp;&amp;</code> 称为右值引用 （rvalue reference）。<code>T&amp;</code> 称为左值引用（lvalue reference）。</p>
+<p>对于类型 T ，<code>T&amp;&amp;</code> 称为<strong>右值引用</strong> （rvalue reference）。<code>T&amp;</code> 称为<strong>左值引用</strong>（lvalue reference）。</p>
 <p>如果类型 T 实现了移动构造函数，则称 T 为可移动的。</p>
-<p>引入了语义，问题随之而来。</p>
+<p>引入了移动语义，问题随之而来。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>&amp;&amp; f() &#123;...&#125;</span><br></pre></td></tr></table></figure>
 <p>那么 <code>f()</code> 是左值还是右值？</p>
 <p><code>f()</code> 不是左值因为左值不可移动。</p>
@@ -25,7 +25,7 @@
 <p>表达式一定是左值，亡值，右值中的一种。</p>
 <p>左值等具体代码可参考<a href="http://en.cppreference.com/w/cpp/language/value_category#Primary categories" target="_blank" rel="external">基础类别</a>。</p>
 <p>具体的定义可以参考<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3055.pdf" target="_blank" rel="external">n3055</a>。</p>
-</div></article></div></main><footer><div class="paginator"><a href="/JavaScript-Closure/" class="prev">上一篇</a><a href="/Halting-problem/" class="next">下一篇</a></div><div class="copyright"><p>© 2014 - 2017 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+</div></article></div></main><footer><div class="paginator"><a href="/JavaScript-Closure/" class="prev">上一篇</a><a href="/Halting-problem/" class="next">下一篇</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
     inlineMath: [ ['$','$'], ["\\\(","\\)"] ],
     processEscapes: true

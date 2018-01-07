@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Value-Category/</loc>
+    
+    <lastmod>2018-01-07T13:47:03.262Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Lexical-scope-and-Dynamic-scope/</loc>
     
     <lastmod>2017-12-31T09:27:29.659Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>http://en.ors-sro.com/JavaScript-Closure/</loc>
     
     <lastmod>2017-04-16T10:13:35.554Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Value-Category/</loc>
-    
-    <lastmod>2017-04-09T14:14:11.532Z</lastmod>
     
   </url>
   
