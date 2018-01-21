@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Monad-Transformers/</loc>
+    
+    <lastmod>2018-01-21T06:59:59.315Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Halting-problem/</loc>
     
     <lastmod>2018-01-14T06:35:48.742Z</lastmod>
@@ -166,13 +173,6 @@
     <loc>http://en.ors-sro.com/JavaScript-Closure/</loc>
     
     <lastmod>2017-04-16T10:13:35.554Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Monad-Transformers/</loc>
-    
-    <lastmod>2017-03-26T13:04:26.901Z</lastmod>
     
   </url>
   

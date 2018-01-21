@@ -21,7 +21,7 @@
 <p>所以要使用 <code>&gt;&gt;=</code> ，<code>f</code> 的类型必须是</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">f</span> :: <span class="type">String</span> -&gt; <span class="type">Maybe</span> <span class="type">String</span></span><br></pre></td></tr></table></figure>
 <p>显然两个类型冲突了，所以写不出来。</p>
-<p>所以需要一个能够组合 Maybe Monad 和 IO Monad 的类型。</p>
+<p>所以需要一个能够转换 Maybe Monad 和 IO Monad 的类型。</p>
 <p>这个就是 Monad Transformers</p>
 <h2 id="定义">定义</h2><p>定义 Maybe Monad 的 Monad Transformer <code>MaybeT</code></p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="typedef"><span class="keyword">newtype</span> <span class="type">MaybeT</span> m a = <span class="type">MaybeT</span> <span class="container">&#123; <span class="title">runMaybeT</span> :: <span class="title">m</span> (<span class="type">Maybe</span> <span class="title">a</span>) &#125;</span></span></span><br></pre></td></tr></table></figure>
