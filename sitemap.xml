@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/SICP-2-1-Introduction-to-Data-Bbstraction/</loc>
+    
+    <lastmod>2018-02-11T14:01:02.360Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Covariant-and-Contravariant/</loc>
     
     <lastmod>2018-02-03T14:21:00.973Z</lastmod>
@@ -208,13 +215,6 @@
     <loc>http://en.ors-sro.com/Haskell-codes/</loc>
     
     <lastmod>2017-03-05T08:27:14.665Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/SICP-2-1-Introduction-to-Data-Bbstraction/</loc>
-    
-    <lastmod>2017-02-19T09:04:58.014Z</lastmod>
     
   </url>
   
