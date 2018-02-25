@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/SICP-1-3-Formulating-Abstractions-with-Higher-Order-Procedures/</loc>
+    
+    <lastmod>2018-02-25T09:07:41.016Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Polyglot/</loc>
     
     <lastmod>2018-02-18T12:07:26.698Z</lastmod>
@@ -222,13 +229,6 @@
     <loc>http://en.ors-sro.com/Haskell-codes/</loc>
     
     <lastmod>2017-03-05T08:27:14.665Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/SICP-1-3-Formulating-Abstractions-with-Higher-Order-Procedures/</loc>
-    
-    <lastmod>2017-02-05T10:13:59.588Z</lastmod>
     
   </url>
   
