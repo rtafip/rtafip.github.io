@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Learn-you-a-Haskell-for-great-good-notes/</loc>
+    
+    <lastmod>2018-03-04T11:37:49.688Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/SICP-1-3-Formulating-Abstractions-with-Higher-Order-Procedures/</loc>
     
     <lastmod>2018-02-25T09:07:41.016Z</lastmod>
@@ -215,13 +222,6 @@
     <loc>http://en.ors-sro.com/Migrate-to-es6/</loc>
     
     <lastmod>2017-03-12T08:39:23.988Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Learn-you-a-Haskell-for-great-good-notes/</loc>
-    
-    <lastmod>2017-03-05T08:30:38.426Z</lastmod>
     
   </url>
   
