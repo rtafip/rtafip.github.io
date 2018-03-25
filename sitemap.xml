@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Promise/</loc>
+    
+    <lastmod>2018-03-25T08:14:03.476Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Evaluation-strategy/</loc>
     
     <lastmod>2018-03-18T09:05:06.847Z</lastmod>
@@ -278,13 +285,6 @@
     <loc>http://en.ors-sro.com/Continuation-passing-style/</loc>
     
     <lastmod>2017-01-01T13:30:12.327Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Promise/</loc>
-    
-    <lastmod>2016-12-25T10:02:26.561Z</lastmod>
     
   </url>
   
