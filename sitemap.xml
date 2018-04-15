@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Functor-applicative-functor-and-monad-in-Haskell/</loc>
+    
+    <lastmod>2018-04-15T09:35:49.121Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/BrainFuck/</loc>
     
     <lastmod>2018-04-08T07:02:10.041Z</lastmod>
@@ -292,13 +299,6 @@
     <loc>http://en.ors-sro.com/Continuation-passing-style/</loc>
     
     <lastmod>2017-01-01T13:30:12.327Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Functor-applicative-functor-and-monad-in-Haskell/</loc>
-    
-    <lastmod>2016-11-27T09:58:55.609Z</lastmod>
     
   </url>
   
