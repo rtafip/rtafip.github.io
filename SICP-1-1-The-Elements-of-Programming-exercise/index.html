@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> SICP 1.1 编程的要素 · 拖鞋党的拖鞋摊</title><meta name="description" content="SICP 1.1 编程的要素 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">SICP 1.1 编程的要素</h1><div class="post-info">Nov 12, 2016</div><div class="post-content"><p>开新坑啦！</p>
 <a id="more"></a>
-<h2 id="前言">前言</h2><p>很早之前就已经接触 《计算机程序的构造和解释》 （Structure and Interpretation of Computer Programs，SICP），也曾经大致看完，不过只是单纯的看，没有做习题。所以过后很快就忘了。这次开坑目的是希望能一字一句仔细阅读，完成课后练习，加深对书中概念的理解。</p>
+<h2 id="前言">前言</h2><p>很早之前就已经接触 《计算机程序的构造和解释》（Structure and Interpretation of Computer Programs，SICP），也曾经大致看完，不过只是单纯的看，没有做习题。所以过后很快就忘了。这次开坑目的是希望能一字一句仔细阅读，完成课后练习，加深对书中概念的理解。</p>
 <p>目前暂定为一个小节如 <strong>1.1</strong> 的笔记和所有习题解答为一篇文章。因为是自己做的，所以不保证答案正确。</p>
 <p>目测深坑，可能弃坑，请勿尾随。</p>
 <h2 id="笔记">笔记</h2><h3 id="三种方式">三种方式</h3><ol>
@@ -58,7 +58,7 @@
 <p>没有被绑定的变量称为自由变量。如 <code>(define (cube x) (* (square x) x))</code> 中的 <code>square</code> 是自由变量。因为参数列表 <code>cube x</code> 中只有 <code>x</code> ，没有 <code>square</code> 。这意味着 <code>x</code> 的值由调用函数 <code>cube</code> 传入的参数决定，与 <code>cube</code> 死死的绑在了一起。而 <code>square</code> 的值则需要去<strong>上下文环境</strong>查找。</p>
 <p>上下文环境可以简单的理解为储存变量的地方。既然有储存肯定有读取，读取的时候按规则区分为<strong>词法作用域</strong>和<strong>动态作用域</strong>。</p>
 <p>词法作用域，也称为动态作用域，是大部分语言常用的查找规则。</p>
-<p>动态作用域，有些反直觉，早期语言使用的规则。因为环境创建的时候什么事都不用干就是天然的动态作用域。熟悉 <code>Javascript</code> 的都知道 <code>this</code>关键字吧。这个家伙有很多的异常表现就是因为它是动态作用域。还好 <code>Scheme</code> 出现解决了动态作用域的问题。</p>
+<p>动态作用域，有些反直觉，早期语言使用的规则。因为环境创建的时候什么事都不用干就是天然的动态作用域。熟悉 <code>JavaScript</code> 的都知道 <code>this</code>关键字吧。这个家伙有很多的异常表现就是因为它是动态作用域。还好 <code>Scheme</code> 出现解决了动态作用域的问题。</p>
 <p>词法作用域和动态作用域的区别可以用<a href="http://zhihu.com/question/20032419/answer/44059188" target="_blank" rel="external">两句话解释清楚</a>。</p>
 <p>替换绑定的变量不影响结果。也就是</p>
 <p><code>(define (square x) (* x x))</code> 和 <code>(define (square y) (* y y))</code> 结果是一样的。其实这是 $\alpha$ 变换（大雾）。</p>
