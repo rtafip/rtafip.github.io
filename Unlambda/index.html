@@ -1,14 +1,14 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Unlambda · 拖鞋党的拖鞋摊</title><meta name="description" content="Unlambda - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Unlambda</h1><div class="post-info">Aug 6, 2017</div><div class="post-content"><p>非 lambda</p>
 <a id="more"></a>
-<h2 id="简介">简介</h2><p><a href="http://www.madore.org/~david/programs/unlambda/" target="_blank" rel="external">Unlambda</a> 是一个无变量、基于组合子逻辑、图灵完备的编程语言。</p>
-<h2 id="Hello_world">Hello world</h2><p>Unlambda 的 <a href="https://repl.it/JyeM/0" target="_blank" rel="external">Hello world</a> 是这样的</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`r```````````.H.e.l.l.o. .w.o.r.l.di</span><br></pre></td></tr></table></figure>
+<h2 id="简介">简介</h2><p><a href="http://www.madore.org/~david/programs/unlambda/" target="_blank" rel="noopener">Unlambda</a> 是一个无变量、基于组合子逻辑、图灵完备的编程语言。</p>
+<h2 id="Hello_world">Hello world</h2><p>Unlambda 的 <a href="https://repl.it/JyeM/0" target="_blank" rel="noopener">Hello world</a> 是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`r```````````.H.e.l.l.o. .w.o.r.l.di</span><br></pre></td></tr></table></figure>
 <h2 id="解析">解析</h2><p>这个 Hello world 还是比较简单的。只涉及到 <code>r</code> ，<code>.</code> 和 <code>i</code> 三种元素。</p>
 <p>“`” 是函数调用操作符。</p>
 <p>相当于 C 语言函数后面的 <code>()</code> 。</p>
 <p><code>.x</code> 是一系列的函数，如 <code>.a</code> ，<code>.b</code> , <code>.c</code> 等。</p>
 <p>这一系列的函数都是接收一个参数，打印对应的 “x”，如 “a”，”b”，”c” 等， 并返回这个参数。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`.H</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`.H</span><br></pre></td></tr></table></figure>
 <p>这样调用时错误的。因为 <code>.x</code> 系列的函数需要接收一个参数。</p>
 <p>这样调用相当于 C 语言</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">H() <span class="comment">// 错误 H 函数需要接收一个函数。</span></span><br></pre></td></tr></table></figure>
@@ -19,14 +19,14 @@
 <p>首先需要 <code>.H</code> 函数。然后使用 “`” 操作符应用函数。</p>
 <p>函数要求有一个参数，这个参数如果没有用到那么可以随便传。</p>
 <p>所以答案出炉了</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`.H.i&#10;`.H.a&#10;`.H.b&#10;`.H.c&#10;...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">`.H.i</span><br><span class="line">`.H.a</span><br><span class="line">`.H.b</span><br><span class="line">`.H.c</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>以上的任意一种都可以。</p>
 <p>为什么 “`.H.a” 没有打印出 “Ha” 呢？</p>
 <p>因为只使用了一个 “`” 函数调用操作符。</p>
 <p>相当于</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">i</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">H</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"H"</span>)</span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"a"</span>)</span><br><span class="line">  <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// "`.H.a" 相当于</span></span><br><span class="line">H(a)</span><br><span class="line"><span class="comment">// 如梭想要打印出 "Ha"，要这样</span></span><br><span class="line"><span class="comment">// "``.H.a.a" 或者 "``.H.a.H" 或者 "``.H.a.i" 反正返回值不使用</span></span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line">H(a)(i)</span><br></pre></td></tr></table></figure>
 <p>回到 Hello world</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`r```````````.H.e.l.l.o. .w.o.r.l.di</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`r```````````.H.e.l.l.o. .w.o.r.l.di</span><br></pre></td></tr></table></figure>
 <p>翻译成 JavaScript 就是</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r(H(e)(l)(l)(o)( )(w)(o)(r)(l)(d)(i))</span><br></pre></td></tr></table></figure>
 <h2 id="FAQ">FAQ</h2><p>Unlambda 中只有函数，没有类似循环的结构，那么怎么循环呢？</p>
@@ -35,8 +35,8 @@
 <p>类似地，使用丘奇数。</p>
 <p>Unlambda 中没有列表等数据结构。</p>
 <p>参考 Lisp，先构建 <code>cons</code> 、<code>car</code> 和 <code>cdr</code> 剩下的就是想象力的问题了。</p>
-<p>详情参考 <a href="http://www.madore.org/~david/programs/unlambda/" target="_blank" rel="external">Unlambda 官方入门教程</a></p>
-</div></article></div></main><footer><div class="paginator"><a href="/What-the-fuck-JS/" class="prev">上一篇</a><a href="/Flash-JavaScript-API/" class="next">下一篇</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+<p>详情参考 <a href="http://www.madore.org/~david/programs/unlambda/" target="_blank" rel="noopener">Unlambda 官方入门教程</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/What-the-fuck-JS/" class="prev">PREV</a><a href="/Flash-JavaScript-API/" class="next">NEXT</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
     inlineMath: [ ['$','$'], ["\\\(","\\)"] ],
     processEscapes: true

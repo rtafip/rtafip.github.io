@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> FiraCode · 拖鞋党的拖鞋摊</title><meta name="description" content="FiraCode - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">FiraCode</h1><div class="post-info">Oct 30, 2016</div><div class="post-content"><p>表示大于等于关系通常使用大于等于符号 <code>≥</code> ，编程语言也沿用了这个符号。但是因为这个符号输入不便，所以拆成了外形相似的 <code>&gt;=</code> 。能不能在不改变现有语言的情况下使用 <code>≥</code> 还能编译通过呢。当然是可以的啦！要不然就不会有这篇文章了= =<br><a id="more"></a></p>
 <h2 id="合字">合字</h2><p>先来看一段 C 语言代码。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;number);</span><br><span class="line">	<span class="keyword">if</span> (<span class="number">0</span> &lt;= number &amp;&amp; number &lt;= <span class="number">60</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"你挂了！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"还好没挂！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;number);</span><br><span class="line">	<span class="keyword">if</span> (<span class="number">0</span> &lt;= number &amp;&amp; number &lt;= <span class="number">60</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"你挂了！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"还好没挂！\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <style type="text/css">
     @font-face { 
     font-family: FiraCode; 
@@ -18,7 +18,7 @@
 <p>并不是只是在网页上可以有这种效果。编辑器里面也是可以的。</p>
 <p><img src="/img/FiraCode/VS2015.png" alt="Visual Studio 2015 ≤可以被部分选择"></p>
 <p>为什么可以输入的是 <code>&gt;=</code> ，显示的却是 <code>≥</code> ，而编辑器识别的是 <code>&gt;=</code> 呢？</p>
-<p>因为使用了特殊的字体。这个字体中用到了<strong>合字</strong>（<a href="https://en.wikipedia.org/wiki/Typographic_ligature" target="_blank" rel="external">ligature</a>）技术</p>
+<p>因为使用了特殊的字体。这个字体中用到了<strong>合字</strong>（<a href="https://en.wikipedia.org/wiki/Typographic_ligature" target="_blank" rel="noopener">ligature</a>）技术</p>
 <p>合字，顾名思义，就是将字合到一起。</p>
 <p>比如 a 和 e 对应的合字是 æ 。</p>
 <p>其实 &amp; 是一个合字，由 e 和 t 合成。</p>
@@ -30,13 +30,13 @@
 <p>全部字符如下</p>
 <p><img src="/img/FiraCode/AllLigatures.png" alt="FiraCode 合字列表"></p>
 <p>在 VS2015 中启用 FiraCode 也很简单</p>
-<p>首先下载 <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="external">FiraCode</a> 字体。</p>
+<p>首先下载 <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="noopener">FiraCode</a> 字体。</p>
 <p>解压，打开 <strong>TTF</strong> 文件夹，在 FiraCode-Regular.ttf 上右键安装。 这样字体就安装完成。</p>
 <p>接着在 VS 修改字体。</p>
 <p>工具→选项→环境→字体和颜色→FiraCode</p>
 <p>试着输入 <code>&gt;=</code> 和 <code>!=</code> 看看吧。</p>
 <p>是不是看到了 <code>!=</code> 输入后直接变成了 <code>≠</code></p>
-<p><a href="https://github.com/tonsky/FiraCode/issues/273" target="_blank" rel="external">FiraCode 支持</a> <code>-&gt;</code> 转为 <code>→</code> 但是 VS 不支持，所以看不到效果。（鬼知道为什么选择性地支持合字。）</p>
+<p><a href="https://github.com/tonsky/FiraCode/issues/273" target="_blank" rel="noopener">FiraCode 支持</a> <code>-&gt;</code> 转为 <code>→</code> 但是 VS 不支持，所以看不到效果。（鬼知道为什么选择性地支持合字。）</p>
 <p>FiraCode 除了支持 VS 之外还支持以下编辑器</p>
 <table>
 <thead>
@@ -169,15 +169,15 @@
 </table>
 <p>除了 FiraCode 还有其他支持合字的编程字体</p>
 <ul>
-<li><a href="https://github.com/i-tu/Hasklig" target="_blank" rel="external">Hasklig (free)</a></li>
-<li><a href="http://www.fsd.it/fonts/pragmatapro.htm" target="_blank" rel="external">PragmataPro (€59)</a></li>
-<li><a href="http://larsenwork.com/monoid/" target="_blank" rel="external">Monoid (free)</a></li>
-<li><a href="https://github.com/kika/fixedsys" target="_blank" rel="external">Fixedsys Excelsior (free)</a></li>
-<li><a href="https://be5invis.github.io/Iosevka/" target="_blank" rel="external">Iosevka (free)</a></li>
-<li><a href="https://github.com/SSNikolaevich/DejaVuSansCode" target="_blank" rel="external">DejaVu Sans Code (free)</a></li>
+<li><a href="https://github.com/i-tu/Hasklig" target="_blank" rel="noopener">Hasklig (free)</a></li>
+<li><a href="http://www.fsd.it/fonts/pragmatapro.htm" target="_blank" rel="noopener">PragmataPro (€59)</a></li>
+<li><a href="http://larsenwork.com/monoid/" target="_blank" rel="noopener">Monoid (free)</a></li>
+<li><a href="https://github.com/kika/fixedsys" target="_blank" rel="noopener">Fixedsys Excelsior (free)</a></li>
+<li><a href="https://be5invis.github.io/Iosevka/" target="_blank" rel="noopener">Iosevka (free)</a></li>
+<li><a href="https://github.com/SSNikolaevich/DejaVuSansCode" target="_blank" rel="noopener">DejaVu Sans Code (free)</a></li>
 </ul>
 <h2 id="最后">最后</h2><p>支持合字的编程字体还很少。使用合字能够让代码看起来更易读，而且能一眼看出错误的字符输入。但是 FiraCode 感觉不是很好看。什么时候有大神能让 Consolas 支持合字技术啊。</p>
-</div></article></div></main><footer><div class="paginator"><a href="/Non-alpha-Javascript/" class="prev">上一篇</a><a href="/Make-a-triangle-with-CSS/" class="next">下一篇</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+</div></article></div></main><footer><div class="paginator"><a href="/Non-alpha-Javascript/" class="prev">PREV</a><a href="/Make-a-triangle-with-CSS/" class="next">NEXT</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
     inlineMath: [ ['$','$'], ["\\\(","\\)"] ],
     processEscapes: true

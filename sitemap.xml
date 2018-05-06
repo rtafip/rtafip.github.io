@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Non-alpha-Javascript/</loc>
+    
+    <lastmod>2018-05-06T08:19:49.298Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/SICP-1-1-The-Elements-of-Programming-exercise/</loc>
     
     <lastmod>2018-04-29T14:10:07.337Z</lastmod>
@@ -11,7 +18,7 @@
   <url>
     <loc>http://en.ors-sro.com/Recursive-lambda/</loc>
     
-    <lastmod>2018-04-22T10:23:35.335Z</lastmod>
+    <lastmod>2018-04-22T10:23:35.336Z</lastmod>
     
   </url>
   
@@ -25,7 +32,7 @@
   <url>
     <loc>http://en.ors-sro.com/BrainFuck/</loc>
     
-    <lastmod>2018-04-08T07:02:10.041Z</lastmod>
+    <lastmod>2018-04-08T07:02:10.042Z</lastmod>
     
   </url>
   
@@ -67,21 +74,21 @@
   <url>
     <loc>http://en.ors-sro.com/SICP-1-3-Formulating-Abstractions-with-Higher-Order-Procedures/</loc>
     
-    <lastmod>2018-02-25T09:07:41.016Z</lastmod>
+    <lastmod>2018-02-25T09:07:41.017Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://en.ors-sro.com/Polyglot/</loc>
     
-    <lastmod>2018-02-18T12:07:26.698Z</lastmod>
+    <lastmod>2018-02-18T12:07:26.699Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://en.ors-sro.com/SICP-2-1-Introduction-to-Data-Bbstraction/</loc>
     
-    <lastmod>2018-02-11T14:01:02.360Z</lastmod>
+    <lastmod>2018-02-11T14:01:02.361Z</lastmod>
     
   </url>
   
@@ -102,14 +109,14 @@
   <url>
     <loc>http://en.ors-sro.com/Monad-Transformers/</loc>
     
-    <lastmod>2018-01-21T06:59:59.315Z</lastmod>
+    <lastmod>2018-01-21T06:59:59.316Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://en.ors-sro.com/Halting-problem/</loc>
     
-    <lastmod>2018-01-14T06:35:48.742Z</lastmod>
+    <lastmod>2018-01-14T06:35:48.743Z</lastmod>
     
   </url>
   
@@ -130,7 +137,7 @@
   <url>
     <loc>http://en.ors-sro.com/SICP-2-2-Hierarchical-Data-and-the-Closure-Property/</loc>
     
-    <lastmod>2017-12-24T06:38:12.776Z</lastmod>
+    <lastmod>2017-12-24T06:38:12.777Z</lastmod>
     
   </url>
   
@@ -144,7 +151,7 @@
   <url>
     <loc>http://en.ors-sro.com/asymmetric-cryptography/</loc>
     
-    <lastmod>2017-12-10T04:02:54.768Z</lastmod>
+    <lastmod>2017-12-10T04:02:54.769Z</lastmod>
     
   </url>
   
@@ -158,14 +165,14 @@
   <url>
     <loc>http://en.ors-sro.com/Install-Emacs-Sbcl-and-Slime/</loc>
     
-    <lastmod>2017-11-24T13:07:23.189Z</lastmod>
+    <lastmod>2017-11-24T13:07:23.190Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://en.ors-sro.com/Debug-As-in-Flashdevelop/</loc>
     
-    <lastmod>2017-11-19T07:12:33.908Z</lastmod>
+    <lastmod>2017-11-19T07:12:33.909Z</lastmod>
     
   </url>
   
@@ -193,14 +200,14 @@
   <url>
     <loc>http://en.ors-sro.com/async-and-await/</loc>
     
-    <lastmod>2017-10-22T07:51:25.029Z</lastmod>
+    <lastmod>2017-10-22T07:51:25.030Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://en.ors-sro.com/About-some-option-type-implementation/</loc>
     
-    <lastmod>2017-10-15T08:24:35.333Z</lastmod>
+    <lastmod>2017-10-15T08:24:35.334Z</lastmod>
     
   </url>
   
@@ -221,7 +228,7 @@
   <url>
     <loc>http://en.ors-sro.com/Right-value-reference-and-Universal-reference/</loc>
     
-    <lastmod>2017-09-24T09:33:16.523Z</lastmod>
+    <lastmod>2017-09-24T09:33:16.524Z</lastmod>
     
   </url>
   
@@ -256,7 +263,7 @@
   <url>
     <loc>http://en.ors-sro.com/Lambda-calculus/</loc>
     
-    <lastmod>2017-06-25T08:49:29.555Z</lastmod>
+    <lastmod>2017-06-25T08:49:29.556Z</lastmod>
     
   </url>
   
@@ -277,7 +284,7 @@
   <url>
     <loc>http://en.ors-sro.com/Migrate-to-es6/</loc>
     
-    <lastmod>2017-03-12T08:39:23.988Z</lastmod>
+    <lastmod>2017-03-12T08:39:23.989Z</lastmod>
     
   </url>
   
@@ -291,14 +298,14 @@
   <url>
     <loc>http://en.ors-sro.com/Whitespace/</loc>
     
-    <lastmod>2017-02-05T09:41:21.241Z</lastmod>
+    <lastmod>2017-02-05T09:41:21.242Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://en.ors-sro.com/about/index.html</loc>
     
-    <lastmod>2017-01-14T12:53:29.257Z</lastmod>
+    <lastmod>2017-01-14T12:53:29.258Z</lastmod>
     
   </url>
   
@@ -319,21 +326,14 @@
   <url>
     <loc>http://en.ors-sro.com/Make-a-triangle-with-CSS/</loc>
     
-    <lastmod>2016-11-06T07:32:06.947Z</lastmod>
+    <lastmod>2016-11-06T07:32:06.948Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://en.ors-sro.com/Learn-some-Javascript/</loc>
     
-    <lastmod>2016-11-06T07:22:19.521Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://en.ors-sro.com/Non-alpha-Javascript/</loc>
-    
-    <lastmod>2016-11-06T07:14:32.918Z</lastmod>
+    <lastmod>2016-11-06T07:22:19.522Z</lastmod>
     
   </url>
   
@@ -347,7 +347,7 @@
   <url>
     <loc>http://en.ors-sro.com/Zeronet/</loc>
     
-    <lastmod>2016-10-09T10:45:54.788Z</lastmod>
+    <lastmod>2016-10-09T10:45:54.789Z</lastmod>
     
   </url>
   
@@ -375,7 +375,7 @@
   <url>
     <loc>http://en.ors-sro.com/LeetCode-reverse-string/</loc>
     
-    <lastmod>2016-07-29T07:57:25.130Z</lastmod>
+    <lastmod>2016-07-29T07:57:25.131Z</lastmod>
     
   </url>
   
@@ -389,7 +389,7 @@
   <url>
     <loc>http://en.ors-sro.com/Develop-a-todo-list-with-MDL-and-AngularJS/</loc>
     
-    <lastmod>2016-04-03T06:58:18.687Z</lastmod>
+    <lastmod>2016-04-03T06:58:18.688Z</lastmod>
     
   </url>
   
@@ -403,7 +403,7 @@
   <url>
     <loc>http://en.ors-sro.com/categories/index.html</loc>
     
-    <lastmod>2015-07-29T13:02:01.269Z</lastmod>
+    <lastmod>2015-07-29T13:02:01.270Z</lastmod>
     
   </url>
   
@@ -438,7 +438,7 @@
   <url>
     <loc>http://en.ors-sro.com/Migrate-to-hexo3/</loc>
     
-    <lastmod>2015-07-26T15:44:23.299Z</lastmod>
+    <lastmod>2015-07-26T15:44:23.300Z</lastmod>
     
   </url>
   
