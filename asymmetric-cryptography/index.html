@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 非对称加密 · 拖鞋党的拖鞋摊</title><meta name="description" content="非对称加密 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">非对称加密</h1><div class="post-info">May 14, 2017</div><div class="post-content"><p>非常有趣的思想。</p>
 <a id="more"></a>
-<h2 id="对称加密">对称加密</h2><p>为什么要加密呢？因为有些羞羞的东西不想让他人看到。</p>
+<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>为什么要加密呢？因为有些羞羞的东西不想让他人看到。</p>
 <p>比如甲给乙传小纸条，必须要经过捣蛋鬼的手中。如果不加密，捣蛋鬼就会知道其中的内容，然后发出嘿嘿嘿的猥琐笑声。BAD ENDING 1</p>
 <p>甲和乙都很无语。所以他们决定以后发消息的时候要加密。</p>
 <p>甲把信息加密后写在小纸条上，传给乙。</p>
@@ -10,7 +10,7 @@
 <p>假设甲把密钥加密后传给乙，乙不知道加密过后的密钥怎么解密。看不懂。BAD ENDING 2</p>
 <p>假设甲把没加密的密钥传给乙，捣蛋鬼也知道了密钥，甲再发羞羞的内容给乙时，捣蛋鬼用已知的密钥解密，再次发出嘿嘿嘿的猥琐笑声。BAD ENDING 3</p>
 <p>甲感到很绝望。不加密会被偷窥。加密了也会被偷窥。</p>
-<h2 id="非对称加密">非对称加密</h2><p>甲在想如果加密和解密用的不是同一个密钥，那么这样就不怕被偷窥了。那要怎么做呢？</p>
+<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p>甲在想如果加密和解密用的不是同一个密钥，那么这样就不怕被偷窥了。那要怎么做呢？</p>
 <p>后来老师在密码学课上讲了方法。</p>
 <p>甲准备两个密钥，这两个密钥有这样的特点，知道一个密钥不能推出另外一个密钥，但是两个密钥对于某些数学运算能得到相同的结果，也就是一个密钥加密的文本只能用另外一个密钥解密。</p>
 <p>甲随机选择一个密钥，不加密，写在小纸条上传给乙。捣蛋鬼和乙一看这乱七八糟的数字一定是密钥，这个密钥已经公开了。所以称为公钥。剩下那个没公开的称为私钥。</p>
@@ -52,20 +52,20 @@
 <p>同样，乙可以通过乙的私钥和甲的公钥组合来解密，不能只通过甲的公钥来解密。</p>
 <p>在实际应用中通常选择比较大的数防止暴力穷举。</p>
 <p>因为非对称加密相比于对称加密较慢，所以通常使用非对称加密传递对称加密的密钥后使用对称加密通信。</p>
-<h2 id="中间人攻击">中间人攻击</h2><p>以上情况建立在捣蛋鬼没有好好听课的前提下。实际上捣蛋鬼刚好认真听了老师那节介绍非对称加密的课。</p>
+<h2 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h2><p>以上情况建立在捣蛋鬼没有好好听课的前提下。实际上捣蛋鬼刚好认真听了老师那节介绍非对称加密的课。</p>
 <p>于是甲传递甲的公钥时，捣蛋鬼替换为捣蛋鬼的公钥。</p>
 <p>乙收到捣蛋鬼的公钥后发出乙的公钥。</p>
 <p>捣蛋鬼收到乙的公钥后替换为捣蛋鬼的公钥。</p>
 <p>甲收到捣蛋鬼的公钥后，用捣蛋鬼的公钥加密羞羞的东西，发给乙。</p>
 <p>捣蛋鬼收到加密的内容后，用捣蛋鬼的私钥解密后看到羞羞的内容。发出嘿嘿嘿的猥琐笑声。BAD ENDING 4</p>
-<h2 id="应对非对称加密">应对非对称加密</h2><p>如果文件被非对称加密（如 RSA）加密了。有什么办法解密吗？</p>
+<h2 id="应对非对称加密"><a href="#应对非对称加密" class="headerlink" title="应对非对称加密"></a>应对非对称加密</h2><p>如果文件被非对称加密（如 RSA）加密了。有什么办法解密吗？</p>
 <p>目前能想到的有以下几种方法。</p>
 <ol>
 <li>暴力穷举，假设你有银河超级计算器的话。</li>
 <li>获取私钥，假设你可以有资本色诱或威胁的话。</li>
 <li>找到快速的大质数分解方式，顺便拿个炸药奖。</li>
 </ol>
-<h2 id="最后">最后</h2><p>在现实生活中，甲传纸条给乙，经过捣蛋鬼的手，捣蛋鬼噌地站起来指着甲说：“老师他上课传纸条！”。REAL ENDING </p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>在现实生活中，甲传纸条给乙，经过捣蛋鬼的手，捣蛋鬼噌地站起来指着甲说：“老师他上课传纸条！”。REAL ENDING </p>
 <p>参考链接</p>
 <ol>
 <li><a href="https://zh.wikipedia.org/wiki/%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86" target="_blank" rel="noopener">公开密钥加密</a></li>

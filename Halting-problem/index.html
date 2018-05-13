@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 停机问题 · 拖鞋党的拖鞋摊</title><meta name="description" content="停机问题 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">停机问题</h1><div class="post-info">Apr 2, 2017</div><div class="post-content"><p>如果存在这样的算法就太<ruby>完美<rt>可怕</rt></ruby>了。</p>
 <a id="more"></a>
-<h2 id="定义">定义</h2><blockquote>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
 <p><strong>停机问题</strong>（英语：halting problem）是<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91" target="_blank" rel="noopener">逻辑数学</a>中<a href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E8%AE%A1%E7%AE%97%E6%80%A7%E7%90%86%E8%AE%BA" target="_blank" rel="noopener">可计算性理论</a>的一个问题。通俗地说，停机问题就是判断任意一个<a href="https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener">程序</a>是否能在有限的时间之内结束运行的问题。该问题等价于如下的判定问题：是否存在一个程序P，对于任意输入的程序w，能够判断w会在有限时间内结束或者死循环。</p>
 <p>—— 维基百科</p>
 </blockquote>
@@ -8,13 +8,13 @@
 <p>如果程序只允许使用顺序结构和条件结构，而且代码行数是有限的，那么程序一定会停机。</p>
 <p>但如果使用了循环结构（包括递归，<code>goto</code> 和 <code>continuation</code> 等），就有可能陷入死循环。因为可能由于边界检查不严等原因导致无限递归或者无限循环。</p>
 <p>停机问题找寻的是一种<strong>通用</strong>的算法。如果是一段具体的代码还是可以判断出是否停机的。</p>
-<h2 id="理发师">理发师</h2><p>如果一个人不给自己理发，那么理发师就给他理发。</p>
+<h2 id="理发师"><a href="#理发师" class="headerlink" title="理发师"></a>理发师</h2><p>如果一个人不给自己理发，那么理发师就给他理发。</p>
 <p>如果一个人自己理发，那么理发师就不给他理发。</p>
 <p>那么理发师给不给自己理发？</p>
 <p>如果理发师给自己理发，那么按照一个人自己理发的原则，理发师就不应该给这个人理发。</p>
 <p>如果理发师不给自己理发，那么按照一个人不给自己理发的原则，理发师应该给自己理发。</p>
 <p>本质上这是一阶逻辑自我指涉的不自洽性。</p>
-<h2 id="证明">证明</h2><p>停机问题的证明类似理发师悖论。</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>停机问题的证明类似理发师悖论。</p>
 <p>如果存在一个判断程序是否停机的算法，停机的时候返回 1 ，不停机返回 0 。</p>
 <p>那么构造一个相反的算法，停机的时候返回 0 ，不停机的是否返回 1 。</p>
 <p>如果用停机算法判断这个相反的算法结果会是怎样。</p>

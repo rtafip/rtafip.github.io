@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 邱奇数 · 拖鞋党的拖鞋摊</title><meta name="description" content="邱奇数 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">邱奇数</h1><div class="post-info">Jul 2, 2017</div><div class="post-content"><p>万物皆为 lambda</p>
 <a id="more"></a>
-<h2 id="定义">定义</h2><p>lambda 的语法和规约定义中都没有定义数字类型。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>lambda 的语法和规约定义中都没有定义数字类型。</p>
 <p>这是为了保持 lambda 的简洁性。数字类型的定义不是必须的，可以用特定的 lambda 表示。</p>
 <p>根据皮亚诺公理，算数系统由一个起点（1 或者 0），和一个后继函数构成。</p>
 <p>0，1，2，3，4，5，6……只是一种符号，一种自然数的编码。自然数的编码不是唯一的。</p>
@@ -33,7 +33,7 @@
 <p>$9 = \lambda f . \lambda x . f (f (f (f (f (f (f (f (f x))))))))$</p>
 <p>$n = \lambda f . \lambda x . f^n x$</p>
 <p>邱奇数的编码是将自然数 n 转化为 n 的次方，也就是 n 次函数复合。</p>
-<h2 id="运算">运算</h2><p>自然数运算最常见的是加减乘除。</p>
+<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><p>自然数运算最常见的是加减乘除。</p>
 <p>先来定义最简单的加法。</p>
 <p>$plus(m,n) = m + n$</p>
 <p>因为邱奇数的编码是次方，所以 $f^{m+n}(x) = f^m(x) + f^n (x)$ 。</p>

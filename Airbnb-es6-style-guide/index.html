@@ -2,7 +2,7 @@
 <a id="more"></a>
 <p><strong>前言</strong></p>
 <p>翻译 <em> Airbnb JavaScript Style Guide </em> 主要是为了学习 <code>JavaScript</code> 编码风格。因为不是专业的译者，翻译不足之处请指出。</p>
-<h1 id="Airbnb_JavaScript_Style_Guide">Airbnb JavaScript Style Guide</h1><p><em>合理地编写 JavaScript </em></p>
+<h1 id="Airbnb-JavaScript-Style-Guide"><a href="#Airbnb-JavaScript-Style-Guide" class="headerlink" title="Airbnb JavaScript Style Guide"></a>Airbnb JavaScript Style Guide</h1><p><em>合理地编写 JavaScript </em></p>
 <p>其他的风格指导</p>
 <ul>
 <li><a href="es5/">ES5</a></li>
@@ -10,7 +10,7 @@
 <li><a href="https://github.com/airbnb/css" target="_blank" rel="noopener">CSS &amp; Sass</a></li>
 <li><a href="https://github.com/airbnb/ruby" target="_blank" rel="noopener">Ruby</a></li>
 </ul>
-<h2 id="类型">类型</h2><p>  <a name="types--primitives"></a><a name="1.1"></a></p>
+<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><p>  <a name="types--primitives"></a><a name="1.1"></a></p>
 <ul>
 <li><p><a href="#types--primitives">1.1</a> <strong>基本类型</strong>: 基本类型直接获取它的值</p>
 <ul>
@@ -33,7 +33,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="引用">引用</h2><p>  <a name="references--prefer-const"></a><a name="2.1"></a></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>  <a name="references--prefer-const"></a><a name="2.1"></a></p>
 <ul>
 <li><p><a href="#references--prefer-const">2.1</a> 请使用 <code>const</code> 修饰所有引用而不是 <code>var</code> 。eslint: <a href="http://eslint.org/docs/rules/prefer-const.html" target="_blank" rel="noopener"><code>prefer-const</code></a>, <a href="http://eslint.org/docs/rules/no-const-assign.html" target="_blank" rel="noopener"><code>no-const-assign</code></a></p>
 <blockquote>
@@ -54,7 +54,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="对象">对象</h2><p>  <a name="objects--no-new"></a><a name="3.1"></a></p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>  <a name="objects--no-new"></a><a name="3.1"></a></p>
 <ul>
 <li><p><a href="#objects--no-new">3.1</a> 请使用 literal syntax 创建对象. eslint: <a href="http://eslint.org/docs/rules/no-new-object.html" target="_blank" rel="noopener"><code>no-new-object</code></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> item = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> item = &#123;&#125;;</span><br></pre></td></tr></table></figure>
@@ -108,7 +108,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="数组">数组</h2><p>  <a name="arrays--literals"></a><a name="4.1"></a></p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>  <a name="arrays--literals"></a><a name="4.1"></a></p>
 <ul>
 <li><p><a href="#arrays--literals">4.1</a> 请使用 literal syntax 创建数组。 eslint: <a href="http://eslint.org/docs/rules/no-array-constructor.html" target="_blank" rel="noopener"><code>no-array-constructor</code></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> items = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> items = [];</span><br></pre></td></tr></table></figure>
@@ -131,7 +131,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="解构">解构</h2><p>  <a name="destructuring--object"></a><a name="5.1"></a></p>
+<h2 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h2><p>  <a name="destructuring--object"></a><a name="5.1"></a></p>
 <ul>
 <li><p><a href="#destructuring--object">5.1</a> 当访问和使用对象的多个属性时，请使用对象解构。 jscs: <a href="http://jscs.info/rule/requireObjectDestructuring" target="_blank" rel="noopener"><code>requireObjectDestructuring</code></a></p>
 <blockquote>
@@ -152,7 +152,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="字符串">字符串</h2><p>  <a name="strings--quotes"></a><a name="6.1"></a></p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>  <a name="strings--quotes"></a><a name="6.1"></a></p>
 <ul>
 <li><p><a href="#strings--quotes">6.1</a> 请使用单引号 <code>&#39;&#39;</code> 括住字符串。 eslint: <a href="http://eslint.org/docs/rules/quotes.html" target="_blank" rel="noopener"><code>quotes</code></a> jscs: <a href="http://jscs.info/rule/validateQuoteMarks" target="_blank" rel="noopener"><code>validateQuoteMarks</code></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">"Capt. Janeway"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">'Capt. Janeway'</span>;</span><br></pre></td></tr></table></figure>
@@ -183,7 +183,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="函数">函数</h2><p>  <a name="functions--declarations"></a><a name="7.1"></a></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>  <a name="functions--declarations"></a><a name="7.1"></a></p>
 <ul>
 <li><p><a href="#functions--declarations">7.1</a> 请使用函数声明而不是函数表达式。 jscs: <a href="http://jscs.info/rule/requireFunctionDeclarations" target="_blank" rel="noopener"><code>requireFunctionDeclarations</code></a></p>
 <blockquote>
@@ -261,11 +261,13 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="箭头函数">箭头函数</h2><p>  <a name="arrows--use-them"></a><a name="8.1"></a></p>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>  <a name="arrows--use-them"></a><a name="8.1"></a></p>
 <ul>
 <li><p><a href="#arrows--use-them">8.1</a> 必须使用函数表达式时（如传递匿名函数时），请使用箭头函数。 eslint: <a href="http://eslint.org/docs/rules/prefer-arrow-callback.html" target="_blank" rel="noopener"><code>prefer-arrow-callback</code></a>, <a href="http://eslint.org/docs/rules/arrow-spacing.html" target="_blank" rel="noopener"><code>arrow-spacing</code></a> jscs: <a href="http://jscs.info/rule/requireArrowFunctions" target="_blank" rel="noopener"><code>requireArrowFunctions</code></a></p>
 <blockquote>
 <p>为什么呢？因为它创建的函数执行在当前上下文的 <code>this</code> 中，通常是所想要的，而且具有更准确的语义。</p>
+</blockquote>
+<blockquote>
 <p>为什么不呢？当函数相当复杂时，可以将逻辑移入自己的函数中。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> y = x + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> y = x + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -297,7 +299,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="类_与_构造器">类 与 构造器</h2><p>  <a name="constructors--use-class"></a><a name="9.1"></a></p>
+<h2 id="类-与-构造器"><a href="#类-与-构造器" class="headerlink" title="类 与 构造器"></a>类 与 构造器</h2><p>  <a name="constructors--use-class"></a><a name="9.1"></a></p>
 <ul>
 <li><p><a href="#constructors--use-class">9.1</a> 请使用 <code>class</code> 避免直接操作 <code>prototype</code>。</p>
 <blockquote>
@@ -333,7 +335,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="模块">模块</h2><p>  <a name="modules--use-them"></a><a name="10.1"></a></p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>  <a name="modules--use-them"></a><a name="10.1"></a></p>
 <ul>
 <li><p><a href="#modules--use-them">10.1</a> 请使用 modules (<code>import</code>/<code>export</code>) 而不是一个非标准的模块系统。这样可以随时转译到喜欢的模块系统。</p>
 <blockquote>
@@ -382,7 +384,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="迭代器_与_生成器">迭代器 与 生成器</h2><p>  <a name="iterators--nope"></a><a name="11.1"></a></p>
+<h2 id="迭代器-与-生成器"><a href="#迭代器-与-生成器" class="headerlink" title="迭代器 与 生成器"></a>迭代器 与 生成器</h2><p>  <a name="iterators--nope"></a><a name="11.1"></a></p>
 <ul>
 <li><p><a href="#iterators--nope">11.1</a> 请勿使用迭代器。请使用 JavaScript 的高阶函数像 <code>map()</code> 和 <code>reduce()</code> 而不是使用循环像 <code>for-of</code> 。 eslint: <a href="http://eslint.org/docs/rules/no-iterator.html" target="_blank" rel="noopener"><code>no-iterator</code></a></p>
 <blockquote>
@@ -405,7 +407,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="属性">属性</h2><p>  <a name="properties--dot"></a><a name="12.1"></a></p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>  <a name="properties--dot"></a><a name="12.1"></a></p>
 <ul>
 <li><p><a href="#properties--dot">12.1</a> 请使用点号访问属性。eslint: <a href="http://eslint.org/docs/rules/dot-notation.html" target="_blank" rel="noopener"><code>dot-notation</code></a> jscs: <a href="http://jscs.info/rule/requireDotNotation" target="_blank" rel="noopener"><code>requireDotNotation</code></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> luke = &#123;</span><br><span class="line">  jedi: <span class="literal">true</span>,</span><br><span class="line">  age: <span class="number">28</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> isJedi = luke[<span class="string">'jedi'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> isJedi = luke.jedi;</span><br></pre></td></tr></table></figure>
@@ -416,7 +418,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="变量">变量</h2><p>  <a name="variables--const"></a><a name="13.1"></a></p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>  <a name="variables--const"></a><a name="13.1"></a></p>
 <ul>
 <li><p><a href="#variables--const">13.1</a> 请总是使用 <code>const</code> 声明变量。否则将引入全局变量。避免污染全局命名空间。地球超人（Captain Planet）已经警告过我们了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line">superPower = <span class="keyword">new</span> SuperPower();</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> superPower = <span class="keyword">new</span> SuperPower();</span><br></pre></td></tr></table></figure>
@@ -444,7 +446,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="提升">提升</h2><p>  <a name="hoisting--about"></a><a name="14.1"></a></p>
+<h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><p>  <a name="hoisting--about"></a><a name="14.1"></a></p>
 <ul>
 <li><p><a href="#hoisting--about">14.1</a> <code>var</code> 声明会被提升至作用域顶部，相应的赋值却不会。<code>const</code> 和 <code>let</code> 声明被一个叫做 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let" target="_blank" rel="noopener">临时性死区 (TDZ)</a> 的新概念所保护。所以知道为什么<a href="http://es-discourse.com/t/why-typeof-is-no-longer-safe/15" target="_blank" rel="noopener"> typeof 不再安全</a> 很重要。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没用（假设存在 notDefine 全局变量） 。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">example</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(notDefined); <span class="comment">// =&gt; 抛出 ReferenceError</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 由于变量提升，在引用变量后声明变量是有效的。</span></span><br><span class="line"><span class="comment">// 注意：赋值 `true` 没有被提升。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">example</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(declaredButNotAssigned); <span class="comment">// =&gt; undefined</span></span><br><span class="line">  <span class="keyword">var</span> declaredButNotAssigned = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解释器提升变量声明至作用域顶部。</span></span><br><span class="line"><span class="comment">// 也就是例子可以重写为：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">example</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> declaredButNotAssigned;</span><br><span class="line">  <span class="built_in">console</span>.log(declaredButNotAssigned); <span class="comment">// =&gt; undefined</span></span><br><span class="line">  declaredButNotAssigned = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 const 和 let </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">example</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(declaredButNotAssigned); <span class="comment">// =&gt; 抛出 ReferenceError</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span> declaredButNotAssigned); <span class="comment">// =&gt; 抛出 ReferenceError</span></span><br><span class="line">  <span class="keyword">const</span> declaredButNotAssigned = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -465,7 +467,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="比较符_与_相等性">比较符 与 相等性</h2><p>  <a name="comparison--eqeqeq"></a><a name="15.1"></a></p>
+<h2 id="比较符-与-相等性"><a href="#比较符-与-相等性" class="headerlink" title="比较符 与 相等性"></a>比较符 与 相等性</h2><p>  <a name="comparison--eqeqeq"></a><a name="15.1"></a></p>
 <ul>
 <li><p><a href="#comparison--eqeqeq">15.1</a> 请使用 <code>===</code> 和 <code>!==</code> 而不是 <code>==</code> 和 <code>!=</code> 。 eslint: <a href="http://eslint.org/docs/rules/eqeqeq.html" target="_blank" rel="noopener"><code>eqeqeq</code></a></p>
 <p><a name="comparison--if"></a><a name="15.2"></a></p>
@@ -508,7 +510,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="块">块</h2><p>  <a name="blocks--braces"></a><a name="16.1"></a></p>
+<h2 id="块"><a href="#块" class="headerlink" title="块"></a>块</h2><p>  <a name="blocks--braces"></a><a name="16.1"></a></p>
 <ul>
 <li><p><a href="#blocks--braces">16.1</a> 多行区块请使用括号。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">if</span> (test)</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">if</span> (test) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">if</span> (test) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -519,7 +521,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="注释">注释</h2><p>  <a name="comments--multiline"></a><a name="17.1"></a></p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>  <a name="comments--multiline"></a><a name="17.1"></a></p>
 <ul>
 <li><p><a href="#comments--multiline">17.1</a> 多行注释请使用 <code>/** ... */</code>。包括说明，所有参数的类型和值，以及返回值。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="comment">// make() returns a new element</span></span><br><span class="line"><span class="comment">// based on the passed in tag name</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// @param &#123;String&#125; tag</span></span><br><span class="line"><span class="comment">// @return &#123;Element&#125; element</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">make</span>(<span class="params">tag</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...stuff...</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> element;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * make() returns a new element</span></span><br><span class="line"><span class="comment"> * based on the passed in tag name</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @param &#123;String&#125; tag</span></span><br><span class="line"><span class="comment"> * @return &#123;Element&#125; element</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">make</span>(<span class="params">tag</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...stuff...</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> element;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -541,7 +543,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="空白符">空白符</h2><p>  <a name="whitespace--spaces"></a><a name="18.1"></a></p>
+<h2 id="空白符"><a href="#空白符" class="headerlink" title="空白符"></a>空白符</h2><p>  <a name="whitespace--spaces"></a><a name="18.1"></a></p>
 <ul>
 <li><p><a href="#whitespace--spaces">18.1</a> 请使用设为两个空格的 soft tabs 。 eslint: <a href="http://eslint.org/docs/rules/indent.html" target="_blank" rel="noopener"><code>indent</code></a> jscs: <a href="http://jscs.info/rule/validateIndentation" target="_blank" rel="noopener"><code>validateIndentation</code></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">∙∙∙∙<span class="keyword">const</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">∙<span class="keyword">const</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">∙∙<span class="keyword">const</span> name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -597,7 +599,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="逗号">逗号</h2><p><a name="commas--leading-trailing"></a><a name="19.1"></a></p>
+<h2 id="逗号"><a href="#逗号" class="headerlink" title="逗号"></a>逗号</h2><p><a name="commas--leading-trailing"></a><a name="19.1"></a></p>
 <ul>
 <li><p><a href="#commas--leading-trailing">19.1</a> 逗号开头: <strong>别啦</strong> eslint: <a href="http://eslint.org/docs/rules/comma-style.html" target="_blank" rel="noopener"><code>comma-style</code></a> jscs: <a href="http://jscs.info/rule/requireCommaBeforeLineBreak" target="_blank" rel="noopener"><code>requireCommaBeforeLineBreak</code></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> story = [</span><br><span class="line">    once</span><br><span class="line">  , upon</span><br><span class="line">  , aTime</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> story = [</span><br><span class="line">  once,</span><br><span class="line">  upon,</span><br><span class="line">  aTime,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> hero = &#123;</span><br><span class="line">    firstName: <span class="string">'Ada'</span></span><br><span class="line">  , <span class="attr">lastName</span>: <span class="string">'Lovelace'</span></span><br><span class="line">  , <span class="attr">birthYear</span>: <span class="number">1815</span></span><br><span class="line">  , <span class="attr">superPower</span>: <span class="string">'computers'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> hero = &#123;</span><br><span class="line">  firstName: <span class="string">'Ada'</span>,</span><br><span class="line">  lastName: <span class="string">'Lovelace'</span>,</span><br><span class="line">  birthYear: <span class="number">1815</span>,</span><br><span class="line">  superPower: <span class="string">'computers'</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -611,7 +613,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="分号">分号</h2><p>  <a name="semicolons--required"></a><a name="20.1"></a></p>
+<h2 id="分号"><a href="#分号" class="headerlink" title="分号"></a>分号</h2><p>  <a name="semicolons--required"></a><a name="20.1"></a></p>
 <ul>
 <li><p><a href="#20.1">20.1</a> <strong>好滴</strong> eslint: <a href="http://eslint.org/docs/rules/semi.html" target="_blank" rel="noopener"><code>semi</code></a> jscs: <a href="http://jscs.info/rule/requireSemicolons" target="_blank" rel="noopener"><code>requireSemicolons</code></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> name = <span class="string">'Skywalker'</span></span><br><span class="line">  <span class="keyword">return</span> name</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> name = <span class="string">'Skywalker'</span>;</span><br><span class="line">  <span class="keyword">return</span> name;</span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line"><span class="comment">// good, but legacy (guards against the function becoming an argument when two files with IIFEs are concatenated)</span></span><br><span class="line">;<span class="function">(<span class="params">(</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> name = <span class="string">'Skywalker'</span>;</span><br><span class="line">  <span class="keyword">return</span> name;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
@@ -619,7 +621,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="类型转换_与_强制转换">类型转换 与 强制转换</h2><p>  <a name="coercion--explicit"></a><a name="21.1"></a></p>
+<h2 id="类型转换-与-强制转换"><a href="#类型转换-与-强制转换" class="headerlink" title="类型转换 与 强制转换"></a>类型转换 与 强制转换</h2><p>  <a name="coercion--explicit"></a><a name="21.1"></a></p>
 <ul>
 <li><p><a href="#coercion--explicit">21.1</a> 语句还是前执行强制转换。</p>
 <p><a name="coercion--strings"></a><a name="21.2"></a></p>
@@ -645,7 +647,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="命名约定">命名约定</h2><p>  <a name="naming--descriptive"></a><a name="22.1"></a></p>
+<h2 id="命名约定"><a href="#命名约定" class="headerlink" title="命名约定"></a>命名约定</h2><p>  <a name="naming--descriptive"></a><a name="22.1"></a></p>
 <ul>
 <li><p><a href="#naming--descriptive">22.1</a> 请避免使用单个字母名字。名字应具有自述性。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">q</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...stuff...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">query</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ..stuff..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -683,7 +685,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="访问器">访问器</h2><p>  <a name="accessors--not-required"></a><a name="23.1"></a></p>
+<h2 id="访问器"><a href="#访问器" class="headerlink" title="访问器"></a>访问器</h2><p>  <a name="accessors--not-required"></a><a name="23.1"></a></p>
 <ul>
 <li><p><a href="#accessors--not-required">23.1</a> 属性的访问函数是不必要的。</p>
 <p><a name="accessors--no-getters-setters"></a><a name="23.2"></a></p>
@@ -701,7 +703,7 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="事件">事件</h2><p>  <a name="events--hash"></a><a name="24.1"></a></p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>  <a name="events--hash"></a><a name="24.1"></a></p>
 <ul>
 <li><p><a href="#events--hash">24.1</a> 当给事件传递数据时（无论是 DOM 事件还是 Backbone 事件），传递一个带索引的对象而不是原始值。这样随后的贡献者可以在不更新每个处理函数的情况下添加更多数据。例如，相比于： </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line">$(<span class="keyword">this</span>).trigger(<span class="string">'listingUpdated'</span>, listing.id);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">$(<span class="keyword">this</span>).on(<span class="string">'listingUpdated'</span>, (e, listingId) =&gt; &#123;</span><br><span class="line">  <span class="comment">// do something with listingId</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -710,7 +712,7 @@
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
 </li>
 </ul>
-<h2 id="jQuery">jQuery</h2><p>  <a name="jquery--dollar-prefix"></a><a name="25.1"></a></p>
+<h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><p>  <a name="jquery--dollar-prefix"></a><a name="25.1"></a></p>
 <ul>
 <li><p><a href="#jquery--dollar-prefix">25.1</a> 请给 jQuery对象加上 <code>$</code> 前缀。 jscs: <a href="http://jscs.info/rule/requireDollarBeforejQueryAssignment" target="_blank" rel="noopener"><code>requireDollarBeforejQueryAssignment</code></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> sidebar = $(<span class="string">'.sidebar'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> $sidebar = $(<span class="string">'.sidebar'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> $sidebarBtn = $(<span class="string">'.sidebar-btn'</span>);</span><br></pre></td></tr></table></figure>
@@ -728,12 +730,12 @@
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="ECMAScript_5_兼容性">ECMAScript 5 兼容性</h2><p>  <a name="es5-compat--kangax"></a><a name="26.1"></a></p>
+<h2 id="ECMAScript-5-兼容性"><a href="#ECMAScript-5-兼容性" class="headerlink" title="ECMAScript 5 兼容性"></a>ECMAScript 5 兼容性</h2><p>  <a name="es5-compat--kangax"></a><a name="26.1"></a></p>
 <ul>
 <li><a href="#es5-compat--kangax">26.1</a> 参见 <a href="https://twitter.com/kangax/" target="_blank" rel="noopener">Kangax</a> 的 ES5 <a href="http://kangax.github.io/es5-compat-table/" target="_blank" rel="noopener">compatibility table</a>.</li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="ECMAScript_6_风格">ECMAScript 6 风格</h2><p>  <a name="es6-styles"></a><a name="27.1"></a></p>
+<h2 id="ECMAScript-6-风格"><a href="#ECMAScript-6-风格" class="headerlink" title="ECMAScript 6 风格"></a>ECMAScript 6 风格</h2><p>  <a name="es6-styles"></a><a name="27.1"></a></p>
 <ul>
 <li><a href="#es6-styles">27.1</a> 以下是 ES6 特性的链接集合。</li>
 </ul>
@@ -753,7 +755,7 @@
 <li><a href="#模块">模块</a></li>
 </ol>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="测试">测试</h2><p>  <a name="testing--yup"></a><a name="28.1"></a></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>  <a name="testing--yup"></a><a name="28.1"></a></p>
 <ul>
 <li><p><a href="#testing--yup">28.1</a> <strong>好呀好呀</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -765,12 +767,12 @@
 <li>小心 stubs 和 mocks 。可能使得测试变得脆弱。</li>
 <li>Airbnb 主要使用 <a href="https://www.npmjs.com/package/mocha" target="_blank" rel="noopener"><code>mocha</code></a> 。<a href="https://www.npmjs.com/package/tape" target="_blank" rel="noopener"><code>tape</code></a> 偶尔也会用来测试小的，独立的模块。</li>
 <li>100% 测试覆盖是一个很好的努力目标，尽管并不是每次都能做到。</li>
-<li>无论何时修复一个 bug ，_请编写回归测试_，被修复又没有回归测试的 bug 基本上肯定会在将来出现。</li>
+<li>无论何时修复一个 bug ，<em>请编写回归测试</em>，被修复又没有回归测试的 bug 基本上肯定会在将来出现。</li>
 </ul>
 </li>
 </ul>
 <p><strong><a href="#Airbnb_JavaScript_Style_Guide">↑ 回到顶部</a></strong></p>
-<h2 id="性能">性能</h2><ul>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><ul>
 <li><a href="http://www.kellegous.com/j/2013/01/26/layout-performance/" target="_blank" rel="noopener">论布局和 web 性能</a></li>
 <li><a href="http://jsperf.com/string-vs-array-concat/2" target="_blank" rel="noopener">String vs Array 拼接</a></li>
 <li><a href="http://jsperf.com/try-catch-in-loop-cost" target="_blank" rel="noopener">Try/Catch 在循环中的代价</a></li>

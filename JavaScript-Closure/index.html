@@ -2,14 +2,14 @@
 <p>闭包是穷人的对象。对象是穷人的闭包。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="定义">定义</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetCounter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> c = <span class="number">0</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;<span class="keyword">return</span> ++c&#125;</span><br><span class="line">  <span class="keyword">return</span> count</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> counter = GetCounter()</span><br><span class="line">counter()</span><br></pre></td></tr></table></figure>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetCounter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> c = <span class="number">0</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;<span class="keyword">return</span> ++c&#125;</span><br><span class="line">  <span class="keyword">return</span> count</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> counter = GetCounter()</span><br><span class="line">counter()</span><br></pre></td></tr></table></figure>
 <p>这段代码的返回值是 <code>undefined</code> 还是 1 ？</p>
 <p>答案是 1 。</p>
 <p>因为这是 JavaScript 的一个重要特性——闭包（Closure）。</p>
 <p>闭包是一个包含函数和其变量绑定的对象。</p>
 <p>例如上述代码中，<code>counter</code> 是一个闭包。</p>
 <p>其中函数为 <code>function count() {return ++c}</code> ，变量绑定为 <code>{c: GetCounter.c}</code>。</p>
-<h2 id="释疑">释疑</h2><p>如果你学习过 C 系列的语言，可能会感到疑惑。</p>
+<h2 id="释疑"><a href="#释疑" class="headerlink" title="释疑"></a>释疑</h2><p>如果你学习过 C 系列的语言，可能会感到疑惑。</p>
 <p>函数返回了怎么还能引用其中的局部变量。</p>
 <p>这是因为 JavaScript 有两个特性——词法作用域和一等公民函数。</p>
 <p>先说词法作用域，简单来说词法作用域是描述查找变量的值的一种规则——从定义处查找。</p>
@@ -39,7 +39,7 @@
 <p>如果一个变量没有引用，就会被垃圾收集器回收。比如函数中的局部变量，在函数执行完后没有引用就会被回收。</p>
 <p>但是如果返回了函数，比如说 <code>f()</code> 因为函数作用域 <code>{scope: FunctionScope.scope}</code> 引用了 <code>scope</code> 所以 <code>scope</code> 不会被回收。</p>
 <p>所以函数执行完后还可以使用局部变量。</p>
-<h2 id="注意">注意</h2><p>理论上所有函数都是闭包，但是因为有的函数没有访问内部变量，所以没有闭包的感觉。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>理论上所有函数都是闭包，但是因为有的函数没有访问内部变量，所以没有闭包的感觉。</p>
 <p>返回函数是定义闭包的一种方式，但不是唯一方式。</p>
 <p>比如还可以返回一个对象。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line">   count: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> n++; &#125;,</span><br><span class="line">   reset: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; n = <span class="number">0</span>; &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -55,7 +55,7 @@
 <p>只要改成 <code>self.a</code> 就可以了。</p>
 <p>此外还可以使用 ES6 的箭头函数。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> g = <span class="function"><span class="params">()</span> =&gt;</span> a</span><br><span class="line">  <span class="keyword">return</span> g</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> h = f()</span><br><span class="line">h()</span><br></pre></td></tr></table></figure>
-<h2 id="最后">最后</h2><p>文章的内容参考了<a href="http://shop.oreilly.com/product/9780596805531.do" target="_blank" rel="noopener">犀牛书</a>。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>文章的内容参考了<a href="http://shop.oreilly.com/product/9780596805531.do" target="_blank" rel="noopener">犀牛书</a>。</p>
 </div></article></div></main><footer><div class="paginator"><a href="/Lexical-scope-and-Dynamic-scope/" class="prev">PREV</a><a href="/Value-Category/" class="next">NEXT</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
     inlineMath: [ ['$','$'], ["\\\(","\\)"] ],

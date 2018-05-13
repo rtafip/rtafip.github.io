@@ -1,13 +1,13 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 值类别 · 拖鞋党的拖鞋摊</title><meta name="description" content="值类别 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">值类别</h1><div class="post-info">Apr 9, 2017</div><div class="post-content"><p>如何把一个简单的事情搞复杂。</p>
 <a id="more"></a>
-<h2 id="简单的开始">简单的开始</h2><p>左值和右值是 C 和 C++ 语言中表达式值的一种分类。每个表达式都有类型和值类别。</p>
+<h2 id="简单的开始"><a href="#简单的开始" class="headerlink" title="简单的开始"></a>简单的开始</h2><p>左值和右值是 C 和 C++ 语言中表达式值的一种分类。每个表达式都有类型和值类别。</p>
 <p>如 <code>1 + 1</code> 的类型为 <code>int</code> ，值类别为右值。</p>
 <p>在 C++ 03 左值和右值很容易区分。</p>
 <p><strong>左值</strong>（left value, lvalue）为内存地址，可以出现在赋值等号的左边和右边。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// x 是左值</span></span><br><span class="line"><span class="keyword">int</span> y = x; <span class="comment">// x 可以出现在赋值等号的右边</span></span><br></pre></td></tr></table></figure>
 <p><strong>右值</strong>（right value, rvalue）为<strong>只能</strong>出现在赋值等号右边的表达式。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// x 是右值</span></span><br><span class="line"><span class="number">1</span> = x; <span class="comment">// 出错， 1 是右值，只能出现在赋值等号的右边。</span></span><br></pre></td></tr></table></figure>
-<h2 id="复杂的延续">复杂的延续</h2><p>C++ 11 引入了移动语义。</p>
+<h2 id="复杂的延续"><a href="#复杂的延续" class="headerlink" title="复杂的延续"></a>复杂的延续</h2><p>C++ 11 引入了移动语义。</p>
 <p>对于类型 T ，<code>T&amp;&amp;</code> 称为<strong>右值引用</strong> （rvalue reference）。<code>T&amp;</code> 称为<strong>左值引用</strong>（lvalue reference）。</p>
 <p>如果类型 T 实现了移动构造函数，则称 T 为可移动的。</p>
 <p>引入了移动语义，问题随之而来。</p>

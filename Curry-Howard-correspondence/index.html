@@ -1,12 +1,12 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 柯里-霍华德同构 · 拖鞋党的拖鞋摊</title><meta name="description" content="柯里-霍华德同构 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">柯里-霍华德同构</h1><div class="post-info">Jun 18, 2017</div><div class="post-content"><p>这真的只是一种巧合吗？</p>
 <a id="more"></a>
-<h2 id="命题与类型">命题与类型</h2><p>一个函数的类型可以是 <code>A -&gt; B -&gt; A</code> 。</p>
+<h2 id="命题与类型"><a href="#命题与类型" class="headerlink" title="命题与类型"></a>命题与类型</h2><p>一个函数的类型可以是 <code>A -&gt; B -&gt; A</code> 。</p>
 <p>一个命题的类型可以是 $\alpha \to \beta \to \alpha$ 。</p>
 <p>可以发现，这两个类型是类似的。</p>
 <p>类型 <code>A</code> 类似于命题 $\alpha$ 。</p>
 <p>函数 <code>-&gt;</code> 类似于蕴含 $\to$ 。</p>
 <p>实际上这是柯里-霍华德同构。</p>
-<h2 id="定义">定义</h2><p><strong>柯里-霍华德同构</strong>揭示了计算机程序和数学证明之间的紧密联系。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>柯里-霍华德同构</strong>揭示了计算机程序和数学证明之间的紧密联系。</p>
 <p>类型即命题，程序即证明。</p>
 <p>也就是函数的类型相当于命题，函数的实现相当于证明。这在 Coq 中体现得很明显。</p>
 <p>用 <a href="https://www.zhihu.com/people/be5invis/answers" target="_blank" rel="noopener">be5</a> 大大<a href="https://zhihu.com/question/22959608/answer/24770830" target="_blank" rel="noopener">一针见血的解释</a>来说就是</p>
@@ -23,7 +23,7 @@
 <li>高洋上的 call/cc 就是双重否定消除</li>
 </ul>
 </blockquote>
-<h2 id="简述">简述</h2><p>函数调用的规则是<br>$$<br>{\Gamma\vdash t:\sigma\to\tau\quad\Gamma\vdash u:\sigma}\over{\Gamma\vdash t\,u : \tau}<br>$$<br>结果从 $\sigma\to\tau$ 变成 $\tau$ ，少了蕴含 $\to$ 所以称为蕴含消除。</p>
+<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>函数调用的规则是<br>$$<br>{\Gamma\vdash t:\sigma\to\tau\quad\Gamma\vdash u:\sigma}\over{\Gamma\vdash t\,u : \tau}<br>$$<br>结果从 $\sigma\to\tau$ 变成 $\tau$ ，少了蕴含 $\to$ 所以称为蕴含消除。</p>
 <p>相应的函数调用的逆操作函数抽象的规则是<br>$$<br>{\Gamma,x:\sigma\vdash t:\tau}\over{\Gamma\vdash \lambda x : \sigma.t : \sigma \to \tau}<br>$$<br>结果从 $\tau$ 变成 $\sigma\to\tau$ ，多了蕴含 $\to$ 所以称为蕴含介入。</p>
 <p>参数多态实际上是对于某个参数不限制类型，相当于逻辑量词 $\forall$ ，也就是全称量化。</p>
 <p>联合类型，例如 <code>Maybe Int</code> ，表示可能是 <code>Int</code> 或者是 <code>Nothing</code> 。关系是<strong>或</strong>，也就是析取。</p>

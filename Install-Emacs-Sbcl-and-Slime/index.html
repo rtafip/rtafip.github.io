@@ -1,13 +1,13 @@
 <!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Windows 下安装 Emacs+Sbcl+Slime · 拖鞋党的拖鞋摊</title><meta name="description" content="Windows 下安装 Emacs+Sbcl+Slime - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Windows 下安装 Emacs+Sbcl+Slime</h1><div class="post-info">May 28, 2017</div><div class="post-content"><p>旧文重发，略作修改</p>
 <a id="more"></a>
-<h2 id="前言">前言</h2><p>其实网上已经有很多类似的文章了，我也是按照上面的来做。在做的过程中会遇到几个很坑的地方，我自己也是折腾了好久才弄好。所以现在写出来希望能对大家有所帮助。</p>
-<h2 id="正文">正文</h2><h3 id="下载和安装_Emacs">下载和安装 Emacs</h3><p><a href="http://ftp.gnu.org/gnu/emacs/windows/emacs-24.3-bin-i386.zip" target="_blank" rel="noopener">http://ftp.gnu.org/gnu/emacs/windows/emacs-24.3-bin-i386.zip</a> </p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实网上已经有很多类似的文章了，我也是按照上面的来做。在做的过程中会遇到几个很坑的地方，我自己也是折腾了好久才弄好。所以现在写出来希望能对大家有所帮助。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="下载和安装-Emacs"><a href="#下载和安装-Emacs" class="headerlink" title="下载和安装 Emacs"></a>下载和安装 Emacs</h3><p><a href="http://ftp.gnu.org/gnu/emacs/windows/emacs-24.3-bin-i386.zip" target="_blank" rel="noopener">http://ftp.gnu.org/gnu/emacs/windows/emacs-24.3-bin-i386.zip</a> </p>
 <p>解压运行安装</p>
-<h3 id="下载_Sbcl">下载 Sbcl</h3><p><a href="http://www.sbcl.org/platform-table.html" target="_blank" rel="noopener">http://www.sbcl.org/platform-table.html</a></p>
+<h3 id="下载-Sbcl"><a href="#下载-Sbcl" class="headerlink" title="下载 Sbcl"></a>下载 Sbcl</h3><p><a href="http://www.sbcl.org/platform-table.html" target="_blank" rel="noopener">http://www.sbcl.org/platform-table.html</a></p>
 <p>选 Windows 和你的架构。如果不知道的话就选 X86 就行了。</p>
-<h3 id="下载_Slime">下载 Slime</h3><p><a href="https://github.com/slime/slime" target="_blank" rel="noopener">https://github.com/slime/slime</a></p>
+<h3 id="下载-Slime"><a href="#下载-Slime" class="headerlink" title="下载 Slime"></a>下载 Slime</h3><p><a href="https://github.com/slime/slime" target="_blank" rel="noopener">https://github.com/slime/slime</a></p>
 <p>如果你有 github 帐户就直接 git clone 吧。如果没有的话，点 download zip 然后解压。 </p>
-<h3 id="安装Sbcl">安装Sbcl</h3><p>双击安装包，改一下安装路径到你想安装的地方。但是这里有一个坑。</p>
+<h3 id="安装Sbcl"><a href="#安装Sbcl" class="headerlink" title="安装Sbcl"></a>安装Sbcl</h3><p>双击安装包，改一下安装路径到你想安装的地方。但是这里有一个坑。</p>
 <p><strong>坑1：系统变量重启才会更新</strong></p>
 <p>这是因为在安装的过程中会给系统加一个 Sbcl 路径的变量。</p>
 <p>所以一定要安装完后重启，不然就会提示</p>
@@ -16,14 +16,14 @@
 </blockquote>
 <p>安装成功的标志是运行 sbcl.exe 会出现类似这样的界面：</p>
 <p><img src="/img/InstallEmacsSbclandSlime/sbcl.png" alt="运行 sbcl"></p>
-<h3 id="配置_Emacs">配置 Emacs</h3><p>本来在 Linux 下配置 Emacs 是一件简单的事，但在 Windows 下就不那么容易了。因为 Windows 文件名命名机制这里有一个坑。</p>
+<h3 id="配置-Emacs"><a href="#配置-Emacs" class="headerlink" title="配置 Emacs"></a>配置 Emacs</h3><p>本来在 Linux 下配置 Emacs 是一件简单的事，但在 Windows 下就不那么容易了。因为 Windows 文件名命名机制这里有一个坑。</p>
 <p><strong>坑2:找不到 Emacs 的配置文件 .emacs</strong></p>
 <p>这是因为 Windows 不允许只有扩展名而没有文件名（在 Windows 看来是 .emacs 非法的，必须是 XXX.emacs 才是合法的。Linux 则是看成一个隐藏文件而已）</p>
 <p>所以要做的第一步是生成 .emacs 配置文件</p>
 <p>原理是通过修改选项之后点保存选项会生成 .emacs 配置文件</p>
 <p>方法很简单。在 Emacs 目录下双击 runemacs.exe 打开 emacs</p>
-<p>然后在菜单栏里点 Options——Show/Hide——tool-bar</p>
-<p>之后点 Options——Save options</p>
+<p>然后在菜单栏里点 Options—-Show/Hide—-tool-bar</p>
+<p>之后点 Options—-Save options</p>
 <p>这样就会在 <code>C:\Users\你的用户名\AppData\Roaming</code> 下生成一个 .emacs</p>
 <p>打开 .emacs 输入以下内容以配置 Slime</p>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">setq</span> inferior-lisp-program <span class="string">"sbcl路径"</span>)<span class="comment">; 设置优先使用哪种 Common Lisp 实现</span></span><br><span class="line">(<span class="name">add-to-list</span> <span class="symbol">'load-path</span> <span class="string">"slime路径"</span>)<span class="comment">; 设置 Slime 路径</span></span><br><span class="line">(<span class="name"><span class="builtin-name">require</span></span> <span class="symbol">'slime</span>)</span><br><span class="line">(<span class="name">slime-setup</span>)</span><br><span class="line">(<span class="name"><span class="builtin-name">require</span></span> <span class="symbol">'slime-autoloads</span>)</span><br><span class="line">(<span class="name">slime-setup</span> '(slime-fancy))<span class="comment">; 让 slime 变得更好看，比如把 sbcl 的*变成 CL-USER&gt;</span></span><br></pre></td></tr></table></figure>
@@ -41,7 +41,7 @@
 <p><img src="/img/InstallEmacsSbclandSlime/run-emacs.png" alt="运行 Slime"></p>
 <p>输入<code>&quot;Hello Common Lisp!&quot;</code> 一声长叹</p>
 <p><img src="/img/InstallEmacsSbclandSlime/hello-world.png" alt="Hello World"></p>
-<h2 id="后记">后记</h2><p>一些常用的 Slime 快捷键</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>一些常用的 Slime 快捷键</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-k 编译当前文件 （也就是Ctrl+c后再Ctrl+k） </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-c 增量编译（这是我自己的理解） </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-z 切换到Slime </span><br><span class="line"><span class="keyword">C</span>-c <span class="keyword">C</span>-l 加载文件</span><br></pre></td></tr></table></figure>
 <p>当然以上快捷键都可以再 .emacs 里面改。</p>
 <p>PS:我的配色是 solarized 字体是 Monaco</p>
