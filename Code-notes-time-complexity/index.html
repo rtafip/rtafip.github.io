@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 代码札记 —— 算法复杂度 · 拖鞋党的拖鞋摊</title><meta name="description" content="代码札记 —— 算法复杂度 - 拖鞋党"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://en.ors-sro.com/atom.xml" title="拖鞋党的拖鞋摊"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/icon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/rss/" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">代码札记 —— 算法复杂度</h1><div class="post-info">May 20, 2018</div><div class="post-content"><p>$\Theta(n) + \Theta(n) \ne \Theta(n^2)$（蹭个热点）</p>
+<a id="more"></a>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>衡量算法的好坏通常使用复杂度。复杂度包括空间复杂度，时间复杂度和理解复杂度（大雾）。</p>
+<p>为什么不直接那算法执行时间来衡量算法的好坏呢？</p>
+<p>因为烂的电脑执行一个快的算法可以比好的电脑执行一个慢的算法耗时更短。所以靠时间测量这种方法是依赖于硬件的。</p>
+<p>当然可以在同一个电脑上执行不同的算法来对比。不过如果有一种不依赖与硬件和执行的方式去衡量算法那就更方便了。</p>
+<p>所以聪明的科学家发明了时间复杂度极其相应记号来衡量算法的好坏。</p>
+<h2 id="时间复杂度的计算"><a href="#时间复杂度的计算" class="headerlink" title="时间复杂度的计算"></a>时间复杂度的计算</h2><p>通常算法的时间复杂度只和他的输入规模有关。比如同样的算法，排序 10000 个数肯定比排序 10 个数慢。如果使用 $n$ 来表示输入的规模（比如排序 10000 个数，那么 $n = 10000$），快速排序的时间复杂度 $T(n)$ 可以表示为关于 $n$ 的多项式 $T(n) = \Theta(n\log(n))$ 。</p>
+<p>那么如何计算时间复杂度呢？</p>
+<p>一个算法的执行事件等于所有指令耗时的综合。</p>
+<p>从高级编程语言的方面上讲，常见的指令有赋值，加减乘除的操作符，循环，函数调用等。</p>
+<p>比如赋值指令 <code>x = 1</code> 因为具体时间与硬件平台有关，所以将这个具体时间记为一个单位时间。又因为耗时不会随着问题规模变动，是一个常数，所以表示为 $\Theta(1)$ </p>
+<p>加减乘除等操作符耗时为 $\Theta(1)$</p>
+<p>循环操作本质上是重复一定次数的操作，所以只需要计算一次操作的时间，乘上重复次数就可以算出总的时间。比如求和函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    sum += i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行了 n 次赋值操作，每次操作时间为 $\Theta(1)$，所以总耗时为 $\Theta(1) \times n = \Theta(n)$ 。</p>
+<p>函数是一段代码的集合，所以函数执行时间等于每行代码执行时间的总和。</p>
+<p>比如冒泡排序</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubble_sort</span> (<span class="params">array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i, j;</span><br><span class="line">    <span class="keyword">var</span> n = array.length</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123; <span class="comment">// n - 1 次</span></span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; n - <span class="number">1</span>- i; j++) &#123; <span class="comment">// n - 1 - i 次</span></span><br><span class="line">            <span class="keyword">if</span> (array[j] &gt; array[j+<span class="number">1</span>]) &#123; <span class="comment">// Θ(1)</span></span><br><span class="line">                <span class="keyword">var</span> temp = array[j];	<span class="comment">// Θ(1)</span></span><br><span class="line">                array[j] = array[j+<span class="number">1</span>];	<span class="comment">// Θ(1)</span></span><br><span class="line">                array[j + <span class="number">1</span>] = temp;	<span class="comment">// Θ(1)</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以冒泡排序的时间复杂度为<br>$$<br>T(n) = (n - 1) \times (n - 1 - i) \times \Theta(1) \times 4 = \Theta(2n^2) = \Theta(n^2)<br>$$<br>然而不是每个时间复杂度都那么容易求得出来。</p>
+<p>比如快速排序的时间复杂度为 $T(n) = 2T(n / 2) + \Theta(n)$ 。</p>
+<p>这是一个递推式，要怎么求出递推式的解呢？</p>
+<p>聪明的小朋友能马上想到用<a href="https://zh.wikipedia.org/wiki/%E4%B8%BB%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">天下无敌法</a>，但主方法是有使用条件的，如果不能使用该如何求解呢？很简单只要展开递推式，求解每一项的时间求和即可。</p>
+<p>比如上面的快速排序递推式，</p>
+<p>对于 $ n = 2 $ 时 $T(2) = 2T(1) + \Theta(n) = 2\Theta(n) + \Theta(n) = 3\Theta(n)$ </p>
+<p>类似的</p>
+<p>$T(n) = 2T(n/2) + \Theta(n) = 4T(n/4) + 3\Theta(n) = aT(1) + b\Theta(n)$</p>
+<p>其实这是一个等比数列求和的过程。前面的项数$a = 2\log_2{n}$，后面的 $b = a/2 + 1$</p>
+<p>因为 $T(1) = \Theta(n)$</p>
+<p>所以 $T(n) = 2\log(n)\Theta(n) +  \log(n)\Theta(n) = 3\log(n)\Theta(n) = \Theta(n\log(n))$</p>
+<p>其他的递推式也可以用类似的方法求解。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>本来只想说一个简单的递推式求解，却控制不住自己解释了一堆……</p>
+</div></article></div></main><footer><div class="paginator"><a href="/Code-note-event-flow/" class="next">NEXT</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [ ['$','$'], ["\\\(","\\)"] ],
+    processEscapes: true
+    }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+</script></body></html>

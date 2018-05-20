@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.ors-sro.com/Code-notes-time-complexity/</loc>
+    
+    <lastmod>2018-05-20T11:40:59.437Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.ors-sro.com/Code-note-event-flow/</loc>
     
     <lastmod>2018-05-13T09:41:18.481Z</lastmod>
