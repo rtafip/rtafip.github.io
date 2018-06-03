@@ -14,7 +14,8 @@
 <p>每个客户端只负责修改自身状态，然后发送自身状态，接收到其他客户端的状态后更新本机中其他客户端的状态（位置，得分等）。</p>
 <p>禁止直接修改其他客户端的状态。</p>
 <p>在这种架构下服务器就是功能残缺的客户端，不太清楚这种架构服务器的优势在哪，或许是可以反作弊？</p>
-</div></article></div></main><footer><div class="paginator"><a href="/Code-notes-time-complexity/" class="next">NEXT</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+<h2 id="后续补充"><a href="#后续补充" class="headerlink" title="后续补充"></a>后续补充</h2><p>经过一周的研究发现，服务器是可以给客户端发消息的，或者准确地说是可以修改客户端的一些数据，而客户端不能修改其他客户端的数据。这样以来就是比较正常的服务器架构了。目前还没使用服务器修改客户端数据这个功能。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/Code-notes-time-complexity/" class="next">下一篇</a></div><div class="copyright"><p>© 2014 - 2018 <a href="http://en.ors-sro.com">拖鞋党</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold; animation: breathe 3s infinite">Coding Pages</a></p></div></footer></div><script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
     tex2jax: {
     inlineMath: [ ['$','$'], ["\\\(","\\)"] ],
     processEscapes: true
